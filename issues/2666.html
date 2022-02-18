@@ -1,0 +1,154 @@
+<HTML>
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<TITLE>
+    CWG Issue 2666</TITLE>
+<STYLE TYPE="text/css">
+  INS { text-decoration:none; font-weight:bold; background-color:#A0FFA0 }
+  .INS { text-decoration:none; background-color:#D0FFD0 }
+  DEL { text-decoration:line-through; background-color:#FFA0A0 }
+  SPAN.cmnt { font-family:Times; font-style:italic }
+</STYLE>
+</HEAD>
+<BODY>
+<P><EM>This is an unofficial snapshot of the ISO/IEC JTC1 SC22 WG21
+  Core Issues List revision 111d.
+  See http://www.open-std.org/jtc1/sc22/wg21/ for the official
+  list.</EM></P>
+<P>2023-05-12</P>
+<HR>
+<A NAME="2666"></A><H4>2666.
+  
+Lifetime extension through <TT>static_cast</TT>
+</H4>
+<B>Section: </B>6.7.7&#160; [<A href="https://wg21.link/class.temporary">class.temporary</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Brian Bi
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2022-10-17<BR>
+
+
+<P>Consider:</P>
+
+<PRE>
+  struct S { S(int) {} };
+
+  const S&amp; r1 = 0; //<SPAN CLASS="cmnt"> #1</SPAN>
+  const S&amp; r2 = static_cast&lt;const S&amp;&gt;(S(0)); //<SPAN CLASS="cmnt"> #2</SPAN>
+  const S&amp; r3 = static_cast&lt;const S&amp;&gt;(0); //<SPAN CLASS="cmnt"> #3</SPAN>
+  //<SPAN CLASS="cmnt"> Are r1, r2, and r3 dangling past this point?</SPAN>
+</PRE>
+
+<P>For #1, a temporary object is materialized and the reference binds
+to the result of the materialization conversion. This results in
+lifetime extension per 6.7.7 [<A href="https://wg21.link/class.temporary#6.1">class.temporary</A>] bullet 6.1.</P>
+
+<P>For #2, 6.7.7 [<A href="https://wg21.link/class.temporary#6.6">class.temporary</A>] bullet 6.6 requires the cast
+to convert "without a user-defined conversion", but <TT>S(0)</TT> is
+such.</P>
+
+<P>For #3, a user-defined conversion is clearly required.</P>
+
+<P>However, implementations treat all three cases the same and do
+extend the lifetime of the temporary.</P>
+
+<P><U>Possible resolution:</U></P>
+
+<OL>
+
+<LI>
+
+<P>Change in 7.6.1.9 [<A href="https://wg21.link/expr.static.cast#1">expr.static.cast</A>] paragraph 1 as follows:</P>
+
+<BLOCKQUOTE>
+
+The result of the expression <TT>static_cast&lt;T&gt;(v)</TT> is the
+result of converting the expression v to type T. If T is an lvalue
+reference type or an rvalue reference to function type, the result is
+an lvalue; if T is an rvalue reference to object type, the result is
+an xvalue; otherwise, the result is a prvalue. <INS>If <TT>T</TT> is a
+reference type, the operand shall be a glvalue; otherwise, the operand
+shall be a prvalue.</INS> The <TT>static_cast</TT> operator shall not
+cast away constness (7.6.1.11 [<A href="https://wg21.link/expr.const.cast">expr.const.cast</A>]).
+
+</BLOCKQUOTE>
+
+</LI>
+
+<LI>
+
+<P>Change in 7.6.1.9 [<A href="https://wg21.link/expr.static.cast#8">expr.static.cast</A>] paragraph 8 as follows:</P>
+
+<BLOCKQUOTE>
+
+<DEL>The lvalue-to-rvalue (7.3.2 [<A href="https://wg21.link/conv.lval">conv.lval</A>]),
+array-to-pointer (7.3.3 [<A href="https://wg21.link/conv.array">conv.array</A>]), and function-to-pointer
+(7.3.4 [<A href="https://wg21.link/conv.func">conv.func</A>]) conversions are applied to the
+operand.</DEL> Such a <TT>static_cast</TT> is subject to the
+restriction that the explicit conversion does not cast away constness
+(7.6.1.11 [<A href="https://wg21.link/expr.const.cast">expr.const.cast</A>]), and the following additional rules
+for specific cases:
+
+</BLOCKQUOTE>
+
+</LI>
+
+<LI>
+
+<P>Change in 7.6.1.10 [<A href="https://wg21.link/expr.reinterpret.cast#1">expr.reinterpret.cast</A>] paragraph 1 as follows:</P>
+
+<BLOCKQUOTE>
+
+The result of the expression reinterpret_cast&lt;T&gt;(v) is the
+result of converting the expression v to type T. If T is an lvalue
+reference type or an rvalue reference to function type, the result is
+an lvalue; if T is an rvalue reference to object type, the result is
+an xvalue; otherwise, the result is a prvalue <DEL>and the lvalue-to-rvalue
+(7.3.2 [<A href="https://wg21.link/conv.lval">conv.lval</A>]), array-to-pointer
+(7.3.3 [<A href="https://wg21.link/conv.array">conv.array</A>]), and function-to-pointer
+(7.3.4 [<A href="https://wg21.link/conv.func">conv.func</A>]) standard conversions are performed on the
+expression v</DEL>.
+<INS>If T is a reference type, the operand shall be a glvalue;
+otherwise, the operand shall be a prvalue.</INS>
+Conversions that can be performed explicitly using
+reinterpret_cast are listed below. No other conversion can be
+performed explicitly using reinterpret_cast.
+
+</BLOCKQUOTE>
+
+</LI>
+
+<LI>
+
+<P>Change in 7.6.1.11 [<A href="https://wg21.link/expr.const.cast#1">expr.const.cast</A>] paragraph 1 as follows:</P>
+
+<BLOCKQUOTE>
+
+The result of the expression <TT>const_cast&lt;T&gt;(v)</TT> is of type T. If T
+is an lvalue reference to object type, the result is an lvalue; if T
+is an rvalue reference to object type, the result is an xvalue;
+otherwise, the result is a prvalue
+<DEL>and the lvalue-to-rvalue (7.3.2 [<A href="https://wg21.link/conv.lval">conv.lval</A>]),
+array-to-pointer (7.3.3 [<A href="https://wg21.link/conv.array">conv.array</A>]), and function-to-pointer
+(7.3.4 [<A href="https://wg21.link/conv.func">conv.func</A>]) standard conversions are performed on the
+expression v</DEL>.
+<INS>If T is a reference type, the operand shall be a glvalue;
+otherwise, the operand shall be a prvalue.</INS>
+Conversions that can be performed explicitly using const_cast are
+listed below. No other conversion shall be performed explicitly using
+const_cast.
+
+</BLOCKQUOTE>
+
+</LI>
+
+</OL>
+
+<BR><BR>
+</BODY>
+</HTML>
