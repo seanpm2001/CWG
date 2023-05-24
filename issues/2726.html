@@ -15,7 +15,7 @@
   Core Issues List revision 111d.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-05-12</P>
+<P>2023-05-24</P>
 <HR>
 <A NAME="2726"></A><H4>2726.
   
@@ -24,7 +24,7 @@ Alternative tokens appearing as <I>attribute-token</I>s
 <B>Section: </B>5.5&#160; [<A href="https://wg21.link/lex.digraph">lex.digraph</A>]
  &#160;&#160;&#160;
 
- <B>Status: </B>ready
+ <B>Status: </B>review
  &#160;&#160;&#160;
 
  <B>Submitter: </B>Jim X
@@ -94,6 +94,26 @@ in an <I>attribute-token</I>, it is considered an identifier. ...
 </OL>
 
 <P>This resolution also addresses <A HREF="1897.html">issue 1897</A>.</P>
+
+<P><B>Additional notes (May, 2023)</B></P>
+
+
+
+<P>During additional discussion on the EWG reflector, Alisdair
+Meredith expressed that he intends to propose that some alternative
+tokens be treated as full keywords in phase 7, to prevent <TT>and</TT>
+from being used as an rvalue reference and <TT>compl</TT> from being
+used for naming destructors.  That would reverse the above direction.</P>
+
+<P>
+Furthermore, an idea was floated to treat all alternative tokens as
+full keywords in phase 7 and as identifiers in phase 4, amending the
+grammar productions for expressions as necessary.  This removes the
+special treatment of alternative tokens entirely, however the
+treatment of examples such as <TT>#define and blah</TT> would change
+from ill-formed to well-formed.  Some opposition was voiced against
+changing the phase 4 treatment of alternative tokens.
+</P>
 
 <BR><BR>
 </BODY>
