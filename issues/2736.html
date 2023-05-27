@@ -15,7 +15,7 @@
   Core Issues List revision 111d.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-05-26</P>
+<P>2023-05-27</P>
 <HR>
 <A NAME="2736"></A><H4>2736.
   
@@ -80,13 +80,13 @@ the set M(X) is empty.</LI>
 <LI>If X is a non-union class type with a non-static data member of
 type X0 that is either of zero size or is the first non-static data
 member of X (where said member may be an anonymous union), the set
-M(X) consists of <DEL>X0</DEL> <INS>the union of B(X0)</INS>
+M(X) <DEL>consists of X0</DEL> <INS>is the union of B(X0)</INS>
 and <DEL>the elements of</DEL> M(X0).</LI>
 <LI>If X is a union type, the set M(X) is the union of all M(Ui) and
 <DEL>the set containing</DEL> all <DEL>Ui</DEL> <INS>B(Ui)</INS>,
 where each Ui is the type of the ith non-static data member of X.</LI>
-<LI>If X is an array type with element type Xe, the set M(X) consists
-of <DEL>Xe</DEL> <INS>the union of B(Xe)</INS> and <DEL>the elements
+<LI>If X is an array type with element type Xe, the set M(X) <DEL>consists
+of Xe</DEL> <INS>is the union of B(Xe)</INS> and <DEL>the elements
 of</DEL> M(Xe).</LI>
 <LI>If X is a non-class, non-array type, the set M(X) is empty.</LI>
 </UL>
@@ -95,11 +95,6 @@ of</DEL> M(Xe).</LI>
 </UL>
 
 </BLOCKQUOTE>
-
-<BLOCKQUOTE>
-
-</BLOCKQUOTE>
-
 
 <BR><BR>
 </BODY>
