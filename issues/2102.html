@@ -15,7 +15,7 @@
   Core Issues List revision 111d.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-05-12</P>
+<P>2023-05-28</P>
 <HR>
 <A NAME="2102"></A><H4>2102.
   
@@ -24,7 +24,7 @@ Constructor checking in <I>new-expression</I>
 <B>Section: </B>7.6.2.8&#160; [<A href="https://wg21.link/expr.new">expr.new</A>]
  &#160;&#160;&#160;
 
- <B>Status: </B>drafting
+ <B>Status: </B>review
  &#160;&#160;&#160;
 
  <B>Submitter: </B>Richard Smith
@@ -35,7 +35,7 @@ Constructor checking in <I>new-expression</I>
 
 
 
-<P>According to 7.6.2.8 [<A href="https://wg21.link/expr.new#19">expr.new</A>] paragraph 19,</P>
+<P>According to 7.6.2.8 [<A href="https://wg21.link/expr.new#25">expr.new</A>] paragraph 25,</P>
 
 <BLOCKQUOTE>
 
@@ -63,6 +63,70 @@ overload resolution to find it, and (c) shouldn't this be
 part of initialization, so we can distinguish between the
 cases where we should copy-initialize from <TT>{}</TT> and
 the cases where we should default-initialize?</P>
+
+<P><B>Additional notes (May, 2023):</B></P>
+
+<P>It is unclear whether default-initialization is required to be
+well-formed even for an array with no elements.</P>
+
+<P><U>Possible resolution:</U></P>
+
+<OL>
+<LI>
+<P>Change in 7.6.2.8 [<A href="https://wg21.link/expr.new#8">expr.new</A>] paragraph 8 as follows:</P>
+
+<BLOCKQUOTE>
+
+... When the value of the expression is zero, the allocation function
+is called to allocate an array with no elements <INS>and if
+the <I>new-initializer</I> is omitted, the semantic constraints for
+default-initialization are checked</INS>.
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+<P>Change in 7.6.2.8 [<A href="https://wg21.link/expr.new#25">expr.new</A>] paragraph 25 as follows:</P>
+
+<BLOCKQUOTE>
+
+<DEL>If the <I>new-expression</I> creates an object or an array of objects
+of class type, access and ambiguity control are done for the
+allocation function, the deallocation function
+(6.7.5.5.3 [<A href="https://wg21.link/basic.stc.dynamic.deallocation">basic.stc.dynamic.deallocation</A>]), and the constructor
+(11.4.5 [<A href="https://wg21.link/class.ctor">class.ctor</A>]) selected for the initialization (if
+any).</DEL> If the <I>new-expression</I> creates an array of objects of
+class type, the destructor is potentially invoked
+(11.4.7 [<A href="https://wg21.link/class.dtor">class.dtor</A>]).
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+<P>Change in 7.6.2.8 [<A href="https://wg21.link/expr.new#28">expr.new</A>] paragraph 28 as follows:</P>
+
+<BLOCKQUOTE>
+
+A declaration of a placement deallocation function matches the
+declaration of a placement allocation function if it has the same
+number of parameters and, after parameter transformations
+(9.3.4.6 [<A href="https://wg21.link/dcl.fct">dcl.fct</A>]), all parameter types except the first
+are identical. If the lookup finds a single matching deallocation
+function, that function will be called; otherwise, no deallocation
+function will be called. If the lookup finds a usual deallocation
+function and that function, considered as a placement deallocation
+function, would have been selected as a match for the allocation
+function, the program is ill-formed. For a non-placement allocation
+function, the normal deallocation function lookup is used to find the
+matching deallocation function (7.6.2.9 [<A href="https://wg21.link/expr.delete">expr.delete</A>]).
+<INS>In any case, the matching deallocation function (if any) shall be
+non-deleted and accessible from the point where
+the <I>new-expression</I> appears.</INS>
+
+</BLOCKQUOTE>
+</LI>
+
+</OL>
 
 <BR><BR>
 </BODY>
