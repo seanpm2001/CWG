@@ -15,7 +15,7 @@
   Core Issues List revision 111d.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-05-26</P>
+<P>2023-05-30</P>
 <HR>
 <A NAME="2735"></A><H4>2735.
   
@@ -134,12 +134,11 @@ by <TT>{"foo", "bar"}</TT>.</P>
 <LI>...</LI>
 
 <LI class="ins">
-<TT>F1</TT> is neither a copy/move constructor nor a copy/move
-assignment operator and, if F2 is a copy/move constructor, its first
-argument, or if F2 is a copy/move assignment operator, its second
-argument, is initialized by a user-defined conversion whose second
-standard conversion sequence does not include a derived-to-base
-conversion, or, if not that,  [ Example:
+<TT>F2</TT> is a copy or move special member function where the
+implicit conversion sequence for its (non-object) argument is a
+user-defined conversion sequence specified by a non-converting
+constructor (considered under 12.2.2.8 [<A href="https://wg21.link/over.match.list">over.match.list</A>])
+and <TT>F1</TT> is not, or, if not that, [ Example:
 
 <PRE>
   struct Z {};
