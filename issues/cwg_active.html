@@ -166,6 +166,15 @@ USA.</P>
 <A HREF="cwg_active.html#2728">2728</A>,
 <A HREF="cwg_active.html#2729">2729</A>,
 <A HREF="cwg_active.html#2730">2730</A>,
+<A HREF="cwg_active.html#2731">2731</A>,
+<A HREF="cwg_active.html#2732">2732</A>,
+<A HREF="cwg_active.html#2733">2733</A>,
+<A HREF="cwg_active.html#2734">2734</A>,
+<A HREF="cwg_active.html#2735">2735</A>,
+<A HREF="cwg_active.html#2736">2736</A>,
+<A HREF="cwg_active.html#2737">2737</A>,
+<A HREF="cwg_active.html#2738">2738</A>,
+<A HREF="cwg_active.html#2739">2739</A>,
 Closed issues
 <A HREF="cwg_closed.html#6">6</A>,
 <A HREF="cwg_closed.html#504">504</A>,
@@ -1609,7 +1618,7 @@ additional discussion.  Added new information to the description of
 <A HREF="cwg_defects.html#1696">1696</A>,
 <A HREF="cwg_defects.html#1697">1697</A>,
 <A HREF="cwg_active.html#1698">1698</A>,
-<A HREF="cwg_closed.html#1699">1699</A>,
+<A HREF="cwg_active.html#1699">1699</A>,
 <A HREF="cwg_closed.html#1700">1700</A>,
 <A HREF="cwg_active.html#1701">1701</A>,
 <A HREF="cwg_active.html#1702">1702</A>,
@@ -3899,7 +3908,7 @@ Undefined behavior when lexing unmatched quotes
   <A href="https://wg21.link/lex.digraph">lex.digraph</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#2726">2726</A></TD>
-<TD ALIGN="CENTER">ready</TD>
+<TD ALIGN="CENTER">review</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Alternative tokens appearing as <I>attribute-token</I>s
@@ -4665,6 +4674,17 @@ Unclear relationship among name, qualified name, and unqualified name
 </TD>
 </TR>
 <TR>
+<TD ALIGN="LEFT">7.5.4.2&#160;
+  <A href="https://wg21.link/expr.prim.id.unqual">expr.prim.id.unqual</A>
+</TD>
+<TD ALIGN="RIGHT"><A HREF="#2738">2738</A></TD>
+<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER"></TD>
+<TD ALIGN="LEFT">
+"denotes a destructor" is missing specification
+</TD>
+</TR>
+<TR>
 <TD ALIGN="LEFT">7.5.4.3&#160;
   <A href="https://wg21.link/expr.prim.id.qual">expr.prim.id.qual</A>
 </TD>
@@ -4731,6 +4751,17 @@ Reference odr-use vs implicit capture
 </TD>
 </TR>
 <TR>
+<TD ALIGN="LEFT">7.5.5.3&#160;
+  <A href="https://wg21.link/expr.prim.lambda.capture">expr.prim.lambda.capture</A>
+</TD>
+<TD ALIGN="RIGHT"><A HREF="#2737">2737</A></TD>
+<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER"></TD>
+<TD ALIGN="LEFT">
+Temporary lifetime extension for reference init-captures
+</TD>
+</TR>
+<TR>
 <TD ALIGN="LEFT">7.5.7.1&#160;
   <A href="https://wg21.link/expr.prim.req.general">expr.prim.req.general</A>
 </TD>
@@ -4750,6 +4781,17 @@ Parameter type determination in a <I>requirement-parameter-list</I>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Invalid types in the <I>parameter-declaration-clause</I> of a <I>requires-expression</I>
+</TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT">7.5.7.5&#160;
+  <A href="https://wg21.link/expr.prim.req.nested">expr.prim.req.nested</A>
+</TD>
+<TD ALIGN="RIGHT"><A HREF="#2739">2739</A></TD>
+<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER"></TD>
+<TD ALIGN="LEFT">
+Nested requirement not a constant expression
 </TD>
 </TR>
 <TR>
@@ -5054,7 +5096,7 @@ Deallocation function templates
   <A href="https://wg21.link/expr.new">expr.new</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#2102">2102</A></TD>
-<TD ALIGN="CENTER">drafting</TD>
+<TD ALIGN="CENTER">review</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Constructor checking in <I>new-expression</I>
@@ -5442,6 +5484,17 @@ Constant destruction of reference members
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Loops in constant expressions
+</TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT">7.7&#160;
+  <A href="https://wg21.link/expr.const">expr.const</A>
+</TD>
+<TD ALIGN="RIGHT"><A HREF="#2734">2734</A></TD>
+<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER"></TD>
+<TD ALIGN="LEFT">
+Immediate forward-declared function templates
 </TD>
 </TR>
 <TR>
@@ -6215,6 +6268,17 @@ Multiple <TT>alignas</TT> specifiers
 </TD>
 </TR>
 <TR>
+<TD ALIGN="LEFT">9.12.8&#160;
+  <A href="https://wg21.link/dcl.attr.unused">dcl.attr.unused</A>
+</TD>
+<TD ALIGN="RIGHT"><A HREF="#2733">2733</A></TD>
+<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER"></TD>
+<TD ALIGN="LEFT">
+Applying <TT>[[maybe_unused]]</TT> to a label
+</TD>
+</TR>
+<TR>
 <TD ALIGN="LEFT">10.1&#160;
   <A href="https://wg21.link/module.unit">module.unit</A>
 </TD>
@@ -6248,6 +6312,17 @@ Importing header units synthesized from source files
 </TD>
 </TR>
 <TR>
+<TD ALIGN="LEFT">10.3&#160;
+  <A href="https://wg21.link/module.import">module.import</A>
+</TD>
+<TD ALIGN="RIGHT"><A HREF="#2732">2732</A></TD>
+<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER"></TD>
+<TD ALIGN="LEFT">
+Can importable headers react to preprocessor state from point of import?
+</TD>
+</TR>
+<TR>
 <TD ALIGN="LEFT">11.1&#160;
   <A href="https://wg21.link/class.pre">class.pre</A>
 </TD>
@@ -6278,6 +6353,17 @@ POD-structs with template assignment operators
 <TD ALIGN="CENTER">EWG</TD>
 <TD ALIGN="LEFT">
 Trivial copyability and unions with non-trivial members
+</TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT">11.2&#160;
+  <A href="https://wg21.link/class.prop">class.prop</A>
+</TD>
+<TD ALIGN="RIGHT"><A HREF="#2736">2736</A></TD>
+<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER"></TD>
+<TD ALIGN="LEFT">
+Standard layout class with empty base class also in first member
 </TD>
 </TR>
 <TR>
@@ -6586,6 +6672,17 @@ Overriding virtual functions, also with explicit object parameters
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Access of indirect virtual base class constructors
+</TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT">11.8.4&#160;
+  <A href="https://wg21.link/class.friend">class.friend</A>
+</TD>
+<TD ALIGN="RIGHT"><A HREF="#1699">1699</A></TD>
+<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER">EWG</TD>
+<TD ALIGN="LEFT">
+Does befriending a class befriend its friends?
 </TD>
 </TR>
 <TR>
@@ -6952,6 +7049,17 @@ Implicit deduction guides omit properties from the parameter-declaration-clause 
 </TD>
 </TR>
 <TR>
+<TD ALIGN="LEFT">12.2.4&#160;
+  <A href="https://wg21.link/over.match.best">over.match.best</A>
+</TD>
+<TD ALIGN="RIGHT"><A HREF="#2735">2735</A></TD>
+<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER"></TD>
+<TD ALIGN="LEFT">
+List-initialization and conversions in overload resolution
+</TD>
+</TR>
+<TR>
 <TD ALIGN="LEFT">12.2.4.2&#160;
   <A href="https://wg21.link/over.best.ics">over.best.ics</A>
 </TD>
@@ -6982,6 +7090,17 @@ Incorrect definition of implicit conversion sequence
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Implicit conversion sequence with a null pointer constant
+</TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT">12.2.4.2.3&#160;
+  <A href="https://wg21.link/over.ics.user">over.ics.user</A>
+</TD>
+<TD ALIGN="RIGHT"><A HREF="#2731">2731</A></TD>
+<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER"></TD>
+<TD ALIGN="LEFT">
+List-initialization sequence with a user-defined conversion
 </TD>
 </TR>
 <TR>
@@ -8627,85 +8746,6 @@ Updating Annex C to C99
 <BR><BR><HR>
 <A NAME="Ready%20Status"></A><H3>Issues with "Ready" Status</H3>
 <HR>
-<A NAME="2726"></A><H4>2726.
-  
-Alternative tokens appearing as <I>attribute-token</I>s
-</H4>
-<B>Section: </B>5.5&#160; [<A href="https://wg21.link/lex.digraph">lex.digraph</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>ready
- &#160;&#160;&#160;
-
- <B>Submitter: </B>Jim X
- &#160;&#160;&#160;
-
- <B>Date: </B>2023-03-16<BR>
-
-
-<P>Subclause 5.5 [<A href="https://wg21.link/lex.digraph#2">lex.digraph</A>] paragraph 2 specifies:</P>
-
-<BLOCKQUOTE>
-
-In all respects of the language, each alternative token behaves the
-same, respectively, as its primary token, except for its spelling. [
-Footnote: ... ]
-
-</BLOCKQUOTE>
-
-<P>However, 9.12.1 [<A href="https://wg21.link/dcl.attr.grammar#4">dcl.attr.grammar</A>] paragraph 4 specifies:</P>
-
-<BLOCKQUOTE>
-
-... If a keyword (5.11 [<A href="https://wg21.link/lex.key">lex.key</A>]) or an alternative token
-(5.5 [<A href="https://wg21.link/lex.digraph">lex.digraph</A>]) that satisfies the syntactic requirements
-of an identifier (5.10 [<A href="https://wg21.link/lex.name">lex.name</A>]) is contained in
-an <I>attribute-token</I>, it is considered an identifier. ...
-
-</BLOCKQUOTE>
-
-<P>It seems an alternative token (say, <TT>or</TT>) is treated the
-same as the operator <TT>||</TT>, yet only the alternative token is
-considered an identifier, not the operator, when appearing in
-an <I>attribute-token</I>.  That seems contradictory.</P>
-
-<P><B>Proposed resolution (approved by CWG 2023-05-12):</B></P>
-
-<OL>
-
-<LI>
-<P>Change in 5.2 [<A href="https://wg21.link/lex.phases#2">lex.phases</A>] paragraph 2 as follows:</P>
-
-<BLOCKQUOTE>
-
-Whitespace characters separating tokens are no longer
-significant. Each preprocessing token is converted into a token
-(5.6 [<A href="https://wg21.link/lex.token">lex.token</A>])<INS>, replacing each alternative token
-by its corresponding primary token (5.5 [<A href="https://wg21.link/lex.digraph">lex.digraph</A>])</INS>.
-The resulting tokens constitute a translation unit and are
-syntactically and semantically analyzed and translated.
-
-</BLOCKQUOTE>
-</LI>
-
-<LI>
-<P>Change in 9.12.1 [<A href="https://wg21.link/dcl.attr.grammar#4">dcl.attr.grammar</A>] paragraph 4 as follows:</P>
-
-<BLOCKQUOTE>
-
-... If a keyword (5.11 [<A href="https://wg21.link/lex.key">lex.key</A>]) <DEL>or an alternative
-token (5.5 [<A href="https://wg21.link/lex.digraph">lex.digraph</A>])</DEL> that satisfies the syntactic
-requirements of an identifier (5.10 [<A href="https://wg21.link/lex.name">lex.name</A>]) is contained
-in an <I>attribute-token</I>, it is considered an identifier. ...
-
-</BLOCKQUOTE>
-</LI>
-
-</OL>
-
-<P>This resolution also addresses <A HREF="cwg_active.html#1897">issue 1897</A>.</P>
-
-<BR><BR><HR>
 <A NAME="2698"></A><H4>2698.
   
 Using extended integer types with <TT>z</TT> suffix
@@ -11610,6 +11650,105 @@ the program ill-formed</DEL>.</P>
 </OL>
 
 <BR><BR><HR>
+<A NAME="2726"></A><H4>2726.
+  
+Alternative tokens appearing as <I>attribute-token</I>s
+</H4>
+<B>Section: </B>5.5&#160; [<A href="https://wg21.link/lex.digraph">lex.digraph</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>review
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Jim X
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-03-16<BR>
+
+
+<P>Subclause 5.5 [<A href="https://wg21.link/lex.digraph#2">lex.digraph</A>] paragraph 2 specifies:</P>
+
+<BLOCKQUOTE>
+
+In all respects of the language, each alternative token behaves the
+same, respectively, as its primary token, except for its spelling. [
+Footnote: ... ]
+
+</BLOCKQUOTE>
+
+<P>However, 9.12.1 [<A href="https://wg21.link/dcl.attr.grammar#4">dcl.attr.grammar</A>] paragraph 4 specifies:</P>
+
+<BLOCKQUOTE>
+
+... If a keyword (5.11 [<A href="https://wg21.link/lex.key">lex.key</A>]) or an alternative token
+(5.5 [<A href="https://wg21.link/lex.digraph">lex.digraph</A>]) that satisfies the syntactic requirements
+of an identifier (5.10 [<A href="https://wg21.link/lex.name">lex.name</A>]) is contained in
+an <I>attribute-token</I>, it is considered an identifier. ...
+
+</BLOCKQUOTE>
+
+<P>It seems an alternative token (say, <TT>or</TT>) is treated the
+same as the operator <TT>||</TT>, yet only the alternative token is
+considered an identifier, not the operator, when appearing in
+an <I>attribute-token</I>.  That seems contradictory.</P>
+
+<P><B>Proposed resolution (approved by CWG 2023-05-12):</B></P>
+
+<OL>
+
+<LI>
+<P>Change in 5.2 [<A href="https://wg21.link/lex.phases#2">lex.phases</A>] paragraph 2 as follows:</P>
+
+<BLOCKQUOTE>
+
+Whitespace characters separating tokens are no longer
+significant. Each preprocessing token is converted into a token
+(5.6 [<A href="https://wg21.link/lex.token">lex.token</A>])<INS>, replacing each alternative token
+by its corresponding primary token (5.5 [<A href="https://wg21.link/lex.digraph">lex.digraph</A>])</INS>.
+The resulting tokens constitute a translation unit and are
+syntactically and semantically analyzed and translated.
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+<P>Change in 9.12.1 [<A href="https://wg21.link/dcl.attr.grammar#4">dcl.attr.grammar</A>] paragraph 4 as follows:</P>
+
+<BLOCKQUOTE>
+
+... If a keyword (5.11 [<A href="https://wg21.link/lex.key">lex.key</A>]) <DEL>or an alternative
+token (5.5 [<A href="https://wg21.link/lex.digraph">lex.digraph</A>])</DEL> that satisfies the syntactic
+requirements of an identifier (5.10 [<A href="https://wg21.link/lex.name">lex.name</A>]) is contained
+in an <I>attribute-token</I>, it is considered an identifier. ...
+
+</BLOCKQUOTE>
+</LI>
+
+</OL>
+
+<P>This resolution also addresses <A HREF="cwg_active.html#1897">issue 1897</A>.</P>
+
+<P><B>Additional notes (May, 2023)</B></P>
+
+
+
+<P>During additional discussion on the EWG reflector, Alisdair
+Meredith expressed that he intends to propose that some alternative
+tokens be treated as full keywords in phase 7, to prevent <TT>and</TT>
+from being used as an rvalue reference and <TT>compl</TT> from being
+used for naming destructors.  That would reverse the above direction.</P>
+
+<P>
+Furthermore, an idea was floated to treat all alternative tokens as
+full keywords in phase 7 and as identifiers in phase 4, amending the
+grammar productions for expressions as necessary.  This removes the
+special treatment of alternative tokens entirely, however the
+treatment of examples such as <TT>#define and blah</TT> would change
+from ill-formed to well-formed.  Some opposition was voiced against
+changing the phase 4 treatment of alternative tokens.
+</P>
+
+<BR><BR><HR>
 <A NAME="1924"></A><H4>1924.
   
 Definition of &#8220;literal&#8221; and kinds of literals
@@ -11851,6 +11990,118 @@ for which:</INS>
 </UL>
 </LI>
 </UL>
+
+</BLOCKQUOTE>
+</LI>
+
+</OL>
+
+<BR><BR><HR>
+<A NAME="2102"></A><H4>2102.
+  
+Constructor checking in <I>new-expression</I>
+</H4>
+<B>Section: </B>7.6.2.8&#160; [<A href="https://wg21.link/expr.new">expr.new</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>review
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Richard Smith
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2015-03-16<BR>
+
+
+
+
+<P>According to 7.6.2.8 [<A href="https://wg21.link/expr.new#25">expr.new</A>] paragraph 25,</P>
+
+<BLOCKQUOTE>
+
+If the <I>new-expression</I> creates an object or an array
+of objects of class type, access and ambiguity control are
+done for the allocation function, the deallocation function
+(11.4.11 [<A href="https://wg21.link/class.free">class.free</A>]), and the constructor
+(11.4.5 [<A href="https://wg21.link/class.ctor">class.ctor</A>]).
+
+</BLOCKQUOTE>
+
+<P>The mention of &#8220;the constructor&#8221; here is
+strange.  For the &#8220;object of class type&#8221; case,
+access and ambiguity control are done when we perform
+initialization in paragraph 17, and we might not be calling a
+constructor anyway (for aggregate initialization). This
+seems wrong.</P>
+
+<P>For the &#8220;array of objects of class type&#8221;
+case, it makes slightly more sense (we need to check the
+trailing array elements can be default-initialized) but
+again (a) we aren't necessarily using a constructor, (b) we
+should say <I>which</I> constructor &#8212; and we may need
+overload resolution to find it, and (c) shouldn't this be
+part of initialization, so we can distinguish between the
+cases where we should copy-initialize from <TT>{}</TT> and
+the cases where we should default-initialize?</P>
+
+<P><B>Additional notes (May, 2023):</B></P>
+
+<P>It is unclear whether default-initialization is required to be
+well-formed even for an array with no elements.</P>
+
+<P><U>Possible resolution:</U></P>
+
+<OL>
+<LI>
+<P>Change in 7.6.2.8 [<A href="https://wg21.link/expr.new#8">expr.new</A>] paragraph 8 as follows:</P>
+
+<BLOCKQUOTE>
+
+... When the value of the expression is zero, the allocation function
+is called to allocate an array with no elements <INS>and if
+the <I>new-initializer</I> is omitted, the semantic constraints for
+default-initialization are checked</INS>.
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+<P>Change in 7.6.2.8 [<A href="https://wg21.link/expr.new#25">expr.new</A>] paragraph 25 as follows:</P>
+
+<BLOCKQUOTE>
+
+<DEL>If the <I>new-expression</I> creates an object or an array of objects
+of class type, access and ambiguity control are done for the
+allocation function, the deallocation function
+(6.7.5.5.3 [<A href="https://wg21.link/basic.stc.dynamic.deallocation">basic.stc.dynamic.deallocation</A>]), and the constructor
+(11.4.5 [<A href="https://wg21.link/class.ctor">class.ctor</A>]) selected for the initialization (if
+any).</DEL> If the <I>new-expression</I> creates an array of objects of
+class type, the destructor is potentially invoked
+(11.4.7 [<A href="https://wg21.link/class.dtor">class.dtor</A>]).
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+<P>Change in 7.6.2.8 [<A href="https://wg21.link/expr.new#28">expr.new</A>] paragraph 28 as follows:</P>
+
+<BLOCKQUOTE>
+
+A declaration of a placement deallocation function matches the
+declaration of a placement allocation function if it has the same
+number of parameters and, after parameter transformations
+(9.3.4.6 [<A href="https://wg21.link/dcl.fct">dcl.fct</A>]), all parameter types except the first
+are identical. If the lookup finds a single matching deallocation
+function, that function will be called; otherwise, no deallocation
+function will be called. If the lookup finds a usual deallocation
+function and that function, considered as a placement deallocation
+function, would have been selected as a match for the allocation
+function, the program is ill-formed. For a non-placement allocation
+function, the normal deallocation function lookup is used to find the
+matching deallocation function (7.6.2.9 [<A href="https://wg21.link/expr.delete">expr.delete</A>]).
+<INS>In any case, the matching deallocation function (if any) shall be
+non-deleted and accessible from the point where
+the <I>new-expression</I> appears.</INS>
 
 </BLOCKQUOTE>
 </LI>
@@ -15233,54 +15484,6 @@ potentially-throwing.</P>
 
 <P>For cases where the deallocation function is never called from
 the constructor, access checking for it should not be done.</P>
-
-<BR><BR><HR>
-<A NAME="2102"></A><H4>2102.
-  
-Constructor checking in <I>new-expression</I>
-</H4>
-<B>Section: </B>7.6.2.8&#160; [<A href="https://wg21.link/expr.new">expr.new</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>drafting
- &#160;&#160;&#160;
-
- <B>Submitter: </B>Richard Smith
- &#160;&#160;&#160;
-
- <B>Date: </B>2015-03-16<BR>
-
-
-
-
-<P>According to 7.6.2.8 [<A href="https://wg21.link/expr.new#19">expr.new</A>] paragraph 19,</P>
-
-<BLOCKQUOTE>
-
-If the <I>new-expression</I> creates an object or an array
-of objects of class type, access and ambiguity control are
-done for the allocation function, the deallocation function
-(11.4.11 [<A href="https://wg21.link/class.free">class.free</A>]), and the constructor
-(11.4.5 [<A href="https://wg21.link/class.ctor">class.ctor</A>]).
-
-</BLOCKQUOTE>
-
-<P>The mention of &#8220;the constructor&#8221; here is
-strange.  For the &#8220;object of class type&#8221; case,
-access and ambiguity control are done when we perform
-initialization in paragraph 17, and we might not be calling a
-constructor anyway (for aggregate initialization). This
-seems wrong.</P>
-
-<P>For the &#8220;array of objects of class type&#8221;
-case, it makes slightly more sense (we need to check the
-trailing array elements can be default-initialized) but
-again (a) we aren't necessarily using a constructor, (b) we
-should say <I>which</I> constructor &#8212; and we may need
-overload resolution to find it, and (c) shouldn't this be
-part of initialization, so we can distinguish between the
-cases where we should copy-initialize from <TT>{}</TT> and
-the cases where we should default-initialize?</P>
 
 <BR><BR><HR>
 <A NAME="2281"></A><H4>2281.
@@ -26999,6 +27202,63 @@ the composite pointer type.</P></LI>
 </OL>
 
 <BR><BR><HR>
+<A NAME="2738"></A><H4>2738.
+  
+"denotes a destructor" is missing specification
+</H4>
+<B>Section: </B>7.5.4.2&#160; [<A href="https://wg21.link/expr.prim.id.unqual">expr.prim.id.unqual</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Jim X
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2022-05-22<BR>
+
+
+<P>Subclause 7.5.4.2 [<A href="https://wg21.link/expr.prim.id.unqual#1">expr.prim.id.unqual</A>] paragraph 1 has a note that
+lacks a corresponding normative specification:</P>
+
+<BLOCKQUOTE>
+
+[<I>Note 1:</I> For <I>operator-function-id</I>s, see
+12.4 [<A href="https://wg21.link/over.oper">over.oper</A>]; for <I>conversion-function-id</I>s, see
+11.4.8.3 [<A href="https://wg21.link/class.conv.fct">class.conv.fct</A>]; for <I>literal-operator-id</I>s, see
+12.6 [<A href="https://wg21.link/over.literal">over.literal</A>]; for <I>template-ids</I>, see
+13.3 [<A href="https://wg21.link/temp.names">temp.names</A>]. A <I>type-name</I>
+or <I>decltype-specifier</I> prefixed by ~ denotes the destructor of
+the type so named; see 7.5.4.4 [<A href="https://wg21.link/expr.prim.id.dtor">expr.prim.id.dtor</A>]. Within the
+definition of a non-static member function, an identifier that names a
+non-static member is transformed to a class member access expression
+(11.4.3 [<A href="https://wg21.link/class.mfct.non.static">class.mfct.non.static</A>]). &#8212;<I>end note</I>]
+
+</BLOCKQUOTE>
+
+<P><U>Suggested resolution:</U></P>
+
+<P>Change in 7.5.4.2 [<A href="https://wg21.link/expr.prim.id.unqual#1">expr.prim.id.unqual</A>] paragraph 1 as follows:</P>
+
+<BLOCKQUOTE>
+
+<INS>A <I>type-name</I>
+or <I>decltype-specifier</I> prefixed by <TT>~</TT> denotes the destructor of
+the named type; see 7.5.4.4 [<A href="https://wg21.link/expr.prim.id.dtor">expr.prim.id.dtor</A>].</INS>
+[<I>Note 1:</I> For <I>operator-function-id</I>s, see
+12.4 [<A href="https://wg21.link/over.oper">over.oper</A>]; for <I>conversion-function-id</I>s, see
+11.4.8.3 [<A href="https://wg21.link/class.conv.fct">class.conv.fct</A>]; for <I>literal-operator-id</I>s, see
+12.6 [<A href="https://wg21.link/over.literal">over.literal</A>]; for <I>template-ids</I>, see
+13.3 [<A href="https://wg21.link/temp.names">temp.names</A>]. <DEL>A <I>type-name</I>
+or <I>decltype-specifier</I> prefixed by ~ denotes the destructor of
+the type so named; see 7.5.4.4 [<A href="https://wg21.link/expr.prim.id.dtor">expr.prim.id.dtor</A>].</DEL> Within the
+definition of a non-static member function, an identifier that names a
+non-static member is transformed to a class member access expression
+(11.4.3 [<A href="https://wg21.link/class.mfct.non.static">class.mfct.non.static</A>]). &#8212;<I>end note</I>]
+
+</BLOCKQUOTE>
+
+<BR><BR><HR>
 <A NAME="2549"></A><H4>2549.
   
 Implicitly moving the operand of a <I>throw-expression</I> in unevaluated contexts
@@ -27265,6 +27525,92 @@ F is a constexpr function if...
 </OL>
 
 <BR><BR><HR>
+<A NAME="2737"></A><H4>2737.
+  
+Temporary lifetime extension for reference init-captures
+</H4>
+<B>Section: </B>7.5.5.3&#160; [<A href="https://wg21.link/expr.prim.lambda.capture">expr.prim.lambda.capture</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Tomasz Kami&#324;ski
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-05-23<BR>
+
+
+<P>Consider:</P>
+
+<PRE>
+  struct S {};
+  const S f();
+  auto x = [&amp;ref = f()] { return ref; }
+</PRE>
+
+<P>Subclause 7.5.5.3 [<A href="https://wg21.link/expr.prim.lambda.capture#6">expr.prim.lambda.capture</A>] paragraph 6 specifies:</P>
+
+<BLOCKQUOTE>
+
+An <I>init-capture</I> inhabits the lambda scope
+(6.4.5 [<A href="https://wg21.link/basic.scope.lambda">basic.scope.lambda</A>]) of the <I>lambda-expression</I>.
+An <I>init-capture</I> without ellipsis behaves as if it declares and
+explicitly captures a variable of the form
+<TT>&#8220;auto <I>init-capture</I> ;&#8221;</TT>, except that:
+
+<UL>
+<LI>if the capture is by copy (see below), the non-static data member
+declared for the capture and the variable are treated as two different
+ways of referring to the same object, which has the lifetime of the
+non-static data member, and no additional copy and destruction is
+performed, and
+</LI>
+<LI>if the capture is by reference, the variable's lifetime ends when
+the closure object's lifetime ends.
+</LI>
+</UL>
+
+</BLOCKQUOTE>
+
+<P>It is unclear whether the temporary returned by <TT>f()</TT> is
+lifetime-extended by being bound to a reference init-capture.</P>
+
+<P>There is implementation divergence: gcc rejects the example; clang
+accepts and extends the lifetime of the temporary; MSVC and EDG accept
+and do not extend the lifetime.</P>
+
+<P><U>Possible resolution:</U></P>
+
+<P>Change in 7.5.5.3 [<A href="https://wg21.link/expr.prim.lambda.capture#6">expr.prim.lambda.capture</A>] paragraph 6 as follows:</P>
+
+<BLOCKQUOTE>
+
+An <I>init-capture</I> inhabits the lambda scope
+(6.4.5 [<A href="https://wg21.link/basic.scope.lambda">basic.scope.lambda</A>]) of the <I>lambda-expression</I>.
+An <I>init-capture</I> without ellipsis behaves as if it declares and
+explicitly captures a variable of the form
+<TT>&#8220;auto <I>init-capture</I> ;&#8221;</TT>, except that:
+
+<UL>
+<LI>if the capture is by copy (see below), the non-static data member
+declared for the capture and the variable are treated as two different
+ways of referring to the same object, which has the lifetime of the
+non-static data member, and no additional copy and destruction is
+performed, and
+</LI>
+<LI class="ins">
+if the capture is by reference and the reference would bind to a
+temporary, the program is ill-formed, and
+</LI>
+<LI>if the capture is by reference, the variable's lifetime ends when
+the closure object's lifetime ends.
+</LI>
+</UL>
+
+</BLOCKQUOTE>
+
+<BR><BR><HR>
 <A NAME="2560"></A><H4>2560.
   
 Parameter type determination in a <I>requirement-parameter-list</I>
@@ -27391,6 +27737,84 @@ types or expressions in <INS>its <I>parameter-declaration-clause</I>
 constraints of those requirements. In such cases, ...
 
 </BLOCKQUOTE>
+
+<BR><BR><HR>
+<A NAME="2739"></A><H4>2739.
+  
+Nested requirement not a constant expression
+</H4>
+<B>Section: </B>7.5.7.5&#160; [<A href="https://wg21.link/expr.prim.req.nested">expr.prim.req.nested</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Barry Revzin
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2022-09-20<BR>
+
+
+<P>Consider:</P>
+
+<PRE>
+  struct NonConstant { static bool f() { return true; } };
+  struct True { static constexpr bool f() { return true; } };
+  struct False { static constexpr bool f() { return false; } };
+
+  template &lt;class T&gt;
+  concept C = requires { requires T::f(); };
+
+  static_assert(!C&lt;NonConstant&gt;);   //<SPAN CLASS="cmnt"> #1</SPAN>
+  static_assert(C&lt;True&gt;);
+  static_assert(!C&lt;False&gt;);
+</PRE>
+
+<P>clang accepts; gcc, MSVC, and EDG all consider #1 to be ill-formed.
+Subclause 7.5.7.5 [<A href="https://wg21.link/expr.prim.req.nested#1">expr.prim.req.nested</A>] paragraph 1 specifies:</P>
+
+<BLOCKQUOTE>
+
+The <I>constraint-expression</I> shall be satisfied
+(13.5.3 [<A href="https://wg21.link/temp.constr.decl">temp.constr.decl</A>]) by the substituted template arguments,
+if any. Substitution of template arguments into
+a <I>nested-requirement</I> does not result in substitution into
+the <I>constraint-expression</I> other than as specified in
+13.5.2 [<A href="https://wg21.link/temp.constr.constr">temp.constr.constr</A>].
+
+</BLOCKQUOTE>
+
+<P>Neither <TT>C&lt;NonConstant&gt;</TT> nor <TT>C&lt;False&gt;</TT>
+are saisfied, but it is unclear whether those two cases should be
+treated differently.  Subclause 13.5.2.3 [<A href="https://wg21.link/temp.constr.atomic#3">temp.constr.atomic</A>] paragraph 3
+might be relevant:</P>
+
+<BLOCKQUOTE>
+
+To determine if an atomic constraint is <I>satisfied</I>, the
+parameter mapping and template arguments are first substituted into
+its expression. If substitution results in an invalid type or
+expression, the constraint is not satisfied. Otherwise, the
+lvalue-to-rvalue conversion (7.3.2 [<A href="https://wg21.link/conv.lval">conv.lval</A>]) is performed
+if necessary, and E shall be a constant expression of type bool.
+
+</BLOCKQUOTE>
+
+<P>An example from the standard library is:</P>
+
+<PRE>
+  template&lt;class G&gt;
+   concept uniform_random_bit_generator =
+     invocable&lt;G&amp;&gt; &amp;&amp; unsigned_integral&lt;invoke_result_t&lt;G&amp;&gt;&gt; &amp;&amp;
+     requires {
+       { G::min() } -&gt; same_as&lt;invoke_result_t&lt;G&amp;&gt;&gt;;
+       { G::max() } -&gt; same_as&lt;invoke_result_t&lt;G&amp;&gt;&gt;;
+       requires bool_constant&lt;(G::min() &lt; G::max())&gt;::value;
+    };
+</PRE>
+
+<P>Is the <TT>bool_constant</TT> part necessary to ensure
+that <TT>G::min() &lt; G::max()</TT> is a constant expression?</P>
 
 <BR><BR><HR>
 <A NAME="2284"></A><H4>2284.
@@ -29585,6 +30009,68 @@ destruction.  However, that rule overlooks constexpr objects with a
 reference member bound to a lifetime-extended temporary, recursively,
 and the case for <TT>std::initializer_list</TT> lifetime extension.
 </P>
+
+<BR><BR><HR>
+<A NAME="2734"></A><H4>2734.
+  
+Immediate forward-declared function templates
+</H4>
+<B>Section: </B>7.7&#160; [<A href="https://wg21.link/expr.const">expr.const</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Corentin Jabot
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-05-10<BR>
+
+
+
+
+<P>Consider:</P>
+
+<PRE>
+  consteval int a(auto);
+  constexpr int g(auto e);
+  constexpr int f(auto e);
+
+  constexpr int f(auto e) {
+    return a(e);
+  }
+
+  auto ff = f&lt;int&gt;;   //<SPAN CLASS="cmnt"> error: f is an immediate function</SPAN>
+
+  auto gg = g&lt;int&gt;;   //<SPAN CLASS="cmnt"> ok?</SPAN>
+
+  constexpr int g(auto e) { //<SPAN CLASS="cmnt"> g is not an immediate function?</SPAN>
+    return a(e);
+  }
+</PRE>
+
+<P>The standard is silent as to what happen if no function body is
+available at the point where we need to determine whether a constexpr
+function template is an immediate function template.</P>
+
+<P>Furthermore, there is no wording that taking the address of a
+constexpr function template specialization instantiates its body to
+determine whether it is an immediate function, unlike the handling
+of <TT>auto</TT> return types.</P>
+
+<P>Subclause 13.9.2 [<A href="https://wg21.link/temp.inst#5">temp.inst</A>] paragraph 5 specifies:</P>
+
+<BLOCKQUOTE>
+
+Unless a function template specialization is a declared
+specialization, the function template specialization is implicitly
+instantiated when the specialization is referenced in a context that
+requires a function definition to exist or if the existence of the
+definition affects the semantics of the program. ...
+
+</BLOCKQUOTE>
+
+<P>See also <A HREF="cwg_active.html#2497">issue 2497</A>.</P>
 
 <BR><BR><HR>
 <A NAME="2495"></A><H4>2495.
@@ -31903,6 +32389,87 @@ there can be no definition of <TT>n</TT>):</P>
 <P>Is this intentional?</P>
 
 <BR><BR><HR>
+<A NAME="2733"></A><H4>2733.
+  
+Applying <TT>[[maybe_unused]]</TT> to a label
+</H4>
+<B>Section: </B>9.12.8&#160; [<A href="https://wg21.link/dcl.attr.unused">dcl.attr.unused</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Barry Revzin
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-05-25<BR>
+
+
+<P>Subclause 9.12.8 [<A href="https://wg21.link/dcl.attr.unused#2">dcl.attr.unused</A>] paragraph 2 specifies:</P>
+
+<BLOCKQUOTE>
+
+The attribute may be applied to the declaration of a class,
+a <I>typedef-name</I>, a variable (including a structured binding
+declaration), a non-static data member, a function, an enumeration, or
+an enumerator.
+
+</BLOCKQUOTE>
+
+<P>Absent from that list are labels, but both gcc and clang
+accept <TT>[[maybe_unused]]</TT> on a label, and behave
+accordingly.</P>
+
+<P><U>Possible resolution:</U></P>
+
+<P>Change in 9.12.8 [<A href="https://wg21.link/dcl.attr.unused">dcl.attr.unused</A>] as follows:</P>
+
+<BLOCKQUOTE>
+
+<P>The <I>attribute-token</I> <TT>maybe_unused</TT> indicates that a
+name<INS>, label,</INS> or entity is possibly intentionally unused.
+No <I>attribute-argument-clause</I> shall be present.</P>
+
+<P>The attribute may be applied to the declaration of a class,
+<DEL>a</DEL> <I>typedef-name</I>, <DEL>a</DEL> variable (including a
+structured binding declaration), <DEL>a</DEL> non-static data
+member, <DEL>a</DEL> function, <DEL>an</DEL> enumeration,
+or <DEL>an</DEL> enumerator<INS>, or to an <I>identifier</I>
+label (8.2 [<A href="https://wg21.link/stmt.label">stmt.label</A>])</INS>.</P>
+
+<P>A name or entity declared without the <TT>maybe_unused</TT>
+attribute can later be redeclared with the attribute and vice
+versa. An entity is considered marked after the first declaration that
+marks it.</P>
+
+<P>
+<I>Recommended practice</I>: For an entity
+marked <TT>maybe_unused</TT>, implementations should not emit a
+warning that the entity or its structured bindings (if any) are used
+or unused. For a structured binding declaration not
+marked <TT>maybe_unused</TT>, implementations should not emit such a
+warning unless all of its structured bindings are unused.
+<INS>For a label to which <TT>maybe_unused</TT> is applied,
+implementations should not emit a warning that the label is used or
+unused.</INS>
+</P>
+
+[<I>Example 1:</I>
+<PRE>
+  [[maybe_unused]] void f([[maybe_unused]] bool thing1,
+                          [[maybe_unused]] bool thing2) {
+    [[maybe_unused]] bool b = thing1 &amp;&amp; thing2;
+    assert(b);
+    <INS>[[maybe_unused]] x:</INS>
+  }
+</PRE>
+Implementations should not warn
+that <TT>b</TT> <INS>or <TT>x</TT></INS> is unused, whether or not
+<TT>NDEBUG</TT> is defined. &#8212; <I>end example</I>]
+
+</BLOCKQUOTE>
+
+<BR><BR><HR>
 <A NAME="2541"></A><H4>2541.
   
 Linkage specifications, module purview, and module attachment
@@ -32101,6 +32668,61 @@ unit.</P>
 
 <DEL>H shall identify an importable header.</DEL>
 <INS>If H nominates a header, that header shall be an importable header.</INS>
+
+</BLOCKQUOTE>
+
+<BR><BR><HR>
+<A NAME="2732"></A><H4>2732.
+  
+Can importable headers react to preprocessor state from point of import?
+</H4>
+<B>Section: </B>10.3&#160; [<A href="https://wg21.link/module.import">module.import</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Xu Chuanqi
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-05-25<BR>
+
+
+
+
+<P>Subclause 10.3 [<A href="https://wg21.link/module.import#5">module.import</A>] paragraph 5 specifies:</P>
+
+<BLOCKQUOTE>
+
+A <I>module-import-declaration</I> that specifies a <I>header-name</I>
+H imports a synthesized header unit, which is a translation unit
+formed by applying phases 1 to 7 of translation
+(5.2 [<A href="https://wg21.link/lex.phases">lex.phases</A>]) to the source file or header nominated by
+H, which shall not contain a <I>module-declaration</I>.
+
+[<I>Note 2:</I> All declarations within a header unit are implicitly
+exported (10.2 [<A href="https://wg21.link/module.interface">module.interface</A>]), and are attached to the global
+module (10.1 [<A href="https://wg21.link/module.unit">module.unit</A>]). &#8212;<I>end note</I>]
+
+</BLOCKQUOTE>
+
+<P>It is unclear whether the contents of header units can vary
+depending on the set of defined macros at the point where
+the <TT>import</TT> (or <TT>#include</TT>) appears.</P>
+
+<P><U>Possible resolution:</U></P>
+
+<P>Change in 10.3 [<A href="https://wg21.link/module.import#5">module.import</A>] paragraph 5 as follows:</P>
+
+<BLOCKQUOTE>
+
+[<I>Note 2:</I>
+<INS>The contents of a header unit does not and cannot depend on any
+macro definition active at the point where such
+a <I>module-import-declaration</I> appears.</INS> All declarations
+within a header unit are implicitly exported
+(10.2 [<A href="https://wg21.link/module.interface">module.interface</A>]), and are attached to the global module
+(10.1 [<A href="https://wg21.link/module.unit">module.unit</A>]). &#8212;<I>end note</I>]
 
 </BLOCKQUOTE>
 
@@ -32308,6 +32930,86 @@ no elements (<TT>std::tuple&lt;&gt;</TT>) ought to be trivially
 copyable, but the recent addition of <TT>const</TT>-qualified
 assignment operators makes that not so under the status quo core
 language rules.</P>
+
+<BR><BR><HR>
+<A NAME="2736"></A><H4>2736.
+  
+Standard layout class with empty base class also in first member
+</H4>
+<B>Section: </B>11.2&#160; [<A href="https://wg21.link/class.prop">class.prop</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>L&#233;n&#225;rd Szolnoki
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-05-10<BR>
+
+
+<P>Consider:</P>
+
+<PRE>
+  struct A {};
+  struct B : A { char c; };
+
+  struct C : A {
+    B b;
+  };
+</PRE>
+
+<P>Class C satisfies all the conditions to be considered
+standard-layout, including 11.2 [<A href="https://wg21.link/class.prop#3.7">class.prop</A>] bullet 3.7:
+<UL>
+<LI>M(C) is the union of {B} and M(B) per 11.2 [<A href="https://wg21.link/class.prop#3.7.2">class.prop</A>] bullet 3.7.2.</LI>
+<LI>M(B) is the union of {char} and M(char) per
+11.2 [<A href="https://wg21.link/class.prop#3.7.2">class.prop</A>] bullet 3.7.2.</LI>
+<LI>M(char) is an empty set per 11.2 [<A href="https://wg21.link/class.prop#3.7.5">class.prop</A>] bullet 3.7.5.</LI>
+</UL>
+
+</P>
+
+<P>Thus, M(C) is {char,B}, neither of which is a base class of C, and
+thus C is standard-layout, contrary to popular ABI rules that do not
+provide pointer interconvertibility between C::b and C.</P>
+
+<P><U>Suggested resolution:</U></P>
+
+<P>Change in 11.2 [<A href="https://wg21.link/class.prop#3.7">class.prop</A>] bullet 3.7 as follows:</P>
+
+<BLOCKQUOTE>
+
+<UL>
+<LI>...</LI>
+<LI>
+has no element of the set M(S) of types as a base class, where for any
+type X, M(X) is defined as follows<INS>, where <TT>B(S)</TT> is a set
+of types consisting of <TT>S</TT> and each direct and indirect base
+class of <TT>S</TT></INS>. [Footnote: ...]  [<I>Note 2:</I> M(X) is
+the set of the types of all non-base-class subobjects that can be at a
+zero offset in X. &#8212;<I>end note</I>]
+<UL>
+<LI>If X is a non-union class type with no non-static data members,
+the set M(X) is empty.</LI>
+<LI>If X is a non-union class type with a non-static data member of
+type X0 that is either of zero size or is the first non-static data
+member of X (where said member may be an anonymous union), the set
+M(X) <DEL>consists of X0</DEL> <INS>is the union of B(X0)</INS>
+and <DEL>the elements of</DEL> M(X0).</LI>
+<LI>If X is a union type, the set M(X) is the union of all M(Ui) and
+<DEL>the set containing</DEL> all <DEL>Ui</DEL> <INS>B(Ui)</INS>,
+where each Ui is the type of the ith non-static data member of X.</LI>
+<LI>If X is an array type with element type Xe, the set M(X) <DEL>consists
+of Xe</DEL> <INS>is the union of B(Xe)</INS> and <DEL>the elements
+of</DEL> M(Xe).</LI>
+<LI>If X is a non-class, non-array type, the set M(X) is empty.</LI>
+</UL>
+
+</LI>
+</UL>
+
+</BLOCKQUOTE>
 
 <BR><BR><HR>
 <A NAME="2188"></A><H4>2188.
@@ -32785,6 +33487,94 @@ then G <I>overrides</I> [ <I>Footnote:</I> ... ] F .
 </BLOCKQUOTE>
 
 <BR><BR><HR>
+<A NAME="1699"></A><H4>1699.
+  
+Does befriending a class befriend its friends?
+</H4>
+<B>Section: </B>11.8.4&#160; [<A href="https://wg21.link/class.friend">class.friend</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>David Krauss
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2013-06-12
+  &#160;&#160;&#160;
+  <B>Liaison: </B>EWG<BR>
+
+
+<P>According to 11.8.4 [<A href="https://wg21.link/class.friend#2">class.friend</A>] paragraph 2,</P>
+
+<BLOCKQUOTE>
+
+Declaring a class to be a friend implies that the names of private and
+protected members from the class granting friendship can be accessed in
+the <I>base-specifier</I>s and member declarations of the befriended class.
+
+</BLOCKQUOTE>
+
+<P>A <TT>friend</TT> declaration is a <I>member-declaration</I>, but it
+is not clear how far the granting of friendship goes in a <TT>friend</TT>
+declaration.  For example:</P>
+
+<PRE>
+  class c {
+    class n {};
+    friend struct s;
+  };
+
+  struct s {
+    friend class c::n;          //<SPAN CLASS="cmnt"> #1</SPAN>
+    friend c::n g();            //<SPAN CLASS="cmnt"> #2</SPAN>
+    friend void f() { c::n(); } //<SPAN CLASS="cmnt"> #3</SPAN>
+  };
+</PRE>
+
+<P>In particular, if a friend function is defined inside the class
+definition, as in #3, does its definition have access to the private
+and protected members of the befriending class?  Implementations vary
+on this point.</P>
+
+
+
+<P><B>Additional note (June, 2021):</B></P>
+
+<P>The initial opinion of CWG (at the September, 2013 meeting)
+was that &#8220;member declarations&#8221; was intended to be
+the English equivalent of the syntactic nonterminal
+<I>member-declaration</I>, including a <TT>friend</TT>
+declaration/definition inside
+the <I>member-specification</I> of a class, making #3
+well-formed. However, recent discussion  has expressed concern over the different
+treatment of in-class and out-of-class definitions of friend
+functions and observed that there is still divergence among
+implementations. </P>
+
+<P><B>Rationale (November, 2021):</B></P>
+
+<P>There are two lines of analysis that lead to opposite
+conclusions. The first is that a friend defined within the
+<I>member-specification</I> is written by the class author and
+is effectively part of the class, not subject to hijacking by
+other declarations, and thus should be afforded the same access
+as all other declarations that are part of the class. The
+second is that giving different access to a friend function
+based simply on whether it was defined inside or outside of its
+befriending class is confusing.</P>
+
+<P>CWG considered this to be a design-level question, not
+simply to be determined by the usual relationship between
+English and grammar terms, and thus is asking EWG for its
+opinion.</P>
+
+<P><B>Additional note (May, 2023)</B></P>
+
+<P>Forwarded to EWG via
+<A HREF="https://github.com/cplusplus/papers/issues/1573">cplusplus/papers#1573</A>.</P>
+
+<BR><BR><HR>
 <A NAME="2244"></A><H4>2244.
   
 Base class access in aggregate initialization
@@ -33152,6 +33942,8 @@ allowed cases, which could be considered part of <A HREF="cwg_closed.html#6">iss
 
 <P>This is a plausible optimization opportunity whose detailed
 specification requires a paper.</P>
+
+
 
 <BR><BR><HR>
 <A NAME="2568"></A><H4>2568.
@@ -34044,6 +34836,156 @@ the <I>deduction-guide</I>.
 </BLOCKQUOTE>
 
 <BR><BR><HR>
+<A NAME="2735"></A><H4>2735.
+  
+List-initialization and conversions in overload resolution
+</H4>
+<B>Section: </B>12.2.4&#160; [<A href="https://wg21.link/over.match.best">over.match.best</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Jason Merrill
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-03-23<BR>
+
+
+
+
+<P>There is implementation divergence in handling the following example:</P>
+
+<PRE>
+  template &lt;typename _Tp&gt; struct optional {
+    template &lt;typename _Up&gt; explicit optional(_Up);
+    template &lt;typename _Up = _Tp&gt; void operator=(_Up);
+  };
+  struct SourceBrush {
+    struct Brush {
+     int brush;
+    };
+    void setPattern() { m_brush = {42}; }
+    optional&lt;Brush&gt; m_brush;
+  };
+</PRE>
+
+<P>The following example is ambiguous per <A HREF="cwg_closed.html#1228">issue 1228</A>:</P>
+
+<PRE>
+  #include &lt;unordered_set&gt;
+  #include &lt;string&gt;
+
+  template&lt;typename T&gt; struct wrap {
+    template&lt;typename ...Ts&gt; explicit wrap(Ts &amp;&amp;...args) : v(std::forward&lt;Ts&gt;(args)...) {}
+    explicit wrap(const T &amp;v) : v(v) {}
+    explicit wrap(T &amp;&amp;v) : v(v) {}
+    wrap(const wrap&amp;) = delete;
+    T v;
+  };
+
+  void f() {
+    wrap&lt;std::unordered_set&lt;std::string&gt;&gt; wrapped_set({"foo", "bar", "baz"});
+  }
+</PRE>
+
+<P>The copy constructor of <TT>wrap&lt;...&gt;</TT> becomes viable, by
+way of constructing another <TT>wrap</TT> object from the given
+initializer list using the explicit constructor template.  It looks
+like a deleted copy constructor is used to remove a level of braces,
+and then picking an explicit constructor to construct the source of
+the copy.</P>
+
+<P>Another example:</P>
+
+<PRE>
+  #include &lt;string&gt;
+  #include &lt;map&gt;
+
+  struct X {
+    explicit X(const std::map&lt;std::string, std::string&gt; &amp;map);
+  };
+
+  struct Y {
+    Y() : x({{"foo", "bar"}}) {}
+    X x;
+  };
+</PRE>
+
+<P>The intent is to construct the map with a single key-value pair,
+but the list-initialization is ambiguous with invoking the copy
+constructor and creating a map from a pair of iterators given
+by <TT>{"foo", "bar"}</TT>.</P>
+
+<P>And another example:</P>
+
+<PRE>
+  struct Z {};
+
+  struct X {          
+    explicit X(const Z &amp;z = {});
+  };
+
+  struct Y {   
+    Y() : x({}) {}                                            
+    X x;
+  };
+</PRE>
+
+<P>The ambiguity is between
+<UL>
+<LI>calling the <TT>X(const Z&amp;)</TT> constructor with <TT>{}</TT> and</LI>
+<LI>calling the <TT>X(const X&amp;)</TT> constructor and using the explicit default constructor to construct a temporary <TT>X</TT>.</LI>
+</UL>
+
+</P>
+
+<P>Core <A HREF="cwg_defects.html#2267">issue 2267</A> is also related.</P>
+
+<P><U>Suggested resolution:</U></P>
+
+<P>Insert before 12.2.4.1 [<A href="https://wg21.link/over.match.best.general#2.4">over.match.best.general</A>] bullet 2.4 as follows:</P>
+
+<BLOCKQUOTE>
+
+<UL>
+
+<LI>...</LI>
+
+<LI class="ins">
+<TT>F2</TT> is a copy or move special member function where the
+implicit conversion sequence for its (non-object) argument is a
+user-defined conversion sequence specified by a non-converting
+constructor (considered under 12.2.2.8 [<A href="https://wg21.link/over.match.list">over.match.list</A>])
+and <TT>F1</TT> is not, or, if not that, [ Example:
+
+<PRE>
+  struct Z {};
+
+  struct X {
+    explicit X();            //<SPAN CLASS="cmnt"> #1</SPAN>
+    explicit X(const Z &amp;z);  //<SPAN CLASS="cmnt"> #2</SPAN>
+  };
+
+  struct Y {
+    Y() : x({}) {}  //<SPAN CLASS="cmnt"> OK, calls #2, not ambiguous with the copy constructor of </SPAN>X<SPAN CLASS="cmnt"> using a temporary initialized by #1</SPAN>
+    X x;
+  };
+</PRE>
+-- end example ]
+</LI>
+
+<LI>F1 is not a function template specialization and F2 is a function
+template specialization, or, if not that,</LI>
+
+<LI>...</LI>
+
+</UL>
+
+</BLOCKQUOTE>
+
+
+<BR><BR><HR>
 <A NAME="2679"></A><H4>2679.
   
 Implicit conversion sequence with a null pointer constant
@@ -34080,6 +35022,80 @@ value category at all.</LI>
 <LI>An overload set does not have a single (function) type.</LI>
 
 </UL>
+
+<BR><BR><HR>
+<A NAME="2731"></A><H4>2731.
+  
+List-initialization sequence with a user-defined conversion
+</H4>
+<B>Section: </B>12.2.4.2.3&#160; [<A href="https://wg21.link/over.ics.user">over.ics.user</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Brian Bi
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-05-11<BR>
+
+
+
+
+<P>Consider:</P>
+
+<PRE>
+  struct C {
+    C(int);
+  };
+
+  struct A {
+    A(C);
+  };
+
+  struct B {
+    B(C);
+  };
+
+  int f(const A&amp;);
+  int f(B&amp;&amp;);
+
+  int x = f({1});
+</PRE>
+
+<P>Subclause 12.2.4.2.3 [<A href="https://wg21.link/over.ics.user#1">over.ics.user</A>] paragraph 1 specifies:</P>
+
+<BLOCKQUOTE>
+
+A user-defined conversion sequence consists of an initial standard
+conversion sequence followed by a user-defined conversion
+(11.4.8 [<A href="https://wg21.link/class.conv">class.conv</A>]) followed by a second standard conversion
+sequence. If the user-defined conversion is specified by a constructor
+(11.4.8.2 [<A href="https://wg21.link/class.conv.ctor">class.conv.ctor</A>]), the initial standard conversion
+sequence converts the source type to the type of the first parameter
+of that constructor. ...
+
+</BLOCKQUOTE>
+
+<P>However, there is no "source type" for an initializer list, making
+the treatment of the example unclear.</P>
+
+<P><U>Suggested resolution:</U></P>
+
+<P>Change in 12.2.4.2.6 [<A href="https://wg21.link/over.ics.list#7.2">over.ics.list</A>] bullet 7.2 as follows:</P>
+
+<BLOCKQUOTE>
+
+<UL>
+<LI>...</LI>
+<LI>Otherwise, the implicit conversion sequence is a user-defined
+conversion sequence <INS>whose user-defined conversion is specified by
+the constructor <TT>C</TT> and </INS> whose <INS>first and</INS>
+second standard conversion <DEL>sequence is an</DEL> <INS>sequences
+are</INS> identity <DEL>conversion</DEL> <INS>conversions</INS>.</LI>
+</UL>
+
+</BLOCKQUOTE>
 
 <BR><BR><HR>
 <A NAME="2169"></A><H4>2169.
