@@ -1,0 +1,57 @@
+<HTML>
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<TITLE>
+    CWG Issue 2746</TITLE>
+<STYLE TYPE="text/css">
+  INS { text-decoration:none; font-weight:bold; background-color:#A0FFA0 }
+  .INS { text-decoration:none; background-color:#D0FFD0 }
+  DEL { text-decoration:line-through; background-color:#FFA0A0 }
+  SPAN.cmnt { font-family:Times; font-style:italic }
+</STYLE>
+</HEAD>
+<BODY>
+<P><EM>This is an unofficial snapshot of the ISO/IEC JTC1 SC22 WG21
+  Core Issues List revision 111d.
+  See http://www.open-std.org/jtc1/sc22/wg21/ for the official
+  list.</EM></P>
+<P>2023-06-09</P>
+<HR>
+<A NAME="2746"></A><H4>2746.
+  
+Checking of default template arguments
+</H4>
+<B>Section: </B>Clause 13&#160; [<A href="https://wg21.link/temp">temp</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Shafik Yaghmour
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-06-07<BR>
+
+
+
+
+<P>Consider:</P>
+
+<PRE>
+  static int x = 1;
+  template&lt;auto y = x&gt; void f() {}
+</PRE>
+
+<P>Is the definition of <TT>f</TT> well-formed? Since <TT>x</TT> is
+not a constant expression, any use of the default template argument is
+ill-formed, but for example <TT>f&lt;5&gt;()</TT> does not actually
+use it.</P>
+
+<P>Are implementations allowed or required to reject this situation,
+even if the template is never instantiated?  If the default template
+argument is dependent, checking may need to be deferred to
+instantiations in any case.</P>
+
+<BR><BR>
+</BODY>
+</HTML>
