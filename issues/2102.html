@@ -15,7 +15,7 @@
   Core Issues List revision 111d.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-06-09</P>
+<P>2023-06-11</P>
 <HR>
 <A NAME="2102"></A><H4>2102.
   
@@ -72,6 +72,25 @@ well-formed even for an array with no elements.</P>
 <P><U>Possible resolution:</U></P>
 
 <OL>
+<LI>
+<P>Insert a new paragraph before 7.6.2.8 [<A href="https://wg21.link/expr.new#9">expr.new</A>] paragraph 9:</P>
+
+<BLOCKQUOTE>
+
+<P class="ins">If the allocated type is an array,
+the <I>new-initializer</I> is a <I>braced-init-list</I>, and
+the <I>expression</I> is potentially-evaluated and not a core constant
+expression, the semantic constraints of copy-initializing a
+hypothetical element of the array from an empty initializer list are
+checked.</P>
+
+<P>Objects created by a new-expression have dynamic storage duration
+(6.7.5.5). ...</P>
+
+</BLOCKQUOTE>
+
+</LI>
+
 <LI>
 <P>Change in 7.6.2.8 [<A href="https://wg21.link/expr.new#25">expr.new</A>] paragraph 25 as follows:</P>
 
@@ -172,31 +191,8 @@ zero-initialized.</LI>
 </BLOCKQUOTE>
 </LI>
 
-<LI>
-<P>Change in 9.4.2 [<A href="https://wg21.link/dcl.init.aggr#5">dcl.init.aggr</A>] paragraph 5 as follows:</P>
 
-<BLOCKQUOTE>
 
-For a non-union aggregate, each element that is not an explicitly
-initialized element is initialized as follows:
-<UL>
-<LI>If the element
-has a default member initializer (11.4 [<A href="https://wg21.link/class.mem">class.mem</A>]), the
-element is initialized from that initializer.</LI>
-<LI>Otherwise, if
-the element is not a reference, the element is copy-initialized from
-an empty initializer list (9.4.5 [<A href="https://wg21.link/dcl.init.list">dcl.init.list</A>]).</LI>
-<LI>Otherwise, the program is ill-formed.</LI>
-</UL>
-
-<P class="ins">For an array that has no elements (7.6.2.8 [<A href="https://wg21.link/expr.new">expr.new</A>]),
-the semantic constraints of copy-initializing a hypothetical element
-of the array from an empty initializer list are checked.</P>
-
-<P>If the aggregate is a union and the initializer list is empty, ...</P>
-
-</BLOCKQUOTE>
-</LI>
 </OL>
 
 <BR><BR>
