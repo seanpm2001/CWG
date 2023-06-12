@@ -175,6 +175,13 @@ USA.</P>
 <A HREF="cwg_active.html#2737">2737</A>,
 <A HREF="cwg_active.html#2738">2738</A>,
 <A HREF="cwg_active.html#2739">2739</A>,
+<A HREF="cwg_active.html#2740">2740</A>,
+<A HREF="cwg_active.html#2741">2741</A>,
+<A HREF="cwg_active.html#2742">2742</A>,
+<A HREF="cwg_active.html#2743">2743</A>,
+<A HREF="cwg_active.html#2744">2744</A>,
+<A HREF="cwg_active.html#2745">2745</A>,
+<A HREF="cwg_active.html#2746">2746</A>,
 Closed issues
 <A HREF="cwg_closed.html#6">6</A>,
 <A HREF="cwg_closed.html#504">504</A>,
@@ -4025,6 +4032,17 @@ ODR vs alternative tokens
 </TD>
 </TR>
 <TR>
+<TD ALIGN="LEFT">6.3&#160;
+  <A href="https://wg21.link/basic.def.odr">basic.def.odr</A>
+</TD>
+<TD ALIGN="RIGHT"><A HREF="#2745">2745</A></TD>
+<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER"></TD>
+<TD ALIGN="LEFT">
+Dependent odr-use in generic lambdas
+</TD>
+</TR>
+<TR>
 <TD ALIGN="LEFT">6.4.1&#160;
   <A href="https://wg21.link/basic.scope.scope">basic.scope.scope</A>
 </TD>
@@ -4154,6 +4172,17 @@ Creation of objects by <TT>typeid</TT>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Implicit object creation vs constant expressions
+</TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT">6.7.2&#160;
+  <A href="https://wg21.link/intro.object">intro.object</A>
+</TD>
+<TD ALIGN="RIGHT"><A HREF="#2744">2744</A></TD>
+<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER"></TD>
+<TD ALIGN="LEFT">
+Multiple objects of the same type at the same address
 </TD>
 </TR>
 <TR>
@@ -5498,6 +5527,17 @@ Immediate forward-declared function templates
 </TD>
 </TR>
 <TR>
+<TD ALIGN="LEFT">7.7&#160;
+  <A href="https://wg21.link/expr.const">expr.const</A>
+</TD>
+<TD ALIGN="RIGHT"><A HREF="#2740">2740</A></TD>
+<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER"></TD>
+<TD ALIGN="LEFT">
+Too many objects have constexpr-unknown type
+</TD>
+</TR>
+<TR>
 <TD ALIGN="LEFT">8.6.5&#160;
   <A href="https://wg21.link/stmt.ranged">stmt.ranged</A>
 </TD>
@@ -6059,6 +6099,17 @@ Initialization of reference-to-aggregate from designated initializer list
 </TD>
 </TR>
 <TR>
+<TD ALIGN="LEFT">9.4.5&#160;
+  <A href="https://wg21.link/dcl.init.list">dcl.init.list</A>
+</TD>
+<TD ALIGN="RIGHT"><A HREF="#2742">2742</A></TD>
+<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER"></TD>
+<TD ALIGN="LEFT">
+Guaranteed copy elision for brace-initialization from prvalue
+</TD>
+</TR>
+<TR>
 <TD ALIGN="LEFT">9.5.1&#160;
   <A href="https://wg21.link/dcl.fct.def.general">dcl.fct.def.general</A>
 </TD>
@@ -6496,6 +6547,17 @@ Defaulted copy/move constructors and UDCs
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Memberwise copying with indeterminate value
+</TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT">11.4.5.3&#160;
+  <A href="https://wg21.link/class.copy.ctor">class.copy.ctor</A>
+</TD>
+<TD ALIGN="RIGHT"><A HREF="#2743">2743</A></TD>
+<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER"></TD>
+<TD ALIGN="LEFT">
+Copying non-trivial objects nested within a union
 </TD>
 </TR>
 <TR>
@@ -7145,6 +7207,17 @@ Narrowing conversions and overload resolution
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Comparing user-defined conversion sequences in list-initialization
+</TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT">12.2.4.2.6&#160;
+  <A href="https://wg21.link/over.ics.list">over.ics.list</A>
+</TD>
+<TD ALIGN="RIGHT"><A HREF="#2741">2741</A></TD>
+<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER"></TD>
+<TD ALIGN="LEFT">
+Implicit conversion sequence from empty list to array of unknown bound
 </TD>
 </TR>
 <TR>
@@ -7805,6 +7878,17 @@ Omission of the <TT>typename</TT> keyword in a member template parameter list
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Template validity rules for templated entities and alias templates
+</TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT">13.8.1&#160;
+  <A href="https://wg21.link/temp.res.general">temp.res.general</A>
+</TD>
+<TD ALIGN="RIGHT"><A HREF="#2746">2746</A></TD>
+<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER"></TD>
+<TD ALIGN="LEFT">
+Checking of default template arguments
 </TD>
 </TR>
 <TR>
@@ -12053,16 +12137,22 @@ well-formed even for an array with no elements.</P>
 
 <OL>
 <LI>
-<P>Change in 7.6.2.8 [<A href="https://wg21.link/expr.new#8">expr.new</A>] paragraph 8 as follows:</P>
+<P>Insert a new paragraph before 7.6.2.8 [<A href="https://wg21.link/expr.new#9">expr.new</A>] paragraph 9:</P>
 
 <BLOCKQUOTE>
 
-... When the value of the expression is zero, the allocation function
-is called to allocate an array with no elements <INS>and if
-the <I>new-initializer</I> is omitted, the semantic constraints for
-default-initialization are checked</INS>.
+<P class="ins">If the allocated type is an array,
+the <I>new-initializer</I> is a <I>braced-init-list</I>, and
+the <I>expression</I> is potentially-evaluated and not a core constant
+expression, the semantic constraints of copy-initializing a
+hypothetical element of the array from an empty initializer list are
+checked (9.4.5 [<A href="https://wg21.link/dcl.init.list">dcl.init.list</A>]).</P>
+
+<P>Objects created by a new-expression have dynamic storage duration
+(6.7.5.5). ...</P>
 
 </BLOCKQUOTE>
+
 </LI>
 
 <LI>
@@ -12105,6 +12195,67 @@ the <I>new-expression</I> appears.</INS>
 
 </BLOCKQUOTE>
 </LI>
+
+<LI>
+<P>Change in 9.4.1 [<A href="https://wg21.link/dcl.init.general#7">dcl.init.general</A>] paragraph 7 as follows:</P>
+
+<BLOCKQUOTE>
+
+To <I>default-initialize</I> an object of type T means:
+<UL>
+<LI>...</LI>
+<LI>If T is an array type, each element is default-initialized<INS>;
+if the array has no elements (7.6.2.8 [<A href="https://wg21.link/expr.new">expr.new</A>]), the
+semantic constraints for default-initialization of an element are
+checked</INS>.</LI>
+<LI>...</LI>
+</UL>
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+<P>Change in 9.4.1 [<A href="https://wg21.link/dcl.init.general#9">dcl.init.general</A>] paragraph 9 as follows:</P>
+
+<BLOCKQUOTE>
+
+To <I>value-initialize</I> an object of type T means:
+
+<UL>
+<LI>
+<DEL>if</DEL> <INS>If</INS> T is a
+(possibly cv-qualified) class type (Clause 11 [<A href="https://wg21.link/class">class</A>]),
+then
+<UL>
+<LI>if T has either no default constructor
+(11.4.5.2 [<A href="https://wg21.link/class.default.ctor">class.default.ctor</A>]) or a default constructor that is
+user-provided or deleted, then the object is default-initialized;
+</LI>
+<LI>
+otherwise, the object is zero-initialized and the semantic
+constraints for default-initialization are checked, and if T has a
+non-trivial default constructor, the object is default-initialized<DEL>;</DEL><INS>.</INS>
+</LI>
+</UL>
+</LI>
+
+<LI>
+<DEL>if</DEL> <INS>If</INS> T is an array type, then each element
+is value-initialized;<INS> if the array has no elements
+(7.6.2.8 [<A href="https://wg21.link/expr.new">expr.new</A>]), the semantic constraints for
+value-initialization of an element are checked.</INS>
+</LI>
+
+<LI>
+<DEL>otherwise</DEL><INS>Otherwise</INS>, the object is
+zero-initialized.</LI>
+
+</UL>
+
+</BLOCKQUOTE>
+</LI>
+
+
 
 </OL>
 
@@ -24898,6 +25049,69 @@ definitions.</P>
 (See also <A HREF="cwg_closed.html#1254">issue 1254</A>.)
 
 <BR><BR><HR>
+<A NAME="2745"></A><H4>2745.
+  
+Dependent odr-use in generic lambdas
+</H4>
+<B>Section: </B>6.3&#160; [<A href="https://wg21.link/basic.def.odr">basic.def.odr</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Shafik Yaghmour
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2022-12-13<BR>
+
+
+
+
+<P>Default template arguments of generic lambdas can refer to local
+variables.  It is unclear whether the potential odr-use is checked
+when parsing the template definition or when instantiating the
+template.</P>
+
+<P>There is wide implementation divergence.</P>
+
+<P><U>Possible resolution:</U></P>
+
+<P>Insert a new paragraph before 6.3 [<A href="https://wg21.link/basic.def.odr#11">basic.def.odr</A>] paragraph 11:</P>
+
+<BLOCKQUOTE>
+
+<P class="ins">
+[ Example:
+</P>
+<PRE class="ins">
+  void g() {
+    constexpr int x = 1;
+    auto lambda = [] &lt;typename T, T V = x&gt; {};  //<SPAN CLASS="cmnt"> OK</SPAN>
+    lambda.operator()&lt;int, 1&gt;();         //<SPAN CLASS="cmnt"> OK, does not consider x at all</SPAN>
+    lambda.operator()&lt;int&gt;();            //<SPAN CLASS="cmnt"> OK, does not odr-use </SPAN>x
+    lambda.operator()&lt;const int&amp;&gt;();     //<SPAN CLASS="cmnt"> error: odr-uses x from a context where x is not odr-usable</SPAN>
+  }
+
+  void h() {
+    constexpr int x = 1;
+    auto lambda = [] &lt;typename T&gt; { (T)x; };  //<SPAN CLASS="cmnt"> OK</SPAN>
+    lambda.operator()&lt;int&gt;();            //<SPAN CLASS="cmnt"> OK, does not odr-use </SPAN>x
+    lambda.operator()&lt;void&gt;();           //<SPAN CLASS="cmnt"> OK, does not odr-use </SPAN>x
+    lambda.operator()&lt;const int&amp;&gt;();     //<SPAN CLASS="cmnt"> error: odr-uses x from a context where x is not odr-usable</SPAN>
+  }
+</PRE>
+<P class="ins">
+-- end example ]
+</P>
+
+<P>
+Every program shall contain at least one definition of every function
+or variable ...
+</P>
+
+</BLOCKQUOTE>
+
+<BR><BR><HR>
 <A NAME="2488"></A><H4>2488.
   
 Overloading virtual functions and functions with trailing <I>requires-clause</I>s
@@ -25313,6 +25527,71 @@ of <TT>type_info</TT> objects by <TT>typeid</TT> expressions, but
 7.6.1.8 [<A href="https://wg21.link/expr.typeid">expr.typeid</A>] does not appear to require that such
 objects exist before they are referenced. Should the list in
 6.7.2 [<A href="https://wg21.link/intro.object">intro.object</A>] be extended to include this case?</P>
+
+<BR><BR><HR>
+<A NAME="2744"></A><H4>2744.
+  
+Multiple objects of the same type at the same address
+</H4>
+<B>Section: </B>6.7.2&#160; [<A href="https://wg21.link/intro.object">intro.object</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Chris Hallock
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-06-08<BR>
+
+
+<P>(From thread beginning
+<A HREF="https://groups.google.com/a/isocpp.org/g/std-discussion/c/GHwA_pOc4CA/m/RF4qoKgZAAAJ">here</A>.)</P>
+
+<P>Consider:</P>
+
+<PRE>
+  #include &lt;new&gt;
+
+  struct A { unsigned char buf[1]; };
+  static_assert(sizeof(A) == 1); // A<SPAN CLASS="cmnt"> can fit within </SPAN>A::buf
+
+  int main()
+  {
+    A x{};
+    new (x.buf) A{};
+  }
+</PRE>
+
+<P>
+<TT>A::buf</TT> provides storage for another <TT>A</TT> object.
+Thus, there are now two objects of type <TT>A</TT> within lifetime,
+which is inconsistent with the goal expressed by
+6.7.2 [<A href="https://wg21.link/intro.object#9">intro.object</A>] paragraph 9.</P>
+
+<P><U>Suggested resolution:</U></P>
+
+<P>Change in 6.7.2 [<A href="https://wg21.link/intro.object#3">intro.object</A>] paragraph 3 as follows:</P>
+
+<BLOCKQUOTE>
+
+If a complete object <INS>of type T</INS> is created
+(7.6.2.8 [<A href="https://wg21.link/expr.new">expr.new</A>]) in storage associated with another
+object e of type &#8220;array of N unsigned char&#8221; or of type
+&#8220;array of N std::byte&#8221; (17.2.1 [<A href="https://wg21.link/cstddef.syn">cstddef.syn</A>]), that
+array provides storage for the created object if:
+<UL>
+<LI>the lifetime of e has begun and not ended, and</LI>
+<LI>the storage for the new object fits entirely within e, and</LI>
+<LI class="ins">
+<I>e</I> is not and is not nested within an object of
+type similar (7.3.6 [<A href="https://wg21.link/conv.qual">conv.qual</A>]) to <TT>T</TT> that is within
+its lifetime, and</LI>
+<LI>there is no array object that satisfies these constraints
+nested within e.</LI>
+</UL>
+
+</BLOCKQUOTE>
 
 <BR><BR><HR>
 <A NAME="419"></A><H4>419.
@@ -30073,6 +30352,49 @@ definition affects the semantics of the program. ...
 <P>See also <A HREF="cwg_active.html#2497">issue 2497</A>.</P>
 
 <BR><BR><HR>
+<A NAME="2740"></A><H4>2740.
+  
+Too many objects have constexpr-unknown type
+</H4>
+<B>Section: </B>7.7&#160; [<A href="https://wg21.link/expr.const">expr.const</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Richard Smith
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-02-10<BR>
+
+
+
+
+<P>Consider:</P>
+
+<PRE>
+  struct A {
+    A();
+    virtual constexpr int f() { return 1; }
+  };
+  struct B : A {
+    virtual constexpr int f() { return 2; }
+  };
+  B b; //<SPAN CLASS="cmnt"> not constexpr</SPAN>
+  auto &amp;id = typeid(b); //<SPAN CLASS="cmnt"> error, not constant</SPAN>
+</PRE>
+
+<P>The example had been valid, but became invalid under P2280.  The
+same happened for <TT>dynamic_cast</TT>. Furthermore, P2280 seems to
+be missing a change for <TT>static_cast</TT> from base to derived and
+for pointer-to-member access expressions, which both depend on the
+dynamic type and have historically been required to work.</P>
+
+<P>Maybe a better rule would be that objects (not references) whose
+lifetime did not begin within E are treated as having a dynamic type
+that is their declared type.</P>
+
+<BR><BR><HR>
 <A NAME="2495"></A><H4>2495.
   
 Glvalue result of a function call
@@ -31671,6 +31993,70 @@ S <DEL>s3</DEL><INS>s4</INS> = { };              //<SPAN CLASS="cmnt"> invoke <D
 </PRE>
 
 <BR><BR><HR>
+<A NAME="2742"></A><H4>2742.
+  
+Guaranteed copy elision for brace-initialization from prvalue
+</H4>
+<B>Section: </B>9.4.5&#160; [<A href="https://wg21.link/dcl.init.list">dcl.init.list</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Jim X
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-06-06<BR>
+
+
+<P>Consider:</P>
+
+<PRE>
+  struct A {
+    A();
+    A(A const&amp;) = delete;
+  };
+  int main(){
+    A a = A(A(A())); //<SPAN CLASS="cmnt"> #1 </SPAN>
+    A b = A{A{A{}}}; //<SPAN CLASS="cmnt"> #2 </SPAN>
+  }
+</PRE>
+
+<P>#1 is well-formed per 9.4.1 [<A href="https://wg21.link/dcl.init.general#16.6.1">dcl.init.general</A>] bullet 16.6.1.
+However, even though #2 is intended to have a similar effect, the
+relevant rule excludes non-aggregates, making the example ill-formed
+(because the relevant constructor is deleted); see
+9.4.5 [<A href="https://wg21.link/dcl.init.list#3.2">dcl.init.list</A>] bullet 3.2:</P>
+
+<BLOCKQUOTE>
+
+If T is an aggregate class and the initializer list has a single
+element of type cv U, where U is T or a class derived from T, the
+object is initialized from that element (by copy-initialization for
+copy-list-initialization, or by direct-initialization for
+direct-list-initialization).
+
+</BLOCKQUOTE>
+
+<P>There is implementation divergence: gcc and clang accept, MSVC rejects.</P>
+
+<P>See also <A HREF="cwg_active.html#2311">issue 2311</A>.</P>
+
+<P><U>Suggested resolution:</U></P>
+
+<P>Change in 9.4.5 [<A href="https://wg21.link/dcl.init.list#3.2">dcl.init.list</A>] bullet 3.2 as follows:</P>
+
+<BLOCKQUOTE>
+
+If T is <DEL>an aggregate class</DEL> <INS>a class type</INS> and the
+initializer list has a single element of type cv U, where U is T or a
+class derived from T, the object is initialized from that element (by
+copy-initialization for copy-list-initialization, or by
+direct-initialization for direct-list-initialization).
+
+</BLOCKQUOTE>
+
+<BR><BR><HR>
 <A NAME="1962"></A><H4>1962.
   
 Type of <TT>__func__</TT>
@@ -33165,6 +33551,121 @@ constraints, if any, are satisfied</INS> is more constrained
 </UL>
 
 </BLOCKQUOTE>
+
+<BR><BR><HR>
+<A NAME="2743"></A><H4>2743.
+  
+Copying non-trivial objects nested within a union
+</H4>
+<B>Section: </B>11.4.5.3&#160; [<A href="https://wg21.link/class.copy.ctor">class.copy.ctor</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Jiang An
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-06-05<BR>
+
+
+<P>Consider:</P>
+
+<PRE>
+  #include&lt;new&gt;
+
+  struct A {
+    ~A();
+  };
+
+  union U {
+    alignas(A) unsigned char buf[sizeof(A)];
+  };
+
+  void f() {
+    U u;
+    ::new (u.buf) A();  //<SPAN CLASS="cmnt"> object of type </SPAN>A<SPAN CLASS="cmnt"> is nested within </SPAN>u<SPAN CLASS="cmnt"> because </SPAN>u<SPAN CLASS="cmnt"> provides storage</SPAN>
+    U v = u;            // #1
+  }
+</PRE>
+
+<P>Subclause 11.4.5.3 [<A href="https://wg21.link/class.copy.ctor#15">class.copy.ctor</A>] paragraph 15 specifies:</P>
+
+<BLOCKQUOTE>
+
+The implicitly-defined copy/move constructor for a union X copies the
+object representation (6.8.1 [<A href="https://wg21.link/basic.types.general">basic.types.general</A>]) of X. For each
+object nested within (6.7.2 [<A href="https://wg21.link/intro.object">intro.object</A>]) the object that is
+the source of the copy, a corresponding object o nested within the
+destination is identified (if the object is a subobject) or created
+(otherwise), and the lifetime of o begins before the copy is
+performed.
+
+</BLOCKQUOTE>
+
+<P>Thus, the rule seems to require that #1 creates an object of
+type <TT>A</TT> inside <TT>v.buf</TT> (without invoking a constructor
+of <TT>A</TT>), and then a copy of the object representation is
+performed.  Creating an object out of thin air can plausibly work only
+for implicit-lifetime types (11.2 [<A href="https://wg21.link/class.prop#9">class.prop</A>] paragraph 9), and
+meaningfully copying the object representation works only for
+trivially copyable types (6.8.1 [<A href="https://wg21.link/basic.types.general#3">basic.types.general</A>] paragraph 3).  The
+rule about nested objects should be suitably limited.</P>
+
+<P>Subclause 11.4.6 [<A href="https://wg21.link/class.copy.assign#13">class.copy.assign</A>] paragraph 13 has a similar rule
+for copy/move assignment:</P>
+
+<BLOCKQUOTE>
+
+The implicitly-defined copy/move assignment operator for a union X
+copies the object representation (6.8.1 [<A href="https://wg21.link/basic.types.general">basic.types.general</A>]) of X. If
+the source and destination of the assignment are not the same object,
+then for each object nested within (6.7.2 [<A href="https://wg21.link/intro.object">intro.object</A>]) the
+object that is the source of the copy, a corresponding object o nested
+within the destination is created, and the lifetime of o begins before
+the copy is performed.
+
+</BLOCKQUOTE>
+
+<P><U>Possible resolution:</U></P>
+
+<OL>
+
+<LI>
+<P>Change in 11.4.5.3 [<A href="https://wg21.link/class.copy.ctor#15">class.copy.ctor</A>] paragraph 15 as follows:</P>
+
+<BLOCKQUOTE>
+
+The implicitly-defined copy/move constructor for a union X copies the
+object representation (6.8.1 [<A href="https://wg21.link/basic.types.general">basic.types.general</A>]) of X. For each
+object <INS>of implicit-lifetime type
+(6.8.1 [<A href="https://wg21.link/basic.types.general">basic.types.general</A>])</INS> nested within
+(6.7.2 [<A href="https://wg21.link/intro.object">intro.object</A>]) the object that is the source of the
+copy, a corresponding object o nested within the destination is
+identified (if the object is a subobject) or created (otherwise), and
+the lifetime of o begins before the copy is performed.
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+<P>Change in 11.4.6 [<A href="https://wg21.link/class.copy.assign#13">class.copy.assign</A>] paragraph 13 as follows:</P>
+
+<BLOCKQUOTE>
+
+The implicitly-defined copy/move assignment operator for a union X
+copies the object representation (6.8.1 [<A href="https://wg21.link/basic.types.general">basic.types.general</A>]) of X. If
+the source and destination of the assignment are not the same object,
+then for each object <INS>of implicit-lifetime type
+(6.8.1 [<A href="https://wg21.link/basic.types.general">basic.types.general</A>])</INS> nested within
+(6.7.2 [<A href="https://wg21.link/intro.object">intro.object</A>]) the object that is the source of the
+copy, a corresponding object o nested within the destination is
+created, and the lifetime of o begins before the copy is performed.
+
+</BLOCKQUOTE>
+</LI>
+
+</OL>
 
 <BR><BR><HR>
 <A NAME="2513"></A><H4>2513.
@@ -35175,6 +35676,57 @@ incorrectly-ordered designated initializers.  A resolution of this
 issue should thus not be focused on narrow conversions.</P>
 
 <BR><BR><HR>
+<A NAME="2741"></A><H4>2741.
+  
+Implicit conversion sequence from empty list to array of unknown bound
+</H4>
+<B>Section: </B>12.2.4.2.6&#160; [<A href="https://wg21.link/over.ics.list">over.ics.list</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Richard Smith
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-06-01<BR>
+
+
+
+
+<P>Consider:</P>
+
+<PRE>
+  int f(int const(&amp;)[]) { return 1; }   //<SPAN CLASS="cmnt"> #1</SPAN>
+  int f(int const(&amp;)[2]) { return 2; }  //<SPAN CLASS="cmnt"> #2</SPAN>
+  int x = f({});
+</PRE>
+
+<P>Subclause 12.2.4.2.6 [<A href="https://wg21.link/over.ics.list#6">over.ics.list</A>] paragraph 6 specifies:</P>
+
+<BLOCKQUOTE>
+
+Otherwise, if the parameter type is &#8220;array of N X&#8221; or
+&#8220;array of unknown bound of X&#8221;, if there exists an implicit
+conversion sequence from each element of the initializer list (and
+from {} in the former case if N exceeds the number of elements in the
+initializer list) to X, the implicit conversion sequence is the worst
+such implicit conversion sequence.
+
+</BLOCKQUOTE>
+
+<P>What is the "worst [...] implicit conversion sequence" when the
+initializer list is empty? Should #1 even be viable for this call,
+given that it's not valid to initialize an <TT>int const
+(&amp;)[]</TT> from <TT>{}</TT>?</P>
+
+<P>There is implementation divergence: Clang and MSVC treat #1 as
+being non-viable; GCC calls #1 and creates a temporary of type
+`int[0]` (even in -pedantic-errors mode).  Should the "worst
+conversion sequence" over an empty set be the identity conversion,
+selecting #1 and then failing the parameter initialization?</P>
+
+<BR><BR><HR>
 <A NAME="1459"></A><H4>1459.
   
 Reference-binding tiebreakers in overload resolution
@@ -36860,6 +37412,87 @@ of an entity (that was not itself instantiated) requires at
 least one of the enclosing template argument lists to
 include an empty template argument pack, then the program is
 ill-formed (no diagnostic required).</P>
+
+<BR><BR><HR>
+<A NAME="2746"></A><H4>2746.
+  
+Checking of default template arguments
+</H4>
+<B>Section: </B>13.8.1&#160; [<A href="https://wg21.link/temp.res.general">temp.res.general</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Shafik Yaghmour
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-06-07<BR>
+
+
+
+
+<P>Consider:</P>
+
+<PRE>
+  static int x = 1;
+  template&lt;auto y = x&gt; void f() {}
+</PRE>
+
+<P>Is the definition of <TT>f</TT> well-formed? Since <TT>x</TT> is
+not a constant expression, any use of the default template argument is
+ill-formed, but for example <TT>f&lt;5&gt;()</TT> does not actually
+use it.</P>
+
+<P>Are implementations allowed or required to reject this situation,
+even if the template is never instantiated?  If the default template
+argument is dependent, checking may need to be deferred to
+instantiations in any case.</P>
+
+<P><U>Possible resolution:</U></P>
+
+<P>Change in 13.8.1 [<A href="https://wg21.link/temp.res.general#6">temp.res.general</A>] paragraph 6 as follows:</P>
+
+<BLOCKQUOTE>
+
+<P>The validity of a template may be checked prior to any instantiation.
+[<I>Note :</I> ... &#8212;<I>end note</I>]</P>
+
+<P>The program is ill-formed, no diagnostic required, if:</P>
+
+<UL>
+<LI>no valid specialization, ignoring
+<I>static_assert-declaration</I>s that fail, can be generated for a
+template or a substatement of a constexpr if statement
+(8.5.2 [<A href="https://wg21.link/stmt.if">stmt.if</A>]) within a template and the template is not
+instantiated, or</LI>
+
+<LI class="ins">
+no valid specialization, ignoring
+<I>static_assert-declaration</I>s that fail, can be generated for a
+template using a default <I>template-argument</I> and the
+default <I>template-argument</I> is not used in any instantiation, or
+</LI>
+
+<LI>any <I>constraint-expression</I> in the program, introduced or
+otherwise, has (in its normal form) an atomic constraint A where no
+satisfaction check of A could be well-formed and no satisfaction check
+of A is performed, or</LI>
+
+<LI>every valid specialization of a variadic template requires an
+empty template parameter pack, or</LI>
+
+<LI>a hypothetical instantiation of a template immediately following
+its definition would be ill-formed due to a construct that does not
+depend on a template parameter, or</LI>
+
+<LI>the interpretation of such a construct in the hypothetical
+instantiation is different from the interpretation of the
+corresponding construct in any actual instantiation of the
+template.</LI>
+</UL>
+
+</BLOCKQUOTE>
 
 <BR><BR><HR>
 <A NAME="186"></A><H4>186.
