@@ -15,7 +15,7 @@
   Core Issues List revision 111d.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-05-12</P>
+<P>2023-06-12</P>
 <HR>
 <A NAME="1038"></A><H4>1038.
   
@@ -24,7 +24,7 @@ Overload resolution of <TT>&amp;x.static_func</TT>
 <B>Section: </B>12.3&#160; [<A href="https://wg21.link/over.over">over.over</A>]
  &#160;&#160;&#160;
 
- <B>Status: </B>review
+ <B>Status: </B>open
  &#160;&#160;&#160;
 
  <B>Submitter: </B>Mike Miller
@@ -110,6 +110,17 @@ understood as applying to member access expressions?</P>
 <P><B>Additional notes (February, 2023)</B></P>
 
 <P>This appears to be resolved, in part by P1787R6 (accepted November, 2020).</P>
+
+<P><B>CWG 2023-06-12</B></P>
+
+<P>The clarifications in P1787R6 did not address the core of this
+issue, so it is kept open.  In order to avoid confusion, a wording
+change to clarify the treatment (regardless of direction) seems
+advisable. CWG felt that the first and second examples should be
+treated consistently, and expressed a mild preferences towards making
+those ill-formed.  It was noted that the reference
+to <I>id-expression</I> in 12.3 [<A href="https://wg21.link/over.over">over.over</A>] can be understood
+to refer to the <I>id-expression</I> of a class member access.</P>
 
 <BR><BR>
 </BODY>
