@@ -1,0 +1,75 @@
+<HTML>
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<TITLE>
+    CWG Issue 2747</TITLE>
+<STYLE TYPE="text/css">
+  INS { text-decoration:none; font-weight:bold; background-color:#A0FFA0 }
+  .INS { text-decoration:none; background-color:#D0FFD0 }
+  DEL { text-decoration:line-through; background-color:#FFA0A0 }
+  SPAN.cmnt { font-family:Times; font-style:italic }
+</STYLE>
+</HEAD>
+<BODY>
+<P><EM>This is an unofficial snapshot of the ISO/IEC JTC1 SC22 WG21
+  Core Issues List revision 111d.
+  See http://www.open-std.org/jtc1/sc22/wg21/ for the official
+  list.</EM></P>
+<P>2023-06-13</P>
+<HR>
+<A NAME="2747"></A><H4>2747.
+  
+Cannot depend on an already-deleted splice
+</H4>
+<B>Section: </B>5.2&#160; [<A href="https://wg21.link/lex.phases">lex.phases</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Jim X
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2021-09-14<BR>
+
+
+<P>(From editorial issue
+<A HREF="https://github.com/cplusplus/draft/issues/4903">4903</A>.)</P>
+
+<P>Subclause 5.2 [<A href="https://wg21.link/lex.phases#2">lex.phases</A>] paragraph 2 specifies:</P>
+
+<BLOCKQUOTE>
+
+... Each sequence of a backslash character (\) immediately
+followed by zero or more whitespace characters other than new-line
+followed by a new-line character is deleted, splicing physical source
+lines to form logical source lines. ...  A source
+file that is not empty and that does not end in a new-line character,
+or that ends in a splice, shall be processed as if an additional
+new-line character were appended to the file.
+
+</BLOCKQUOTE>
+
+<P>This is confusing, because the first sentence deletes all splices,
+and then the last sentence checks for a splice that has already been
+deleted.</P>
+
+<P><U>Possible resolution:</U></P>
+
+<P>Change in 5.2 [<A href="https://wg21.link/lex.phases#2">lex.phases</A>] paragraph 2 as follows:</P>
+
+<BLOCKQUOTE>
+
+... Each sequence of a backslash character (\) immediately
+followed by zero or more whitespace characters other than new-line
+followed by a new-line character is deleted, splicing physical source
+lines to form logical source lines. ...  A source file that is not
+empty and that does not end in a new-line character<DEL>, or that ends
+in a splice,</DEL> <INS>(after splicing)</INS> shall be processed as
+if an additional new-line character were appended to the file.
+
+</BLOCKQUOTE>
+
+<BR><BR>
+</BODY>
+</HTML>
