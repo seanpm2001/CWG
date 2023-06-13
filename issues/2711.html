@@ -15,7 +15,7 @@
   Core Issues List revision 111d.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-05-12</P>
+<P>2023-06-13</P>
 <HR>
 <A NAME="2711"></A><H4>2711.
   
@@ -38,7 +38,9 @@ Source for copy-initializing the exception object
 <P>Neither 14.2 [<A href="https://wg21.link/except.throw">except.throw</A>] nor 7.6.18 [<A href="https://wg21.link/expr.throw">expr.throw</A>]
 specifiy the source for copy-initializing the exception object.</P>
 
-<P><B>Proposed resolution (approved by CWG 2023-03-30):</B></P>
+<P><B>Proposed resolution (based on the resolution of
+<A HREF="2699.html">issue 2699</A>; approved by CWG
+2023-06-12):</B></P>
 
 <OL>
 
@@ -54,7 +56,7 @@ from the static type of the operand and adjusting the type from
 &#8220;array of T&#8221; or function type T to &#8220;pointer to
 T&#8221;.
 <INS>The exception object is copy-initialized
-(9.4.1 [<A href="https://wg21.link/dcl.init.general">dcl.init.general</A>]) from the operand.</INS>
+(9.4.1 [<A href="https://wg21.link/dcl.init.general">dcl.init.general</A>]) from the (possibly converted) operand.</INS>
 
 </BLOCKQUOTE>
 </LI>
