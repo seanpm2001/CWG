@@ -182,6 +182,8 @@ USA.</P>
 <A HREF="cwg_active.html#2744">2744</A>,
 <A HREF="cwg_active.html#2745">2745</A>,
 <A HREF="cwg_active.html#2746">2746</A>,
+<A HREF="cwg_active.html#2747">2747</A>,
+<A HREF="cwg_active.html#2748">2748</A>,
 Closed issues
 <A HREF="cwg_closed.html#6">6</A>,
 <A HREF="cwg_closed.html#504">504</A>,
@@ -3878,6 +3880,17 @@ Undefined behavior when splicing results in a <I>universal-character-name</I>
 </TD>
 </TR>
 <TR>
+<TD ALIGN="LEFT">5.2&#160;
+  <A href="https://wg21.link/lex.phases">lex.phases</A>
+</TD>
+<TD ALIGN="RIGHT"><A HREF="#2747">2747</A></TD>
+<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER"></TD>
+<TD ALIGN="LEFT">
+Cannot depend on an already-deleted splice
+</TD>
+</TR>
+<TR>
 <TD ALIGN="LEFT">5.4&#160;
   <A href="https://wg21.link/lex.pptoken">lex.pptoken</A>
 </TD>
@@ -4025,7 +4038,7 @@ Is a potentially-evaluated expression in a template definition a &#8220;use?&#82
   <A href="https://wg21.link/basic.def.odr">basic.def.odr</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#1897">1897</A></TD>
-<TD ALIGN="CENTER">ready</TD>
+<TD ALIGN="CENTER">review</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 ODR vs alternative tokens
@@ -4465,7 +4478,7 @@ Array vs sequence in object representation
   <A href="https://wg21.link/basic.types.general">basic.types.general</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#2519">2519</A></TD>
-<TD ALIGN="CENTER">tentatively ready</TD>
+<TD ALIGN="CENTER">ready</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Object representation of a bit-field
@@ -4674,7 +4687,7 @@ Problems in the specification of qualification conversions
   <A href="https://wg21.link/conv.prom">conv.prom</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#2485">2485</A></TD>
-<TD ALIGN="CENTER">tentatively ready</TD>
+<TD ALIGN="CENTER">ready</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Bit-fields in integral promotions
@@ -4685,7 +4698,7 @@ Bit-fields in integral promotions
   <A href="https://wg21.link/conv.mem">conv.mem</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#170">170</A></TD>
-<TD ALIGN="CENTER">tentatively ready</TD>
+<TD ALIGN="CENTER">ready</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Pointer-to-member conversions
@@ -4740,7 +4753,7 @@ Parentheses in pseudo-destructor calls
   <A href="https://wg21.link/expr.prim.lambda.closure">expr.prim.lambda.closure</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#1973">1973</A></TD>
-<TD ALIGN="CENTER">tentatively ready</TD>
+<TD ALIGN="CENTER">ready</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Which <I>parameter-declaration-clause</I> in a <I>lambda-expression</I>?
@@ -4949,10 +4962,21 @@ Accessing ambiguous subobjects
   <A href="https://wg21.link/expr.ref">expr.ref</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#2725">2725</A></TD>
-<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER">tentatively ready</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Overload resolution for non-call of class member access
+</TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT">7.6.1.5&#160;
+  <A href="https://wg21.link/expr.ref">expr.ref</A>
+</TD>
+<TD ALIGN="RIGHT"><A HREF="#2748">2748</A></TD>
+<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER"></TD>
+<TD ALIGN="LEFT">
+Accessing static data members via null pointer
 </TD>
 </TR>
 <TR>
@@ -5191,7 +5215,7 @@ Invoking destroying <TT>operator delete</TT> for constructor failure
   <A href="https://wg21.link/expr.new">expr.new</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#2729">2729</A></TD>
-<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER">ready</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Meaning of <I>new-type-id</I>
@@ -5982,7 +6006,7 @@ Omitted array bound with string initialization
   <A href="https://wg21.link/dcl.init.ref">dcl.init.ref</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#233">233</A></TD>
-<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER">drafting</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 References vs pointers in UDC overload resolution
@@ -6268,7 +6292,7 @@ Ineffective redeclaration prevention for <I>using-declarator</I>s
   <A href="https://wg21.link/namespace.udecl">namespace.udecl</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#2663">2663</A></TD>
-<TD ALIGN="CENTER">tentatively ready</TD>
+<TD ALIGN="CENTER">ready</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Example for member redeclarations with <I>using-declaration</I>s
@@ -6367,7 +6391,7 @@ Importing header units synthesized from source files
   <A href="https://wg21.link/module.import">module.import</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#2732">2732</A></TD>
-<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER">ready</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Can importable headers react to preprocessor state from point of import?
@@ -6466,7 +6490,7 @@ Missing disambiguation rule for <I>pure-specifier</I> vs. <I>brace-or-equal-init
   <A href="https://wg21.link/class.ctor">class.ctor</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#1353">1353</A></TD>
-<TD ALIGN="CENTER">tentatively ready</TD>
+<TD ALIGN="CENTER">ready</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Array and variant members and deleted special member functions
@@ -7203,7 +7227,7 @@ Narrowing conversions and overload resolution
   <A href="https://wg21.link/over.ics.list">over.ics.list</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#2492">2492</A></TD>
-<TD ALIGN="CENTER">review</TD>
+<TD ALIGN="CENTER">drafting</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Comparing user-defined conversion sequences in list-initialization
@@ -7269,7 +7293,7 @@ Incorrect implication of logic ladder for conversion sequence tiebreakers
   <A href="https://wg21.link/over.over">over.over</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#1038">1038</A></TD>
-<TD ALIGN="CENTER">review</TD>
+<TD ALIGN="CENTER">tentatively ready</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Overload resolution of <TT>&amp;x.static_func</TT>
@@ -7984,7 +8008,7 @@ Type dependence of function-style cast to incomplete array type
   <A href="https://wg21.link/temp.dep.expr">temp.dep.expr</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#2600">2600</A></TD>
-<TD ALIGN="CENTER">review</TD>
+<TD ALIGN="CENTER">tentatively ready</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Type dependency of placeholder types
@@ -8919,44 +8943,6 @@ suffix is ill-formed if it cannot be represented by
 signed type) only.  The proposed resolution is accepted by EWG.</P>
 
 <BR><BR><HR>
-<A NAME="1897"></A><H4>1897.
-  
-ODR vs alternative tokens
-</H4>
-<B>Section: </B>6.3&#160; [<A href="https://wg21.link/basic.def.odr">basic.def.odr</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>ready
- &#160;&#160;&#160;
-
- <B>Submitter: </B>Hubert Tong
- &#160;&#160;&#160;
-
- <B>Date: </B>2014-03-21<BR>
-
-
-
-
-<P>According to 5.5 [<A href="https://wg21.link/lex.digraph#2">lex.digraph</A>] paragraph 2,</P>
-
-<BLOCKQUOTE>
-
-In all respects of the language, each alternative token behaves the same,
-respectively, as its primary token, except for its spelling.
-
-</BLOCKQUOTE>
-
-<P>However, the primary and alternative tokens are different tokens,
-which runs afoul of the ODR requirement in 6.3 [<A href="https://wg21.link/basic.def.odr#6">basic.def.odr</A>] paragraph 6
-that the definitions consist of the &#8220;same
-sequence of tokens.&#8221;  This wording should be amended to allow
-for use of primary and alternative tokens.</P>
-
-<P><B>CWG 2023-05-12</B></P>
-
-<P>Addressed by <A HREF="cwg_active.html#2726">issue 2726</A>.</P>
-
-<BR><BR><HR>
 <A NAME="2721"></A><H4>2721.
   
 When exactly is storage reused?
@@ -9099,6 +9085,121 @@ array. &#8212;<I>end note</I>]
 </OL>
 
 <BR><BR><HR>
+<A NAME="2519"></A><H4>2519.
+  
+Object representation of a bit-field
+</H4>
+<B>Section: </B>6.8.1&#160; [<A href="https://wg21.link/basic.types.general">basic.types.general</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>ready
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Jiang An
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2022-01-20<BR>
+
+
+<P>6.7.2 [<A href="https://wg21.link/intro.object">intro.object</A>] clearly implies that bit-fields
+are objects; paragraphs 8-9 contain phrases like
+&#8220;unless an object is a bit-field...&#8221; and
+&#8220;a non-bit-field subobject&#8221;. However, the
+definition of &#8220;object representation&#8221; in
+6.8.1 [<A href="https://wg21.link/basic.types.general#4">basic.types.general</A>] paragraph 4 is,</P>
+
+<BLOCKQUOTE>
+
+The <I>object representation</I> of an object of
+type <TT>T</TT> is the sequence of <I>N</I> <TT>unsigned
+char</TT> objects taken up by the object of type <TT>T</TT>,
+where <I>N</I> equals <TT>sizeof(T)</TT>.
+
+</BLOCKQUOTE>
+
+<P>and thus fails to address bit-fields, which are not
+necessarily composed of a sequence of complete bytes.</P>
+
+<P>The C Standard (6.2.6.1 paragraph 4) says,</P>
+
+<BLOCKQUOTE>
+
+Values stored in bit-fields consist of <I>m</I> bits, where
+<I>m</I> is the size specified for the bit-field.  The
+object representation is the set of <I>m</I> bits the
+bit-field comprises in the addressable storage unit holding
+it.
+
+</BLOCKQUOTE>
+
+<P>Presumably similar wording could be adopted for C++.</P>
+
+<P><B>Proposed resolution (approved by CWG 2023-01-06) [SUPERSEDED]:</B></P>
+
+<P>Change in 6.8.1 [<A href="https://wg21.link/basic.types.general#4">basic.types.general</A>] paragraph 4 as follows:</P>
+
+<BLOCKQUOTE>
+
+The <I>object representation</I> of <DEL>an object
+of</DEL> <INS>a</INS> type <TT>T</TT> is the sequence of
+<I>N</I> <TT>unsigned char</TT> objects taken up by
+<DEL>the</DEL> <INS>a non-bit-field complete</INS> object of type
+<TT>T</TT>, where <I>N</I> equals <TT>sizeof(T)</TT>.  The <I>value
+representation</I> of <DEL>an object of</DEL> <INS>a</INS>
+type <TT>T</TT> is the set of bits <INS>in the object representation
+of T</INS> that participate in representing a value of type <TT>T</TT>.
+<INS>The object and value representation of a non-bit-field complete
+object of type <TT>T</TT> are the bytes and bits, respectively, of the
+object corresponding to the object and value representation of its
+type. The object representation of a bit-field object is the sequence
+of <I>N</I> bits taken up by the object, where <I>N</I> is the width
+of the bit-field (11.4.10 [<A href="https://wg21.link/class.bit">class.bit</A>]).  The value
+representation of a bit-field object is the set of bits in the object
+representation that participate in representing its value. </INS> Bits
+in the object representation <INS>of a type or object</INS> that are
+not part of the value representation are padding bits. For trivially
+copyable types, the value representation is a set of bits in the
+object representation that determines a value, which is one discrete
+element of an implementation-defined set of values. [ Footnote: ... ]
+
+</BLOCKQUOTE>
+
+<P><B>CWG 2023-02-06</B></P>
+
+<P>Additional drafting is needed to constrain the definition to
+complete object types.</P>
+
+<P><B>Proposed resolution (approved for C++26 by CWG 2023-02-06):</B></P>
+
+<P>Change in 6.8.1 [<A href="https://wg21.link/basic.types.general#4">basic.types.general</A>] paragraph 4 as follows:</P>
+
+<BLOCKQUOTE>
+
+The <I>object representation</I> of <DEL>an object
+of</DEL> <INS>a complete object</INS> type <TT>T</TT> is the sequence of
+<I>N</I> <TT>unsigned char</TT> objects taken up by
+<DEL>the</DEL> <INS>a non-bit-field complete</INS> object of type
+<TT>T</TT>, where <I>N</I> equals <TT>sizeof(T)</TT>.  The <I>value
+representation</I> of <DEL>an object of</DEL> <INS>a</INS>
+type <TT>T</TT> is the set of bits <INS>in the object representation
+of T</INS> that participate in representing a value of type <TT>T</TT>.
+<INS>The object and value representation of a non-bit-field complete
+object of type <TT>T</TT> are the bytes and bits, respectively, of the
+object corresponding to the object and value representation of its
+type. The object representation of a bit-field object is the sequence
+of <I>N</I> bits taken up by the object, where <I>N</I> is the width
+of the bit-field (11.4.10 [<A href="https://wg21.link/class.bit">class.bit</A>]).  The value
+representation of a bit-field object is the set of bits in the object
+representation that participate in representing its value. </INS> Bits
+in the object representation <INS>of a type or object</INS> that are
+not part of the value representation are padding bits. For trivially
+copyable types, the value representation is a set of bits in the
+object representation that determines a value, which is one discrete
+element of an implementation-defined set of values. [ Footnote: ... ]
+
+</BLOCKQUOTE>
+
+<BR><BR><HR>
 <A NAME="2723"></A><H4>2723.
   
 Range of representable values for floating-point types
@@ -9149,6 +9250,357 @@ adhering to ISO/IEC/IEEE 60559. ]
 </P>
 
 </BLOCKQUOTE>
+
+<BR><BR><HR>
+<A NAME="2485"></A><H4>2485.
+  
+Bit-fields in integral promotions
+</H4>
+<B>Section: </B>7.3.7&#160; [<A href="https://wg21.link/conv.prom">conv.prom</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>ready
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Richard Smith
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2021-04-01<BR>
+
+
+<P>According to 7.3.7 [<A href="https://wg21.link/conv.prom#5">conv.prom</A>] paragraph 5,</P>
+
+<BLOCKQUOTE>
+
+A prvalue for an integral bit-field
+(11.4.10 [<A href="https://wg21.link/class.bit">class.bit</A>]) can be converted to a prvalue
+of type <TT>int</TT> if <TT>int</TT> can represent all the
+values of the bit-field; otherwise, it can be converted
+to <TT>unsigned int</TT> if <TT>unsigned int</TT> can
+represent all the values of the bit-field. If the bit-field
+is larger yet, no integral promotion applies to it. If the
+bit-field has an enumerated type, it is treated as any other
+value of that type for promotion purposes.
+
+</BLOCKQUOTE>
+
+<P>This description has several problems. First, the
+&#8220;bit-field&#8221; semantic property only makes sense
+for glvalue expressions, so it's unclear why these rules are
+described as applying to a prvalue. Perhaps this should be
+rephrased as something like &#8220;An expression that was a
+bit-field glvalue prior to the application of the
+lvalue-to-rvalue conversion&#8221;?</P>
+
+<P>Second, suppose that <TT>char32_t</TT> is wider than
+<TT>int</TT>. Per paragraph 2, a <TT>char32_t</TT> prvalue
+promotes to <TT>unsigned long</TT> (because <TT>unsigned
+long</TT> is necessarily at least 32 bits wide). But per
+paragraph 5, a <TT>char32_t : 32</TT> bitfield does not
+promote. This seems inconsistent.</P>
+
+<P>Finally, it is not clear that the usual integral
+promotions are not applied to bit-fields. This should be
+made explicit.</P>
+
+<P><B>Proposed resolution (approved by CWG 2023-02-07):</B></P>
+
+<OL>
+
+<LI>
+<P>Insert a paragraph before 7.3.7 [<A href="https://wg21.link/conv.prom#1">conv.prom</A>] paragraph 1 as follows:</P>
+
+<BLOCKQUOTE class="ins">
+For the purposes of 7.3.7 [<A href="https://wg21.link/conv.prom">conv.prom</A>], a <I>converted bit-field</I>
+is a prvalue that is the result of an lvalue-to-rvalue conversion
+(7.3.2 [<A href="https://wg21.link/conv.lval">conv.lval</A>]) applied to a bit-field
+(11.4.10 [<A href="https://wg21.link/class.bit">class.bit</A>]).
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+<P>Change in 7.3.7 [<A href="https://wg21.link/conv.prom#1">conv.prom</A>] paragraph 1 as follows:</P>
+
+<BLOCKQUOTE>
+
+A prvalue <DEL>of</DEL> <INS>that is not a converted bit-field and
+has</INS> an integer type other than bool, char8_t, char16_t,
+char32_t, or wchar_t whose integer conversion rank
+(6.8.6 [<A href="https://wg21.link/conv.rank">conv.rank</A>]) is less than the rank of int can be
+converted to a prvalue of type int if int can represent all the values
+of the source type; otherwise, the source prvalue can be converted to
+a prvalue of type unsigned int.
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+<P>Change in 7.3.7 [<A href="https://wg21.link/conv.prom#4">conv.prom</A>] paragraph 4 as follows:</P>
+
+<BLOCKQUOTE>
+
+A prvalue of an unscoped enumeration type whose underlying type is
+fixed (9.7.1 [<A href="https://wg21.link/dcl.enum">dcl.enum</A>]) can be converted to a prvalue of
+its underlying type. Moreover, if integral promotion can be applied to
+its underlying type, a prvalue of an unscoped enumeration type whose
+underlying type is fixed can also be converted to a prvalue of the
+promoted underlying type.
+<INS>[ Note: A converted bit-field of enumeration type is treated as
+any other value of that type for promotion purposes. -- end note
+]</INS>
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+<P>Change in 7.3.7 [<A href="https://wg21.link/conv.prom#5">conv.prom</A>] paragraph 5 as follows:</P>
+
+<BLOCKQUOTE>
+
+A <DEL>prvalue for an integral bit-field
+(11.4.10 [<A href="https://wg21.link/class.bit">class.bit</A>])</DEL> <INS>converted bit-field of
+integral type</INS> can be converted to a prvalue of type int if int
+can represent all the values of the bit-field; otherwise, it can be
+converted to unsigned int if unsigned int can represent all the values
+of the bit-field. <DEL>If the bit-field is larger yet, no integral
+promotion applies to it. If the bit-field has enumeration type, it is
+treated as any other value of that type for promotion purposes.</DEL>
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+<P>Move 7.3.7 [<A href="https://wg21.link/conv.prom#2">conv.prom</A>] paragraph 2 after paragraph 5 and
+change as follows:</P>
+
+<BLOCKQUOTE>
+
+A prvalue of type char8_t, char16_t, char32_t, or wchar_t
+(6.8.2 [<A href="https://wg21.link/basic.fundamental">basic.fundamental</A>])
+<INS>(including a converted bit-field that was not already promoted to
+int or unsigned int according to the rules above)</INS> can be
+converted to a prvalue of the first of the following types that can
+represent all the values of its underlying type: int, unsigned int,
+long int, unsigned long int, long long int, <DEL>or</DEL> unsigned
+long long int<DEL>. If none of the types in that list can represent
+all the values of its underlying type, a prvalue of type char8_t,
+char16_t, char32_t, or wchar_t can be converted to a prvalue
+of</DEL> <INS>, or</INS> its underlying type.
+
+</BLOCKQUOTE>
+</LI>
+
+</OL>
+
+<BR><BR><HR>
+<A NAME="170"></A><H4>170.
+  
+Pointer-to-member conversions
+</H4>
+<B>Section: </B>7.3.13&#160; [<A href="https://wg21.link/conv.mem">conv.mem</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>ready
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Mike Stump
+ &#160;&#160;&#160;
+
+ <B>Date: </B>16 Sep 1999<BR>
+
+
+
+
+
+<P>The descriptions of explicit
+(7.6.1.9 [<A href="https://wg21.link/expr.static.cast#9">expr.static.cast</A>] paragraph 9)
+ and
+implicit (7.3.13 [<A href="https://wg21.link/conv.mem#2">conv.mem</A>] paragraph 2)
+
+pointer-to-member conversions differ in two significant ways:</P>
+
+<OL>
+<LI>In a <TT>static_cast</TT>, a conversion in which the class in
+the target pointer-to-member type is a base of the class in which
+the member is declared is permitted and required to work correctly,
+as long as the resulting pointer-to-member is eventually
+dereferenced with an object whose dynamic type contains the
+member.  That is, the class of the target pointer-to-member type
+is not required to contain the member referred to by the value
+being converted.  The specification of implicit pointer-to-member
+conversion is silent on this question.
+
+<P>(This situation cannot arise in an implicit pointer-to-member
+conversion where the source value is something like <TT>&amp;X::f</TT>,
+since you can only implicitly convert from pointer-to-base-member
+to pointer-to-derived-member.  However, if the source value is
+the result of an explicit "up-cast," the target type of the
+conversion might still not contain the member referred to by the
+source value.)</P>
+</LI>
+
+<LI>The target type in a <TT>static_cast</TT> is allowed to be
+more cv-qualified than the source type; in an implicit conversion,
+however, the cv-qualifications of the two types are required to
+be identical.</LI>
+</OL>
+
+<P>The first difference seems like an oversight.  It is not clear
+whether the latter difference is intentional or not.</P>
+
+<P>(See also <A HREF="cwg_closed.html#794">issue 794</A>.)</P>
+
+<P><B>CWG 2022-11-09</B></P>
+
+<P>The second concern is NAD; implicit conversions allow chaining a
+pointer-to-member conversion with a qualification conversion.</P>
+
+<P><B>Proposed resolution (approved by CWG 2023-02-06):</B></P>
+
+<OL>
+
+<LI>
+<P>Change in 7.3.13 [<A href="https://wg21.link/conv.mem#2">conv.mem</A>] paragraph 2 as follows:</P>
+
+<BLOCKQUOTE>
+
+A prvalue of type &#8220;pointer to member of B of type cv T&#8221;,
+where B is a class type, can be converted to a prvalue of type
+&#8220;pointer to member of D of type cv T&#8221;, where D is a
+complete class derived (11.7 [<A href="https://wg21.link/class.derived">class.derived</A>]) from B. If B is an
+inaccessible (11.8 [<A href="https://wg21.link/class.access">class.access</A>]), ambiguous
+(6.5.2 [<A href="https://wg21.link/class.member.lookup">class.member.lookup</A>]), or virtual (11.7.2 [<A href="https://wg21.link/class.mi">class.mi</A>])
+base class of D, or a base class of a virtual base class of D, a
+program that necessitates this conversion is ill-formed.
+<INS>If class D does not contain the original member and is not a base class of the class containing the original member, the behavior is undefined.  Otherwise,</INS>
+<DEL>The</DEL> <INS>the</INS> result of
+the conversion refers to the same member as the pointer to member
+before the conversion took place, but it refers to the base class
+member as if it were a member of the derived class. The result refers
+to the member in D's instance of B. Since the result has type
+&#8220;pointer to member of D of type cv T&#8221;, indirection through
+it with a D object is valid. The result is the same as if indirecting
+through the pointer to member of B with the B subobject of D.  The
+null member pointer value is converted to the null member pointer
+value of the destination type. [ Footnote: ... ]
+
+</BLOCKQUOTE>
+
+</LI>
+
+<LI>
+<P>Change in 7.6.1.9 [<A href="https://wg21.link/expr.static.cast#13">expr.static.cast</A>] paragraph 13 as follows:</P>
+
+<BLOCKQUOTE>
+
+... If class B contains the original member, or is a base <DEL>or
+derived</DEL> class of the class containing the original member, the
+resulting pointer to member points to the original member. ...
+
+</BLOCKQUOTE>
+
+</LI>
+</OL>
+
+<BR><BR><HR>
+<A NAME="1973"></A><H4>1973.
+  
+Which <I>parameter-declaration-clause</I> in a <I>lambda-expression</I>?
+</H4>
+<B>Section: </B>7.5.5.2&#160; [<A href="https://wg21.link/expr.prim.lambda.closure">expr.prim.lambda.closure</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>ready
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Dinka Ranns
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2014-07-16<BR>
+
+
+
+
+<P>According to 7.5.5.2 [<A href="https://wg21.link/expr.prim.lambda.closure#3">expr.prim.lambda.closure</A>] paragraph 3,</P>
+
+<BLOCKQUOTE>
+
+The closure type for a <I>lambda-expression</I> has a public inline
+function call operator (for a non-generic lambda) or function call
+operator template (for a generic lambda) (12.4.4 [<A href="https://wg21.link/over.call">over.call</A>])
+whose parameters and return type are described by
+the <I>lambda-expression</I>'s <I>parameter-declaration-clause</I>
+and <I>trailing-return-type</I> respectively, and
+whose <I>template-parameter-list</I> consists of the
+specified <I>template-parameter-list</I>, if any.
+
+</BLOCKQUOTE>
+
+<P>This is insufficiently precise because the <I>trailing-return-type</I>
+might itself contain a <I>parameter-declaration-clause</I>.</P>
+
+<P><U>Suggested resolution [SUPERSEDED]:</U></P>
+
+<P>Change in 7.5.5.1 [<A href="https://wg21.link/expr.prim.lambda.general#5">expr.prim.lambda.general</A>] paragraph 5 as follows:</P>
+
+<BLOCKQUOTE>
+
+If
+a <I>lambda-declarator</I> does not <DEL>include a</DEL>
+<INS>start with a parenthesized</INS>
+<I>parameter-declaration-clause</I>, it is as if <TT>()</TT> were
+inserted at the start of the <I>lambda-declarator</I>.
+<INS>A <I>lambda-expression</I>'s <I>parameter-declaration-clause</I>
+is the (possibly empty) <I>parameter-declaration-clause</I> of
+the <I>lambda-expression</I>'s <I>lambda-declarator</I>.</INS>
+If the <I>lambda-declarator</I> does not include
+a <I>trailing-return-type</I>, the lambda return type is auto, which
+is deduced from return statements as described in
+9.2.9.6 [<A href="https://wg21.link/dcl.spec.auto">dcl.spec.auto</A>].
+
+</BLOCKQUOTE>
+
+<P><B>Proposed resolution (approved by CWG 2023-02-06):</B></P>
+
+<OL>
+
+<LI>
+<P>Change in 7.5.5.2 [<A href="https://wg21.link/expr.prim.lambda.closure#3">expr.prim.lambda.closure</A>] paragraph 3 as follows:</P>
+
+<BLOCKQUOTE>
+
+The closure type for a <I>lambda-expression</I> has a public inline
+function call operator (for a non-generic lambda) or function call
+operator template (for a generic lambda) (12.4.4 [<A href="https://wg21.link/over.call">over.call</A>])
+whose parameters and return type are <DEL>described by</DEL> <INS>those of</INS>
+the <I>lambda-expression</I>'s <I>parameter-declaration-clause</I>
+and <I>trailing-return-type</I> respectively, and
+whose <I>template-parameter-list</I> consists of the
+specified <I>template-parameter-list</I>, if any.
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+<P>Change in 7.5.5.1 [<A href="https://wg21.link/expr.prim.lambda.general#5">expr.prim.lambda.general</A>] paragraph 5 as follows:</P>
+
+<BLOCKQUOTE>
+
+<DEL>If a <I>lambda-declarator</I> does not include
+a <I>parameter-declaration-clause</I>, it is as if <TT>()</TT> were
+inserted at the start of the <I>lambda-declarator</I>.</DEL>
+<INS>A <I>lambda-expression</I>'s <I>parameter-declaration-clause</I>
+is the <I>parameter-declaration-clause</I> of
+the <I>lambda-expression</I>'s <I>lambda-declarator</I>, if any, or empty otherwise.</INS>
+If the <I>lambda-declarator</I> does not include
+a <I>trailing-return-type</I>, the lambda return type is auto, which
+is deduced from return statements as described in
+9.2.9.6 [<A href="https://wg21.link/dcl.spec.auto">dcl.spec.auto</A>].
+
+</BLOCKQUOTE>
+</LI>
+
+</OL>
 
 <BR><BR><HR>
 <A NAME="2542"></A><H4>2542.
@@ -9621,10 +10073,67 @@ does so that the destructor is (notionally) invoked.</P>
 <INS>If the operand is a prvalue, the temporary materialization
 conversion (7.3.5 [<A href="https://wg21.link/conv.rval">conv.rval</A>]) is applied.</INS> The result
 of the noexcept operator is true unless the
-<DEL><I>expression</I></DEL> <INS>full-expression</INS> is potentially-throwing
-(14.5 [<A href="https://wg21.link/except.spec">except.spec</A>]).
+<DEL><I>expression</I></DEL> <INS>full-expression of the operand</INS>
+is potentially-throwing (14.5 [<A href="https://wg21.link/except.spec">except.spec</A>]).
 
 </BLOCKQUOTE>
+
+<BR><BR><HR>
+<A NAME="2729"></A><H4>2729.
+  
+Meaning of <I>new-type-id</I>
+</H4>
+<B>Section: </B>7.6.2.8&#160; [<A href="https://wg21.link/expr.new">expr.new</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>ready
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Jim X
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-02-06<BR>
+
+
+<P>Subclause 7.6.2.8 [<A href="https://wg21.link/expr.new#1">expr.new</A>] paragraph 1 introduces the
+grammar non-terminal <I>new-type-id</I>, but never specifies its
+meaning.</P>
+
+<P><B>Proposed resolution (approved by CWG 2023-06-12):</B></P>
+
+<OL>
+<LI>
+<P>Change in 7.6.2.8 [<A href="https://wg21.link/expr.new#1">expr.new</A>] paragraph 1 as follows:</P>
+
+<BLOCKQUOTE>
+
+The <I>new-expression</I> attempts to create an object of
+the <I>type-id</I> <DEL>(9.3.2 [<A href="https://wg21.link/dcl.name">dcl.name</A>])</DEL>
+or <I>new-type-id</I> <INS>(9.3.2 [<A href="https://wg21.link/dcl.name">dcl.name</A>])</INS> to which it is
+applied.  The type of that object is the allocated type. This type
+shall be a complete object type (6.8.1 [<A href="https://wg21.link/basic.types.general">basic.types.general</A>]), but not
+an abstract class type (11.7.4 [<A href="https://wg21.link/class.abstract">class.abstract</A>]) or array thereof
+(6.7.2 [<A href="https://wg21.link/intro.object">intro.object</A>]).
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+<P>Change in 9.3.2 [<A href="https://wg21.link/dcl.name#1">dcl.name</A>] paragraph 1 as follows:</P>
+
+<BLOCKQUOTE>
+
+To specify type conversions explicitly, and as an argument of sizeof,
+alignof, new, or typeid, the name of a type shall be specified. This
+can be done with a <I>type-id</I> <INS>or <I>new-type-id</I>
+(7.6.2.8 [<A href="https://wg21.link/expr.new">expr.new</A>])</INS>, which is syntactically a
+declaration for a variable or function of that type that omits the
+name of the entity.
+
+</BLOCKQUOTE>
+</LI>
+
+</OL>
 
 <BR><BR><HR>
 <A NAME="2724"></A><H4>2724.
@@ -9762,7 +10271,9 @@ Source for copy-initializing the exception object
 <P>Neither 14.2 [<A href="https://wg21.link/except.throw">except.throw</A>] nor 7.6.18 [<A href="https://wg21.link/expr.throw">expr.throw</A>]
 specifiy the source for copy-initializing the exception object.</P>
 
-<P><B>Proposed resolution (approved by CWG 2023-03-30):</B></P>
+<P><B>Proposed resolution (based on the resolution of
+<A HREF="cwg_active.html#2699">issue 2699</A>; approved by CWG
+2023-06-12):</B></P>
 
 <OL>
 
@@ -9778,7 +10289,7 @@ from the static type of the operand and adjusting the type from
 &#8220;array of T&#8221; or function type T to &#8220;pointer to
 T&#8221;.
 <INS>The exception object is copy-initialized
-(9.4.1 [<A href="https://wg21.link/dcl.init.general">dcl.init.general</A>]) from the operand.</INS>
+(9.4.1 [<A href="https://wg21.link/dcl.init.general">dcl.init.general</A>]) from the (possibly converted) operand.</INS>
 
 </BLOCKQUOTE>
 </LI>
@@ -9832,7 +10343,7 @@ Similar concerns arise for <TT>continue</TT>
 
 <P>However, that is neither intended nor existing practice.</P>
 
-<P><U>Suggested resolution:</U></P>
+<P><U>Suggested resolution [SUPERSEDED]:</U></P>
 
 <P>Change in 7.7 [<A href="https://wg21.link/expr.const#5.30">expr.const</A>] bullet 5.30 as follows:</P>
 
@@ -10119,6 +10630,323 @@ whose second standard conversion sequence is an identity conversion.
 </OL>
 
 <BR><BR><HR>
+<A NAME="2663"></A><H4>2663.
+  
+Example for member redeclarations with <I>using-declaration</I>s
+</H4>
+<B>Section: </B>9.9&#160; [<A href="https://wg21.link/namespace.udecl">namespace.udecl</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>ready
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Shafik Yaghmour
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2022-11-28<BR>
+
+
+<P>
+<A HREF="cwg_defects.html#36">Issue 36</A> was resolved by P1787R6, but
+no example was added.</P>
+
+<P><B>Proposed resolution (approved by CWG 2023-06-13):</B></P>
+
+<OL>
+
+<LI>
+<P>Add an example to 9.9 [<A href="https://wg21.link/namespace.udecl#8">namespace.udecl</A>] paragraph 8 as follows:</P>
+
+<BLOCKQUOTE class="ins">
+
+[ Example:
+
+<PRE>
+struct C {
+  int i;
+};
+
+struct D1 : C { };
+struct D2 : C { };
+
+struct D3 : D1, D2 {
+  using D1::i;   //<SPAN CLASS="cmnt"> OK, equivalent to </SPAN>using C::i
+  using D1::i;   //<SPAN CLASS="cmnt"> error: duplicate</SPAN>
+  using D2::i;   //<SPAN CLASS="cmnt"> error: duplicate, also names </SPAN>C::i
+};
+</PRE>
+
+-- end example ]
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+<P>Change the example in 9.9 [<A href="https://wg21.link/namespace.udecl#10">namespace.udecl</A>] paragraph 10 as follows:</P>
+
+<BLOCKQUOTE>
+
+<PRE>
+  using B::x;
+  using A::x;              //<SPAN CLASS="cmnt"> OK, hides </SPAN>struct B::x
+  <INS>using A::x;              //<SPAN CLASS="cmnt"> OK, does not conflict with previous </SPAN>using A::x</INS>
+  x = 99;                  //<SPAN CLASS="cmnt"> assigns to </SPAN>A::x
+  struct x x1;             // x1<SPAN CLASS="cmnt"> has class type </SPAN>B::x
+}
+</PRE>
+
+</BLOCKQUOTE>
+</LI>
+</OL>
+
+<P><B>CWG 2023-01-06</B></P>
+
+<P>There is implementation divergence in handling this example.</P>
+
+<P><B>CWG 2023-02-07</B></P>
+
+<P>P1787R6 clarified that the example added to 9.9 [<A href="https://wg21.link/namespace.udecl#10">namespace.udecl</A>] paragraph 10 is accepted, even in the non-function case.</P>
+
+<BR><BR><HR>
+<A NAME="2732"></A><H4>2732.
+  
+Can importable headers react to preprocessor state from point of import?
+</H4>
+<B>Section: </B>10.3&#160; [<A href="https://wg21.link/module.import">module.import</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>ready
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Xu Chuanqi
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-05-25<BR>
+
+
+
+
+<P>Subclause 10.3 [<A href="https://wg21.link/module.import#5">module.import</A>] paragraph 5 specifies:</P>
+
+<BLOCKQUOTE>
+
+A <I>module-import-declaration</I> that specifies a <I>header-name</I>
+H imports a synthesized header unit, which is a translation unit
+formed by applying phases 1 to 7 of translation
+(5.2 [<A href="https://wg21.link/lex.phases">lex.phases</A>]) to the source file or header nominated by
+H, which shall not contain a <I>module-declaration</I>.
+
+[<I>Note 2:</I> All declarations within a header unit are implicitly
+exported (10.2 [<A href="https://wg21.link/module.interface">module.interface</A>]), and are attached to the global
+module (10.1 [<A href="https://wg21.link/module.unit">module.unit</A>]). &#8212;<I>end note</I>]
+
+</BLOCKQUOTE>
+
+<P>It is unclear whether the contents of header units can vary
+depending on the set of defined macros at the point where
+the <TT>import</TT> (or <TT>#include</TT>) appears.</P>
+
+<P><B>Proposed resolution (approved by CWG 2023-06-13):</B></P>
+
+<P>Change in 10.3 [<A href="https://wg21.link/module.import#5">module.import</A>] paragraph 5 as follows:</P>
+
+<BLOCKQUOTE>
+
+[<I>Note 2:</I>
+<INS>A header unit is a separate translation unit with an
+independent set of defined macros.</INS> All declarations within a
+header unit are implicitly exported (10.2 [<A href="https://wg21.link/module.interface">module.interface</A>]), and
+are attached to the global module
+(10.1 [<A href="https://wg21.link/module.unit">module.unit</A>]). &#8212;<I>end note</I>]
+
+</BLOCKQUOTE>
+
+<BR><BR><HR>
+<A NAME="1353"></A><H4>1353.
+  
+Array and variant members and deleted special member functions
+</H4>
+<B>Section: </B>11.4.5&#160; [<A href="https://wg21.link/class.ctor">class.ctor</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>ready
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Sean Hunt
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2011-08-16<BR>
+
+
+
+
+<P>The specification of when a defaulted special member function is to
+be defined as deleted sometimes overlooks variant and array members.</P>
+
+<P><B>Proposed resolution (approved by CWG 2023-02-07):</B></P>
+
+<OL>
+
+<LI>
+<P>Change in 11.4.5.2 [<A href="https://wg21.link/class.default.ctor#2">class.default.ctor</A>] paragraph 2 as follows:</P>
+
+<BLOCKQUOTE>
+
+A defaulted default constructor for class X is defined as deleted if:
+<UL>
+<LI>
+<DEL>X is a union that has a variant member with a non-trivial
+default constructor and no variant member of X has a default member
+initializer,</DEL>
+</LI>
+<LI>
+<DEL>X is a non-union class that has a variant member M
+with a non-trivial default constructor and no variant member of the
+anonymous union containing M has a default member initializer,</DEL>
+</LI>
+<LI>
+any non-static data member with no default member initializer
+(11.4 [<A href="https://wg21.link/class.mem">class.mem</A>]) is of reference type,
+</LI>
+<LI>
+any non-variant non-static data member of const-qualified type
+(or <INS>possibly multi-dimensional</INS> array thereof)
+with no <I>brace-or-equal-initializer</I> is not
+const-default-constructible (9.4 [<A href="https://wg21.link/dcl.init">dcl.init</A>]),
+</LI>
+<LI>
+X is a union and all of its variant members are of const-qualified type (or
+<INS>possibly multi-dimensional</INS> array thereof),
+</LI>
+<LI>
+X is a non-union class and all members of any
+anonymous union member are of const-qualified type (or <INS>possibly multi-dimensional</INS> array thereof),
+</LI>
+<LI>
+any potentially constructed subobject, except for a non-static data
+member with a <I>brace-or-equal-initializer</I> <INS>or a variant
+member of a union where another non-static data member has
+a <I>brace-or-equal-initializer</I></INS>, has class type M
+(or <INS>possibly multi-dimensional</INS> array thereof)
+and <DEL>either M has no default constructor or</DEL> overload
+resolution (12.2 [<A href="https://wg21.link/over.match">over.match</A>]) as applied to find M's
+corresponding constructor <DEL>results in an ambiguity or in a
+function that is deleted or inaccessible from the defaulted default
+constructor</DEL> <INS>either does not result in a usable candidate
+(12.2.1 [<A href="https://wg21.link/over.match.general">over.match.general</A>]) or, in the case of a variant member, selects a
+non-trivial function</INS>, or
+</LI>
+<LI>
+any potentially constructed subobject has <DEL>a type with</DEL>
+<INS>class type M (or possibly multi-dimensional array thereof) and M has</INS>
+a destructor that is deleted or inaccessible from the defaulted default
+constructor.
+</LI>
+</UL>
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+<P>Change in 11.4.5.3 [<A href="https://wg21.link/class.copy.ctor#10">class.copy.ctor</A>] paragraph 10 as follows:</P>
+
+<BLOCKQUOTE>
+
+... A defaulted copy/move constructor for a class X is
+defined as deleted (9.5.3 [<A href="https://wg21.link/dcl.fct.def.delete">dcl.fct.def.delete</A>]) if X has:
+<UL>
+<LI>
+a potentially constructed subobject of type M (or <INS>possibly multi-dimensional</INS> array thereof)
+<DEL>that cannot be copied/moved because</DEL> <INS>for which</INS>
+overload resolution (12.2 [<A href="https://wg21.link/over.match">over.match</A>]), as applied to find
+M's corresponding constructor, <DEL>results in an ambiguity or a
+function that is deleted or inaccessible from the defaulted
+constructor</DEL> <INS>either does not result in a usable candidate
+(12.2.1 [<A href="https://wg21.link/over.match.general">over.match.general</A>]) or, in the case of a variant member, selects a
+non-trivial function</INS>,
+</LI>
+<LI>
+<DEL>a variant member whose corresponding constructor as selected by
+overload resolution is non-trivial,</DEL>
+</LI>
+<LI>
+any potentially constructed subobject of <DEL>a type with</DEL>
+<INS>class type M (or possibly multi-dimensional array thereof) where M has</INS> a
+destructor that is deleted or inaccessible from the defaulted
+constructor, or,
+</LI>
+<LI>
+for the copy constructor, a non-static data member of rvalue reference type.
+</LI>
+</UL>
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+<P>Change in 11.4.6 [<A href="https://wg21.link/class.copy.assign#7">class.copy.assign</A>] paragraph 7 as follows:</P>
+
+<BLOCKQUOTE>
+
+A defaulted copy/move assignment operator for class X is defined as
+deleted if X has:
+<UL>
+<LI>
+<DEL>a variant member with a non-trivial
+corresponding assignment operator and X is a union-like class, or</DEL>
+</LI>
+<LI>
+a non-static data member of const non-class type (or
+<INS>possibly multi-dimensional</INS> array thereof), or
+</LI>
+<LI>
+a non-static data member of reference type, or
+</LI>
+<LI>
+a direct non-static data member of class type M (or <INS>possibly
+multi-dimensional</INS> array thereof) or a direct base class M that
+cannot be copied/moved because overload resolution
+(12.2 [<A href="https://wg21.link/over.match">over.match</A>]), as applied to find M's corresponding
+assignment operator, <DEL>results in an ambiguity or a function that
+is deleted or inaccessible from the defaulted assignment
+operator</DEL> <INS>either does not result in a usable candidate
+(12.2.1 [<A href="https://wg21.link/over.match.general">over.match.general</A>]) or, in the case of a variant member,
+selects a non-trivial function</INS>.
+</LI>
+</UL>
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+<P>Change in 11.4.7 [<A href="https://wg21.link/class.dtor#7">class.dtor</A>] paragraph 7 as follows:</P>
+
+<BLOCKQUOTE>
+
+A defaulted destructor for a class X is defined as deleted if:
+<UL>
+<LI>
+<DEL>X is a union-like class that has a variant member with a non-trivial
+destructor,</DEL>
+</LI>
+<LI>
+any potentially constructed subobject has class
+type M (or <INS>possibly multi-dimensional</INS> array thereof) and M has a <DEL>deleted</DEL> destructor <INS>that is deleted</INS> or <DEL>a
+destructor that</DEL> is inaccessible from the defaulted destructor
+<INS>or, in the case of a variant member, is non-trivial</INS>,
+</LI>
+<LI>
+or, for a virtual destructor, lookup of the non-array deallocation
+function results in an ambiguity or in a function that is deleted or
+inaccessible from the defaulted destructor.
+</LI>
+</UL>
+
+</BLOCKQUOTE>
+</LI>
+
+</OL>
+
+<BR><BR><HR>
 <A NAME="2716"></A><H4>2716.
   
 Rule about self-or-base conversion is normatively redundant
@@ -10224,7 +11052,7 @@ parameter of a built-in candidate.
 sequences cannot bind "vq <TT>T&amp;</TT>" (the type of the first
 parameter of a built-in assignment operator) to a temporary.</P>
 
-<P><B>Suggested resolution:</B></P>
+<P><B>Proposed resolution (approved by CWG 2023-03-30):</B></P>
 
 <P>Change in 12.2.2.3 [<A href="https://wg21.link/over.match.oper#5">over.match.oper</A>] paragraph 5 as follows:</P>
 
@@ -10470,126 +11298,11 @@ the <DEL>template</DEL> <INS>templated entity</INS>.
 <BR><BR><BR><BR><HR>
 <A NAME="Tentatively%20Ready%20Status"></A><H3>Issues with "Tentatively Ready" Status</H3>
 <HR>
-<A NAME="2519"></A><H4>2519.
+<A NAME="2725"></A><H4>2725.
   
-Object representation of a bit-field
+Overload resolution for non-call of class member access
 </H4>
-<B>Section: </B>6.8.1&#160; [<A href="https://wg21.link/basic.types.general">basic.types.general</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>tentatively ready
- &#160;&#160;&#160;
-
- <B>Submitter: </B>Jiang An
- &#160;&#160;&#160;
-
- <B>Date: </B>2022-01-20<BR>
-
-
-<P>6.7.2 [<A href="https://wg21.link/intro.object">intro.object</A>] clearly implies that bit-fields
-are objects; paragraphs 8-9 contain phrases like
-&#8220;unless an object is a bit-field...&#8221; and
-&#8220;a non-bit-field subobject&#8221;. However, the
-definition of &#8220;object representation&#8221; in
-6.8.1 [<A href="https://wg21.link/basic.types.general#4">basic.types.general</A>] paragraph 4 is,</P>
-
-<BLOCKQUOTE>
-
-The <I>object representation</I> of an object of
-type <TT>T</TT> is the sequence of <I>N</I> <TT>unsigned
-char</TT> objects taken up by the object of type <TT>T</TT>,
-where <I>N</I> equals <TT>sizeof(T)</TT>.
-
-</BLOCKQUOTE>
-
-<P>and thus fails to address bit-fields, which are not
-necessarily composed of a sequence of complete bytes.</P>
-
-<P>The C Standard (6.2.6.1 paragraph 4) says,</P>
-
-<BLOCKQUOTE>
-
-Values stored in bit-fields consist of <I>m</I> bits, where
-<I>m</I> is the size specified for the bit-field.  The
-object representation is the set of <I>m</I> bits the
-bit-field comprises in the addressable storage unit holding
-it.
-
-</BLOCKQUOTE>
-
-<P>Presumably similar wording could be adopted for C++.</P>
-
-<P><B>Proposed resolution (approved by CWG 2023-01-06) [SUPERSEDED]:</B></P>
-
-<P>Change in 6.8.1 [<A href="https://wg21.link/basic.types.general#4">basic.types.general</A>] paragraph 4 as follows:</P>
-
-<BLOCKQUOTE>
-
-The <I>object representation</I> of <DEL>an object
-of</DEL> <INS>a</INS> type <TT>T</TT> is the sequence of
-<I>N</I> <TT>unsigned char</TT> objects taken up by
-<DEL>the</DEL> <INS>a non-bit-field complete</INS> object of type
-<TT>T</TT>, where <I>N</I> equals <TT>sizeof(T)</TT>.  The <I>value
-representation</I> of <DEL>an object of</DEL> <INS>a</INS>
-type <TT>T</TT> is the set of bits <INS>in the object representation
-of T</INS> that participate in representing a value of type <TT>T</TT>.
-<INS>The object and value representation of a non-bit-field complete
-object of type <TT>T</TT> are the bytes and bits, respectively, of the
-object corresponding to the object and value representation of its
-type. The object representation of a bit-field object is the sequence
-of <I>N</I> bits taken up by the object, where <I>N</I> is the width
-of the bit-field (11.4.10 [<A href="https://wg21.link/class.bit">class.bit</A>]).  The value
-representation of a bit-field object is the set of bits in the object
-representation that participate in representing its value. </INS> Bits
-in the object representation <INS>of a type or object</INS> that are
-not part of the value representation are padding bits. For trivially
-copyable types, the value representation is a set of bits in the
-object representation that determines a value, which is one discrete
-element of an implementation-defined set of values. [ Footnote: ... ]
-
-</BLOCKQUOTE>
-
-<P><B>CWG 2023-02-06</B></P>
-
-<P>Additional drafting is needed to constrain the definition to
-complete object types.</P>
-
-<P><B>Proposed resolution (approved for C++26 by CWG 2023-02-06):</B></P>
-
-<P>Change in 6.8.1 [<A href="https://wg21.link/basic.types.general#4">basic.types.general</A>] paragraph 4 as follows:</P>
-
-<BLOCKQUOTE>
-
-The <I>object representation</I> of <DEL>an object
-of</DEL> <INS>a complete object</INS> type <TT>T</TT> is the sequence of
-<I>N</I> <TT>unsigned char</TT> objects taken up by
-<DEL>the</DEL> <INS>a non-bit-field complete</INS> object of type
-<TT>T</TT>, where <I>N</I> equals <TT>sizeof(T)</TT>.  The <I>value
-representation</I> of <DEL>an object of</DEL> <INS>a</INS>
-type <TT>T</TT> is the set of bits <INS>in the object representation
-of T</INS> that participate in representing a value of type <TT>T</TT>.
-<INS>The object and value representation of a non-bit-field complete
-object of type <TT>T</TT> are the bytes and bits, respectively, of the
-object corresponding to the object and value representation of its
-type. The object representation of a bit-field object is the sequence
-of <I>N</I> bits taken up by the object, where <I>N</I> is the width
-of the bit-field (11.4.10 [<A href="https://wg21.link/class.bit">class.bit</A>]).  The value
-representation of a bit-field object is the set of bits in the object
-representation that participate in representing its value. </INS> Bits
-in the object representation <INS>of a type or object</INS> that are
-not part of the value representation are padding bits. For trivially
-copyable types, the value representation is a set of bits in the
-object representation that determines a value, which is one discrete
-element of an implementation-defined set of values. [ Footnote: ... ]
-
-</BLOCKQUOTE>
-
-<BR><BR><HR>
-<A NAME="2485"></A><H4>2485.
-  
-Bit-fields in integral promotions
-</H4>
-<B>Section: </B>7.3.7&#160; [<A href="https://wg21.link/conv.prom">conv.prom</A>]
+<B>Section: </B>7.6.1.5&#160; [<A href="https://wg21.link/expr.ref">expr.ref</A>]
  &#160;&#160;&#160;
 
  <B>Status: </B>tentatively ready
@@ -10598,342 +11311,69 @@ Bit-fields in integral promotions
  <B>Submitter: </B>Richard Smith
  &#160;&#160;&#160;
 
- <B>Date: </B>2021-04-01<BR>
+ <B>Date: </B>2023-04-26<BR>
 
 
-<P>According to 7.3.7 [<A href="https://wg21.link/conv.prom#5">conv.prom</A>] paragraph 5,</P>
+
+
+<P>Consider:</P>
+
+<PRE>
+  struct A {
+    static void f();
+    static void f(int);
+  } x;
+  void (*p)() = x.f;   //<SPAN CLASS="cmnt"> error</SPAN>
+</PRE>
+
+<P>This is ill-formed as confirmed by <A HREF="cwg_closed.html#61">issue 61</A>.  Various other changes (see <A HREF="cwg_defects.html#2241">issue 2241</A>) have put the following example into the same category:
+</P>
+
+<PRE>
+  struct B {
+    static void f();
+  } y;
+  void (*q)() = y.f;   //<SPAN CLASS="cmnt"> error</SPAN>
+</PRE>
+
+<P>If this is the intended outcome (although major implementations
+disagree), then the rules in 7.6.1.5 [<A href="https://wg21.link/expr.ref">expr.ref</A>] should be
+clarified accordingly.</P>
+
+<P><B>Proposed resolution (approved by CWG 2023-06-13):</B></P>
+
+<P>Change in 7.6.1.5 [<A href="https://wg21.link/expr.ref#6.3">expr.ref</A>] bullet 6.3 as follows:</P>
 
 <BLOCKQUOTE>
 
-A prvalue for an integral bit-field
-(11.4.10 [<A href="https://wg21.link/class.bit">class.bit</A>]) can be converted to a prvalue
-of type <TT>int</TT> if <TT>int</TT> can represent all the
-values of the bit-field; otherwise, it can be converted
-to <TT>unsigned int</TT> if <TT>unsigned int</TT> can
-represent all the values of the bit-field. If the bit-field
-is larger yet, no integral promotion applies to it. If the
-bit-field has an enumerated type, it is treated as any other
-value of that type for promotion purposes.
+<UL>
+<LI>...</LI>
 
-</BLOCKQUOTE>
+<LI>If E2 is an overload set, <INS>the expression shall be the
+(possibly-parenthesized) left-hand operand of a member function call
+(7.6.1.3 [<A href="https://wg21.link/expr.call">expr.call</A>]), and</INS> function overload resolution
+(12.2 [<A href="https://wg21.link/over.match">over.match</A>]) is used to select the function to which E2
+refers. The type of E1.E2 is the type of E2 and E1.E2 refers to the
+function referred to by E2.
+<UL>
+<LI>If E2 refers to a static member function, E1.E2 is an lvalue.</LI>
 
-<P>This description has several problems. First, the
-&#8220;bit-field&#8221; semantic property only makes sense
-for glvalue expressions, so it's unclear why these rules are
-described as applying to a prvalue. Perhaps this should be
-rephrased as something like &#8220;An expression that was a
-bit-field glvalue prior to the application of the
-lvalue-to-rvalue conversion&#8221;?</P>
-
-<P>Second, suppose that <TT>char32_t</TT> is wider than
-<TT>int</TT>. Per paragraph 2, a <TT>char32_t</TT> prvalue
-promotes to <TT>unsigned long</TT> (because <TT>unsigned
-long</TT> is necessarily at least 32 bits wide). But per
-paragraph 5, a <TT>char32_t : 32</TT> bitfield does not
-promote. This seems inconsistent.</P>
-
-<P>Finally, it is not clear that the usual integral
-promotions are not applied to bit-fields. This should be
-made explicit.</P>
-
-<P><B>Proposed resolution (approved by CWG 2023-02-07):</B></P>
-
-<OL>
-
-<LI>
-<P>Insert a paragraph before 7.3.7 [<A href="https://wg21.link/conv.prom#1">conv.prom</A>] paragraph 1 as follows:</P>
-
-<BLOCKQUOTE class="ins">
-For the purposes of 7.3.7 [<A href="https://wg21.link/conv.prom">conv.prom</A>], a <I>converted bit-field</I>
-is a prvalue that is the result of an lvalue-to-rvalue conversion
-(7.3.2 [<A href="https://wg21.link/conv.lval">conv.lval</A>]) applied to a bit-field
-(11.4.10 [<A href="https://wg21.link/class.bit">class.bit</A>]).
-</BLOCKQUOTE>
+<LI>Otherwise (when E2 refers to a non-static member function), E1.E2
+is a prvalue. <DEL>The expression can be used only as the left-hand
+operand of a member function call (11.4.2 [<A href="https://wg21.link/class.mfct">class.mfct</A>]).</DEL>
+[<I>Note 5:</I> Any redundant set of parentheses surrounding the
+expression is ignored (7.5.3 [<A href="https://wg21.link/expr.prim.paren">expr.prim.paren</A>]). &#8212;<I>end
+note</I>]
+</LI>
+</UL>
 </LI>
 
-<LI>
-<P>Change in 7.3.7 [<A href="https://wg21.link/conv.prom#1">conv.prom</A>] paragraph 1 as follows:</P>
-
-<BLOCKQUOTE>
-
-A prvalue <DEL>of</DEL> <INS>that is not a converted bit-field and
-has</INS> an integer type other than bool, char8_t, char16_t,
-char32_t, or wchar_t whose integer conversion rank
-(6.8.6 [<A href="https://wg21.link/conv.rank">conv.rank</A>]) is less than the rank of int can be
-converted to a prvalue of type int if int can represent all the values
-of the source type; otherwise, the source prvalue can be converted to
-a prvalue of type unsigned int.
-
-</BLOCKQUOTE>
-</LI>
-
-<LI>
-<P>Change in 7.3.7 [<A href="https://wg21.link/conv.prom#4">conv.prom</A>] paragraph 4 as follows:</P>
-
-<BLOCKQUOTE>
-
-A prvalue of an unscoped enumeration type whose underlying type is
-fixed (9.7.1 [<A href="https://wg21.link/dcl.enum">dcl.enum</A>]) can be converted to a prvalue of
-its underlying type. Moreover, if integral promotion can be applied to
-its underlying type, a prvalue of an unscoped enumeration type whose
-underlying type is fixed can also be converted to a prvalue of the
-promoted underlying type.
-<INS>[ Note: A converted bit-field of enumeration type is treated as
-any other value of that type for promotion purposes. -- end note
-]</INS>
-
-</BLOCKQUOTE>
-</LI>
-
-<LI>
-<P>Change in 7.3.7 [<A href="https://wg21.link/conv.prom#5">conv.prom</A>] paragraph 5 as follows:</P>
-
-<BLOCKQUOTE>
-
-A <DEL>prvalue for an integral bit-field
-(11.4.10 [<A href="https://wg21.link/class.bit">class.bit</A>])</DEL> <INS>converted bit-field of
-integral type</INS> can be converted to a prvalue of type int if int
-can represent all the values of the bit-field; otherwise, it can be
-converted to unsigned int if unsigned int can represent all the values
-of the bit-field. <DEL>If the bit-field is larger yet, no integral
-promotion applies to it. If the bit-field has enumeration type, it is
-treated as any other value of that type for promotion purposes.</DEL>
-
-</BLOCKQUOTE>
-</LI>
-
-<LI>
-<P>Move 7.3.7 [<A href="https://wg21.link/conv.prom#2">conv.prom</A>] paragraph 2 after paragraph 5 and
-change as follows:</P>
-
-<BLOCKQUOTE>
-
-A prvalue of type char8_t, char16_t, char32_t, or wchar_t
-(6.8.2 [<A href="https://wg21.link/basic.fundamental">basic.fundamental</A>])
-<INS>(including a converted bit-field that was not already promoted to
-int or unsigned int according to the rules above)</INS> can be
-converted to a prvalue of the first of the following types that can
-represent all the values of its underlying type: int, unsigned int,
-long int, unsigned long int, long long int, <DEL>or</DEL> unsigned
-long long int<DEL>. If none of the types in that list can represent
-all the values of its underlying type, a prvalue of type char8_t,
-char16_t, char32_t, or wchar_t can be converted to a prvalue
-of</DEL> <INS>, or</INS> its underlying type.
-
-</BLOCKQUOTE>
-</LI>
-
-</OL>
-
-<BR><BR><HR>
-<A NAME="170"></A><H4>170.
-  
-Pointer-to-member conversions
-</H4>
-<B>Section: </B>7.3.13&#160; [<A href="https://wg21.link/conv.mem">conv.mem</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>tentatively ready
- &#160;&#160;&#160;
-
- <B>Submitter: </B>Mike Stump
- &#160;&#160;&#160;
-
- <B>Date: </B>16 Sep 1999<BR>
-
-
-
-
-
-<P>The descriptions of explicit
-(7.6.1.9 [<A href="https://wg21.link/expr.static.cast#9">expr.static.cast</A>] paragraph 9)
- and
-implicit (7.3.13 [<A href="https://wg21.link/conv.mem#2">conv.mem</A>] paragraph 2)
-
-pointer-to-member conversions differ in two significant ways:</P>
-
-<OL>
-<LI>In a <TT>static_cast</TT>, a conversion in which the class in
-the target pointer-to-member type is a base of the class in which
-the member is declared is permitted and required to work correctly,
-as long as the resulting pointer-to-member is eventually
-dereferenced with an object whose dynamic type contains the
-member.  That is, the class of the target pointer-to-member type
-is not required to contain the member referred to by the value
-being converted.  The specification of implicit pointer-to-member
-conversion is silent on this question.
-
-<P>(This situation cannot arise in an implicit pointer-to-member
-conversion where the source value is something like <TT>&amp;X::f</TT>,
-since you can only implicitly convert from pointer-to-base-member
-to pointer-to-derived-member.  However, if the source value is
-the result of an explicit "up-cast," the target type of the
-conversion might still not contain the member referred to by the
-source value.)</P>
-</LI>
-
-<LI>The target type in a <TT>static_cast</TT> is allowed to be
-more cv-qualified than the source type; in an implicit conversion,
-however, the cv-qualifications of the two types are required to
-be identical.</LI>
-</OL>
-
-<P>The first difference seems like an oversight.  It is not clear
-whether the latter difference is intentional or not.</P>
-
-<P>(See also <A HREF="cwg_closed.html#794">issue 794</A>.)</P>
-
-<P><B>CWG 2022-11-09</B></P>
-
-<P>The second concern is NAD; implicit conversions allow chaining a
-pointer-to-member conversion with a qualification conversion.</P>
-
-<P><B>Proposed resolution:</B></P>
-
-<OL>
-
-<LI>
-<P>Change in 7.3.13 [<A href="https://wg21.link/conv.mem#2">conv.mem</A>] paragraph 2 as follows:</P>
-
-<BLOCKQUOTE>
-
-A prvalue of type &#8220;pointer to member of B of type cv T&#8221;,
-where B is a class type, can be converted to a prvalue of type
-&#8220;pointer to member of D of type cv T&#8221;, where D is a
-complete class derived (11.7 [<A href="https://wg21.link/class.derived">class.derived</A>]) from B. If B is an
-inaccessible (11.8 [<A href="https://wg21.link/class.access">class.access</A>]), ambiguous
-(6.5.2 [<A href="https://wg21.link/class.member.lookup">class.member.lookup</A>]), or virtual (11.7.2 [<A href="https://wg21.link/class.mi">class.mi</A>])
-base class of D, or a base class of a virtual base class of D, a
-program that necessitates this conversion is ill-formed.
-<INS>If class D does not contain the original member and is not a base class of the class containing the original member, the behavior is undefined.  Otherwise,</INS>
-<DEL>The</DEL> <INS>the</INS> result of
-the conversion refers to the same member as the pointer to member
-before the conversion took place, but it refers to the base class
-member as if it were a member of the derived class. The result refers
-to the member in D's instance of B. Since the result has type
-&#8220;pointer to member of D of type cv T&#8221;, indirection through
-it with a D object is valid. The result is the same as if indirecting
-through the pointer to member of B with the B subobject of D.  The
-null member pointer value is converted to the null member pointer
-value of the destination type. [ Footnote: ... ]
+<LI>...</LI>
+</UL>
 
 </BLOCKQUOTE>
 
-</LI>
-
-<LI>
-<P>Change in 7.6.1.9 [<A href="https://wg21.link/expr.static.cast#13">expr.static.cast</A>] paragraph 13 as follows:</P>
-
-<BLOCKQUOTE>
-
-... If class B contains the original member, or is a base <DEL>or
-derived</DEL> class of the class containing the original member, the
-resulting pointer to member points to the original member. ...
-
-</BLOCKQUOTE>
-
-</LI>
-</OL>
-
-<BR><BR><HR>
-<A NAME="1973"></A><H4>1973.
-  
-Which <I>parameter-declaration-clause</I> in a <I>lambda-expression</I>?
-</H4>
-<B>Section: </B>7.5.5.2&#160; [<A href="https://wg21.link/expr.prim.lambda.closure">expr.prim.lambda.closure</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>tentatively ready
- &#160;&#160;&#160;
-
- <B>Submitter: </B>Dinka Ranns
- &#160;&#160;&#160;
-
- <B>Date: </B>2014-07-16<BR>
-
-
-
-
-<P>According to 7.5.5.2 [<A href="https://wg21.link/expr.prim.lambda.closure#3">expr.prim.lambda.closure</A>] paragraph 3,</P>
-
-<BLOCKQUOTE>
-
-The closure type for a <I>lambda-expression</I> has a public inline
-function call operator (for a non-generic lambda) or function call
-operator template (for a generic lambda) (12.4.4 [<A href="https://wg21.link/over.call">over.call</A>])
-whose parameters and return type are described by
-the <I>lambda-expression</I>'s <I>parameter-declaration-clause</I>
-and <I>trailing-return-type</I> respectively, and
-whose <I>template-parameter-list</I> consists of the
-specified <I>template-parameter-list</I>, if any.
-
-</BLOCKQUOTE>
-
-<P>This is insufficiently precise because the <I>trailing-return-type</I>
-might itself contain a <I>parameter-declaration-clause</I>.</P>
-
-<P><U>Suggested resolution [SUPERSEDED]:</U></P>
-
-<P>Change in 7.5.5.1 [<A href="https://wg21.link/expr.prim.lambda.general#5">expr.prim.lambda.general</A>] paragraph 5 as follows:</P>
-
-<BLOCKQUOTE>
-
-If
-a <I>lambda-declarator</I> does not <DEL>include a</DEL>
-<INS>start with a parenthesized</INS>
-<I>parameter-declaration-clause</I>, it is as if <TT>()</TT> were
-inserted at the start of the <I>lambda-declarator</I>.
-<INS>A <I>lambda-expression</I>'s <I>parameter-declaration-clause</I>
-is the (possibly empty) <I>parameter-declaration-clause</I> of
-the <I>lambda-expression</I>'s <I>lambda-declarator</I>.</INS>
-If the <I>lambda-declarator</I> does not include
-a <I>trailing-return-type</I>, the lambda return type is auto, which
-is deduced from return statements as described in
-9.2.9.6 [<A href="https://wg21.link/dcl.spec.auto">dcl.spec.auto</A>].
-
-</BLOCKQUOTE>
-
-<P><B>Proposed resolution (approved by CWG 2023-02-06):</B></P>
-
-<OL>
-
-<LI>
-<P>Change in 7.5.5.2 [<A href="https://wg21.link/expr.prim.lambda.closure#3">expr.prim.lambda.closure</A>] paragraph 3 as follows:</P>
-
-<BLOCKQUOTE>
-
-The closure type for a <I>lambda-expression</I> has a public inline
-function call operator (for a non-generic lambda) or function call
-operator template (for a generic lambda) (12.4.4 [<A href="https://wg21.link/over.call">over.call</A>])
-whose parameters and return type are <DEL>described by</DEL> <INS>those of</INS>
-the <I>lambda-expression</I>'s <I>parameter-declaration-clause</I>
-and <I>trailing-return-type</I> respectively, and
-whose <I>template-parameter-list</I> consists of the
-specified <I>template-parameter-list</I>, if any.
-
-</BLOCKQUOTE>
-</LI>
-
-<LI>
-<P>Change in 7.5.5.1 [<A href="https://wg21.link/expr.prim.lambda.general#5">expr.prim.lambda.general</A>] paragraph 5 as follows:</P>
-
-<BLOCKQUOTE>
-
-<DEL>If a <I>lambda-declarator</I> does not include
-a <I>parameter-declaration-clause</I>, it is as if <TT>()</TT> were
-inserted at the start of the <I>lambda-declarator</I>.</DEL>
-<INS>A <I>lambda-expression</I>'s <I>parameter-declaration-clause</I>
-is the <I>parameter-declaration-clause</I> of
-the <I>lambda-expression</I>'s <I>lambda-declarator</I>, if any, or empty otherwise.</INS>
-If the <I>lambda-declarator</I> does not include
-a <I>trailing-return-type</I>, the lambda return type is auto, which
-is deduced from return statements as described in
-9.2.9.6 [<A href="https://wg21.link/dcl.spec.auto">dcl.spec.auto</A>].
-
-</BLOCKQUOTE>
-</LI>
-
-</OL>
+<P>This also addresses <A HREF="cwg_active.html#1038">issue 1038</A>.</P>
 
 <BR><BR><HR>
 <A NAME="2476"></A><H4>2476.
@@ -10980,7 +11420,7 @@ declarator shall declare a function.
 <P>The requirement to declare a function was introduced by
 the resolution of <A HREF="cwg_defects.html#1892">issue 1892</A>.</P>
 
-<P><B>Proposed resolution (April, 2021):</B></P>
+<P><B>Proposed resolution (April, 2021) [SUPERSEDED]:</B></P>
 
 <P>Change 9.2.9.6.1 [<A href="https://wg21.link/dcl.spec.auto.general#3">dcl.spec.auto.general</A>] paragraph 3 as follows:</P>
 
@@ -11265,264 +11705,372 @@ opt returning <I>conversion-type-id</I>&#8221;.</DEL>
 </OL>
 
 <BR><BR><HR>
-<A NAME="2663"></A><H4>2663.
+<A NAME="1038"></A><H4>1038.
   
-Example for member redeclarations with <I>using-declaration</I>s
+Overload resolution of <TT>&amp;x.static_func</TT>
 </H4>
-<B>Section: </B>9.9&#160; [<A href="https://wg21.link/namespace.udecl">namespace.udecl</A>]
+<B>Section: </B>12.3&#160; [<A href="https://wg21.link/over.over">over.over</A>]
  &#160;&#160;&#160;
 
  <B>Status: </B>tentatively ready
  &#160;&#160;&#160;
 
- <B>Submitter: </B>Shafik Yaghmour
+ <B>Submitter: </B>Mike Miller
  &#160;&#160;&#160;
 
- <B>Date: </B>2022-11-28<BR>
+ <B>Date: </B>2010-03-02<BR>
 
 
-<P>
-<A HREF="cwg_defects.html#36">Issue 36</A> was resolved by P1787R6, but
-no example was added.</P>
-
-<P><B>Proposed resolution:</B></P>
-
-<OL>
-
-<LI>
-<P>Add an example to 9.9 [<A href="https://wg21.link/namespace.udecl#8">namespace.udecl</A>] paragraph 8 as follows:</P>
-
-<BLOCKQUOTE class="ins">
-
-[ Example:
+<P>The Standard is not clear whether the following example is
+well-formed or not:</P>
 
 <PRE>
-struct C {
-  int i;
-};
-
-struct D1 : C { };
-struct D2 : C { };
-
-struct D3 : D1, D2 {
-  using D1::i;   //<SPAN CLASS="cmnt"> OK; equivalent to </SPAN>using C::i
-  using D1::i;   //<SPAN CLASS="cmnt"> error: duplicate</SPAN>
-  using D2::i;   //<SPAN CLASS="cmnt"> error: duplicate, also names </SPAN>C::i
-};
+    struct S {
+        static void f(int);
+        static void f(double);
+    };
+    S s;
+    void (*pf)(int) = &amp;s.f;
 </PRE>
 
--- end example ]
-</BLOCKQUOTE>
-</LI>
+<P>According to 7.6.1.5 [<A href="https://wg21.link/expr.ref#4.3">expr.ref</A>] bullet 4.3,
+you do function overload resolution to determine whether
+<TT>x.f</TT> is a static or non-static member function.
+7.6.2.2 [<A href="https://wg21.link/expr.unary.op#6">expr.unary.op</A>] paragraph 6 says that you can only
+take the address of an overloaded function in a context that
+determines the overload to be chosen, and the initialization of a
+function pointer is such a context (12.3 [<A href="https://wg21.link/over.over#1">over.over</A>] paragraph 1)
+.  The problem is that 12.3 [<A href="https://wg21.link/over.over">over.over</A>] is
+phrased in terms of &#8220;an overloaded function name,&#8221;
+and this is a member access expression, not a name.</P>
 
-<LI>
-<P>Change the example in 9.9 [<A href="https://wg21.link/namespace.udecl#10">namespace.udecl</A>] paragraph 10 as follows:</P>
+<P>There is variability among implementations as to whether this
+example is accepted; some accept it as written, some only if the
+<TT>&amp;</TT> is omitted, and some reject it in both forms.</P>
 
-<BLOCKQUOTE>
+<P><B>Additional note (October, 2010):</B></P>
+
+<P>A related question concerns an example like</P>
 
 <PRE>
-  using B::x;
-  using A::x;              //<SPAN CLASS="cmnt"> OK, hides </SPAN>struct B::x
-  <INS>using A::x;              //<SPAN CLASS="cmnt"> OK, does not conflict with previous </SPAN>using A::x</INS>
-  x = 99;                  //<SPAN CLASS="cmnt"> assigns to </SPAN>A::x
-  struct x x1;             // x1<SPAN CLASS="cmnt"> has class type </SPAN>B::x
-}
+    struct S {
+        static void g(int*) {}
+        static void g(long) {}
+    } s;
+
+    void foo() {
+        (&amp;s.g)(0L);
+    }
 </PRE>
 
-</BLOCKQUOTE>
-</LI>
-</OL>
+<P>Because the address occurs in a call context and not in one of
+the contexts mentioned in 12.3 [<A href="https://wg21.link/over.over#1">over.over</A>] paragraph 1,
+the call expression in <TT>foo</TT> is presumably ill-formed.
+Contrast this with the similar example</P>
 
-<P><B>CWG 2023-01-06</B></P>
+<PRE>
+    void g1(int*) {}
+    void g1(long) {}
 
-<P>There is implementation divergence in handling this example.</P>
+    void foo1() {
+        (&amp;g1)(0L);
+    }
+</PRE>
 
-<P><B>CWG 2023-02-07</B></P>
+<P>This call presumably is well-formed because 12.2.2.2 [<A href="https://wg21.link/over.match.call">over.match.call</A>] applies to &#8220;the address of a set of overloaded
+functions.&#8221; (This was clearer in the wording prior to the
+resolution of <A HREF="cwg_defects.html#704">issue 704</A>: &#8220;...in
+this context using <TT>&amp;F</TT> behaves the same as using the
+name <TT>F</TT> by itself.&#8221;) It's not clear that there's any
+reason to treat these two cases differently.</P>
 
-<P>P1787R6 clarified that the example added to 9.9 [<A href="https://wg21.link/namespace.udecl#10">namespace.udecl</A>] paragraph 10 is accepted, even in the non-function case.</P>
+<P>This question also bears on the original question of this issue,
+since the original wording of 12.2.2.2 [<A href="https://wg21.link/over.match.call">over.match.call</A>] also
+described the case of an ordinary member function call like
+<TT>s.g(0L)</TT> as involving the &#8220;name&#8221; of the function,
+even though the <I>postfix-expression</I> is a member access
+expression and not a &#8220;name.&#8221; Perhaps the reference to
+&#8220;name&#8221; in 12.3 [<A href="https://wg21.link/over.over">over.over</A>] should be similarly
+understood as applying to member access expressions?</P>
+
+
+
+<P><B>Additional notes (February, 2023)</B></P>
+
+<P>This appears to be resolved, in part by P1787R6 (accepted November, 2020).</P>
+
+<P><B>CWG 2023-06-12</B></P>
+
+<P>The clarifications in P1787R6 did not address the core of this
+issue, so it is kept open.  In order to avoid confusion, a wording
+change to clarify the treatment (regardless of direction) seems
+advisable. CWG felt that the first and second examples should be
+treated consistently, and expressed a mild preferences towards making
+those ill-formed.  It was noted that the reference
+to <I>id-expression</I> in 12.3 [<A href="https://wg21.link/over.over">over.over</A>] can be understood
+to refer to the <I>id-expression</I> of a class member access.</P>
+
+<P>This issue is resolved by <A HREF="cwg_active.html#2725">issue 2725</A>.</P>
 
 <BR><BR><HR>
-<A NAME="1353"></A><H4>1353.
+<A NAME="2600"></A><H4>2600.
   
-Array and variant members and deleted special member functions
+Type dependency of placeholder types
 </H4>
-<B>Section: </B>11.4.5&#160; [<A href="https://wg21.link/class.ctor">class.ctor</A>]
+<B>Section: </B>13.8.3.3&#160; [<A href="https://wg21.link/temp.dep.expr">temp.dep.expr</A>]
  &#160;&#160;&#160;
 
  <B>Status: </B>tentatively ready
  &#160;&#160;&#160;
 
- <B>Submitter: </B>Sean Hunt
+ <B>Submitter: </B>Hubert Tong
  &#160;&#160;&#160;
 
- <B>Date: </B>2011-08-16<BR>
+ <B>Date: </B>2022-06-18<BR>
 
 
+<P>Subclause 13.8.3.2 [<A href="https://wg21.link/temp.dep.type#7">temp.dep.type</A>] paragraph 7 has a list of
+types considered to be dependent. This list covers placeholder types
+only insofar as it has an entry
+about <TT>decltype(expression)</TT>. Subclause
+13.8.3.3 [<A href="https://wg21.link/temp.dep.expr#3">temp.dep.expr</A>] paragraph 3 has a list of expression forms
+not considered dependent unless specific types named by the
+expressions are dependent. This list includes forms where placeholder
+types are allowed. For example, the wording does not say that
+the <I>new-expression</I> at #1 (below) is dependent, but it ought to
+be:</P>
 
+<PRE>
+  template &lt;typename T&gt; struct A { A(bool, T); };
 
-<P>The specification of when a defaulted special member function is to
-be defined as deleted sometimes overlooks variant and array members.</P>
+  void g(...);
 
-<P><B>Proposed resolution (approved by CWG 2023-02-07):</B></P>
+  template &lt;typename T&gt;
+  auto f(T t) { return g(new A(t, 0)); }  // <SPAN CLASS="cmnt">#1</SPAN>
+
+  int g(A&lt;int&gt; *);
+  int h() { return f&lt;void *&gt;(nullptr); }
+</PRE>
+
+<P>Some implementation even treats an obviously non-dependent case as
+dependent:</P>
+
+<PRE>
+  template &lt;typename T, typename U&gt; struct A { A(T, U); };
+
+  void g(...); //<SPAN CLASS="cmnt"> #1</SPAN>
+
+  template &lt;typename T&gt;
+  auto f() { return g(new A(0, 0)); } //<SPAN CLASS="cmnt"> #1 or #2?</SPAN>
+
+  int g(A&lt;int, int&gt; *); //<SPAN CLASS="cmnt"> #2</SPAN>
+  void h() { return f&lt;void *&gt;(); }
+</PRE>
+
+<P>A similar example that is non-dependent:</P>
+
+<PRE>
+  template &lt;typename T, typename U = T&gt; struct A { A(T, U); };
+
+  void g(...);
+
+  template &lt;typename T&gt;
+  auto f() { return g(new A(0, 0)); }
+
+  int g(A&lt;int&gt; *);
+  void h() { return f&lt;void *&gt;(); }
+</PRE>
+
+<P>And another non-dependent one:</P>
+
+<PRE>
+  template &lt;typename T, typename U = T&gt; struct A { A(T); };
+
+  void g(...);
+
+  template &lt;typename T&gt;
+  auto f() { return g(new A(0)); }
+
+  int g(A&lt;int&gt; *);
+  void h() { return f&lt;void *&gt;(); }
+</PRE>
+
+<P>And here is an example that is dependent:</P>
+
+<PRE>
+  template&lt;class T&gt;
+  struct S {
+   template&lt;class U = T&gt; struct A { A(int); };
+
+   auto f() { return new A(0); } //<SPAN CLASS="cmnt"> dependent return type</SPAN>
+  };
+</PRE>
+
+<P><B>Proposed resolution (November, 2022) [SUPERSEDED]:</B></P>
 
 <OL>
 
 <LI>
-<P>Change in 11.4.5.2 [<A href="https://wg21.link/class.default.ctor#2">class.default.ctor</A>] paragraph 2 as follows:</P>
+<P>Change in 7.6.2.8 [<A href="https://wg21.link/expr.new#2">expr.new</A>] paragraph 2 as follows:</P>
 
 <BLOCKQUOTE>
 
-A defaulted default constructor for class X is defined as deleted if:
-<UL>
-<LI>
-<DEL>X is a union that has a variant member with a non-trivial
-default constructor and no variant member of X has a default member
-initializer,</DEL>
-</LI>
-<LI>
-<DEL>X is a non-union class that has a variant member M
-with a non-trivial default constructor and no variant member of the
-anonymous union containing M has a default member initializer,</DEL>
-</LI>
-<LI>
-any non-static data member with no default member initializer
-(11.4 [<A href="https://wg21.link/class.mem">class.mem</A>]) is of reference type,
-</LI>
-<LI>
-any non-variant non-static data member of const-qualified type
-(or <INS>possibly multi-dimensional</INS> array thereof)
-with no <I>brace-or-equal-initializer</I> is not
-const-default-constructible (9.4 [<A href="https://wg21.link/dcl.init">dcl.init</A>]),
-</LI>
-<LI>
-X is a union and all of its variant members are of const-qualified type (or
-<INS>possibly multi-dimensional</INS> array thereof),
-</LI>
-<LI>
-X is a non-union class and all members of any
-anonymous union member are of const-qualified type (or <INS>possibly multi-dimensional</INS> array thereof),
-</LI>
-<LI>
-any potentially constructed subobject, except for a non-static data
-member with a <I>brace-or-equal-initializer</I> <INS>or a variant
-member of a union where another non-static data member has
-a <I>brace-or-equal-initializer</I></INS>, has class type M
-(or <INS>possibly multi-dimensional</INS> array thereof)
-and <DEL>either M has no default constructor or</DEL> overload
-resolution (12.2 [<A href="https://wg21.link/over.match">over.match</A>]) as applied to find M's
-corresponding constructor <DEL>results in an ambiguity or in a
-function that is deleted or inaccessible from the defaulted default
-constructor</DEL> <INS>either does not result in a usable candidate
-(12.2.1 [<A href="https://wg21.link/over.match.general">over.match.general</A>]) or, in the case of a variant member, selects a
-non-trivial function</INS>, or
-</LI>
-<LI>
-any potentially constructed subobject has <DEL>a type with</DEL>
-<INS>class type M (or possibly multi-dimensional array thereof) and M has</INS>
-a destructor that is deleted or inaccessible from the defaulted default
-constructor.
-</LI>
-</UL>
+If a placeholder type (9.2.9.6 [<A href="https://wg21.link/dcl.spec.auto">dcl.spec.auto</A>])
+<INS>or a placeholder for a deduced class type
+(9.2.9.7 [<A href="https://wg21.link/dcl.type.class.deduct">dcl.type.class.deduct</A>])</INS> appears in
+the <I>type-specifier-seq</I> of a <I>new-type-id</I>
+or <I>type-id</I> of a <I>new-expression</I>, the allocated type is
+deduced as follows: Let init be the <I>new-initializer</I> , if any,
+and T be the <I>new-type-id</I> or <I>type-id</I> of
+the <I>new-expression</I>, then the allocated type is the type deduced
+for the variable x in the invented declaration
+(9.2.9.6 [<A href="https://wg21.link/dcl.spec.auto">dcl.spec.auto</A>]):
+<PRE>
+T x <I>init</I> ;
+</PRE>
 
 </BLOCKQUOTE>
+
 </LI>
 
 <LI>
-<P>Change in 11.4.5.3 [<A href="https://wg21.link/class.copy.ctor#10">class.copy.ctor</A>] paragraph 10 as follows:</P>
+<P>Insert new paragraphs before
+13.8.3.2 [<A href="https://wg21.link/temp.dep.type#7">temp.dep.type</A>] paragraph 7 and change the latter as follows:</P>
 
 <BLOCKQUOTE>
 
-... A defaulted copy/move constructor for a class X is
-defined as deleted (9.5.3 [<A href="https://wg21.link/dcl.fct.def.delete">dcl.fct.def.delete</A>]) if X has:
+<P>
+<INS>An initializer is dependent if any constituent expression
+(6.9.1 [<A href="https://wg21.link/intro.execution">intro.execution</A>]) of the initializer is type-dependent.  A
+placeholder type (9.2.9.6.1 [<A href="https://wg21.link/dcl.spec.auto.general">dcl.spec.auto.general</A>]) is dependent if it
+designates a type deduced from a dependent initializer.</INS>
+</P>
+
+<P>
+<INS>A placeholder for a deduced class type
+(9.2.9.7 [<A href="https://wg21.link/dcl.type.class.deduct">dcl.type.class.deduct</A>]) is dependent if</INS>
+
 <UL>
-<LI>
-a potentially constructed subobject of type M (or <INS>possibly multi-dimensional</INS> array thereof)
-<DEL>that cannot be copied/moved because</DEL> <INS>for which</INS>
-overload resolution (12.2 [<A href="https://wg21.link/over.match">over.match</A>]), as applied to find
-M's corresponding constructor, <DEL>results in an ambiguity or a
-function that is deleted or inaccessible from the defaulted
-constructor</DEL> <INS>either does not result in a usable candidate
-(12.2.1 [<A href="https://wg21.link/over.match.general">over.match.general</A>]) or, in the case of a variant member, selects a
-non-trivial function</INS>,
-</LI>
-<LI>
-<DEL>a variant member whose corresponding constructor as selected by
-overload resolution is non-trivial,</DEL>
-</LI>
-<LI>
-any potentially constructed subobject of <DEL>a type with</DEL>
-<INS>class type M (or possibly multi-dimensional array thereof) where M has</INS> a
-destructor that is deleted or inaccessible from the defaulted
-constructor, or,
-</LI>
-<LI>
-for the copy constructor, a non-static data member of rvalue reference type.
-</LI>
+<LI><INS>it has a dependent initializer or</INS></LI>
+
+<LI><INS>any default <I>template-argument</I> of the primary class
+template named by the placeholder is dependent when considered in the
+scope enclosing the primary class template.</INS></LI>
+</UL>
+</P>
+
+<P>A type is dependent if it is</P>
+
+<UL>
+<LI>...</LI>
+
+<LI>a function type whose exception specification is value-dependent,</LI>
+
+<LI><INS>denoted by a dependent placeholder type,</INS></LI>
+
+<LI><INS>denoted by a dependent placeholder for a deduced class
+type,</INS></LI>
+
+<LI>...</LI>
+
 </UL>
 
 </BLOCKQUOTE>
+
 </LI>
 
+</OL>
+
+<P><B>Proposed resolution (approved by CWG 2023-06-12):</B></P>
+
+<OL>
+
 <LI>
-<P>Change in 11.4.6 [<A href="https://wg21.link/class.copy.assign#7">class.copy.assign</A>] paragraph 7 as follows:</P>
+<P>Change in 7.6.2.8 [<A href="https://wg21.link/expr.new#2">expr.new</A>] paragraph 2 as follows:</P>
 
 <BLOCKQUOTE>
 
-A defaulted copy/move assignment operator for class X is defined as
-deleted if X has:
-<UL>
-<LI>
-<DEL>a variant member with a non-trivial
-corresponding assignment operator and X is a union-like class, or</DEL>
-</LI>
-<LI>
-a non-static data member of const non-class type (or
-<INS>possibly multi-dimensional</INS> array thereof), or
-</LI>
-<LI>
-a non-static data member of reference type, or
-</LI>
-<LI>
-a direct non-static data member of class type M (or <INS>possibly
-multi-dimensional</INS> array thereof) or a direct base class M that
-cannot be copied/moved because overload resolution
-(12.2 [<A href="https://wg21.link/over.match">over.match</A>]), as applied to find M's corresponding
-assignment operator, <DEL>results in an ambiguity or a function that
-is deleted or inaccessible from the defaulted assignment
-operator</DEL> <INS>either does not result in a usable candidate
-(12.2.1 [<A href="https://wg21.link/over.match.general">over.match.general</A>]) or, in the case of a variant member,
-selects a non-trivial function</INS>.
-</LI>
-</UL>
+If a placeholder type (9.2.9.6 [<A href="https://wg21.link/dcl.spec.auto">dcl.spec.auto</A>])
+<INS>or a placeholder for a deduced class type
+(9.2.9.7 [<A href="https://wg21.link/dcl.type.class.deduct">dcl.type.class.deduct</A>])</INS> appears in
+the <I>type-specifier-seq</I> of a <I>new-type-id</I>
+or <I>type-id</I> of a <I>new-expression</I>, the allocated type is
+deduced as follows: Let init be the <I>new-initializer</I> , if any,
+and T be the <I>new-type-id</I> or <I>type-id</I> of
+the <I>new-expression</I>, then the allocated type is the type deduced
+for the variable x in the invented declaration
+(9.2.9.6 [<A href="https://wg21.link/dcl.spec.auto">dcl.spec.auto</A>]):
+<PRE>
+T x <I>init</I> ;
+</PRE>
 
 </BLOCKQUOTE>
+
 </LI>
 
 <LI>
-<P>Change in 11.4.7 [<A href="https://wg21.link/class.dtor#7">class.dtor</A>] paragraph 7 as follows:</P>
+<P>Insert new paragraphs before
+13.8.3.2 [<A href="https://wg21.link/temp.dep.type#7">temp.dep.type</A>] paragraph 7 and change the latter as follows:</P>
 
 <BLOCKQUOTE>
 
-A defaulted destructor for a class X is defined as deleted if:
+<P>
+<INS>An initializer is dependent if any constituent expression
+(6.9.1 [<A href="https://wg21.link/intro.execution">intro.execution</A>]) of the initializer is type-dependent.  A
+placeholder type (9.2.9.6.1 [<A href="https://wg21.link/dcl.spec.auto.general">dcl.spec.auto.general</A>]) is dependent if it
+designates a type deduced from a dependent initializer.</INS>
+</P>
+
+<P><INS>A placeholder for a deduced class type
+(9.2.9.7 [<A href="https://wg21.link/dcl.type.class.deduct">dcl.type.class.deduct</A>]) is dependent if</INS></P>
+
 <UL>
+<LI><INS>it has a dependent initializer, or</INS></LI>
+
 <LI>
-<DEL>X is a union-like class that has a variant member with a non-trivial
-destructor,</DEL>
-</LI>
-<LI>
-any potentially constructed subobject has class
-type M (or <INS>possibly multi-dimensional</INS> array thereof) and M has a <DEL>deleted</DEL> destructor <INS>that is deleted</INS> or <DEL>a
-destructor that</DEL> is inaccessible from the defaulted destructor
-<INS>or, in the case of a variant member, is non-trivial</INS>,
-</LI>
-<LI>
-or, for a virtual destructor, lookup of the non-array deallocation
-function results in an ambiguity or in a function that is deleted or
-inaccessible from the defaulted destructor.
+<INS>it refers to an alias template that is a member of the
+current instantiation and whose <I>defining-type-id</I> is dependent after
+class template argument deduction (12.2.2.9 [<A href="https://wg21.link/over.match.class.deduct">over.match.class.deduct</A>]) and
+substitution (13.7.8 [<A href="https://wg21.link/temp.alias">temp.alias</A>]).</INS>
 </LI>
 </UL>
 
+<P class="ins">[ Example:</P>
+
+<PRE class="ins">
+  template&lt;class T, class V&gt;
+  struct S { S(T); };
+
+  template&lt;class U&gt;
+  struct A {
+    template&lt;class T&gt; using X = S&lt;T, U&gt;;
+    template&lt;class T&gt; using Y = S&lt;T, int&gt;;
+    void f() {
+      new X(1);    // dependent
+      new Y(1);    // not dependent
+    }
+  };
+</PRE>
+<P class="ins">-- end example ]</P>
+
+<P>A type is dependent if it is</P>
+
+<UL>
+<LI>...</LI>
+
+<LI>a function type whose exception specification is value-dependent,</LI>
+
+<LI><INS>denoted by a dependent placeholder type,</INS></LI>
+
+<LI><INS>denoted by a dependent placeholder for a deduced class
+type,</INS></LI>
+
+<LI>...</LI>
+
+</UL>
+
 </BLOCKQUOTE>
+
 </LI>
 
 </OL>
@@ -11865,6 +12413,44 @@ be examined throughout 5.13 [<A href="https://wg21.link/lex.literal">lex.literal
 
 <P>This issue will be handled editorially. It is being placed in
 "review" status until that point.</P>
+
+<BR><BR><HR>
+<A NAME="1897"></A><H4>1897.
+  
+ODR vs alternative tokens
+</H4>
+<B>Section: </B>6.3&#160; [<A href="https://wg21.link/basic.def.odr">basic.def.odr</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>review
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Hubert Tong
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2014-03-21<BR>
+
+
+
+
+<P>According to 5.5 [<A href="https://wg21.link/lex.digraph#2">lex.digraph</A>] paragraph 2,</P>
+
+<BLOCKQUOTE>
+
+In all respects of the language, each alternative token behaves the same,
+respectively, as its primary token, except for its spelling.
+
+</BLOCKQUOTE>
+
+<P>However, the primary and alternative tokens are different tokens,
+which runs afoul of the ODR requirement in 6.3 [<A href="https://wg21.link/basic.def.odr#6">basic.def.odr</A>] paragraph 6
+that the definitions consist of the &#8220;same
+sequence of tokens.&#8221;  This wording should be amended to allow
+for use of primary and alternative tokens.</P>
+
+<P><B>CWG 2023-05-12</B></P>
+
+<P>Addressed by <A HREF="cwg_active.html#2726">issue 2726</A>.</P>
 
 <BR><BR><HR>
 <A NAME="2514"></A><H4>2514.
@@ -12780,545 +13366,6 @@ not defined.</LI>
 </UL>
 
 </BLOCKQUOTE>
-
-<BR><BR><HR>
-<A NAME="2492"></A><H4>2492.
-  
-Comparing user-defined conversion sequences in list-initialization
-</H4>
-<B>Section: </B>12.2.4.2.6&#160; [<A href="https://wg21.link/over.ics.list">over.ics.list</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>review
- &#160;&#160;&#160;
-
- <B>Submitter: </B>Jim X
- &#160;&#160;&#160;
-
- <B>Date: </B>2021-01-11<BR>
-
-
-<P>Consider the following example:</P>
-
-<PRE>
-  #include &lt;initializer_list&gt;
-  struct A{
-    operator short(){
-      return 0;
-    }
-  };
-  struct B{
-    operator bool(){
-      return 0;
-    }
-  };
-  void fun(std::initializer_list&lt;int&gt;){}
-  void fun(std::initializer_list&lt;bool&gt;){}
-  int main(){
-    fun({A{},B{}});
-  }
-</PRE>
-
-<P>According to 12.2.4.2.6 [<A href="https://wg21.link/over.ics.list#6">over.ics.list</A>] paragraph 6,</P>
-
-<BLOCKQUOTE>
-
-Otherwise, if the parameter type is
-<TT>std::initializer_list&lt;X&gt;</TT> and all the elements
-of the initializer list can be implicitly converted
-to <TT>X</TT>, the implicit conversion sequence is the worst
-conversion necessary to convert an element of the list
-to <TT>X</TT>, or if the initializer list has no elements,
-the identity conversion. This conversion can be a
-user-defined conversion even in the context of a call to an
-initializer-list constructor.
-
-</BLOCKQUOTE>
-
-<P>In this example, all of the conversions from list elements
-to the <TT>initializer_list</TT> template argument type are
-user-defined conversions. According to 12.2.4.3 [<A href="https://wg21.link/over.ics.rank">over.ics.rank</A>]
-bullet 3.3,</P>
-
-<BLOCKQUOTE>
-
-User-defined conversion sequence <TT>U1</TT> is a better
-conversion sequence than another user-defined conversion
-sequence <TT>U2</TT> if they contain the same user-defined
-conversion function or constructor or they initialize the
-same class in an aggregate initialization and in either case
-the second standard conversion sequence of <TT>U1</TT> is
-better than the second standard conversion sequence
-of <TT>U2</TT>.
-
-</BLOCKQUOTE>
-
-<P>Since in both cases the two elements of the
-initializer-list argument involve different user-defined
-conversion functions, the two user-defined conversion
-sequences for the elements cannot be distinguished, so the
-determination of the &#8220;worst conversion&#8221; for the
-two candidates does not consider the second standard
-conversion sequence. This presumably makes it impossible to
-distinguish the conversion sequences for the two candidates in
-the function call, making the call ambiguous.</P>
-
-<P>However, there is implementation divergence on
-the handling of this example, with g++ reporting an
-ambiguity and clang, MSVC, and EDG calling the <TT>int</TT>
-overload, presumably on the basis
-that <TT>short-&gt;int</TT> is a promotion
-while <TT>short-&gt;bool</TT> is a conversion.</P>
-
-<P><B>Notes from the August, 2021 teleconference:</B></P>
-
-<P>CWG agreed with the reasoning expressed in the analysis,
-that conversions involving different user-defined conversion
-functions cannot be compared, and thus the call is
-ambiguous. The use of the phrase &#8220;worst
-conversion&#8221; is insufficiently clear, however, and
-requires definition.</P>
-
-<P><B>Proposed resolution, August, 2021:</B></P>
-
-<P>Change 12.2.4.2.6 [<A href="https://wg21.link/over.ics.list">over.ics.list</A>] paragraphs 5 and 6 as
-follows:</P>
-
-<BLOCKQUOTE>
-
-<P>Otherwise, if the parameter type is
-<TT>std::initializer_list&lt;X&gt;</TT> and <INS>either the
-initializer list is empty or</INS> all the elements of the
-initializer list can be implicitly converted to <TT>X</TT>,
-the implicit conversion sequence is the <DEL>worst conversion</DEL>
-<INS><I>worst conversion</I></INS> necessary to convert an
-element of the list to <TT>X</TT>, <DEL>or
-if</DEL> <INS>defined as follows. If</INS> the initializer
-list has no elements, the
-<INS>worst conversion is the</INS> identity conversion.
-<INS>Otherwise, the worst conversion is an implicit
-conversion sequence for a list element that is not better
-than any other implicit conversion sequence required by list
-elements, compared as described in
-12.2.4.3 [<A href="https://wg21.link/over.ics.rank">over.ics.rank</A>]. If more than one implicit
-conversion sequence satisfies this criterion, then if they
-are user-defined conversion sequences that do not all
-contain the same user-defined conversion function or
-constructor, the worst conversion sequence is the ambiguous
-conversion sequence (12.2.4.2.1 [<A href="https://wg21.link/over.best.ics.general">over.best.ics.general</A>]);
-otherwise, it is unspecified which of those conversion
-sequences is chosen as worst.</INS> This conversion can be a
-user-defined conversion even in the context of a call to an
-initializer-list constructor.  [<I>Example 2</I>:</P>
-
-<PRE>
-  void f(std::initializer_list&lt;int&gt;);
-  f( {} );        //<SPAN CLASS="cmnt"> OK: </SPAN>f(initializer_list&lt;int&gt;)<SPAN CLASS="cmnt"> identity conversion</SPAN>
-  f( {1,2,3} );   //<SPAN CLASS="cmnt"> OK: </SPAN>f(initializer_list&lt;int&gt;)<SPAN CLASS="cmnt"> identity conversion</SPAN>
-  f( {'a','b'} ); //<SPAN CLASS="cmnt"> OK: </SPAN>f(initializer_list&lt;int&gt;)<SPAN CLASS="cmnt"> integral promotion</SPAN>
-  f( {1.0} );     //<SPAN CLASS="cmnt"> error: narrowing</SPAN>
-
-  struct A {
-    A(std::initializer_list&lt;double&gt;);            //<SPAN CLASS="cmnt"> #1</SPAN>
-    A(std::initializer_list&lt;complex&lt;double&gt;&gt;);   //<SPAN CLASS="cmnt"> #2</SPAN>
-    A(std::initializer_list&lt;std::string&gt;);       //<SPAN CLASS="cmnt"> #3</SPAN>
-  };
-  A a{ 1.0,2.0 };        //<SPAN CLASS="cmnt"> OK, uses #1</SPAN>
-
-  void g(A);
-  g({ "foo", "bar" });   //<SPAN CLASS="cmnt"> OK, uses #3</SPAN>
-
-  typedef int IA[3];
-  void h(const IA&amp;);
-  h({ 1, 2, 3 });        //<SPAN CLASS="cmnt"> OK: identity conversion</SPAN>
-
-<INS>  void x(std::initializer_list&lt;int&gt;);
-  void x(std::initializer_list&lt;bool&gt;);
-  struct S1 { operator short(); };
-  struct S2 { operator bool(); };
-  void y() {
-    x({S1{}, S2{}});   //<SPAN CLASS="cmnt"> error: ambiguous. The ICSes for each list element are indistinguishable because</SPAN>
-                       //<SPAN CLASS="cmnt"> they do not contain the same conversion function, so the worst conversion is</SPAN>
-                       //<SPAN CLASS="cmnt"> the ambiguous conversion sequence.</SPAN>
-  }</INS>
-</PRE>
-
-<P>&#8212;<I>end example</I>]</P>
-
-<P>Otherwise, if the parameter type is &#8220;array of <TT>N
-X</TT> &#8221; or &#8220;array of unknown bound
-of <TT>X</TT>&#8221;, if there exists an implicit conversion
-sequence from each element of the initializer list (and from
-<TT>{}</TT> in the former case if <TT>N</TT> exceeds the
-number of elements in the initializer list) to <TT>X</TT>,
-the implicit conversion sequence is the worst <DEL>such
-implicit conversion sequence</DEL> <INS>conversion necessary
-to convert an element of the list (including, if there are
-too few list elements, <TT>{}</TT>) to
-<TT>X</TT>, determined as described above for a
-<TT>std::initializer_list&lt;X&gt;</TT> with a non-empty
-initializer list</INS>.</P>
-
-</BLOCKQUOTE>
-
-<P>
-<B>Editorial issue required:</B> define "worst conversion sequence"</P>
-
-<BR><BR><HR>
-<A NAME="1038"></A><H4>1038.
-  
-Overload resolution of <TT>&amp;x.static_func</TT>
-</H4>
-<B>Section: </B>12.3&#160; [<A href="https://wg21.link/over.over">over.over</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>review
- &#160;&#160;&#160;
-
- <B>Submitter: </B>Mike Miller
- &#160;&#160;&#160;
-
- <B>Date: </B>2010-03-02<BR>
-
-
-<P>The Standard is not clear whether the following example is
-well-formed or not:</P>
-
-<PRE>
-    struct S {
-        static void f(int);
-        static void f(double);
-    };
-    S s;
-    void (*pf)(int) = &amp;s.f;
-</PRE>
-
-<P>According to 7.6.1.5 [<A href="https://wg21.link/expr.ref#4.3">expr.ref</A>] bullet 4.3,
-you do function overload resolution to determine whether
-<TT>x.f</TT> is a static or non-static member function.
-7.6.2.2 [<A href="https://wg21.link/expr.unary.op#6">expr.unary.op</A>] paragraph 6 says that you can only
-take the address of an overloaded function in a context that
-determines the overload to be chosen, and the initialization of a
-function pointer is such a context (12.3 [<A href="https://wg21.link/over.over#1">over.over</A>] paragraph 1)
-.  The problem is that 12.3 [<A href="https://wg21.link/over.over">over.over</A>] is
-phrased in terms of &#8220;an overloaded function name,&#8221;
-and this is a member access expression, not a name.</P>
-
-<P>There is variability among implementations as to whether this
-example is accepted; some accept it as written, some only if the
-<TT>&amp;</TT> is omitted, and some reject it in both forms.</P>
-
-<P><B>Additional note (October, 2010):</B></P>
-
-<P>A related question concerns an example like</P>
-
-<PRE>
-    struct S {
-        static void g(int*) {}
-        static void g(long) {}
-    } s;
-
-    void foo() {
-        (&amp;s.g)(0L);
-    }
-</PRE>
-
-<P>Because the address occurs in a call context and not in one of
-the contexts mentioned in 12.3 [<A href="https://wg21.link/over.over#1">over.over</A>] paragraph 1,
-the call expression in <TT>foo</TT> is presumably ill-formed.
-Contrast this with the similar example</P>
-
-<PRE>
-    void g1(int*) {}
-    void g1(long) {}
-
-    void foo1() {
-        (&amp;g1)(0L);
-    }
-</PRE>
-
-<P>This call presumably is well-formed because 12.2.2.2 [<A href="https://wg21.link/over.match.call">over.match.call</A>] applies to &#8220;the address of a set of overloaded
-functions.&#8221; (This was clearer in the wording prior to the
-resolution of <A HREF="cwg_defects.html#704">issue 704</A>: &#8220;...in
-this context using <TT>&amp;F</TT> behaves the same as using the
-name <TT>F</TT> by itself.&#8221;) It's not clear that there's any
-reason to treat these two cases differently.</P>
-
-<P>This question also bears on the original question of this issue,
-since the original wording of 12.2.2.2 [<A href="https://wg21.link/over.match.call">over.match.call</A>] also
-described the case of an ordinary member function call like
-<TT>s.g(0L)</TT> as involving the &#8220;name&#8221; of the function,
-even though the <I>postfix-expression</I> is a member access
-expression and not a &#8220;name.&#8221; Perhaps the reference to
-&#8220;name&#8221; in 12.3 [<A href="https://wg21.link/over.over">over.over</A>] should be similarly
-understood as applying to member access expressions?</P>
-
-
-
-<P><B>Additional notes (February, 2023)</B></P>
-
-<P>This appears to be resolved, in part by P1787R6 (accepted November, 2020).</P>
-
-<BR><BR><HR>
-<A NAME="2600"></A><H4>2600.
-  
-Type dependency of placeholder types
-</H4>
-<B>Section: </B>13.8.3.3&#160; [<A href="https://wg21.link/temp.dep.expr">temp.dep.expr</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>review
- &#160;&#160;&#160;
-
- <B>Submitter: </B>Hubert Tong
- &#160;&#160;&#160;
-
- <B>Date: </B>2022-06-18<BR>
-
-
-<P>Subclause 13.8.3.2 [<A href="https://wg21.link/temp.dep.type#7">temp.dep.type</A>] paragraph 7 has a list of
-types considered to be dependent. This list covers placeholder types
-only insofar as it has an entry
-about <TT>decltype(expression)</TT>. Subclause
-13.8.3.3 [<A href="https://wg21.link/temp.dep.expr#3">temp.dep.expr</A>] paragraph 3 has a list of expression forms
-not considered dependent unless specific types named by the
-expressions are dependent. This list includes forms where placeholder
-types are allowed. For example, the wording does not say that
-the <I>new-expression</I> at #1 (below) is dependent, but it ought to
-be:</P>
-
-<PRE>
-  template &lt;typename T&gt; struct A { A(bool, T); };
-
-  void g(...);
-
-  template &lt;typename T&gt;
-  auto f(T t) { return g(new A(t, 0)); }  // <SPAN CLASS="cmnt">#1</SPAN>
-
-  int g(A&lt;int&gt; *);
-  int h() { return f&lt;void *&gt;(nullptr); }
-</PRE>
-
-<P>Some implementation even treats an obviously non-dependent case as
-dependent:</P>
-
-<PRE>
-  template &lt;typename T, typename U&gt; struct A { A(T, U); };
-
-  void g(...); //<SPAN CLASS="cmnt"> #1</SPAN>
-
-  template &lt;typename T&gt;
-  auto f() { return g(new A(0, 0)); } //<SPAN CLASS="cmnt"> #1 or #2?</SPAN>
-
-  int g(A&lt;int, int&gt; *); //<SPAN CLASS="cmnt"> #2</SPAN>
-  void h() { return f&lt;void *&gt;(); }
-</PRE>
-
-<P>A similar example that is non-dependent:</P>
-
-<PRE>
-  template &lt;typename T, typename U = T&gt; struct A { A(T, U); };
-
-  void g(...);
-
-  template &lt;typename T&gt;
-  auto f() { return g(new A(0, 0)); }
-
-  int g(A&lt;int&gt; *);
-  void h() { return f&lt;void *&gt;(); }
-</PRE>
-
-<P>And another non-dependent one:</P>
-
-<PRE>
-  template &lt;typename T, typename U = T&gt; struct A { A(T); };
-
-  void g(...);
-
-  template &lt;typename T&gt;
-  auto f() { return g(new A(0)); }
-
-  int g(A&lt;int&gt; *);
-  void h() { return f&lt;void *&gt;(); }
-</PRE>
-
-<P>And here is an example that is dependent:</P>
-
-<PRE>
-  template&lt;class T&gt;
-  struct S {
-   template&lt;class U = T&gt; struct A { A(int); };
-
-   auto f() { return new A(0); } //<SPAN CLASS="cmnt"> dependent return type</SPAN>
-  };
-</PRE>
-
-<P><B>Proposed resolution (November, 2022) [SUPERSEDED]:</B></P>
-
-<OL>
-
-<LI>
-<P>Change in 7.6.2.8 [<A href="https://wg21.link/expr.new#2">expr.new</A>] paragraph 2 as follows:</P>
-
-<BLOCKQUOTE>
-
-If a placeholder type (9.2.9.6 [<A href="https://wg21.link/dcl.spec.auto">dcl.spec.auto</A>])
-<INS>or a placeholder for a deduced class type
-(9.2.9.7 [<A href="https://wg21.link/dcl.type.class.deduct">dcl.type.class.deduct</A>])</INS> appears in
-the <I>type-specifier-seq</I> of a <I>new-type-id</I>
-or <I>type-id</I> of a <I>new-expression</I>, the allocated type is
-deduced as follows: Let init be the <I>new-initializer</I> , if any,
-and T be the <I>new-type-id</I> or <I>type-id</I> of
-the <I>new-expression</I>, then the allocated type is the type deduced
-for the variable x in the invented declaration
-(9.2.9.6 [<A href="https://wg21.link/dcl.spec.auto">dcl.spec.auto</A>]):
-<PRE>
-T x <I>init</I> ;
-</PRE>
-
-</BLOCKQUOTE>
-
-</LI>
-
-<LI>
-<P>Insert new paragraphs before
-13.8.3.2 [<A href="https://wg21.link/temp.dep.type#7">temp.dep.type</A>] paragraph 7 and change the latter as follows:</P>
-
-<BLOCKQUOTE>
-
-<P>
-<INS>An initializer is dependent if any constituent expression
-(6.9.1 [<A href="https://wg21.link/intro.execution">intro.execution</A>]) of the initializer is type-dependent.  A
-placeholder type (9.2.9.6.1 [<A href="https://wg21.link/dcl.spec.auto.general">dcl.spec.auto.general</A>]) is dependent if it
-designates a type deduced from a dependent initializer.</INS>
-</P>
-
-<P>
-<INS>A placeholder for a deduced class type
-(9.2.9.7 [<A href="https://wg21.link/dcl.type.class.deduct">dcl.type.class.deduct</A>]) is dependent if</INS>
-
-<UL>
-<LI><INS>it has a dependent initializer or</INS></LI>
-
-<LI><INS>any default <I>template-argument</I> of the primary class
-template named by the placeholder is dependent when considered in the
-scope enclosing the primary class template.</INS></LI>
-</UL>
-</P>
-
-<P>A type is dependent if it is</P>
-
-<UL>
-<LI>...</LI>
-
-<LI>a function type whose exception specification is value-dependent,</LI>
-
-<LI><INS>denoted by a dependent placeholder type,</INS></LI>
-
-<LI><INS>denoted by a dependent placeholder for a deduced class
-type,</INS></LI>
-
-<LI>...</LI>
-
-</UL>
-
-</BLOCKQUOTE>
-
-</LI>
-
-</OL>
-
-<P><B>Proposed resolution (February, 2023):</B></P>
-
-<OL>
-
-<LI>
-<P>Change in 7.6.2.8 [<A href="https://wg21.link/expr.new#2">expr.new</A>] paragraph 2 as follows:</P>
-
-<BLOCKQUOTE>
-
-If a placeholder type (9.2.9.6 [<A href="https://wg21.link/dcl.spec.auto">dcl.spec.auto</A>])
-<INS>or a placeholder for a deduced class type
-(9.2.9.7 [<A href="https://wg21.link/dcl.type.class.deduct">dcl.type.class.deduct</A>])</INS> appears in
-the <I>type-specifier-seq</I> of a <I>new-type-id</I>
-or <I>type-id</I> of a <I>new-expression</I>, the allocated type is
-deduced as follows: Let init be the <I>new-initializer</I> , if any,
-and T be the <I>new-type-id</I> or <I>type-id</I> of
-the <I>new-expression</I>, then the allocated type is the type deduced
-for the variable x in the invented declaration
-(9.2.9.6 [<A href="https://wg21.link/dcl.spec.auto">dcl.spec.auto</A>]):
-<PRE>
-T x <I>init</I> ;
-</PRE>
-
-</BLOCKQUOTE>
-
-</LI>
-
-<LI>
-<P>Insert new paragraphs before
-13.8.3.2 [<A href="https://wg21.link/temp.dep.type#7">temp.dep.type</A>] paragraph 7 and change the latter as follows:</P>
-
-<BLOCKQUOTE>
-
-<P>
-<INS>An initializer is dependent if any constituent expression
-(6.9.1 [<A href="https://wg21.link/intro.execution">intro.execution</A>]) of the initializer is type-dependent.  A
-placeholder type (9.2.9.6.1 [<A href="https://wg21.link/dcl.spec.auto.general">dcl.spec.auto.general</A>]) is dependent if it
-designates a type deduced from a dependent initializer.</INS>
-</P>
-
-<P><INS>A placeholder for a deduced class type
-(9.2.9.7 [<A href="https://wg21.link/dcl.type.class.deduct">dcl.type.class.deduct</A>]) is dependent if</INS></P>
-
-<UL>
-<LI><INS>it has a dependent initializer, or</INS></LI>
-
-<LI>
-<INS>it refers to an alias template that is a member of the
-current instantiation whose definition is dependent.</INS>
-</LI>
-</UL>
-
-<P class="ins">[ Example:</P>
-
-<PRE class="ins">
-  template&lt;class T, class V&gt;
-  struct S { S(T); };
-
-  template&lt;class U&gt;
-  struct A {
-    template&lt;class T&gt; using X = S&lt;T, U&gt;;
-    template&lt;class T&gt; using Y = S&lt;T, int&gt;;
-    void f() {
-      new X(1);    // dependent
-      new Y(1);    // not dependent
-    }
-  };
-</PRE>
-<P class="ins">-- end example ]</P>
-
-<P>A type is dependent if it is</P>
-
-<UL>
-<LI>...</LI>
-
-<LI>a function type whose exception specification is value-dependent,</LI>
-
-<LI><INS>denoted by a dependent placeholder type,</INS></LI>
-
-<LI><INS>denoted by a dependent placeholder for a deduced class
-type,</INS></LI>
-
-<LI>...</LI>
-
-</UL>
-
-</BLOCKQUOTE>
-
-</LI>
-
-</OL>
 
 <BR><BR><HR>
 <A NAME="1602"></A><H4>1602.
@@ -16184,6 +16231,10 @@ rather than syntactically.</P>
 
 <P>Both 8.9 [<A href="https://wg21.link/stmt.ambig">stmt.ambig</A>] and 9.3.3 [<A href="https://wg21.link/dcl.ambig.res">dcl.ambig.res</A>] need
 to be adjusted.</P>
+
+<P><B>CWG 2023-06-13</B></P>
+
+<P>Addressed by paper P2915R0.</P>
 		    
 <BR><BR><HR>
 <A NAME="2117"></A><H4>2117.
@@ -17259,6 +17310,147 @@ character and because a trailing <TT>'\0'</TT> is appended,
 
 <P>However, there appears to be no normative specification of how the
 size of the array is to be calculated.</P>
+
+<BR><BR><HR>
+<A NAME="233"></A><H4>233.
+  
+References vs pointers in UDC overload resolution
+</H4>
+<B>Section: </B>9.4.4&#160; [<A href="https://wg21.link/dcl.init.ref">dcl.init.ref</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>drafting
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Matthias Meixner
+ &#160;&#160;&#160;
+
+ <B>Date: </B>9 Jun 2000<BR>
+
+
+<P>There is an inconsistency in the handling of references
+vs pointers in user defined conversions and overloading. The reason
+for that is that the combination of 9.4.4 [<A href="https://wg21.link/dcl.init.ref">dcl.init.ref</A>] and
+7.3.6 [<A href="https://wg21.link/conv.qual">conv.qual</A>] circumvents the standard way of ranking
+conversion functions, which was probably not the intention of the
+designers of the standard.</P>
+
+<P>Let's start with some examples, to show what it is about:</P>
+
+<PRE>
+    struct Z { Z(){} };
+
+    struct A {
+       Z x;
+
+       operator Z *() { return &amp;x; }
+       operator const Z *() { return &amp;x; }
+    };
+
+    struct B {
+       Z x;
+
+       operator Z &amp;() { return x; }
+       operator const Z &amp;() { return x; }
+    };
+
+    int main()
+    {
+       A a;
+       Z *a1=a;
+       const Z *a2=a; // not ambiguous
+
+       B b;
+       Z &amp;b1=b;
+       const Z &amp;b2=b; // ambiguous
+    }
+</PRE>
+
+<P>So while both classes <TT>A</TT> and <TT>B</TT> are structurally
+equivalent, there is a difference in operator overloading. I want to
+start with the discussion of the pointer case (<TT>const Z
+*a2=a;</TT>): 12.2.4 [<A href="https://wg21.link/over.match.best">over.match.best</A>] is used to select the best
+viable function. Rule 4 selects <TT>A::operator const Z*()</TT> as
+best viable function using 12.2.4.3 [<A href="https://wg21.link/over.ics.rank">over.ics.rank</A>] since the
+implicit conversion sequence <TT>const Z*</TT> -&gt; <TT>const Z*</TT>
+is a better conversion sequence than <TT>Z*</TT> -&gt; <TT>const
+Z*</TT>.</P>
+
+<P>So what is the difference to the reference case?  Cv-qualification
+conversion is only applicable for pointers according to 7.3.6 [<A href="https://wg21.link/conv.qual">conv.qual</A>]. According to 9.4.4 [<A href="https://wg21.link/dcl.init.ref">dcl.init.ref</A>] paragraphs
+4-7 references are initialized by binding using the concept of
+reference-compatibility. The problem with this is, that in this
+context of binding, there is no conversion, and therefore there is
+also no comparing of conversion sequences. More exactly all
+conversions can be considered identity conversions according to
+12.2.4.2.5 [<A href="https://wg21.link/over.ics.ref#1">over.ics.ref</A>] paragraph 1, which compare equal
+and which has the same effect.  So binding <TT>const Z*</TT> to
+<TT>const Z*</TT> is as good as binding <TT>const Z*</TT> to
+<TT>Z*</TT> in terms of overloading. Therefore <TT>const Z
+&amp;b2=b;</TT> is ambiguous.  [12.2.4.2.5 [<A href="https://wg21.link/over.ics.ref#5">over.ics.ref</A>] paragraph 5
+and 12.2.4.3 [<A href="https://wg21.link/over.ics.rank#3">over.ics.rank</A>] paragraph 3 rule 3
+(S1 and S2 are reference bindings ...) do not seem to apply to this
+case]</P>
+
+<P>There are other ambiguities, that result in the special treatment
+of references: Example:</P>
+
+<PRE>
+    struct A {int a;};
+    struct B: public A { B() {}; int b;};
+
+    struct X {
+       B x;
+       operator A &amp;() { return x; }
+       operator B &amp;() { return x; }
+    };
+
+    main()
+    {
+       X x;
+       A &amp;g=x; // ambiguous
+    }
+</PRE>
+
+<P>Since both references of class <TT>A</TT> and <TT>B</TT> are
+reference compatible with references of class <TT>A</TT> and since
+from the point of ranking of implicit conversion sequences they are
+both identity conversions, the initialization is ambiguous.
+</P>
+
+<P>So why should this be a defect?</P>
+
+<UL>
+
+<LI>References behave fundamentally different from pointers in combination
+with user defined conversions, although there is no reason to have this
+different treatment.</LI>
+
+<LI>This difference only shows up in combination with user defined
+conversion sequences, for all other cases, there are special rules,
+e.g. 12.2.4.3 [<A href="https://wg21.link/over.ics.rank#3">over.ics.rank</A>] paragraph 3 rule 3.</LI>
+
+</UL>
+
+<P>So overall I think this was not the intention of the authors of the
+standard.</P>
+
+<P>So how could this be fixed? For comparing conversion sequences (and
+only for comparing) reference binding should be treated as if it was a
+normal assignment/initialization and cv-qualification would have to be
+defined for references. This would affect 9.4.4 [<A href="https://wg21.link/dcl.init.ref#6">dcl.init.ref</A>] paragraph 6, 7.3.6 [<A href="https://wg21.link/conv.qual">conv.qual</A>] and probably
+12.2.4.3 [<A href="https://wg21.link/over.ics.rank#3">over.ics.rank</A>] paragraph 3.</P>
+
+<P>Another fix could be to add a special case in 12.2.4 [<A href="https://wg21.link/over.match.best#1">over.match.best</A>] paragraph 1. </P>
+
+<P><B>CWG 2023-06-13</B></P>
+
+<P>It was noted that the second example is not ambiguous, because a
+derived-to-base conversion is compared against an identity conversion.
+However, 12.2.4.2.5 [<A href="https://wg21.link/over.ics.ref#1">over.ics.ref</A>] paragraph 1 needs a wording fix
+so that it applies to conversion functions as well.  CWG opined that
+the first example be made valid, by adding a missing tie-breaker for
+the conversion function case.</P>
 
 <BR><BR><HR>
 <A NAME="1414"></A><H4>1414.
@@ -20660,6 +20852,195 @@ the expression specification is intended to be applied to
 initializer lists.</P>
 
 
+
+<BR><BR><HR>
+<A NAME="2492"></A><H4>2492.
+  
+Comparing user-defined conversion sequences in list-initialization
+</H4>
+<B>Section: </B>12.2.4.2.6&#160; [<A href="https://wg21.link/over.ics.list">over.ics.list</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>drafting
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Jim X
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2021-01-11<BR>
+
+
+<P>Consider the following example:</P>
+
+<PRE>
+  #include &lt;initializer_list&gt;
+  struct A{
+    operator short(){
+      return 0;
+    }
+  };
+  struct B{
+    operator bool(){
+      return 0;
+    }
+  };
+  void fun(std::initializer_list&lt;int&gt;){}
+  void fun(std::initializer_list&lt;bool&gt;){}
+  int main(){
+    fun({A{},B{}});
+  }
+</PRE>
+
+<P>According to 12.2.4.2.6 [<A href="https://wg21.link/over.ics.list#6">over.ics.list</A>] paragraph 6,</P>
+
+<BLOCKQUOTE>
+
+Otherwise, if the parameter type is
+<TT>std::initializer_list&lt;X&gt;</TT> and all the elements
+of the initializer list can be implicitly converted
+to <TT>X</TT>, the implicit conversion sequence is the worst
+conversion necessary to convert an element of the list
+to <TT>X</TT>, or if the initializer list has no elements,
+the identity conversion. This conversion can be a
+user-defined conversion even in the context of a call to an
+initializer-list constructor.
+
+</BLOCKQUOTE>
+
+<P>In this example, all of the conversions from list elements
+to the <TT>initializer_list</TT> template argument type are
+user-defined conversions. According to 12.2.4.3 [<A href="https://wg21.link/over.ics.rank">over.ics.rank</A>]
+bullet 3.3,</P>
+
+<BLOCKQUOTE>
+
+User-defined conversion sequence <TT>U1</TT> is a better
+conversion sequence than another user-defined conversion
+sequence <TT>U2</TT> if they contain the same user-defined
+conversion function or constructor or they initialize the
+same class in an aggregate initialization and in either case
+the second standard conversion sequence of <TT>U1</TT> is
+better than the second standard conversion sequence
+of <TT>U2</TT>.
+
+</BLOCKQUOTE>
+
+<P>Since in both cases the two elements of the
+initializer-list argument involve different user-defined
+conversion functions, the two user-defined conversion
+sequences for the elements cannot be distinguished, so the
+determination of the &#8220;worst conversion&#8221; for the
+two candidates does not consider the second standard
+conversion sequence. This presumably makes it impossible to
+distinguish the conversion sequences for the two candidates in
+the function call, making the call ambiguous.</P>
+
+<P>However, there is implementation divergence on
+the handling of this example, with g++ reporting an
+ambiguity and clang, MSVC, and EDG calling the <TT>int</TT>
+overload, presumably on the basis
+that <TT>short-&gt;int</TT> is a promotion
+while <TT>short-&gt;bool</TT> is a conversion.</P>
+
+<P><B>Notes from the August, 2021 teleconference:</B></P>
+
+<P>CWG agreed with the reasoning expressed in the analysis,
+that conversions involving different user-defined conversion
+functions cannot be compared, and thus the call is
+ambiguous. The use of the phrase &#8220;worst
+conversion&#8221; is insufficiently clear, however, and
+requires definition.</P>
+
+<P><B>Proposed resolution, August, 2021:</B></P>
+
+<P>Change 12.2.4.2.6 [<A href="https://wg21.link/over.ics.list">over.ics.list</A>] paragraphs 5 and 6 as
+follows:</P>
+
+<BLOCKQUOTE>
+
+<P>Otherwise, if the parameter type is
+<TT>std::initializer_list&lt;X&gt;</TT> and <INS>either the
+initializer list is empty or</INS> all the elements of the
+initializer list can be implicitly converted to <TT>X</TT>,
+the implicit conversion sequence is the <DEL>worst conversion</DEL>
+<INS><I>worst conversion</I></INS> necessary to convert an
+element of the list to <TT>X</TT>, <DEL>or
+if</DEL> <INS>defined as follows. If</INS> the initializer
+list has no elements, the
+<INS>worst conversion is the</INS> identity conversion.
+<INS>Otherwise, the worst conversion is an implicit
+conversion sequence for a list element that is not better
+than any other implicit conversion sequence required by list
+elements, compared as described in
+12.2.4.3 [<A href="https://wg21.link/over.ics.rank">over.ics.rank</A>]. If more than one implicit
+conversion sequence satisfies this criterion, then if they
+are user-defined conversion sequences that do not all
+contain the same user-defined conversion function or
+constructor, the worst conversion sequence is the ambiguous
+conversion sequence (12.2.4.2.1 [<A href="https://wg21.link/over.best.ics.general">over.best.ics.general</A>]);
+otherwise, it is unspecified which of those conversion
+sequences is chosen as worst.</INS> This conversion can be a
+user-defined conversion even in the context of a call to an
+initializer-list constructor.  [<I>Example 2</I>:</P>
+
+<PRE>
+  void f(std::initializer_list&lt;int&gt;);
+  f( {} );        //<SPAN CLASS="cmnt"> OK: </SPAN>f(initializer_list&lt;int&gt;)<SPAN CLASS="cmnt"> identity conversion</SPAN>
+  f( {1,2,3} );   //<SPAN CLASS="cmnt"> OK: </SPAN>f(initializer_list&lt;int&gt;)<SPAN CLASS="cmnt"> identity conversion</SPAN>
+  f( {'a','b'} ); //<SPAN CLASS="cmnt"> OK: </SPAN>f(initializer_list&lt;int&gt;)<SPAN CLASS="cmnt"> integral promotion</SPAN>
+  f( {1.0} );     //<SPAN CLASS="cmnt"> error: narrowing</SPAN>
+
+  struct A {
+    A(std::initializer_list&lt;double&gt;);            //<SPAN CLASS="cmnt"> #1</SPAN>
+    A(std::initializer_list&lt;complex&lt;double&gt;&gt;);   //<SPAN CLASS="cmnt"> #2</SPAN>
+    A(std::initializer_list&lt;std::string&gt;);       //<SPAN CLASS="cmnt"> #3</SPAN>
+  };
+  A a{ 1.0,2.0 };        //<SPAN CLASS="cmnt"> OK, uses #1</SPAN>
+
+  void g(A);
+  g({ "foo", "bar" });   //<SPAN CLASS="cmnt"> OK, uses #3</SPAN>
+
+  typedef int IA[3];
+  void h(const IA&amp;);
+  h({ 1, 2, 3 });        //<SPAN CLASS="cmnt"> OK: identity conversion</SPAN>
+
+<INS>  void x(std::initializer_list&lt;int&gt;);
+  void x(std::initializer_list&lt;bool&gt;);
+  struct S1 { operator short(); };
+  struct S2 { operator bool(); };
+  void y() {
+    x({S1{}, S2{}});   //<SPAN CLASS="cmnt"> error: ambiguous. The ICSes for each list element are indistinguishable because</SPAN>
+                       //<SPAN CLASS="cmnt"> they do not contain the same conversion function, so the worst conversion is</SPAN>
+                       //<SPAN CLASS="cmnt"> the ambiguous conversion sequence.</SPAN>
+  }</INS>
+</PRE>
+
+<P>&#8212;<I>end example</I>]</P>
+
+<P>Otherwise, if the parameter type is &#8220;array of <TT>N
+X</TT> &#8221; or &#8220;array of unknown bound
+of <TT>X</TT>&#8221;, if there exists an implicit conversion
+sequence from each element of the initializer list (and from
+<TT>{}</TT> in the former case if <TT>N</TT> exceeds the
+number of elements in the initializer list) to <TT>X</TT>,
+the implicit conversion sequence is the worst <DEL>such
+implicit conversion sequence</DEL> <INS>conversion necessary
+to convert an element of the list (including, if there are
+too few list elements, <TT>{}</TT>) to
+<TT>X</TT>, determined as described above for a
+<TT>std::initializer_list&lt;X&gt;</TT> with a non-empty
+initializer list</INS>.</P>
+
+</BLOCKQUOTE>
+
+<P><B>CWG 2023-06-13</B></P>
+
+<P>An ambiguous conversion for the function selected by overload
+resolution is ill-formed per 12.2.4.2.1 [<A href="https://wg21.link/over.best.ics.general">over.best.ics.general</A>].  Instead
+of attempting to define "worst conversion" (possibly with focusing on
+the second standard conversion sequence in user-defined conversions),
+it might be more consistent overall to use the rules for a succession
+of function arguments/parameters when comparing list-initializations.</P>
 
 <BR><BR><HR>
 <A NAME="2110"></A><H4>2110.
@@ -24949,6 +25330,60 @@ by decision of the CWG and SG12 chairs.
 </P>
 
 <BR><BR><HR>
+<A NAME="2747"></A><H4>2747.
+  
+Cannot depend on an already-deleted splice
+</H4>
+<B>Section: </B>5.2&#160; [<A href="https://wg21.link/lex.phases">lex.phases</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Jim X
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2021-09-14<BR>
+
+
+<P>(From editorial issue
+<A HREF="https://github.com/cplusplus/draft/issues/4903">4903</A>.)</P>
+
+<P>Subclause 5.2 [<A href="https://wg21.link/lex.phases#2">lex.phases</A>] paragraph 2 specifies:</P>
+
+<BLOCKQUOTE>
+
+... Each sequence of a backslash character (\) immediately
+followed by zero or more whitespace characters other than new-line
+followed by a new-line character is deleted, splicing physical source
+lines to form logical source lines. ...  A source
+file that is not empty and that does not end in a new-line character,
+or that ends in a splice, shall be processed as if an additional
+new-line character were appended to the file.
+
+</BLOCKQUOTE>
+
+<P>This is confusing, because the first sentence deletes all splices,
+and then the last sentence checks for a splice that has already been
+deleted.</P>
+
+<P><U>Possible resolution:</U></P>
+
+<P>Change in 5.2 [<A href="https://wg21.link/lex.phases#2">lex.phases</A>] paragraph 2 as follows:</P>
+
+<BLOCKQUOTE>
+
+... Each sequence of a backslash character (\) immediately
+followed by zero or more whitespace characters other than new-line
+followed by a new-line character is deleted, splicing physical source
+lines to form logical source lines. ...  A source file that is not
+empty and that does not end in a new-line character<DEL>, or that ends
+in a splice,</DEL> <INS>(after splicing)</INS> shall be processed as
+if an additional new-line character were appended to the file.
+
+</BLOCKQUOTE>
+
+<BR><BR><HR>
 <A NAME="2574"></A><H4>2574.
   
 Undefined behavior when lexing unmatched quotes
@@ -28341,9 +28776,9 @@ definition of "naming class" in 11.8.3 [<A href="https://wg21.link/class.access.
 would then need to be italicized.</P>
 
 <BR><BR><HR>
-<A NAME="2725"></A><H4>2725.
+<A NAME="2748"></A><H4>2748.
   
-Overload resolution for non-call of class member access
+Accessing static data members via null pointer
 </H4>
 <B>Section: </B>7.6.1.5&#160; [<A href="https://wg21.link/expr.ref">expr.ref</A>]
  &#160;&#160;&#160;
@@ -28351,68 +28786,65 @@ Overload resolution for non-call of class member access
  <B>Status: </B>open
  &#160;&#160;&#160;
 
- <B>Submitter: </B>Richard Smith
+ <B>Submitter: </B>Tomasz Kami&#324;ski
  &#160;&#160;&#160;
 
- <B>Date: </B>2023-04-26<BR>
-
-
+ <B>Date: </B>2023-06-13<BR>
 
 
 <P>Consider:</P>
 
 <PRE>
-  struct A {
-    static void f();
-    static void f(int);
-  } x;
-  void (*p)() = x.f;   //<SPAN CLASS="cmnt"> error</SPAN>
+  struct C { static int foo; };
+  C* c = nullptr;
 </PRE>
 
-<P>This is ill-formed as confirmed by <A HREF="cwg_closed.html#61">issue 61</A>.  Various other changes (see <A HREF="cwg_defects.html#2241">issue 2241</A>) have put the following example into the same category:
-</P>
-
-<PRE>
-  struct B {
-    static void f();
-  } y;
-  void (*q)() = y.f;   //<SPAN CLASS="cmnt"> error</SPAN>
-</PRE>
-
-<P>If this is the intended outcome (although major implementations
-disagree), then the rules in 7.6.1.5 [<A href="https://wg21.link/expr.ref">expr.ref</A>] should be
-clarified accordingly.</P>
-
-<P><U>Suggested resolution:</U></P>
-
-<P>Change in 7.6.1.5 [<A href="https://wg21.link/expr.ref#6.3">expr.ref</A>] bullet 6.3 as follows:</P>
+<P>The behavior of <TT>(*c).foo</TT> is clearly undefined per
+7.6.1.5 [<A href="https://wg21.link/expr.ref#1">expr.ref</A>] paragraph 1:</P>
 
 <BLOCKQUOTE>
 
-<UL>
-<LI>...</LI>
+The postfix expression before the dot or arrow is evaluated ...
 
-<LI>If E2 is an overload set, <INS>the expression shall be the
-(possibly-parenthesized) left-hand operand of a member function call
-(11.4.2 [<A href="https://wg21.link/class.mfct">class.mfct</A>]), and</INS> function overload resolution
-(12.2 [<A href="https://wg21.link/over.match">over.match</A>]) is used to select the function to which E2
-refers. The type of E1.E2 is the type of E2 and E1.E2 refers to the
-function referred to by E2.
-<UL>
-<LI>If E2 refers to a static member function, E1.E2 is an lvalue.</LI>
+</BLOCKQUOTE>
 
-<LI>Otherwise (when E2 refers to a non-static member function), E1.E2
-is a prvalue. <DEL>The expression can be used only as the left-hand
-operand of a member function call (11.4.2 [<A href="https://wg21.link/class.mfct">class.mfct</A>]).</DEL>
-[<I>Note 5:</I> Any redundant set of parentheses surrounding the
-expression is ignored (7.5.3 [<A href="https://wg21.link/expr.prim.paren">expr.prim.paren</A>]). &#8212;<I>end
+<P>However, the treatment of <TT>c-&gt;foo</TT> is less clear, because
+the transformation to the form <TT>(*(E1)).E2</TT> occurs later.</P>
+
+<P><U>Suggested resolution:</U></P>
+
+<P>Move a part of 7.6.1.5 [<A href="https://wg21.link/expr.ref#1">expr.ref</A>] paragraph 1 to before paragraph 3
+and edit as follows:</P>
+
+<BLOCKQUOTE>
+
+<P>A postfix expression followed by a dot . or an arrow -&gt;, optionally
+followed by the keyword template, and then followed by
+an <I>id-expression</I>, is a postfix expression. <DEL>The postfix
+expression before the dot or arrow is evaluated; [ Footnote: ... ] the
+result of that evaluation, together with the <I>id-expression</I>,
+determines the result of the entire postfix expression.</DEL>  [<I>Note
+1:</I> If the keyword template is used, the following unqualified name
+is considered to refer to a template (13.3 [<A href="https://wg21.link/temp.names">temp.names</A>]).  If
+a <I>simple-template-id</I> results and is followed by a ::,
+the <I>id-expression</I> is a <I>qualified-id</I>. &#8212;<I>end
 note</I>]
-</LI>
-</UL>
-</LI>
+</P>
 
-<LI>...</LI>
-</UL>
+<P>For the first option (dot) the first expression shall be a
+glvalue. For the second option (arrow) the first expression shall be a
+prvalue having pointer type. The expression E1-&gt;E2 is converted to
+the equivalent form (*(E1)).E2; the remainder of
+7.6.1.5 [<A href="https://wg21.link/expr.ref">expr.ref</A>] will address only the first option
+(dot). [ Footnote: ... ]
+</P>
+
+<P class="ins">
+The postfix
+expression before the dot is evaluated; [ Footnote: ... ] the
+result of that evaluation, together with the <I>id-expression</I>,
+determines the result of the entire postfix expression.
+</P>
 
 </BLOCKQUOTE>
 
@@ -29087,63 +29519,6 @@ function.</INS>
 
 <P>A deallocation function may be an instance of a function
 template. ...</P>
-
-</BLOCKQUOTE>
-</LI>
-
-</OL>
-
-<BR><BR><HR>
-<A NAME="2729"></A><H4>2729.
-  
-Meaning of <I>new-type-id</I>
-</H4>
-<B>Section: </B>7.6.2.8&#160; [<A href="https://wg21.link/expr.new">expr.new</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>open
- &#160;&#160;&#160;
-
- <B>Submitter: </B>Jim X
- &#160;&#160;&#160;
-
- <B>Date: </B>2023-02-06<BR>
-
-
-<P>Subclause 7.6.2.8 [<A href="https://wg21.link/expr.new#1">expr.new</A>] paragraph 1 introduces the
-grammar non-terminal <I>new-type-id</I>, but never specifies its
-meaning.</P>
-
-<P><U>Possible resolution:</U></P>
-
-<OL>
-<LI>
-<P>Change in 7.6.2.8 [<A href="https://wg21.link/expr.new#1">expr.new</A>] paragraph 1 as follows:</P>
-
-<BLOCKQUOTE>
-
-The <I>new-expression</I> attempts to create an object of
-the <I>type-id</I> <DEL>(9.3.2 [<A href="https://wg21.link/dcl.name">dcl.name</A>])</DEL>
-or <I>new-type-id</I> <INS>(9.3.2 [<A href="https://wg21.link/dcl.name">dcl.name</A>])</INS> to which it is
-applied.  The type of that object is the allocated type. This type
-shall be a complete object type (6.8.1 [<A href="https://wg21.link/basic.types.general">basic.types.general</A>]), but not
-an abstract class type (11.7.4 [<A href="https://wg21.link/class.abstract">class.abstract</A>]) or array thereof
-(6.7.2 [<A href="https://wg21.link/intro.object">intro.object</A>]).
-
-</BLOCKQUOTE>
-</LI>
-
-<LI>
-<P>Change in 9.3.2 [<A href="https://wg21.link/dcl.name#1">dcl.name</A>] paragraph 1 as follows:</P>
-
-<BLOCKQUOTE>
-
-To specify type conversions explicitly, and as an argument of sizeof,
-alignof, new, or typeid, the name of a type shall be specified. This
-can be done with a <I>type-id</I> <INS>or <I>new-type-id</I>
-(7.6.2.8 [<A href="https://wg21.link/expr.new">expr.new</A>])</INS>, which is syntactically a
-declaration for a variable or function of that type that omits the
-name of the entity.
 
 </BLOCKQUOTE>
 </LI>
@@ -31582,138 +31957,6 @@ made the function viable, the program is ill-formed. [ Example: ...
 </OL>
 
 <BR><BR><HR>
-<A NAME="233"></A><H4>233.
-  
-References vs pointers in UDC overload resolution
-</H4>
-<B>Section: </B>9.4.4&#160; [<A href="https://wg21.link/dcl.init.ref">dcl.init.ref</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>open
- &#160;&#160;&#160;
-
- <B>Submitter: </B>Matthias Meixner
- &#160;&#160;&#160;
-
- <B>Date: </B>9 Jun 2000<BR>
-
-
-<P>There is an inconsistency in the handling of references
-vs pointers in user defined conversions and overloading. The reason
-for that is that the combination of 9.4.4 [<A href="https://wg21.link/dcl.init.ref">dcl.init.ref</A>] and
-7.3.6 [<A href="https://wg21.link/conv.qual">conv.qual</A>] circumvents the standard way of ranking
-conversion functions, which was probably not the intention of the
-designers of the standard.</P>
-
-<P>Let's start with some examples, to show what it is about:</P>
-
-<PRE>
-    struct Z { Z(){} };
-
-    struct A {
-       Z x;
-
-       operator Z *() { return &amp;x; }
-       operator const Z *() { return &amp;x; }
-    };
-
-    struct B {
-       Z x;
-
-       operator Z &amp;() { return x; }
-       operator const Z &amp;() { return x; }
-    };
-
-    int main()
-    {
-       A a;
-       Z *a1=a;
-       const Z *a2=a; // not ambiguous
-
-       B b;
-       Z &amp;b1=b;
-       const Z &amp;b2=b; // ambiguous
-    }
-</PRE>
-
-<P>So while both classes <TT>A</TT> and <TT>B</TT> are structurally
-equivalent, there is a difference in operator overloading. I want to
-start with the discussion of the pointer case (<TT>const Z
-*a2=a;</TT>): 12.2.4 [<A href="https://wg21.link/over.match.best">over.match.best</A>] is used to select the best
-viable function. Rule 4 selects <TT>A::operator const Z*()</TT> as
-best viable function using 12.2.4.3 [<A href="https://wg21.link/over.ics.rank">over.ics.rank</A>] since the
-implicit conversion sequence <TT>const Z*</TT> -&gt; <TT>const Z*</TT>
-is a better conversion sequence than <TT>Z*</TT> -&gt; <TT>const
-Z*</TT>.</P>
-
-<P>So what is the difference to the reference case?  Cv-qualification
-conversion is only applicable for pointers according to 7.3.6 [<A href="https://wg21.link/conv.qual">conv.qual</A>]. According to 9.4.4 [<A href="https://wg21.link/dcl.init.ref">dcl.init.ref</A>] paragraphs
-4-7 references are initialized by binding using the concept of
-reference-compatibility. The problem with this is, that in this
-context of binding, there is no conversion, and therefore there is
-also no comparing of conversion sequences. More exactly all
-conversions can be considered identity conversions according to
-12.2.4.2.5 [<A href="https://wg21.link/over.ics.ref#1">over.ics.ref</A>] paragraph 1, which compare equal
-and which has the same effect.  So binding <TT>const Z*</TT> to
-<TT>const Z*</TT> is as good as binding <TT>const Z*</TT> to
-<TT>Z*</TT> in terms of overloading. Therefore <TT>const Z
-&amp;b2=b;</TT> is ambiguous.  [12.2.4.2.5 [<A href="https://wg21.link/over.ics.ref#5">over.ics.ref</A>] paragraph 5
-and 12.2.4.3 [<A href="https://wg21.link/over.ics.rank#3">over.ics.rank</A>] paragraph 3 rule 3
-(S1 and S2 are reference bindings ...) do not seem to apply to this
-case]</P>
-
-<P>There are other ambiguities, that result in the special treatment
-of references: Example:</P>
-
-<PRE>
-    struct A {int a;};
-    struct B: public A { B() {}; int b;};
-
-    struct X {
-       B x;
-       operator A &amp;() { return x; }
-       operator B &amp;() { return x; }
-    };
-
-    main()
-    {
-       X x;
-       A &amp;g=x; // ambiguous
-    }
-</PRE>
-
-<P>Since both references of class <TT>A</TT> and <TT>B</TT> are
-reference compatible with references of class <TT>A</TT> and since
-from the point of ranking of implicit conversion sequences they are
-both identity conversions, the initialization is ambiguous.
-</P>
-
-<P>So why should this be a defect?</P>
-
-<UL>
-
-<LI>References behave fundamentally different from pointers in combination
-with user defined conversions, although there is no reason to have this
-different treatment.</LI>
-
-<LI>This difference only shows up in combination with user defined
-conversion sequences, for all other cases, there are special rules,
-e.g. 12.2.4.3 [<A href="https://wg21.link/over.ics.rank#3">over.ics.rank</A>] paragraph 3 rule 3.</LI>
-
-</UL>
-
-<P>So overall I think this was not the intention of the authors of the
-standard.</P>
-
-<P>So how could this be fixed? For comparing conversion sequences (and
-only for comparing) reference binding should be treated as if it was a
-normal assignment/initialization and cv-qualification would have to be
-defined for references. This would affect 9.4.4 [<A href="https://wg21.link/dcl.init.ref#6">dcl.init.ref</A>] paragraph 6, 7.3.6 [<A href="https://wg21.link/conv.qual">conv.qual</A>] and probably
-12.2.4.3 [<A href="https://wg21.link/over.ics.rank#3">over.ics.rank</A>] paragraph 3.</P>
-
-<P>Another fix could be to add a special case in 12.2.4 [<A href="https://wg21.link/over.match.best#1">over.match.best</A>] paragraph 1. </P>
-
-<BR><BR><HR>
 <A NAME="2657"></A><H4>2657.
   
 Cv-qualification adjustment when binding reference to temporary
@@ -33054,61 +33297,6 @@ unit.</P>
 
 <DEL>H shall identify an importable header.</DEL>
 <INS>If H nominates a header, that header shall be an importable header.</INS>
-
-</BLOCKQUOTE>
-
-<BR><BR><HR>
-<A NAME="2732"></A><H4>2732.
-  
-Can importable headers react to preprocessor state from point of import?
-</H4>
-<B>Section: </B>10.3&#160; [<A href="https://wg21.link/module.import">module.import</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>open
- &#160;&#160;&#160;
-
- <B>Submitter: </B>Xu Chuanqi
- &#160;&#160;&#160;
-
- <B>Date: </B>2023-05-25<BR>
-
-
-
-
-<P>Subclause 10.3 [<A href="https://wg21.link/module.import#5">module.import</A>] paragraph 5 specifies:</P>
-
-<BLOCKQUOTE>
-
-A <I>module-import-declaration</I> that specifies a <I>header-name</I>
-H imports a synthesized header unit, which is a translation unit
-formed by applying phases 1 to 7 of translation
-(5.2 [<A href="https://wg21.link/lex.phases">lex.phases</A>]) to the source file or header nominated by
-H, which shall not contain a <I>module-declaration</I>.
-
-[<I>Note 2:</I> All declarations within a header unit are implicitly
-exported (10.2 [<A href="https://wg21.link/module.interface">module.interface</A>]), and are attached to the global
-module (10.1 [<A href="https://wg21.link/module.unit">module.unit</A>]). &#8212;<I>end note</I>]
-
-</BLOCKQUOTE>
-
-<P>It is unclear whether the contents of header units can vary
-depending on the set of defined macros at the point where
-the <TT>import</TT> (or <TT>#include</TT>) appears.</P>
-
-<P><U>Possible resolution:</U></P>
-
-<P>Change in 10.3 [<A href="https://wg21.link/module.import#5">module.import</A>] paragraph 5 as follows:</P>
-
-<BLOCKQUOTE>
-
-[<I>Note 2:</I>
-<INS>The contents of a header unit does not and cannot depend on any
-macro definition active at the point where such
-a <I>module-import-declaration</I> appears.</INS> All declarations
-within a header unit are implicitly exported
-(10.2 [<A href="https://wg21.link/module.interface">module.interface</A>]), and are attached to the global module
-(10.1 [<A href="https://wg21.link/module.unit">module.unit</A>]). &#8212;<I>end note</I>]
 
 </BLOCKQUOTE>
 
