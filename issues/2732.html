@@ -15,7 +15,7 @@
   Core Issues List revision 111d.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-05-25</P>
+<P>2023-06-13</P>
 <HR>
 <A NAME="2732"></A><H4>2732.
   
@@ -62,11 +62,10 @@ the <TT>import</TT> (or <TT>#include</TT>) appears.</P>
 <BLOCKQUOTE>
 
 [<I>Note 2:</I>
-<INS>The contents of a header unit does not and cannot depend on any
-macro definition active at the point where such
-a <I>module-import-declaration</I> appears.</INS> All declarations
-within a header unit are implicitly exported
-(10.2 [<A href="https://wg21.link/module.interface">module.interface</A>]), and are attached to the global module
+<INS>A header unit is a separate translation unit with an
+independently set of defined macros.</INS> All declarations within a
+header unit are implicitly exported (10.2 [<A href="https://wg21.link/module.interface">module.interface</A>]), and
+are attached to the global module
 (10.1 [<A href="https://wg21.link/module.unit">module.unit</A>]). &#8212;<I>end note</I>]
 
 </BLOCKQUOTE>
