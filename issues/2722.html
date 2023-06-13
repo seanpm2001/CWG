@@ -15,7 +15,7 @@
   Core Issues List revision 111d.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-05-12</P>
+<P>2023-06-13</P>
 <HR>
 <A NAME="2722"></A><H4>2722.
   
@@ -47,8 +47,8 @@ does so that the destructor is (notionally) invoked.</P>
 <INS>If the operand is a prvalue, the temporary materialization
 conversion (7.3.5 [<A href="https://wg21.link/conv.rval">conv.rval</A>]) is applied.</INS> The result
 of the noexcept operator is true unless the
-<DEL><I>expression</I></DEL> <INS>full-expression</INS> is potentially-throwing
-(14.5 [<A href="https://wg21.link/except.spec">except.spec</A>]).
+<DEL><I>expression</I></DEL> <INS>full-expression of the operand</INS>
+is potentially-throwing (14.5 [<A href="https://wg21.link/except.spec">except.spec</A>]).
 
 </BLOCKQUOTE>
 
