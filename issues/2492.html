@@ -15,7 +15,7 @@
   Core Issues List revision 111d.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-05-12</P>
+<P>2023-06-13</P>
 <HR>
 <A NAME="2492"></A><H4>2492.
   
@@ -24,7 +24,7 @@ Comparing user-defined conversion sequences in list-initialization
 <B>Section: </B>12.2.4.2.6&#160; [<A href="https://wg21.link/over.ics.list">over.ics.list</A>]
  &#160;&#160;&#160;
 
- <B>Status: </B>review
+ <B>Status: </B>drafting
  &#160;&#160;&#160;
 
  <B>Submitter: </B>Jim X
@@ -196,8 +196,14 @@ initializer list</INS>.</P>
 
 </BLOCKQUOTE>
 
-<P>
-<B>Editorial issue required:</B> define "worst conversion sequence"</P>
+<P><B>CWG 2023-06-13</B></P>
+
+<P>An ambiguous conversion for the function selected by overload
+resolution is ill-formed per 12.2.4.2.1 [<A href="https://wg21.link/over.best.ics.general">over.best.ics.general</A>].  Instead
+of attempting to define "worst conversion" (possibly with focusing on
+the second standard conversion sequence in user-defined conversions),
+it might be more consistent overall to use the rules for a succession
+of function arguments/parameters when comparing list-initializations.</P>
 
 <BR><BR>
 </BODY>
