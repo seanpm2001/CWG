@@ -15,7 +15,7 @@
   Core Issues List revision 111d.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-05-12</P>
+<P>2023-06-13</P>
 <HR>
 <A NAME="2663"></A><H4>2663.
   
@@ -24,7 +24,7 @@ Example for member redeclarations with <I>using-declaration</I>s
 <B>Section: </B>9.9&#160; [<A href="https://wg21.link/namespace.udecl">namespace.udecl</A>]
  &#160;&#160;&#160;
 
- <B>Status: </B>tentatively ready
+ <B>Status: </B>ready
  &#160;&#160;&#160;
 
  <B>Submitter: </B>Shafik Yaghmour
@@ -37,7 +37,7 @@ Example for member redeclarations with <I>using-declaration</I>s
 <A HREF="36.html">Issue 36</A> was resolved by P1787R6, but
 no example was added.</P>
 
-<P><B>Proposed resolution:</B></P>
+<P><B>Proposed resolution (approved by CWG 2023-06-13):</B></P>
 
 <OL>
 
@@ -57,7 +57,7 @@ struct D1 : C { };
 struct D2 : C { };
 
 struct D3 : D1, D2 {
-  using D1::i;   //<SPAN CLASS="cmnt"> OK; equivalent to </SPAN>using C::i
+  using D1::i;   //<SPAN CLASS="cmnt"> OK, equivalent to </SPAN>using C::i
   using D1::i;   //<SPAN CLASS="cmnt"> error: duplicate</SPAN>
   using D2::i;   //<SPAN CLASS="cmnt"> error: duplicate, also names </SPAN>C::i
 };
