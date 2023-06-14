@@ -15,7 +15,7 @@
   Core Issues List revision 111d.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-05-26</P>
+<P>2023-06-14</P>
 <HR>
 <A NAME="2733"></A><H4>2733.
   
@@ -24,7 +24,7 @@ Applying <TT>[[maybe_unused]]</TT> to a label
 <B>Section: </B>9.12.8&#160; [<A href="https://wg21.link/dcl.attr.unused">dcl.attr.unused</A>]
  &#160;&#160;&#160;
 
- <B>Status: </B>open
+ <B>Status: </B>review
  &#160;&#160;&#160;
 
  <B>Submitter: </B>Barry Revzin
@@ -48,7 +48,7 @@ an enumerator.
 accept <TT>[[maybe_unused]]</TT> on a label, and behave
 accordingly.</P>
 
-<P><U>Possible resolution:</U></P>
+<P><B>Proposed resolution (June, 2023):</B></P>
 
 <P>Change in 9.12.8 [<A href="https://wg21.link/dcl.attr.unused">dcl.attr.unused</A>] as follows:</P>
 
@@ -88,6 +88,9 @@ unused.</INS>
                           [[maybe_unused]] bool thing2) {
     [[maybe_unused]] bool b = thing1 &amp;&amp; thing2;
     assert(b);
+<INS>#ifdef NDEBUG
+    goto x;
+#endif</INS>
     <INS>[[maybe_unused]] x:</INS>
   }
 </PRE>
