@@ -15,7 +15,7 @@
   Core Issues List revision 111d.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-06-13</P>
+<P>2023-06-14</P>
 <HR>
 <A NAME="2476"></A><H4>2476.
   
@@ -310,20 +310,16 @@ forms: ...
 
 <P>Change in 11.4.8.3 [<A href="https://wg21.link/class.conv.fct#2">class.conv.fct</A>] paragraph 2 as follows:</P>
 
-
 <BLOCKQUOTE>
 
 A conversion function shall have no non-object parameters and shall be
-a non-static member function of a class or class template X; <DEL>it
-specifies a conversion from X to the type specified by</DEL> <INS>its
-declared return type is</INS> the <I>conversion-type-id</I>,
-<DEL>interpreted as a <I>type-id</I>
-(9.3.2 [<A href="https://wg21.link/dcl.name">dcl.name</A>])</DEL> <INS>and it specifies a
-conversion from <TT>X</TT> to the type specified by
-the <I>conversion-type-id</I>, interpreted as a <I>type-id</I>
-(9.3.2 [<A href="https://wg21.link/dcl.name">dcl.name</A>])</INS>. A <I>decl-specifier</I> in
-the <I>decl-specifier-seq</I> of a conversion function (if any) shall
-not be a <I>defining-type-specifier</I> .
+a non-static member function of a class or class template X;
+<INS>its declared return type is the <I>conversion-type-id</I>
+and</INS> it specifies a conversion from <TT>X</TT> to the type
+specified by the <I>conversion-type-id</I> interpreted as
+a <I>type-id</I> (9.3.2 [<A href="https://wg21.link/dcl.name">dcl.name</A>]). A <I>decl-specifier</I>
+in the <I>decl-specifier-seq</I> of a conversion function (if any)
+shall not be a <I>defining-type-specifier</I> .
 
 </BLOCKQUOTE>
 

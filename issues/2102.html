@@ -15,7 +15,7 @@
   Core Issues List revision 111d.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-06-11</P>
+<P>2023-06-14</P>
 <HR>
 <A NAME="2102"></A><H4>2102.
   
@@ -82,10 +82,13 @@ the <I>new-initializer</I> is a <I>braced-init-list</I>, and
 the <I>expression</I> is potentially-evaluated and not a core constant
 expression, the semantic constraints of copy-initializing a
 hypothetical element of the array from an empty initializer list are
-checked (9.4.5 [<A href="https://wg21.link/dcl.init.list">dcl.init.list</A>]).</P>
+checked (9.4.5 [<A href="https://wg21.link/dcl.init.list">dcl.init.list</A>]). [ Note: The array can contain
+more elements than there are elements in the <I>braced-init-list</I>,
+requiring initialization of the remainder of the array elements from
+an empty initializer list. -- end note ]</P>
 
 <P>Objects created by a new-expression have dynamic storage duration
-(6.7.5.5). ...</P>
+(6.7.5.5 [<A href="https://wg21.link/basic.stc.dynamic">basic.stc.dynamic</A>]). ...</P>
 
 </BLOCKQUOTE>
 
@@ -140,10 +143,9 @@ the <I>new-expression</I> appears.</INS>
 To <I>default-initialize</I> an object of type T means:
 <UL>
 <LI>...</LI>
-<LI>If T is an array type, each element is default-initialized<INS>;
-if the array has no elements (7.6.2.8 [<A href="https://wg21.link/expr.new">expr.new</A>]), the
-semantic constraints for default-initialization of an element are
-checked</INS>.</LI>
+<LI>If T is an array type, <INS>the semantic constraints of
+default-initializing a hypothetical element shall be met and</INS>
+each element is default-initialized.</LI>
 <LI>...</LI>
 </UL>
 
@@ -168,18 +170,18 @@ then
 user-provided or deleted, then the object is default-initialized;
 </LI>
 <LI>
-otherwise, the object is zero-initialized and the semantic
-constraints for default-initialization are checked, and if T has a
-non-trivial default constructor, the object is default-initialized<DEL>;</DEL><INS>.</INS>
+otherwise, the object is zero-initialized and the semantic constraints
+for default-initialization are checked, and if T has a non-trivial
+default constructor, the object is
+default-initialized<DEL>;</DEL><INS>.</INS>
 </LI>
 </UL>
 </LI>
 
 <LI>
-<DEL>if</DEL> <INS>If</INS> T is an array type, then each element
-is value-initialized;<INS> if the array has no elements
-(7.6.2.8 [<A href="https://wg21.link/expr.new">expr.new</A>]), the semantic constraints for
-value-initialization of an element are checked.</INS>
+<DEL>if</DEL> <INS>If</INS> T is an array type, <INS>the semantic
+constraints of value-initializing a hypothetical element shall be met
+and</INS> each element is value-initialized<DEL>;</DEL><INS>.</INS>
 </LI>
 
 <LI>
