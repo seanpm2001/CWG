@@ -88,9 +88,9 @@ an operation that would have undefined behavior as specified in Clause
    C c = {};
    std::construct_at(&amp;c.b, B{0, 5});
    //<SPAN CLASS="cmnt"> Does this return 5 if </SPAN>c.a.y<SPAN CLASS="cmnt"> and </SPAN>c.b.b<SPAN CLASS="cmnt"> are laid out at the same address?</SPAN>
-   return c.a.y;
+   return c.a.y;   // c.a<SPAN CLASS="cmnt"> is not within lifetime</SPAN>
   }
-  static_assert(f());
+  static_assert(f());  // not a constant-expression
 </PRE>
 
 <P>No known implementation diagnoses the violation of the rules for
@@ -111,9 +111,9 @@ implementation divergence for the results of <TT>f()</TT>:</P>
     B b;
     A *p = &amp;b;
     std::construct_at(p);
-    return p-&gt;f();     // <SPAN CLASS="cmnt">alternative:</SPAN> return b.f()
+    return p-&gt;f();     // <SPAN CLASS="cmnt">#1; alternative:</SPAN> return b.f()
   }
-  static_assert(f() == 'A');
+  static_assert(f() == 'A');   //<SPAN CLASS="cmnt"> error: #1 accesses out-of-lifetime object</SPAN>
 </PRE>
 
 <BR><BR>
