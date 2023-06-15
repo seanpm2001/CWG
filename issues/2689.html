@@ -15,7 +15,7 @@
   Core Issues List revision 111d.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-05-12</P>
+<P>2023-06-15</P>
 <HR>
 <A NAME="2689"></A><H4>2689.
   
@@ -24,7 +24,7 @@ Are cv-qualified <TT>std::nullptr_t</TT> fundamental types?
 <B>Section: </B>6.8.2&#160; [<A href="https://wg21.link/basic.fundamental">basic.fundamental</A>]
  &#160;&#160;&#160;
 
- <B>Status: </B>open
+ <B>Status: </B>review
  &#160;&#160;&#160;
 
  <B>Submitter: </B>Anoop Rana
@@ -38,17 +38,18 @@ fundamental type, given that it is declared in a library header and
 cv-qualifications are not mentioned in
 6.8.2 [<A href="https://wg21.link/basic.fundamental#15">basic.fundamental</A>] paragraph 15.</P>
 
-<P><U>Suggested resolution:</U></P>
+<P><B>Proposed resolution:</B></P>
 
 <P>Change in 6.8.2 [<A href="https://wg21.link/basic.fundamental#15">basic.fundamental</A>] paragraph 15 as follows:</P>
 
 <BLOCKQUOTE>
 
-<INS>A type denoted by <I>cv</I> <TT>std::nullptr_t</TT> is a distinct
-type.</INS> A value of type <TT>std::nullptr_t</TT> is a null pointer
-constant (7.3.12 [<A href="https://wg21.link/conv.ptr">conv.ptr</A>]). Such values participate in the
-pointer and the pointer-to-member conversions
-(7.3.12 [<A href="https://wg21.link/conv.ptr">conv.ptr</A>],
+<INS>The types denoted by <TT>std::nullptr_t</TT>, <TT>const
+std::nullptr_t</TT>, <TT>volatile std::nullptr_t</TT>, and <TT>const
+volatile std::nullptr_t</TT> are distinct types.</INS> A value of
+type <TT>std::nullptr_t</TT> is a null pointer constant
+(7.3.12 [<A href="https://wg21.link/conv.ptr">conv.ptr</A>]). Such values participate in the pointer
+and the pointer-to-member conversions (7.3.12 [<A href="https://wg21.link/conv.ptr">conv.ptr</A>],
 7.3.13 [<A href="https://wg21.link/conv.mem">conv.mem</A>]).  <TT>sizeof(std::nullptr_t)</TT> shall
 be equal to <TT>sizeof(void*)</TT>.
 
