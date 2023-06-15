@@ -15,7 +15,7 @@
   Core Issues List revision 111d.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-05-12</P>
+<P>2023-06-15</P>
 <HR>
 <A NAME="2545"></A><H4>2545.
   
@@ -90,6 +90,7 @@ an operation that would have undefined behavior as specified in Clause
    //<SPAN CLASS="cmnt"> Does this return 5 if </SPAN>c.a.y<SPAN CLASS="cmnt"> and </SPAN>c.b.b<SPAN CLASS="cmnt"> are laid out at the same address?</SPAN>
    return c.a.y;
   }
+  static_assert(f());
 </PRE>
 
 <P>No known implementation diagnoses the violation of the rules for
@@ -112,6 +113,7 @@ implementation divergence for the results of <TT>f()</TT>:</P>
     std::construct_at(p);
     return p-&gt;f();     // <SPAN CLASS="cmnt">alternative:</SPAN> return b.f()
   }
+  static_cast(f() == 'A');
 </PRE>
 
 <BR><BR>
