@@ -94,7 +94,7 @@ from 11.9.6 [<A href="https://wg21.link/class.copy.elision">class.copy.elision</
 
 <P><U>Suggested resolution (post-P2266R3):</U></P>
 
-<P>Change in 7.5.4.3 [<A href="https://wg21.link/expr.prim.id.qual#3">expr.prim.id.qual</A>] paragraph 3:</P>
+<P>Change in 7.5.4.2 [<A href="https://wg21.link/expr.prim.id.unqual#4">expr.prim.id.unqual</A>] paragraph 4:</P>
 
 <BLOCKQUOTE>
 
@@ -126,13 +126,13 @@ function or <I>lambda-expression</I></DEL> or
 
 <LI>
 <DEL>if the <I>id-expression</I> (possibly parenthesized) is the
-operand of</DEL> a <INS>potentially-evaluated</INS> <I>throw-expression</I>,
+operand of</DEL> a <INS>potentially-evaluated</INS> <I>throw-expression</I>
 <DEL>and names an implicitly movable entity that belongs to a scope
 that does not contain the <I>compound-statement</I> of the
 innermost <I>lambda-expression</I>, <I>try-block</I>,
 or <I>function-try-block</I> (if any) whose <I>compound-statement</I>
 or <I>ctor-initializer</I> encloses the <I>throw-expression</I></DEL>
-<INS>and
+<INS>where
 no <I>try-block</I> or <I>function-try-block</I> intervenes between
 the declaration of the entity and the innermost enclosing scope of
 the <I>throw-expression</I></INS>.
