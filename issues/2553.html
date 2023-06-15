@@ -63,8 +63,8 @@ deallocation functions, which are implicitly <TT>static</TT>.</P>
 
 A <I>member-declarator</I> with
 an <I>explicit-object-parameter-declaration</I> shall not include
-a <I>ref-qualifier</I> or a <I>cv-qualifier-seq</I> <DEL>and shall not be
-declared <TT>static</TT> or <TT>virtual</TT></DEL>.
+a <I>ref-qualifier</I> or a <I>cv-qualifier-seq</I> and shall not be
+declared <TT>static</TT> <DEL>or <TT>virtual</TT></DEL>.
 
 </BLOCKQUOTE>
 
@@ -78,26 +78,10 @@ declared <TT>static</TT> or <TT>virtual</TT></DEL>.
 ... An <I>implicit object member function</I> is a non-static member
 function without an explicit object parameter.
 <INS>[ <I>Note:</I> An explicit object member function cannot be
-static (11.4.9.2 [<A href="https://wg21.link/class.static.mfct">class.static.mfct</A>]) or virtual
-(11.7.3 [<A href="https://wg21.link/class.virtual">class.virtual</A>]). -- <I>end note</I> ]</INS>
+virtual (11.7.3 [<A href="https://wg21.link/class.virtual">class.virtual</A>]). -- <I>end note</I> ]</INS>
 
 </BLOCKQUOTE>
 
-</LI>
-
-<LI>
-<P>Add a new paragraph after 11.4.9.2 [<A href="https://wg21.link/class.static.mfct#1">class.static.mfct</A>] paragraph 1:</P>
-
-<BLOCKQUOTE>
-
-<P>[<I>Note</I>: The rules described in 11.4.2 apply to static member
-functions. -- <I>end note</I>]</P>
-
-<P><INS>A static member function (11.4.1 [<A href="https://wg21.link/class.mem.general">class.mem.general</A>],
-11.4.11 [<A href="https://wg21.link/class.free">class.free</A>]) shall not be an explicit object member
-function (9.3.4.6 [<A href="https://wg21.link/dcl.fct">dcl.fct</A>]).</INS></P>
-
-</BLOCKQUOTE>
 </LI>
 
 <LI>
@@ -110,7 +94,7 @@ follows:</P>
 function (9.3.4.6 [<A href="https://wg21.link/dcl.fct">dcl.fct</A>]).</INS></P>
 
 <P><INS>[ <I>Example:</I></INS></P>
-<PRE>
+<PRE class="ins">
   struct B {
     virtual void g(); // #1
   };
