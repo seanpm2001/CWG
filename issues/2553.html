@@ -15,7 +15,7 @@
   Core Issues List revision 111d.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-05-12</P>
+<P>2023-06-15</P>
 <HR>
 <A NAME="2553"></A><H4>2553.
   
@@ -116,7 +116,7 @@ function (9.3.4.6 [<A href="https://wg21.link/dcl.fct">dcl.fct</A>]).</INS></P>
   };
   struct D : B {
     virtual void f(this D&amp;);  //<SPAN CLASS="cmnt"> error: explicit object member function cannot be virtual</SPAN>
-    void g(this D&amp;);          //<SPAN CLASS="cmnt"> overrides #1; error: explicit object member function cannot be virtual</SPAN>
+    void g(this D&amp;);          //<SPAN CLASS="cmnt"> error: overrides #1; explicit object member function cannot be virtual</SPAN>
   };
 </PRE>
 <P><INS>-- <I>end example</I>]</INS></P>
