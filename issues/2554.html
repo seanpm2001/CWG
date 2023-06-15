@@ -24,7 +24,7 @@ Overriding virtual functions, also with explicit object parameters
 <B>Section: </B>11.7.3&#160; [<A href="https://wg21.link/class.virtual">class.virtual</A>]
  &#160;&#160;&#160;
 
- <B>Status: </B>open
+ <B>Status: </B>review
  &#160;&#160;&#160;
 
  <B>Submitter: </B>Jens Maurer
@@ -116,8 +116,10 @@ unintended alteration of the status quo ante.</P>
 
 <P>See also <A HREF="2553.html">issue 2553</A>.</P>
 
-<P><U>Suggested resolution:</U></P>
+<P><B>Proposed resolution:</B></P>
 
+<OL>
+<LI>
 <P>Change in 11.7.3 [<A href="https://wg21.link/class.virtual#2">class.virtual</A>] paragraph 2 as follows:</P>
 
 <BLOCKQUOTE>
@@ -135,6 +137,21 @@ have the same <I>ref-qualifier</I> (or absence thereof),
 then G <I>overrides</I> [ <I>Footnote:</I> ... ] F .
 
 </BLOCKQUOTE>
+</LI>
+
+<LI>
+<P>Remove 11.7.3 [<A href="https://wg21.link/class.virtual#7">class.virtual</A>] paragraph 7 as follows:</P>
+
+<BLOCKQUOTE>
+
+<DEL>The <I>ref-qualifier</I> , or lack thereof, of an overriding function
+shall be the same as that of the overridden function.</DEL>
+
+</BLOCKQUOTE>
+
+</LI>
+</OL>
+
 
 <BR><BR>
 </BODY>
