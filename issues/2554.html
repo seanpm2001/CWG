@@ -128,9 +128,10 @@ member function G corresponds (6.4.1 [<A href="https://wg21.link/basic.scope.sco
 declaration of F
 <INS>considered as a member of D (12.2.2.1 [<A href="https://wg21.link/over.match.funcs.general">over.match.funcs.general</A>])</INS>,
 ignoring trailing <I>requires-clause</I>s,
-<INS>and, if G is an implicit object member function,
+<INS>and, if G explicit object member function, ignoring object parameters,
+and, if G is an implicit object member function,
 F and G have the same <I>ref-qualifier</I> (or absence thereof),
-and, if G explicit object member function, ignoring object parameters,</INS>
+</INS>
 then G <I>overrides</I> [ <I>Footnote:</I> ... ] F .
 
 </BLOCKQUOTE>
