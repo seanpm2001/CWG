@@ -86,9 +86,9 @@ an operation that would have undefined behavior as specified in Clause
   };
   constexpr int f() {
    C c = {};
-   std::construct_at(&amp;c.b, B{0, 5});
+   std::construct_at(&amp;c.b.b, 5);
    //<SPAN CLASS="cmnt"> Does this return 5 if </SPAN>c.a.y<SPAN CLASS="cmnt"> and </SPAN>c.b.b<SPAN CLASS="cmnt"> are laid out at the same address?</SPAN>
-   return c.a.y;   // c.a<SPAN CLASS="cmnt"> is not within lifetime</SPAN>
+   return c.a.y;
   }
   static_assert(f());  // not a constant-expression
 </PRE>
