@@ -24,7 +24,7 @@ Allow implicit pointer-to-member conversion on nontype template argument
 <B>Section: </B>13.4&#160; [<A href="https://wg21.link/temp.arg">temp.arg</A>]
  &#160;&#160;&#160;
 
- <B>Status: </B>open
+ <B>Status: </B>NAD
  &#160;&#160;&#160;
 
  <B>Submitter: </B>David Abrahams
@@ -118,6 +118,12 @@ constant expression.</P>
 
 <P>Subclause 7.7 [<A href="https://wg21.link/expr.const#12">expr.const</A>] paragraph 12 is unambiguous that
 the code is ill-formed, but that seems unfortunate.</P>
+
+<P><B>CWG 2023-06-15</B></P>
+
+<P>CWG noted that the derived-to-base conversion is also not allowed
+for arguments for non-type template parameters.  Permitting such
+conversions is an extension, not a defect.</P>
 
 <BR><BR>
 </BODY>
