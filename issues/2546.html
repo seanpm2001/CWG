@@ -15,7 +15,7 @@
   Core Issues List revision 111d.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-05-12</P>
+<P>2023-06-15</P>
 <HR>
 <A NAME="2546"></A><H4>2546.
   
@@ -24,7 +24,7 @@ Defaulted secondary comparison operators defined as deleted
 <B>Section: </B>11.10.4&#160; [<A href="https://wg21.link/class.compare.secondary">class.compare.secondary</A>]
  &#160;&#160;&#160;
 
- <B>Status: </B>open
+ <B>Status: </B>review
  &#160;&#160;&#160;
 
  <B>Submitter: </B>Jim X
@@ -118,17 +118,14 @@ resolution</DEL> is not a rewritten candidate<DEL>.</DEL> <INS>, or</INS>
 
 </LI>
 
-<LI>
-<INS>a second overload resolution for the expression resulting
+<LI class="ins">a second overload resolution for the expression resulting
 from the interpretation of <TT>x @ y</TT> using the selected rewritten
 candidate (12.2.2.3 [<A href="https://wg21.link/over.match.oper">over.match.oper</A>]) does not result in a usable
-candidate, or</INS>
+candidate, or
 </LI>
 
-<LI>
-<INS>a third overload resolution for a copy-initialization of an
-object of type <TT>bool</TT> from <TT>x @ y</TT> does not result in a
-usable candidate;</INS>
+<LI class="ins">
+<TT>x @ y</TT> cannot be implicitly converted to <TT>bool</TT>.
 </LI>
 </UL>
 
