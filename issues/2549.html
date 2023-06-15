@@ -15,7 +15,7 @@
   Core Issues List revision 111d.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-05-12</P>
+<P>2023-06-15</P>
 <HR>
 <A NAME="2549"></A><H4>2549.
   
@@ -24,7 +24,7 @@ Implicitly moving the operand of a <I>throw-expression</I> in unevaluated contex
 <B>Section: </B>7.5.4.3&#160; [<A href="https://wg21.link/expr.prim.id.qual">expr.prim.id.qual</A>]
  &#160;&#160;&#160;
 
- <B>Status: </B>open
+ <B>Status: </B>review
  &#160;&#160;&#160;
 
  <B>Submitter: </B>Richard Smith
@@ -126,9 +126,9 @@ function or <I>lambda-expression</I></DEL> or
 
 <LI>
 <DEL>if the <I>id-expression</I> (possibly parenthesized) is the
-operand of</DEL> a <INS>potentially-evaluated</INS> <I>throw-expression</I><DEL>, and names an
-implicitly movable entity that belongs to a scope that does not
-contain the <I>compound-statement</I> of the
+operand of</DEL> a <INS>potentially-evaluated</INS> <I>throw-expression</I>,
+<DEL>and names an implicitly movable entity that belongs to a scope
+that does not contain the <I>compound-statement</I> of the
 innermost <I>lambda-expression</I>, <I>try-block</I>,
 or <I>function-try-block</I> (if any) whose <I>compound-statement</I>
 or <I>ctor-initializer</I> encloses the <I>throw-expression</I></DEL>
