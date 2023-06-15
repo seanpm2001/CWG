@@ -15,7 +15,7 @@
   Core Issues List revision 111d.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-05-12</P>
+<P>2023-06-15</P>
 <HR>
 <A NAME="2552"></A><H4>2552.
   
@@ -65,35 +65,12 @@ view here.</P>
 
 <UL>
 <LI>
-a control flow that passes through a <DEL>declaration</DEL>
-<INS>definition</INS> of a variable with static
+a control flow that passes through a declaration
+of a <INS>block</INS> variable with static
 (6.7.5.2 [<A href="https://wg21.link/basic.stc.static">basic.stc.static</A>]) or thread
 (6.7.5.3 [<A href="https://wg21.link/basic.stc.thread">basic.stc.thread</A>]) storage duration;
 </LI>
 </UL>
-
-</BLOCKQUOTE>
-</LI>
-
-<LI>
-<P>Change in 8.8 [<A href="https://wg21.link/stmt.dcl#3">stmt.dcl</A>] paragraph 3 as follows:</P>
-
-<BLOCKQUOTE>
-
-Dynamic initialization of a block variable with static storage
-duration (6.7.5.2 [<A href="https://wg21.link/basic.stc.static">basic.stc.static</A>]) or thread storage duration
-(6.7.5.3 [<A href="https://wg21.link/basic.stc.thread">basic.stc.thread</A>]) is performed the first time control
-passes through its <DEL>declaration</DEL> <INS>definition</INS>; such
-a variable is considered initialized upon the completion of its
-initialization. If the initialization exits by throwing an exception,
-the initialization is not complete, so it will be tried again the next
-time control enters the <DEL>declaration</DEL> <INS>definition</INS>.
-If control enters the declaration concurrently while the variable is
-being initialized, the concurrent execution shall wait for completion
-of the initialization.  [<I>Note:</I> ...  &#8212;<I>end note</I>] If
-control re-enters the <DEL>declaration</DEL> <INS>definition</INS>
-recursively while the variable is being initialized, the behavior is
-undefined.
 
 </BLOCKQUOTE>
 </LI>
