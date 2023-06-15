@@ -6347,7 +6347,7 @@ Multiple <TT>alignas</TT> specifiers
   <A href="https://wg21.link/dcl.attr.unused">dcl.attr.unused</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#2733">2733</A></TD>
-<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER">review</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Applying <TT>[[maybe_unused]]</TT> to a label
@@ -11669,20 +11669,16 @@ forms: ...
 
 <P>Change in 11.4.8.3 [<A href="https://wg21.link/class.conv.fct#2">class.conv.fct</A>] paragraph 2 as follows:</P>
 
-
 <BLOCKQUOTE>
 
 A conversion function shall have no non-object parameters and shall be
-a non-static member function of a class or class template X; <DEL>it
-specifies a conversion from X to the type specified by</DEL> <INS>its
-declared return type is</INS> the <I>conversion-type-id</I>,
-<DEL>interpreted as a <I>type-id</I>
-(9.3.2 [<A href="https://wg21.link/dcl.name">dcl.name</A>])</DEL> <INS>and it specifies a
-conversion from <TT>X</TT> to the type specified by
-the <I>conversion-type-id</I>, interpreted as a <I>type-id</I>
-(9.3.2 [<A href="https://wg21.link/dcl.name">dcl.name</A>])</INS>. A <I>decl-specifier</I> in
-the <I>decl-specifier-seq</I> of a conversion function (if any) shall
-not be a <I>defining-type-specifier</I> .
+a non-static member function of a class or class template X;
+<INS>its declared return type is the <I>conversion-type-id</I>
+and</INS> it specifies a conversion from <TT>X</TT> to the type
+specified by the <I>conversion-type-id</I> interpreted as
+a <I>type-id</I> (9.3.2 [<A href="https://wg21.link/dcl.name">dcl.name</A>]). A <I>decl-specifier</I>
+in the <I>decl-specifier-seq</I> of a conversion function (if any)
+shall not be a <I>defining-type-specifier</I> .
 
 </BLOCKQUOTE>
 
@@ -12732,10 +12728,13 @@ the <I>new-initializer</I> is a <I>braced-init-list</I>, and
 the <I>expression</I> is potentially-evaluated and not a core constant
 expression, the semantic constraints of copy-initializing a
 hypothetical element of the array from an empty initializer list are
-checked (9.4.5 [<A href="https://wg21.link/dcl.init.list">dcl.init.list</A>]).</P>
+checked (9.4.5 [<A href="https://wg21.link/dcl.init.list">dcl.init.list</A>]). [ Note: The array can contain
+more elements than there are elements in the <I>braced-init-list</I>,
+requiring initialization of the remainder of the array elements from
+an empty initializer list. -- end note ]</P>
 
 <P>Objects created by a new-expression have dynamic storage duration
-(6.7.5.5). ...</P>
+(6.7.5.5 [<A href="https://wg21.link/basic.stc.dynamic">basic.stc.dynamic</A>]). ...</P>
 
 </BLOCKQUOTE>
 
@@ -12790,10 +12789,9 @@ the <I>new-expression</I> appears.</INS>
 To <I>default-initialize</I> an object of type T means:
 <UL>
 <LI>...</LI>
-<LI>If T is an array type, each element is default-initialized<INS>;
-if the array has no elements (7.6.2.8 [<A href="https://wg21.link/expr.new">expr.new</A>]), the
-semantic constraints for default-initialization of an element are
-checked</INS>.</LI>
+<LI>If T is an array type, <INS>the semantic constraints of
+default-initializing a hypothetical element shall be met and</INS>
+each element is default-initialized.</LI>
 <LI>...</LI>
 </UL>
 
@@ -12818,18 +12816,18 @@ then
 user-provided or deleted, then the object is default-initialized;
 </LI>
 <LI>
-otherwise, the object is zero-initialized and the semantic
-constraints for default-initialization are checked, and if T has a
-non-trivial default constructor, the object is default-initialized<DEL>;</DEL><INS>.</INS>
+otherwise, the object is zero-initialized and the semantic constraints
+for default-initialization are checked, and if T has a non-trivial
+default constructor, the object is
+default-initialized<DEL>;</DEL><INS>.</INS>
 </LI>
 </UL>
 </LI>
 
 <LI>
-<DEL>if</DEL> <INS>If</INS> T is an array type, then each element
-is value-initialized;<INS> if the array has no elements
-(7.6.2.8 [<A href="https://wg21.link/expr.new">expr.new</A>]), the semantic constraints for
-value-initialization of an element are checked.</INS>
+<DEL>if</DEL> <INS>If</INS> T is an array type, <INS>the semantic
+constraints of value-initializing a hypothetical element shall be met
+and</INS> each element is value-initialized<DEL>;</DEL><INS>.</INS>
 </LI>
 
 <LI>
@@ -13082,6 +13080,90 @@ along the lines of &#8220;if that initialization involves a narrowing
 conversion to the underlying type of <TT>T</TT>...&#8221; was suggested to
 clarify the intent. This will be handled editorially, and the issue will be
 left in "review" status until the change has been verified.</P>
+
+<BR><BR><HR>
+<A NAME="2733"></A><H4>2733.
+  
+Applying <TT>[[maybe_unused]]</TT> to a label
+</H4>
+<B>Section: </B>9.12.8&#160; [<A href="https://wg21.link/dcl.attr.unused">dcl.attr.unused</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>review
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Barry Revzin
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-05-25<BR>
+
+
+<P>Subclause 9.12.8 [<A href="https://wg21.link/dcl.attr.unused#2">dcl.attr.unused</A>] paragraph 2 specifies:</P>
+
+<BLOCKQUOTE>
+
+The attribute may be applied to the declaration of a class,
+a <I>typedef-name</I>, a variable (including a structured binding
+declaration), a non-static data member, a function, an enumeration, or
+an enumerator.
+
+</BLOCKQUOTE>
+
+<P>Absent from that list are labels, but both gcc and clang
+accept <TT>[[maybe_unused]]</TT> on a label, and behave
+accordingly.</P>
+
+<P><B>Proposed resolution (June, 2023):</B></P>
+
+<P>Change in 9.12.8 [<A href="https://wg21.link/dcl.attr.unused">dcl.attr.unused</A>] as follows:</P>
+
+<BLOCKQUOTE>
+
+<P>The <I>attribute-token</I> <TT>maybe_unused</TT> indicates that a
+name<INS>, label,</INS> or entity is possibly intentionally unused.
+No <I>attribute-argument-clause</I> shall be present.</P>
+
+<P>The attribute may be applied to the declaration of a class,
+<DEL>a</DEL> <I>typedef-name</I>, <DEL>a</DEL> variable (including a
+structured binding declaration), <DEL>a</DEL> non-static data
+member, <DEL>a</DEL> function, <DEL>an</DEL> enumeration,
+or <DEL>an</DEL> enumerator<INS>, or to an <I>identifier</I>
+label (8.2 [<A href="https://wg21.link/stmt.label">stmt.label</A>])</INS>.</P>
+
+<P>A name or entity declared without the <TT>maybe_unused</TT>
+attribute can later be redeclared with the attribute and vice
+versa. An entity is considered marked after the first declaration that
+marks it.</P>
+
+<P>
+<I>Recommended practice</I>: For an entity
+marked <TT>maybe_unused</TT>, implementations should not emit a
+warning that the entity or its structured bindings (if any) are used
+or unused. For a structured binding declaration not
+marked <TT>maybe_unused</TT>, implementations should not emit such a
+warning unless all of its structured bindings are unused.
+<INS>For a label to which <TT>maybe_unused</TT> is applied,
+implementations should not emit a warning that the label is used or
+unused.</INS>
+</P>
+
+[<I>Example 1:</I>
+<PRE>
+  [[maybe_unused]] void f([[maybe_unused]] bool thing1,
+                          [[maybe_unused]] bool thing2) {
+    [[maybe_unused]] bool b = thing1 &amp;&amp; thing2;
+    assert(b);
+<INS>#ifdef NDEBUG
+    goto x;
+#endif</INS>
+    <INS>[[maybe_unused]] x:</INS>
+  }
+</PRE>
+Implementations should not warn
+that <TT>b</TT> <INS>or <TT>x</TT></INS> is unused, whether or not
+<TT>NDEBUG</TT> is defined. &#8212; <I>end example</I>]
+
+</BLOCKQUOTE>
 
 <BR><BR><HR>
 <A NAME="2504"></A><H4>2504.
@@ -33018,87 +33100,6 @@ there can be no definition of <TT>n</TT>):</P>
 </PRE>
 
 <P>Is this intentional?</P>
-
-<BR><BR><HR>
-<A NAME="2733"></A><H4>2733.
-  
-Applying <TT>[[maybe_unused]]</TT> to a label
-</H4>
-<B>Section: </B>9.12.8&#160; [<A href="https://wg21.link/dcl.attr.unused">dcl.attr.unused</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>open
- &#160;&#160;&#160;
-
- <B>Submitter: </B>Barry Revzin
- &#160;&#160;&#160;
-
- <B>Date: </B>2023-05-25<BR>
-
-
-<P>Subclause 9.12.8 [<A href="https://wg21.link/dcl.attr.unused#2">dcl.attr.unused</A>] paragraph 2 specifies:</P>
-
-<BLOCKQUOTE>
-
-The attribute may be applied to the declaration of a class,
-a <I>typedef-name</I>, a variable (including a structured binding
-declaration), a non-static data member, a function, an enumeration, or
-an enumerator.
-
-</BLOCKQUOTE>
-
-<P>Absent from that list are labels, but both gcc and clang
-accept <TT>[[maybe_unused]]</TT> on a label, and behave
-accordingly.</P>
-
-<P><U>Possible resolution:</U></P>
-
-<P>Change in 9.12.8 [<A href="https://wg21.link/dcl.attr.unused">dcl.attr.unused</A>] as follows:</P>
-
-<BLOCKQUOTE>
-
-<P>The <I>attribute-token</I> <TT>maybe_unused</TT> indicates that a
-name<INS>, label,</INS> or entity is possibly intentionally unused.
-No <I>attribute-argument-clause</I> shall be present.</P>
-
-<P>The attribute may be applied to the declaration of a class,
-<DEL>a</DEL> <I>typedef-name</I>, <DEL>a</DEL> variable (including a
-structured binding declaration), <DEL>a</DEL> non-static data
-member, <DEL>a</DEL> function, <DEL>an</DEL> enumeration,
-or <DEL>an</DEL> enumerator<INS>, or to an <I>identifier</I>
-label (8.2 [<A href="https://wg21.link/stmt.label">stmt.label</A>])</INS>.</P>
-
-<P>A name or entity declared without the <TT>maybe_unused</TT>
-attribute can later be redeclared with the attribute and vice
-versa. An entity is considered marked after the first declaration that
-marks it.</P>
-
-<P>
-<I>Recommended practice</I>: For an entity
-marked <TT>maybe_unused</TT>, implementations should not emit a
-warning that the entity or its structured bindings (if any) are used
-or unused. For a structured binding declaration not
-marked <TT>maybe_unused</TT>, implementations should not emit such a
-warning unless all of its structured bindings are unused.
-<INS>For a label to which <TT>maybe_unused</TT> is applied,
-implementations should not emit a warning that the label is used or
-unused.</INS>
-</P>
-
-[<I>Example 1:</I>
-<PRE>
-  [[maybe_unused]] void f([[maybe_unused]] bool thing1,
-                          [[maybe_unused]] bool thing2) {
-    [[maybe_unused]] bool b = thing1 &amp;&amp; thing2;
-    assert(b);
-    <INS>[[maybe_unused]] x:</INS>
-  }
-</PRE>
-Implementations should not warn
-that <TT>b</TT> <INS>or <TT>x</TT></INS> is unused, whether or not
-<TT>NDEBUG</TT> is defined. &#8212; <I>end example</I>]
-
-</BLOCKQUOTE>
 
 <BR><BR><HR>
 <A NAME="2541"></A><H4>2541.

@@ -15,7 +15,7 @@
   Core Issues List revision 111d.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-05-12</P>
+<P>2023-06-15</P>
 <HR>
 <A NAME="440"></A><H4>440.
   
@@ -113,10 +113,10 @@ constant expression.</P>
   template&lt;void (D::*)()&gt;
   int g();
 
-  int x = f&lt;&amp;D::g&gt;();
+  int x = g&lt;&amp;D::f&gt;();
 </PRE>
 
-<P>Subclause 7.7 [<A href="https://wg21.link/expr.const#11">expr.const</A>] paragraph 11 is unambiguous that
+<P>Subclause 7.7 [<A href="https://wg21.link/expr.const#12">expr.const</A>] paragraph 12 is unambiguous that
 the code is ill-formed, but that seems unfortunate.</P>
 
 <BR><BR>
