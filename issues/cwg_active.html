@@ -184,6 +184,7 @@ USA.</P>
 <A HREF="cwg_active.html#2746">2746</A>,
 <A HREF="cwg_active.html#2747">2747</A>,
 <A HREF="cwg_active.html#2748">2748</A>,
+<A HREF="cwg_active.html#2749">2749</A>,
 Closed issues
 <A HREF="cwg_closed.html#6">6</A>,
 <A HREF="cwg_closed.html#504">504</A>,
@@ -1448,7 +1449,7 @@ Added new issues
 <A HREF="cwg_defects.html#1850">1850</A>,
 <A HREF="cwg_defects.html#1851">1851</A>,
 <A HREF="cwg_defects.html#1852">1852</A>,
-<A HREF="cwg_active.html#1853">1853</A>,
+<A HREF="cwg_closed.html#1853">1853</A>,
 <A HREF="cwg_active.html#1854">1854</A>,
 <A HREF="cwg_closed.html#1855">1855</A>,
 <A HREF="cwg_active.html#1856">1856</A>,
@@ -4235,17 +4236,6 @@ Member access in out-of-lifetime objects
 <TD ALIGN="LEFT">6.7.3&#160;
   <A href="https://wg21.link/basic.life">basic.life</A>
 </TD>
-<TD ALIGN="RIGHT"><A HREF="#1853">1853</A></TD>
-<TD ALIGN="CENTER">drafting</TD>
-<TD ALIGN="CENTER"></TD>
-<TD ALIGN="LEFT">
-Defining &#8220;allocated storage&#8221;
-</TD>
-</TR>
-<TR>
-<TD ALIGN="LEFT">6.7.3&#160;
-  <A href="https://wg21.link/basic.life">basic.life</A>
-</TD>
 <TD ALIGN="RIGHT"><A HREF="#2258">2258</A></TD>
 <TD ALIGN="CENTER">open</TD>
 <TD ALIGN="CENTER"></TD>
@@ -4269,7 +4259,7 @@ Modifying const subobjects
   <A href="https://wg21.link/basic.life">basic.life</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#2551">2551</A></TD>
-<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER">review</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 "Refers to allocated storage" has no meaning
@@ -4511,7 +4501,7 @@ How many signed integer types are there?
   <A href="https://wg21.link/basic.fundamental">basic.fundamental</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#2689">2689</A></TD>
-<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER">review</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Are cv-qualified <TT>std::nullptr_t</TT> fundamental types?
@@ -4720,7 +4710,7 @@ Unclear relationship among name, qualified name, and unqualified name
   <A href="https://wg21.link/expr.prim.id.unqual">expr.prim.id.unqual</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#2738">2738</A></TD>
-<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER">review</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 "denotes a destructor" is missing specification
@@ -5280,7 +5270,7 @@ Pointer arithmetic in array-like containers
   <A href="https://wg21.link/expr.add">expr.add</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#2548">2548</A></TD>
-<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER">drafting</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Array prvalues and additive operators
@@ -5306,6 +5296,17 @@ Clarify rounding for arithmetic right shift
 <TD ALIGN="CENTER">SG22</TD>
 <TD ALIGN="LEFT">
 Relational comparisons of pointers to <TT>void</TT>
+</TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT">7.6.9&#160;
+  <A href="https://wg21.link/expr.rel">expr.rel</A>
+</TD>
+<TD ALIGN="RIGHT"><A HREF="#2749">2749</A></TD>
+<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER">SG22</TD>
+<TD ALIGN="LEFT">
+Treatment of "pointer to void" for relational comparisons
 </TD>
 </TR>
 <TR>
@@ -5368,7 +5369,7 @@ Compound assignment of <I>braced-init-list</I>
   <A href="https://wg21.link/expr.const">expr.const</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#1255">1255</A></TD>
-<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER">drafting</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Definition problems with <TT>constexpr</TT> functions
@@ -5819,7 +5820,7 @@ References may only bind to &#8220;valid&#8221; objects
   <A href="https://wg21.link/dcl.ref">dcl.ref</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#2550">2550</A></TD>
-<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER">ready</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Type "reference to <I>cv</I> <TT>void</TT>" outside of a declarator
@@ -6182,7 +6183,7 @@ Disallowing use of implicitly-deleted functions
   <A href="https://wg21.link/dcl.fct.def.default">dcl.fct.def.default</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#2547">2547</A></TD>
-<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER">review</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Defaulted comparison operator function for non-classes
@@ -6930,7 +6931,7 @@ Three-way comparison requiring strong ordering for floating-point types, take 2
   <A href="https://wg21.link/class.compare.secondary">class.compare.secondary</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#2546">2546</A></TD>
-<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER">review</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Defaulted secondary comparison operators defined as deleted
@@ -10340,7 +10341,7 @@ static (6.7.5.2 [<A href="https://wg21.link/basic.stc.static">basic.stc.static</
 are covered by the above bullet, but only definitions should be in
 view here.</P>
 
-<P><B>Proposed resolution (approved by CWG 2023-06-14):</B></P>
+<P><B>Proposed resolution (approved by CWG 2023-06-15):</B></P>
 
 <OL>
 <LI>
@@ -10438,6 +10439,51 @@ executed during constant evaluation. -- end note ]</INS>.
 </BLOCKQUOTE>
 
 <BR><BR><HR>
+<A NAME="2550"></A><H4>2550.
+  
+Type "reference to <I>cv</I> <TT>void</TT>" outside of a declarator
+</H4>
+<B>Section: </B>9.3.4.3&#160; [<A href="https://wg21.link/dcl.ref">dcl.ref</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>ready
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Jens Maurer
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2022-03-13<BR>
+
+
+<P>9.3.4.3 [<A href="https://wg21.link/dcl.ref#1">dcl.ref</A>] paragraph 1 specifies:</P>
+
+<BLOCKQUOTE>
+
+A declarator that specifies the type &#8220;reference to <I>cv</I>
+<TT>void</TT>&#8221; is ill-formed.
+
+</BLOCKQUOTE>
+
+<P>A <I>declarator</I> does not contain the
+leading <I>decl-specifier-seq</I> of a declaration, so the following
+example is not covered by the prohibition:</P>
+
+<PRE>
+  void f(void&amp; x);
+</PRE>
+
+<P><B>Proposed resolution (approved by CWG 2023-06-15):</B></P>
+
+<P>Change in 9.3.4.3 [<A href="https://wg21.link/dcl.ref#1">dcl.ref</A>] paragraph 1 as follows:</P>
+
+<BLOCKQUOTE>
+
+<DEL>A declarator that specifies</DEL> <INS>Forming</INS> the type
+&#8220;reference to <I>cv</I> <TT>void</TT>&#8221; is ill-formed.
+
+</BLOCKQUOTE>
+
+<BR><BR><HR>
 <A NAME="2553"></A><H4>2553.
   
 Restrictions on explicit object member functions
@@ -10474,7 +10520,7 @@ member function.  That should be prevented.</P>
 <P>This also does not address class-specific allocation and
 deallocation functions, which are implicitly <TT>static</TT>.</P>
 
-<P><B>Proposed resolution (approved by CWG 2023-06-14):</B></P>
+<P><B>Proposed resolution (approved by CWG 2023-06-15):</B></P>
 
 <OL>
 <LI>
@@ -12653,6 +12699,98 @@ the cv-qualification in the type of the expression?)</P>
 <A HREF="https://github.com/cplusplus/papers/issues/1365">cplusplus/papers#1395</A>.</P>
 
 <BR><BR><HR>
+<A NAME="2551"></A><H4>2551.
+  
+"Refers to allocated storage" has no meaning
+</H4>
+<B>Section: </B>6.7.3&#160; [<A href="https://wg21.link/basic.life">basic.life</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>review
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Andrey Erokhin
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2020-09-07<BR>
+
+
+
+
+<P>6.7.3 [<A href="https://wg21.link/basic.life#6">basic.life</A>] paragraph 6 specifies:</P>
+
+<BLOCKQUOTE>
+
+Before the lifetime of an object has started but after the storage
+which the object will occupy has been allocated or, after the lifetime
+of an object has ended and before the storage which the object
+occupied is reused or released, any pointer that represents the
+address of the storage location where the object will be or was
+located may be used but only in limited ways. For an object under
+construction or destruction, see 11.9.5 [<A href="https://wg21.link/class.cdtor">class.cdtor</A>].
+Otherwise, such a pointer refers to allocated storage
+(6.7.5.5.2 [<A href="https://wg21.link/basic.stc.dynamic.allocation">basic.stc.dynamic.allocation</A>]), and using the pointer as if the
+pointer were of type <TT>void*</TT> is well-defined.
+
+</BLOCKQUOTE>
+
+<P>Similarly, 6.7.3 [<A href="https://wg21.link/basic.life#7">basic.life</A>] paragraph 7 specifies:</P>
+
+<BLOCKQUOTE>
+
+Similarly, before the lifetime of an object has started but after the
+storage which the object will occupy has been allocated or, after the
+lifetime of an object has ended and before the storage which the
+object occupied is reused or released, any glvalue that refers to the
+original object may be used but only in limited ways.  For an object
+under construction or destruction, see 11.9.5 [<A href="https://wg21.link/class.cdtor">class.cdtor</A>].
+Otherwise, such a glvalue refers to allocated storage
+(6.7.5.5.2 [<A href="https://wg21.link/basic.stc.dynamic.allocation">basic.stc.dynamic.allocation</A>]), and using the properties of the
+glvalue that do not depend on its value is well-defined.
+
+</BLOCKQUOTE>
+
+<P>In either case, it is unclear what "refers to allocated storage"
+means, beyond the properties ascribed to an object in
+6.7.2 [<A href="https://wg21.link/intro.object">intro.object</A>].</P>
+
+<P>See also <A HREF="cwg_closed.html#1853">issue 1853</A>.</P>
+
+<P><B>Proposed resolution:</B></P>
+
+<OL>
+<LI>
+<P>Change in 6.7.3 [<A href="https://wg21.link/basic.life#6">basic.life</A>] paragraph 6 as follows:</P>
+
+<BLOCKQUOTE>
+
+For an object under construction or destruction, see
+11.9.5 [<A href="https://wg21.link/class.cdtor">class.cdtor</A>].  Otherwise, <DEL>such a pointer refers to
+allocated storage (6.7.5.5.2 [<A href="https://wg21.link/basic.stc.dynamic.allocation">basic.stc.dynamic.allocation</A>]), and</DEL>
+using <DEL>the</DEL> <INS>such a</INS> pointer as if the pointer were
+of type <TT>void*</TT> is well-defined.
+
+</BLOCKQUOTE>
+
+</LI>
+
+<LI>
+<P>Change in 6.7.3 [<A href="https://wg21.link/basic.life#7">basic.life</A>] paragraph 7 as follows:</P>
+
+<BLOCKQUOTE>
+
+For an object under construction or destruction, see
+11.9.5 [<A href="https://wg21.link/class.cdtor">class.cdtor</A>].  Otherwise, <DEL>such a glvalue refers to
+allocated storage (6.7.5.5.2 [<A href="https://wg21.link/basic.stc.dynamic.allocation">basic.stc.dynamic.allocation</A>]), and</DEL> using
+the properties of <DEL>the</DEL> <INS>such a</INS> glvalue that do not
+depend on its value is well-defined.
+
+</BLOCKQUOTE>
+
+</LI>
+</OL>
+
+<BR><BR><HR>
 <A NAME="2677"></A><H4>2677.
   
 Replacing union subobjects
@@ -12810,6 +12948,108 @@ for which:</INS>
 </OL>
 
 <BR><BR><HR>
+<A NAME="2689"></A><H4>2689.
+  
+Are cv-qualified <TT>std::nullptr_t</TT> fundamental types?
+</H4>
+<B>Section: </B>6.8.2&#160; [<A href="https://wg21.link/basic.fundamental">basic.fundamental</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>review
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Anoop Rana
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2022-12-08<BR>
+
+
+<P>It is unclear whether <I>cv</I> <TT>std::nullptr_t</TT> is a
+fundamental type, given that it is declared in a library header and
+cv-qualifications are not mentioned in
+6.8.2 [<A href="https://wg21.link/basic.fundamental#15">basic.fundamental</A>] paragraph 15.</P>
+
+<P><B>Proposed resolution:</B></P>
+
+<P>Change in 6.8.2 [<A href="https://wg21.link/basic.fundamental#15">basic.fundamental</A>] paragraph 15 as follows:</P>
+
+<BLOCKQUOTE>
+
+<INS>The types denoted by <TT>std::nullptr_t</TT>, <TT>const
+std::nullptr_t</TT>, <TT>volatile std::nullptr_t</TT>, and <TT>const
+volatile std::nullptr_t</TT> are distinct types.</INS> A value of
+type <TT>std::nullptr_t</TT> is a null pointer constant
+(7.3.12 [<A href="https://wg21.link/conv.ptr">conv.ptr</A>]). Such values participate in the pointer
+and the pointer-to-member conversions (7.3.12 [<A href="https://wg21.link/conv.ptr">conv.ptr</A>],
+7.3.13 [<A href="https://wg21.link/conv.mem">conv.mem</A>]).  <TT>sizeof(std::nullptr_t)</TT> shall
+be equal to <TT>sizeof(void*)</TT>.
+
+<P>The types described in this subclause are called <I>fundamental
+types</I>.  [<I>Note 11:</I> Even if the implementation defines two or
+more fundamental types to have the same value representation, they are
+nevertheless different types. &#8212;<I>end note</I>]</P>
+
+</BLOCKQUOTE>
+
+
+<BR><BR><HR>
+<A NAME="2738"></A><H4>2738.
+  
+"denotes a destructor" is missing specification
+</H4>
+<B>Section: </B>7.5.4.2&#160; [<A href="https://wg21.link/expr.prim.id.unqual">expr.prim.id.unqual</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>review
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Jim X
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2022-05-22<BR>
+
+
+<P>Subclause 7.5.4.2 [<A href="https://wg21.link/expr.prim.id.unqual#1">expr.prim.id.unqual</A>] paragraph 1 has a note that
+lacks a corresponding normative specification:</P>
+
+<BLOCKQUOTE>
+
+[<I>Note 1:</I> For <I>operator-function-id</I>s, see
+12.4 [<A href="https://wg21.link/over.oper">over.oper</A>]; for <I>conversion-function-id</I>s, see
+11.4.8.3 [<A href="https://wg21.link/class.conv.fct">class.conv.fct</A>]; for <I>literal-operator-id</I>s, see
+12.6 [<A href="https://wg21.link/over.literal">over.literal</A>]; for <I>template-ids</I>, see
+13.3 [<A href="https://wg21.link/temp.names">temp.names</A>]. A <I>type-name</I>
+or <I>decltype-specifier</I> prefixed by ~ denotes the destructor of
+the type so named; see 7.5.4.4 [<A href="https://wg21.link/expr.prim.id.dtor">expr.prim.id.dtor</A>]. Within the
+definition of a non-static member function, an identifier that names a
+non-static member is transformed to a class member access expression
+(11.4.3 [<A href="https://wg21.link/class.mfct.non.static">class.mfct.non.static</A>]). &#8212;<I>end note</I>]
+
+</BLOCKQUOTE>
+
+<P><B>Proposed resolution:</B></P>
+
+<P>Change in 7.5.4.2 [<A href="https://wg21.link/expr.prim.id.unqual#1">expr.prim.id.unqual</A>] paragraph 1 as follows:</P>
+
+<BLOCKQUOTE>
+
+<INS>A <I>type-name</I>
+or <I>decltype-specifier</I> prefixed by <TT>~</TT> denotes the destructor of
+the named type; see 7.5.4.4 [<A href="https://wg21.link/expr.prim.id.dtor">expr.prim.id.dtor</A>].</INS>
+[<I>Note 1:</I> For <I>operator-function-id</I>s, see
+12.4 [<A href="https://wg21.link/over.oper">over.oper</A>]; for <I>conversion-function-id</I>s, see
+11.4.8.3 [<A href="https://wg21.link/class.conv.fct">class.conv.fct</A>]; for <I>literal-operator-id</I>s, see
+12.6 [<A href="https://wg21.link/over.literal">over.literal</A>]; for <I>template-ids</I>, see
+13.3 [<A href="https://wg21.link/temp.names">temp.names</A>]. <DEL>A <I>type-name</I>
+or <I>decltype-specifier</I> prefixed by ~ denotes the destructor of
+the type so named; see 7.5.4.4 [<A href="https://wg21.link/expr.prim.id.dtor">expr.prim.id.dtor</A>].</DEL> Within the
+definition of a non-static member function, an identifier that names a
+non-static member is transformed to a class member access expression
+(11.4.3 [<A href="https://wg21.link/class.mfct.non.static">class.mfct.non.static</A>]). &#8212;<I>end note</I>]
+
+</BLOCKQUOTE>
+
+<BR><BR><HR>
 <A NAME="2549"></A><H4>2549.
   
 Implicitly moving the operand of a <I>throw-expression</I> in unevaluated contexts
@@ -12880,12 +13120,12 @@ xvalue, but it is treated as an lvalue in the second example.  This
 outcome is surprising.</P>
 
 <P>(<A HREF="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2266r2.html">P2266R2</A>
-(Simpler implicit move) moves this wording, introduced by
+(Simpler implicit move) moved this wording, introduced by
 <A HREF="http://open-std.org/JTC1/SC22/WG21/docs/papers/2019/p1825r0.html">P1825R0</A>
 (Merged wording for P0527R1 and P1155R3),
 from 11.9.6 [<A href="https://wg21.link/class.copy.elision">class.copy.elision</A>] to 7.5.4.3 [<A href="https://wg21.link/expr.prim.id.qual">expr.prim.id.qual</A>].)</P>
 
-<P><U>Suggested resolution (post-P2266R3):</U></P>
+<P><B>Proposed resolution:</B></P>
 
 <P>Change in 7.5.4.2 [<A href="https://wg21.link/expr.prim.id.unqual#4">expr.prim.id.unqual</A>] paragraph 4:</P>
 
@@ -13355,6 +13595,140 @@ along the lines of &#8220;if that initialization involves a narrowing
 conversion to the underlying type of <TT>T</TT>...&#8221; was suggested to
 clarify the intent. This will be handled editorially, and the issue will be
 left in "review" status until the change has been verified.</P>
+
+<BR><BR><HR>
+<A NAME="2547"></A><H4>2547.
+  
+Defaulted comparison operator function for non-classes
+</H4>
+<B>Section: </B>9.5.2&#160; [<A href="https://wg21.link/dcl.fct.def.default">dcl.fct.def.default</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>review
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Jim X
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2022-03-07<BR>
+
+
+<P>(See
+<A HREF="https://github.com/cplusplus/draft/issues/5337">editorial issue 5337</A>.)</P>
+
+<P>Subclause 9.5.2 [<A href="https://wg21.link/dcl.fct.def.default#1">dcl.fct.def.default</A>] paragraph 1 specifies:</P>
+
+<BLOCKQUOTE>
+
+A function definition whose <I>function-body</I> is of the form <TT>=
+default ;</TT> is called an <I>explicitly-defaulted definition</I>.  A
+function that is explicitly defaulted shall
+
+<UL>
+
+<LI>be a special member function or a comparison operator function
+(12.4.3 [<A href="https://wg21.link/over.binary">over.binary</A>]), and
+</LI>
+
+<LI>
+not have default arguments.
+</LI>
+
+</UL>
+
+</BLOCKQUOTE>
+
+<P>There seem to be no further restrictions on which comparison
+operator functions are allowed to be defaulted.  For example,</P>
+
+<PRE>
+  enum E { };
+  bool operator==(E, E) = default;  // <SPAN CLASS="cmnt">well-formed?</SPAN>
+</PRE>
+
+<P>Subclause 11.10.1 [<A href="https://wg21.link/class.compare.default#1">class.compare.default</A>] paragraph 1 applies only to comparison
+operator functions "for some class":</P>
+
+<BLOCKQUOTE>
+
+A defaulted comparison operator function (12.4.3 [<A href="https://wg21.link/over.binary">over.binary</A>])
+for some class <TT>C</TT> shall be a non-template function that is
+
+<UL>
+
+<LI>a non-static const non-volatile member of C having one parameter of type
+<TT>const C&amp;</TT> and either no <I>ref-qualifier</I> or
+the <I>ref-qualifier</I> &amp;, or
+</LI>
+
+<LI>a friend of <TT>C</TT> having either two parameters of
+type <TT>const C&amp;</TT> or two parameters of type <TT>C</TT>.
+</LI>
+
+</UL>
+
+</BLOCKQUOTE>
+
+<P><B>Proposed resolution:</B></P>
+
+<OL>
+
+<LI>Change in 9.5.2 [<A href="https://wg21.link/dcl.fct.def.default#1">dcl.fct.def.default</A>] paragraph 1 as follows:
+
+<BLOCKQUOTE>
+
+A function definition whose <I>function-body</I> is of the form <TT>=
+default ;</TT> is called an <I>explicitly-defaulted definition</I>.  A
+function that is explicitly defaulted shall
+
+<UL>
+<LI>be a special member
+function <INS>(11.4.4 [<A href="https://wg21.link/special">special</A>])</INS> or a comparison
+operator function (12.4.3 [<A href="https://wg21.link/over.binary">over.binary</A>]<INS>,
+11.10.1 [<A href="https://wg21.link/class.compare.default">class.compare.default</A>]</INS>), and
+</LI>
+
+<LI>
+not have default arguments <INS>(9.3.4.7 [<A href="https://wg21.link/dcl.fct.default">dcl.fct.default</A>])</INS>.
+</LI>
+</UL>
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>Change in 11.10.1 [<A href="https://wg21.link/class.compare.default#1">class.compare.default</A>] paragraph 1 as follows:
+
+<BLOCKQUOTE>
+
+A defaulted comparison operator function (12.4.3 [<A href="https://wg21.link/over.binary">over.binary</A>])
+<DEL>for some class <TT>C</TT></DEL> shall be a non-template function that is
+
+<UL>
+
+<LI>a non-static const non-volatile member of <INS>some
+class</INS> <TT>C</TT> having one parameter of type
+<TT>const C&amp;</TT> and either no <I>ref-qualifier</I> or
+the <I>ref-qualifier</I> &amp;, or
+</LI>
+
+<LI>a friend of <INS>some class</INS> <TT>C</TT> having either two
+parameters of type <TT>const C&amp;</TT> or two parameters of
+type <TT>C</TT>.
+</LI>
+
+</UL>
+
+<P>
+<INS>Such a comparison operator function is termed a comparison
+operator function for class <TT>C</TT>.</INS> A comparison operator
+function for class <TT>C</TT> that is defaulted on its first
+declaration ...</P>
+
+</BLOCKQUOTE>
+
+</LI>
+
+</OL>
 
 <BR><BR><HR>
 <A NAME="2733"></A><H4>2733.
@@ -13858,6 +14232,129 @@ not defined.</LI>
 <LI>Otherwise, ...</LI>
 
 </UL>
+
+</BLOCKQUOTE>
+
+<BR><BR><HR>
+<A NAME="2546"></A><H4>2546.
+  
+Defaulted secondary comparison operators defined as deleted
+</H4>
+<B>Section: </B>11.10.4&#160; [<A href="https://wg21.link/class.compare.secondary">class.compare.secondary</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>review
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Jim X
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2022-03-07<BR>
+
+
+<P>(See also editorial issues
+<A HREF="https://github.com/cplusplus/draft/issues/5335">5335</A> and
+<A HREF="https://github.com/cplusplus/draft/issues/5336">5336</A>.)</P>
+
+<P>Consider the example in 11.10.4 [<A href="https://wg21.link/class.compare.secondary#3">class.compare.secondary</A>] paragraph 3:</P>
+
+<PRE>
+  struct HasNoLessThan { };
+  struct C {
+    friend HasNoLessThan operator&lt;=&gt;(const C&amp;, const C&amp;);
+    bool operator&lt;(const C&amp;) const = default;  //<SPAN CLASS="cmnt"> OK, function is deleted</SPAN>
+  };
+</PRE>
+
+<P>While the comment may reflect the intent, it does not follow from
+the wording.  11.10.4 [<A href="https://wg21.link/class.compare.secondary#2">class.compare.secondary</A>] paragraph 2 specifies:</P>
+
+<BLOCKQUOTE>
+
+The operator function with parameters <TT>x</TT> and <TT>y</TT> is
+defined as deleted if
+
+<UL>
+<LI>
+overload resolution (12.2 [<A href="https://wg21.link/over.match">over.match</A>]), as applied to <TT>x @
+y</TT>, does not result in a usable candidate, or
+</LI>
+
+<LI>
+the candidate selected by overload resolution is not a rewritten
+candidate.
+</LI>
+</UL>
+
+<P>Otherwise, the operator function yields <TT>x @ y</TT>. The defaulted
+operator function is not considered as a candidate in the overload
+resolution for the <TT>@</TT> operator.</P>
+
+</BLOCKQUOTE>
+
+<P>Overload resolution applied to <TT>x &lt; y</TT> results in a
+usable candidate <TT>operator&lt;=&gt;</TT>
+(12.2.1 [<A href="https://wg21.link/over.match.general">over.match.general</A>]) and that candidate is a rewritten
+candidate (12.2.2.3 [<A href="https://wg21.link/over.match.oper#3.4">over.match.oper</A>] bullet 3.4),
+thus <TT>operator&lt;</TT> in the above example is not deleted.
+However, its definition is ill-formed, because the rewrite <TT>(x
+&lt;=&gt; y) &lt; 0</TT> is ill-formed (12.2.2.3 [<A href="https://wg21.link/over.match.oper#8">over.match.oper</A>] paragraph 8).</P>
+
+<P>There is implementation divergence.</P>
+
+<P>Subclause 11.10.3 [<A href="https://wg21.link/class.spaceship#1">class.spaceship</A>] paragraph 1 seems to prefer an
+ill-formed program for similar synthesized situations:</P>
+
+<BLOCKQUOTE>
+
+[<I>Note 1:</I> A synthesized three-way comparison is ill-formed if
+overload resolution finds usable candidates that do not otherwise meet
+the requirements implied by the defined expression. &#8212;<I>end
+note</I>]
+
+</BLOCKQUOTE>
+
+<P><U>Suggested resolution:</U></P>
+
+Change in 11.10.4 [<A href="https://wg21.link/class.compare.secondary#2">class.compare.secondary</A>] paragraph 2 as follows:
+
+<BLOCKQUOTE>
+
+The operator function with parameters <TT>x</TT> and <TT>y</TT> is
+defined as deleted if
+
+<UL>
+<LI>
+<INS>a first</INS> overload resolution (12.2 [<A href="https://wg21.link/over.match">over.match</A>]), as
+applied to <TT>x @ y</TT>,
+
+<UL>
+<LI>does not result in a usable candidate, or</LI>
+<LI>the <INS>selected</INS> candidate <DEL>selected by overload
+resolution</DEL> is not a rewritten candidate<DEL>.</DEL> <INS>, or</INS>
+</LI>
+</UL>
+
+</LI>
+
+<LI class="ins">a second overload resolution for the expression resulting
+from the interpretation of <TT>x @ y</TT> using the selected rewritten
+candidate (12.2.2.3 [<A href="https://wg21.link/over.match.oper">over.match.oper</A>]) does not result in a usable
+candidate, or
+</LI>
+
+<LI class="ins">
+<TT>x @ y</TT> cannot be implicitly converted to <TT>bool</TT>.
+</LI>
+</UL>
+
+<P>
+<INS>in any overload resolution, the defaulted operator function
+is not considered as a candidate for the <TT>@</TT> operator.</INS>
+Otherwise, the operator function yields <TT>x @ y</TT>. <DEL>The
+defaulted operator function is not considered as a candidate in the
+overload resolution for the <TT>@</TT> operator.</DEL>
+</P>
 
 </BLOCKQUOTE>
 
@@ -14815,30 +15312,6 @@ to avoid appearing to imply undefined behavior for an example like:</P>
 
 
 
-
-<BR><BR><HR>
-<A NAME="1853"></A><H4>1853.
-  
-Defining &#8220;allocated storage&#8221;
-</H4>
-<B>Section: </B>6.7.3&#160; [<A href="https://wg21.link/basic.life">basic.life</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>drafting
- &#160;&#160;&#160;
-
- <B>Submitter: </B>Jeffrey Yasskin
- &#160;&#160;&#160;
-
- <B>Date: </B>2014-02-09<BR>
-
-
-<P>The term &#8220;allocated storage&#8221; is used in several
-places in the Standard to refer to memory in which an object may
-be created (dynamic, static, or automatic storage), but it has no
-formal definition.</P>
-
-<P>See also <A HREF="cwg_active.html#2551">issue 2551</A>.</P>
 
 <BR><BR><HR>
 <A NAME="1997"></A><H4>1997.
@@ -16332,6 +16805,56 @@ expects this to continue.  Some changes to the interface of
 <TT>std::launder</TT> as part of iterator processing.</P>
 
 <BR><BR><HR>
+<A NAME="2548"></A><H4>2548.
+  
+Array prvalues and additive operators
+</H4>
+<B>Section: </B>7.6.6&#160; [<A href="https://wg21.link/expr.add">expr.add</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>drafting
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Andrey Erokhin
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2022-03-08<BR>
+
+
+
+
+<P>Consider</P>
+
+<PRE>
+  int main()
+  {
+    using IA = int[];
+    IA{ 1, 2, 3 } + 0;
+  }
+</PRE>
+
+<P>This appears to be ill-formed given the current wording, because
+the operand is already a prvalue, thus 7.2.1 [<A href="https://wg21.link/basic.lval#6">basic.lval</A>] paragraph 6 does not apply and the array-to-pointer conversion is not
+applied:</P>
+
+<BLOCKQUOTE>
+
+Whenever a glvalue appears as an operand of an operator that expects a
+prvalue for that operand, the lvalue-to-rvalue
+(7.3.2 [<A href="https://wg21.link/conv.lval">conv.lval</A>]), array-to-pointer
+(7.3.3 [<A href="https://wg21.link/conv.array">conv.array</A>]), or function-to-pointer
+(7.3.4 [<A href="https://wg21.link/conv.func">conv.func</A>]) standard conversions are applied to
+convert the expression to a prvalue.
+
+</BLOCKQUOTE>
+
+<P>This outcome might be an oversight in the resolution for
+<A HREF="cwg_defects.html#1232">issue 1232</A>.</P>
+
+<P>See also
+<A HREF="https://github.com/llvm/llvm-project/issues/54016">clang issue 54016</A>.</P>
+
+<BR><BR><HR>
 <A NAME="2023"></A><H4>2023.
   
 Composite reference result type of conditional operator
@@ -16515,6 +17038,58 @@ whether it makes sense to apply narrowing rules to such assignments
 is better addressed by EWG.</P>
 
 <P>See also <A HREF="cwg_defects.html#2399">issue 2399</A>.</P>
+
+<BR><BR><HR>
+<A NAME="1255"></A><H4>1255.
+  
+Definition problems with <TT>constexpr</TT> functions
+</H4>
+<B>Section: </B>7.7&#160; [<A href="https://wg21.link/expr.const">expr.const</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>drafting
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Nikolay Ivchenkov
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2011-03-08<BR>
+
+
+
+
+<P>The current wording of the Standard is not sufficiently clear regarding
+the interaction of class scope (which treats the bodies of member functions
+as effectively appearing after the class definition is complete) and the
+use of <TT>constexpr</TT> member functions within the class definition in
+contexts requiring constant expressions.  For example, an array bound
+cannot use a <TT>constexpr</TT> member function that relies on the
+completeness of the class or on members that have not yet been declared,
+but the current wording does not appear to state that.</P>
+
+<P><B>Additional note (October, 2013):</B></P>
+
+<P>This question also affects function return type deduction (the
+<TT>auto</TT> specifier) in member functions.  For example, the following
+should presumably be prohibited, but the current wording is not clear:</P>
+
+<PRE>
+  struct S {
+    static auto f() {
+      return 42;
+    }
+    auto g() -&gt; decltype(f()) {
+      return f();
+    }
+  };
+</PRE>
+
+
+
+<P><B>CWG 2023-06-15</B></P>
+
+<P>Definitions of member functions need an "as-needed" treatment.  See
+issues <A HREF="cwg_active.html#1890">1890</A> and <A HREF="cwg_active.html#2335">2335</A>.</P>
 
 <BR><BR><HR>
 <A NAME="2166"></A><H4>2166.
@@ -26710,98 +27285,6 @@ the matter.</P>
 <P>The consensus view was that this should be undefined behavior.</P>
 
 <BR><BR><HR>
-<A NAME="2551"></A><H4>2551.
-  
-"Refers to allocated storage" has no meaning
-</H4>
-<B>Section: </B>6.7.3&#160; [<A href="https://wg21.link/basic.life">basic.life</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>open
- &#160;&#160;&#160;
-
- <B>Submitter: </B>Andrey Erokhin
- &#160;&#160;&#160;
-
- <B>Date: </B>2020-09-07<BR>
-
-
-
-
-<P>6.7.3 [<A href="https://wg21.link/basic.life#6">basic.life</A>] paragraph 6 specifies:</P>
-
-<BLOCKQUOTE>
-
-Before the lifetime of an object has started but after the storage
-which the object will occupy has been allocated or, after the lifetime
-of an object has ended and before the storage which the object
-occupied is reused or released, any pointer that represents the
-address of the storage location where the object will be or was
-located may be used but only in limited ways. For an object under
-construction or destruction, see 11.9.5 [<A href="https://wg21.link/class.cdtor">class.cdtor</A>].
-Otherwise, such a pointer refers to allocated storage
-(6.7.5.5.2 [<A href="https://wg21.link/basic.stc.dynamic.allocation">basic.stc.dynamic.allocation</A>]), and using the pointer as if the
-pointer were of type <TT>void*</TT> is well-defined.
-
-</BLOCKQUOTE>
-
-<P>Similarly, 6.7.3 [<A href="https://wg21.link/basic.life#7">basic.life</A>] paragraph 7 specifies:</P>
-
-<BLOCKQUOTE>
-
-Similarly, before the lifetime of an object has started but after the
-storage which the object will occupy has been allocated or, after the
-lifetime of an object has ended and before the storage which the
-object occupied is reused or released, any glvalue that refers to the
-original object may be used but only in limited ways.  For an object
-under construction or destruction, see 11.9.5 [<A href="https://wg21.link/class.cdtor">class.cdtor</A>].
-Otherwise, such a glvalue refers to allocated storage
-(6.7.5.5.2 [<A href="https://wg21.link/basic.stc.dynamic.allocation">basic.stc.dynamic.allocation</A>]), and using the properties of the
-glvalue that do not depend on its value is well-defined.
-
-</BLOCKQUOTE>
-
-<P>In either case, it is unclear what "refers to allocated storage"
-means, beyond the properties ascribed to an object in
-6.7.2 [<A href="https://wg21.link/intro.object">intro.object</A>].</P>
-
-<P>See also <A HREF="cwg_active.html#1853">issue 1853</A>.</P>
-
-<P><U>Suggested resolution:</U></P>
-
-<OL>
-<LI>
-<P>Change in 6.7.3 [<A href="https://wg21.link/basic.life#6">basic.life</A>] paragraph 6 as follows:</P>
-
-<BLOCKQUOTE>
-
-For an object under construction or destruction, see
-11.9.5 [<A href="https://wg21.link/class.cdtor">class.cdtor</A>].  Otherwise, <DEL>such a pointer refers to
-allocated storage (6.7.5.5.2 [<A href="https://wg21.link/basic.stc.dynamic.allocation">basic.stc.dynamic.allocation</A>]), and</DEL>
-using <DEL>the</DEL> <INS>such a</INS> pointer as if the pointer were
-of type <TT>void*</TT> is well-defined.
-
-</BLOCKQUOTE>
-
-</LI>
-
-<LI>
-<P>Change in 6.7.3 [<A href="https://wg21.link/basic.life#7">basic.life</A>] paragraph 7 as follows:</P>
-
-<BLOCKQUOTE>
-
-For an object under construction or destruction, see
-11.9.5 [<A href="https://wg21.link/class.cdtor">class.cdtor</A>].  Otherwise, <DEL>such a glvalue refers to
-allocated storage (6.7.5.5.2 [<A href="https://wg21.link/basic.stc.dynamic.allocation">basic.stc.dynamic.allocation</A>]), and</DEL> using
-the properties of <DEL>the</DEL> <INS>such a</INS> glvalue that do not
-depend on its value is well-defined.
-
-</BLOCKQUOTE>
-
-</LI>
-</OL>
-
-<BR><BR><HR>
 <A NAME="2676"></A><H4>2676.
   
 Replacing a complete object having base subobjects
@@ -27679,50 +28162,6 @@ integer type.</P>
 <P>See <A HREF="cwg_defects.html#2185">issue 2185</A>.</P>
 
 <BR><BR><HR>
-<A NAME="2689"></A><H4>2689.
-  
-Are cv-qualified <TT>std::nullptr_t</TT> fundamental types?
-</H4>
-<B>Section: </B>6.8.2&#160; [<A href="https://wg21.link/basic.fundamental">basic.fundamental</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>open
- &#160;&#160;&#160;
-
- <B>Submitter: </B>Anoop Rana
- &#160;&#160;&#160;
-
- <B>Date: </B>2022-12-08<BR>
-
-
-<P>It is unclear whether <I>cv</I> <TT>std::nullptr_t</TT> is a
-fundamental type, given that it is declared in a library header and
-cv-qualifications are not mentioned in
-6.8.2 [<A href="https://wg21.link/basic.fundamental#15">basic.fundamental</A>] paragraph 15.</P>
-
-<P><U>Suggested resolution:</U></P>
-
-<P>Change in 6.8.2 [<A href="https://wg21.link/basic.fundamental#15">basic.fundamental</A>] paragraph 15 as follows:</P>
-
-<BLOCKQUOTE>
-
-<INS>A type denoted by <I>cv</I> <TT>std::nullptr_t</TT> is a distinct
-type.</INS> A value of type <TT>std::nullptr_t</TT> is a null pointer
-constant (7.3.12 [<A href="https://wg21.link/conv.ptr">conv.ptr</A>]). Such values participate in the
-pointer and the pointer-to-member conversions
-(7.3.12 [<A href="https://wg21.link/conv.ptr">conv.ptr</A>],
-7.3.13 [<A href="https://wg21.link/conv.mem">conv.mem</A>]).  <TT>sizeof(std::nullptr_t)</TT> shall
-be equal to <TT>sizeof(void*)</TT>.
-
-<P>The types described in this subclause are called <I>fundamental
-types</I>.  [<I>Note 11:</I> Even if the implementation defines two or
-more fundamental types to have the same value representation, they are
-nevertheless different types. &#8212;<I>end note</I>]</P>
-
-</BLOCKQUOTE>
-
-
-<BR><BR><HR>
 <A NAME="2544"></A><H4>2544.
   
 Address of past-the-end of a potentially-overlapping subobject
@@ -28410,63 +28849,6 @@ or to perform the array-to-pointer conversion before considering
 the composite pointer type.</P></LI>
 
 </OL>
-
-<BR><BR><HR>
-<A NAME="2738"></A><H4>2738.
-  
-"denotes a destructor" is missing specification
-</H4>
-<B>Section: </B>7.5.4.2&#160; [<A href="https://wg21.link/expr.prim.id.unqual">expr.prim.id.unqual</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>open
- &#160;&#160;&#160;
-
- <B>Submitter: </B>Jim X
- &#160;&#160;&#160;
-
- <B>Date: </B>2022-05-22<BR>
-
-
-<P>Subclause 7.5.4.2 [<A href="https://wg21.link/expr.prim.id.unqual#1">expr.prim.id.unqual</A>] paragraph 1 has a note that
-lacks a corresponding normative specification:</P>
-
-<BLOCKQUOTE>
-
-[<I>Note 1:</I> For <I>operator-function-id</I>s, see
-12.4 [<A href="https://wg21.link/over.oper">over.oper</A>]; for <I>conversion-function-id</I>s, see
-11.4.8.3 [<A href="https://wg21.link/class.conv.fct">class.conv.fct</A>]; for <I>literal-operator-id</I>s, see
-12.6 [<A href="https://wg21.link/over.literal">over.literal</A>]; for <I>template-ids</I>, see
-13.3 [<A href="https://wg21.link/temp.names">temp.names</A>]. A <I>type-name</I>
-or <I>decltype-specifier</I> prefixed by ~ denotes the destructor of
-the type so named; see 7.5.4.4 [<A href="https://wg21.link/expr.prim.id.dtor">expr.prim.id.dtor</A>]. Within the
-definition of a non-static member function, an identifier that names a
-non-static member is transformed to a class member access expression
-(11.4.3 [<A href="https://wg21.link/class.mfct.non.static">class.mfct.non.static</A>]). &#8212;<I>end note</I>]
-
-</BLOCKQUOTE>
-
-<P><U>Suggested resolution:</U></P>
-
-<P>Change in 7.5.4.2 [<A href="https://wg21.link/expr.prim.id.unqual#1">expr.prim.id.unqual</A>] paragraph 1 as follows:</P>
-
-<BLOCKQUOTE>
-
-<INS>A <I>type-name</I>
-or <I>decltype-specifier</I> prefixed by <TT>~</TT> denotes the destructor of
-the named type; see 7.5.4.4 [<A href="https://wg21.link/expr.prim.id.dtor">expr.prim.id.dtor</A>].</INS>
-[<I>Note 1:</I> For <I>operator-function-id</I>s, see
-12.4 [<A href="https://wg21.link/over.oper">over.oper</A>]; for <I>conversion-function-id</I>s, see
-11.4.8.3 [<A href="https://wg21.link/class.conv.fct">class.conv.fct</A>]; for <I>literal-operator-id</I>s, see
-12.6 [<A href="https://wg21.link/over.literal">over.literal</A>]; for <I>template-ids</I>, see
-13.3 [<A href="https://wg21.link/temp.names">temp.names</A>]. <DEL>A <I>type-name</I>
-or <I>decltype-specifier</I> prefixed by ~ denotes the destructor of
-the type so named; see 7.5.4.4 [<A href="https://wg21.link/expr.prim.id.dtor">expr.prim.id.dtor</A>].</DEL> Within the
-definition of a non-static member function, an identifier that names a
-non-static member is transformed to a class member access expression
-(11.4.3 [<A href="https://wg21.link/class.mfct.non.static">class.mfct.non.static</A>]). &#8212;<I>end note</I>]
-
-</BLOCKQUOTE>
 
 <BR><BR><HR>
 <A NAME="2561"></A><H4>2561.
@@ -30097,56 +30479,6 @@ the behavior is undefined.
 
 </BLOCKQUOTE>
 <BR><BR><HR>
-<A NAME="2548"></A><H4>2548.
-  
-Array prvalues and additive operators
-</H4>
-<B>Section: </B>7.6.6&#160; [<A href="https://wg21.link/expr.add">expr.add</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>open
- &#160;&#160;&#160;
-
- <B>Submitter: </B>Andrey Erokhin
- &#160;&#160;&#160;
-
- <B>Date: </B>2022-03-08<BR>
-
-
-
-
-<P>Consider</P>
-
-<PRE>
-  int main()
-  {
-    using IA = int[];
-    IA{ 1, 2, 3 } + 0;
-  }
-</PRE>
-
-<P>This appears to be ill-formed given the current wording, because
-the operand is already a prvalue, thus 7.2.1 [<A href="https://wg21.link/basic.lval#6">basic.lval</A>] paragraph 6 does not apply and the array-to-pointer conversion is not
-applied:</P>
-
-<BLOCKQUOTE>
-
-Whenever a glvalue appears as an operand of an operator that expects a
-prvalue for that operand, the lvalue-to-rvalue
-(7.3.2 [<A href="https://wg21.link/conv.lval">conv.lval</A>]), array-to-pointer
-(7.3.3 [<A href="https://wg21.link/conv.array">conv.array</A>]), or function-to-pointer
-(7.3.4 [<A href="https://wg21.link/conv.func">conv.func</A>]) standard conversions are applied to
-convert the expression to a prvalue.
-
-</BLOCKQUOTE>
-
-<P>This outcome might be an oversight in the resolution for
-<A HREF="cwg_defects.html#1232">issue 1232</A>.</P>
-
-<P>See also
-<A HREF="https://github.com/llvm/llvm-project/issues/54016">clang issue 54016</A>.</P>
-
-<BR><BR><HR>
 <A NAME="2696"></A><H4>2696.
   
 Relational comparisons of pointers to <TT>void</TT>
@@ -30177,50 +30509,62 @@ type.</P>
 <P>Requested confirmation of the C status quo from SG22.</P>
 
 <BR><BR><HR>
-<A NAME="1255"></A><H4>1255.
+<A NAME="2749"></A><H4>2749.
   
-Definition problems with <TT>constexpr</TT> functions
+Treatment of "pointer to void" for relational comparisons
 </H4>
-<B>Section: </B>7.7&#160; [<A href="https://wg21.link/expr.const">expr.const</A>]
+<B>Section: </B>7.6.9&#160; [<A href="https://wg21.link/expr.rel">expr.rel</A>]
  &#160;&#160;&#160;
 
  <B>Status: </B>open
  &#160;&#160;&#160;
 
- <B>Submitter: </B>Nikolay Ivchenkov
+ <B>Submitter: </B>lprv
  &#160;&#160;&#160;
 
- <B>Date: </B>2011-03-08<BR>
+ <B>Date: </B>2023-03-12
+  &#160;&#160;&#160;
+  <B>Liaison: </B>SG22<BR>
 
 
+<P>(From editorial issue
+<A HREF="https://github.com/cplusplus/draft/pull/6173">6173</A>.)</P>
+
+<P>Subclause 7.6.9 [<A href="https://wg21.link/expr.rel#4">expr.rel</A>] paragraph 4 and paragraph 5 specify:</P>
+
+<BLOCKQUOTE>
+
+<P>The result of comparing unequal pointers to objects [ Footnote: ]
+is defined in terms of a partial order consistent with the following
+rules: ...</P>
+
+<P>[Note 1: A relational operator applied to unequal function
+pointers or to unequal pointers to void yields an unspecified
+result. -- end note]</P>
+
+</BLOCKQUOTE>
+
+<P>Comparing pointers to objects that are stored in a variable of type
+"pointer to void" should be fine.</P>
+
+<P><U>Possible resolution:</U></P>
+
+<P>Change in 7.6.9 [<A href="https://wg21.link/expr.rel#4">expr.rel</A>] paragraph 4 and paragraph 5 as follows:</P>
 
 
-<P>The current wording of the Standard is not sufficiently clear regarding
-the interaction of class scope (which treats the bodies of member functions
-as effectively appearing after the class definition is complete) and the
-use of <TT>constexpr</TT> member functions within the class definition in
-contexts requiring constant expressions.  For example, an array bound
-cannot use a <TT>constexpr</TT> member function that relies on the
-completeness of the class or on members that have not yet been declared,
-but the current wording does not appear to state that.</P>
+<BLOCKQUOTE>
 
-<P><B>Additional note (October, 2013):</B></P>
+<P>The result of comparing unequal pointers to objects [ Footnote:
+... ] is defined in terms of a partial order consistent with the
+following rules: ...</P>
 
-<P>This question also affects function return type deduction (the
-<TT>auto</TT> specifier) in member functions.  For example, the following
-should presumably be prohibited, but the current wording is not clear:</P>
+<P>[Note 1: A relational operator applied to unequal function
+pointers <DEL>or to unequal pointers to void</DEL> yields an
+unspecified result. <INS>A pointer value of type "pointer
+to <I>cv</I> <TT>void</TT>" can point to an object
+(6.8.4 [<A href="https://wg21.link/basic.compound">basic.compound</A>]).</INS> -- end note]</P>
 
-<PRE>
-  struct S {
-    static auto f() {
-      return 42;
-    }
-    auto g() -&gt; decltype(f()) {
-      return f();
-    }
-  };
-</PRE>
-
+</BLOCKQUOTE>
 
 <BR><BR><HR>
 <A NAME="1256"></A><H4>1256.
@@ -31739,51 +32083,6 @@ specializations, for example:</P>
 </PRE>
 
 <BR><BR><HR>
-<A NAME="2550"></A><H4>2550.
-  
-Type "reference to <I>cv</I> <TT>void</TT>" outside of a declarator
-</H4>
-<B>Section: </B>9.3.4.3&#160; [<A href="https://wg21.link/dcl.ref">dcl.ref</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>open
- &#160;&#160;&#160;
-
- <B>Submitter: </B>Jens Maurer
- &#160;&#160;&#160;
-
- <B>Date: </B>2022-03-13<BR>
-
-
-<P>9.3.4.3 [<A href="https://wg21.link/dcl.ref#1">dcl.ref</A>] paragraph 1 specifies:</P>
-
-<BLOCKQUOTE>
-
-A declarator that specifies the type &#8220;reference to <I>cv</I>
-<TT>void</TT>&#8221; is ill-formed.
-
-</BLOCKQUOTE>
-
-<P>A <I>declarator</I> does not contain the
-leading <I>decl-specifier-seq</I> of a declaration, so the following
-example is not covered by the prohibition:</P>
-
-<PRE>
-  void f(void&amp; x);
-</PRE>
-
-<P><U>Suggested resolution:</U></P>
-
-<P>Change in 9.3.4.3 [<A href="https://wg21.link/dcl.ref#1">dcl.ref</A>] paragraph 1 as follows:</P>
-
-<BLOCKQUOTE>
-
-<DEL>A declarator that specifies</DEL> <INS>Forming</INS> the type
-&#8220;reference to <I>cv</I> <TT>void</TT>&#8221; is ill-formed.
-
-</BLOCKQUOTE>
-
-<BR><BR><HR>
 <A NAME="1790"></A><H4>1790.
   
 Ellipsis following function parameter pack
@@ -32587,141 +32886,6 @@ goals are incompatible, so EWG input is requested.</P>
 
 <P>This is tracked in github issue
 <A HREF="https://github.com/cplusplus/papers/issues/1378">cplusplus/papers#1378</A>.</P>
-
-<BR><BR><HR>
-<A NAME="2547"></A><H4>2547.
-  
-Defaulted comparison operator function for non-classes
-</H4>
-<B>Section: </B>9.5.2&#160; [<A href="https://wg21.link/dcl.fct.def.default">dcl.fct.def.default</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>open
- &#160;&#160;&#160;
-
- <B>Submitter: </B>Jim X
- &#160;&#160;&#160;
-
- <B>Date: </B>2022-03-07<BR>
-
-
-<P>(See
-<A HREF="https://github.com/cplusplus/draft/issues/5337">editorial issue 5337</A>.)</P>
-
-<P>Subclause 9.5.2 [<A href="https://wg21.link/dcl.fct.def.default#1">dcl.fct.def.default</A>] paragraph 1 specifies:</P>
-
-<BLOCKQUOTE>
-
-A function definition whose <I>function-body</I> is of the form <TT>=
-default ;</TT> is called an <I>explicitly-defaulted definition</I>.  A
-function that is explicitly defaulted shall
-
-<UL>
-
-<LI>be a special member function or a comparison operator function
-(12.4.3 [<A href="https://wg21.link/over.binary">over.binary</A>]), and
-</LI>
-
-<LI>
-not have default arguments.
-</LI>
-
-</UL>
-
-</BLOCKQUOTE>
-
-<P>There seem to be no further restrictions on which comparison
-operator functions are allowed to be defaulted.  For example,</P>
-
-<PRE>
-  enum E { };
-  bool operator==(E, E) = default;  // <SPAN CLASS="cmnt">well-formed?</SPAN>
-</PRE>
-
-<P>Subclause 11.10.1 [<A href="https://wg21.link/class.compare.default#1">class.compare.default</A>] paragraph 1 applies only to comparison
-operator functions "for some class":</P>
-
-<BLOCKQUOTE>
-
-A defaulted comparison operator function (12.4.3 [<A href="https://wg21.link/over.binary">over.binary</A>])
-for some class <TT>C</TT> shall be a non-template function that is
-
-<UL>
-
-<LI>a non-static const non-volatile member of C having one parameter of type
-<TT>const C&amp;</TT> and either no <I>ref-qualifier</I> or
-the <I>ref-qualifier</I> &amp;, or
-</LI>
-
-<LI>a friend of <TT>C</TT> having either two parameters of
-type <TT>const C&amp;</TT> or two parameters of type <TT>C</TT>.
-</LI>
-
-</UL>
-
-</BLOCKQUOTE>
-
-<P><U>Suggested resolution:</U></P>
-
-<OL>
-
-<LI>Change in 9.5.2 [<A href="https://wg21.link/dcl.fct.def.default#1">dcl.fct.def.default</A>] paragraph 1 as follows:
-
-<BLOCKQUOTE>
-
-A function definition whose <I>function-body</I> is of the form <TT>=
-default ;</TT> is called an <I>explicitly-defaulted definition</I>.  A
-function that is explicitly defaulted shall
-
-<UL>
-<LI>be a special member
-function <INS>(11.4.4 [<A href="https://wg21.link/special">special</A>])</INS> or a comparison
-operator function (12.4.3 [<A href="https://wg21.link/over.binary">over.binary</A>]<INS>,
-11.10.1 [<A href="https://wg21.link/class.compare.default">class.compare.default</A>]</INS>), and
-</LI>
-
-<LI>
-not have default arguments <INS>(9.3.4.7 [<A href="https://wg21.link/dcl.fct.default">dcl.fct.default</A>])</INS>.
-</LI>
-</UL>
-
-</BLOCKQUOTE>
-</LI>
-
-<LI>Change in 11.10.1 [<A href="https://wg21.link/class.compare.default#1">class.compare.default</A>] paragraph 1 as follows:
-
-<BLOCKQUOTE>
-
-A defaulted comparison operator function (12.4.3 [<A href="https://wg21.link/over.binary">over.binary</A>])
-<DEL>for some class <TT>C</TT></DEL> shall be a non-template function that is
-
-<UL>
-
-<LI>a non-static const non-volatile member of <INS>some
-class</INS> <TT>C</TT> having one parameter of type
-<TT>const C&amp;</TT> and either no <I>ref-qualifier</I> or
-the <I>ref-qualifier</I> &amp;, or
-</LI>
-
-<LI>a friend of <INS>some class</INS> <TT>C</TT> having either two
-parameters of type <TT>const C&amp;</TT> or two parameters of
-type <TT>C</TT>.
-</LI>
-
-</UL>
-
-<P>
-<INS>Such a comparison operator function is termed a comparison
-operator function for class <TT>C</TT>.</INS> A comparison operator
-function for class <TT>C</TT> that is defaulted on its first
-declaration ...</P>
-
-</BLOCKQUOTE>
-
-</LI>
-
-</OL>
-
 
 <BR><BR><HR>
 <A NAME="2570"></A><H4>2570.
@@ -34677,132 +34841,6 @@ violates the protected access rules?  Is <TT>D::operator==</TT> not
 deleted, but synthesis fails on use because of the proctected access
 rules?  Is the synthesis not in the immediate context, making the
 expression <TT>comparable(D{})</TT> ill-formed?</P>
-
-<BR><BR><HR>
-<A NAME="2546"></A><H4>2546.
-  
-Defaulted secondary comparison operators defined as deleted
-</H4>
-<B>Section: </B>11.10.4&#160; [<A href="https://wg21.link/class.compare.secondary">class.compare.secondary</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>open
- &#160;&#160;&#160;
-
- <B>Submitter: </B>Jim X
- &#160;&#160;&#160;
-
- <B>Date: </B>2022-03-07<BR>
-
-
-<P>(See also editorial issues
-<A HREF="https://github.com/cplusplus/draft/issues/5335">5335</A> and
-<A HREF="https://github.com/cplusplus/draft/issues/5336">5336</A>.)</P>
-
-<P>Consider the example in 11.10.4 [<A href="https://wg21.link/class.compare.secondary#3">class.compare.secondary</A>] paragraph 3:</P>
-
-<PRE>
-  struct HasNoLessThan { };
-  struct C {
-    friend HasNoLessThan operator&lt;=&gt;(const C&amp;, const C&amp;);
-    bool operator&lt;(const C&amp;) const = default;  //<SPAN CLASS="cmnt"> OK, function is deleted</SPAN>
-  };
-</PRE>
-
-<P>While the comment may reflect the intent, it does not follow from
-the wording.  11.10.4 [<A href="https://wg21.link/class.compare.secondary#2">class.compare.secondary</A>] paragraph 2 specifies:</P>
-
-<BLOCKQUOTE>
-
-The operator function with parameters <TT>x</TT> and <TT>y</TT> is
-defined as deleted if
-
-<UL>
-<LI>
-overload resolution (12.2 [<A href="https://wg21.link/over.match">over.match</A>]), as applied to <TT>x @
-y</TT>, does not result in a usable candidate, or
-</LI>
-
-<LI>
-the candidate selected by overload resolution is not a rewritten
-candidate.
-</LI>
-</UL>
-
-<P>Otherwise, the operator function yields <TT>x @ y</TT>. The defaulted
-operator function is not considered as a candidate in the overload
-resolution for the <TT>@</TT> operator.</P>
-
-</BLOCKQUOTE>
-
-<P>Overload resolution applied to <TT>x &lt; y</TT> results in a
-usable candidate <TT>operator&lt;=&gt;</TT>
-(12.2.1 [<A href="https://wg21.link/over.match.general">over.match.general</A>]) and that candidate is a rewritten
-candidate (12.2.2.3 [<A href="https://wg21.link/over.match.oper#3.4">over.match.oper</A>] bullet 3.4),
-thus <TT>operator&lt;</TT> in the above example is not deleted.
-However, its definition is ill-formed, because the rewrite <TT>(x
-&lt;=&gt; y) &lt; 0</TT> is ill-formed (12.2.2.3 [<A href="https://wg21.link/over.match.oper#8">over.match.oper</A>] paragraph 8).</P>
-
-<P>There is implementation divergence.</P>
-
-<P>Subclause 11.10.3 [<A href="https://wg21.link/class.spaceship#1">class.spaceship</A>] paragraph 1 seems to prefer an
-ill-formed program for similar synthesized situations:</P>
-
-<BLOCKQUOTE>
-
-[<I>Note 1:</I> A synthesized three-way comparison is ill-formed if
-overload resolution finds usable candidates that do not otherwise meet
-the requirements implied by the defined expression. &#8212;<I>end
-note</I>]
-
-</BLOCKQUOTE>
-
-<P><U>Suggested resolution:</U></P>
-
-Change in 11.10.4 [<A href="https://wg21.link/class.compare.secondary#2">class.compare.secondary</A>] paragraph 2 as follows:
-
-<BLOCKQUOTE>
-
-The operator function with parameters <TT>x</TT> and <TT>y</TT> is
-defined as deleted if
-
-<UL>
-<LI>
-<INS>a first</INS> overload resolution (12.2 [<A href="https://wg21.link/over.match">over.match</A>]), as
-applied to <TT>x @ y</TT>,
-
-<UL>
-<LI>does not result in a usable candidate, or</LI>
-<LI>the <INS>selected</INS> candidate <DEL>selected by overload
-resolution</DEL> is not a rewritten candidate<DEL>.</DEL> <INS>, or</INS>
-</LI>
-</UL>
-
-</LI>
-
-<LI>
-<INS>a second overload resolution for the expression resulting
-from the interpretation of <TT>x @ y</TT> using the selected rewritten
-candidate (12.2.2.3 [<A href="https://wg21.link/over.match.oper">over.match.oper</A>]) does not result in a usable
-candidate, or</INS>
-</LI>
-
-<LI>
-<INS>a third overload resolution for a copy-initialization of an
-object of type <TT>bool</TT> from <TT>x @ y</TT> does not result in a
-usable candidate;</INS>
-</LI>
-</UL>
-
-<P>
-<INS>in any overload resolution, the defaulted operator function
-is not considered as a candidate for the <TT>@</TT> operator.</INS>
-Otherwise, the operator function yields <TT>x @ y</TT>. <DEL>The
-defaulted operator function is not considered as a candidate in the
-overload resolution for the <TT>@</TT> operator.</DEL>
-</P>
-
-</BLOCKQUOTE>
 
 <BR><BR><HR>
 <A NAME="2189"></A><H4>2189.
