@@ -24,7 +24,7 @@ construct_at without constructor call
 <B>Section: </B>7.7&#160; [<A href="https://wg21.link/expr.const">expr.const</A>]
  &#160;&#160;&#160;
 
- <B>Status: </B>open
+ <B>Status: </B>ready
  &#160;&#160;&#160;
 
  <B>Submitter: </B>CWG
@@ -39,8 +39,6 @@ creating an aggregate or a scalar type.</P>
 
 <P><B>Proposed resolution:</B></P>
 
-
-
 <BLOCKQUOTE>
 
 For the purposes of determining whether an expression E is a core
@@ -48,7 +46,7 @@ constant expression, the evaluation of the body of a member function
 of std::allocator&lt;T&gt; as defined in
 20.2.10.2 [<A href="https://wg21.link/allocator.members">allocator.members</A>], where T is a literal type, is
 ignored. Similarly, the evaluation of the body of std::construct_at or
-std::ranges::construct_at is considered to include only the 
+std::ranges::construct_at is considered to include only the
 <DEL>underlying constructor call</DEL> <INS>initialization of
 the <TT>T</TT> object</INS> if the first argument (of type T*) points
 to storage allocated with std::allocator&lt;T&gt; or to an object
