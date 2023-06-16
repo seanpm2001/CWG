@@ -185,6 +185,7 @@ USA.</P>
 <A HREF="cwg_active.html#2747">2747</A>,
 <A HREF="cwg_active.html#2748">2748</A>,
 <A HREF="cwg_active.html#2749">2749</A>,
+<A HREF="cwg_active.html#2750">2750</A>,
 Closed issues
 <A HREF="cwg_closed.html#6">6</A>,
 <A HREF="cwg_closed.html#504">504</A>,
@@ -5563,6 +5564,17 @@ Too many objects have constexpr-unknown type
 </TD>
 </TR>
 <TR>
+<TD ALIGN="LEFT">7.7&#160;
+  <A href="https://wg21.link/expr.const">expr.const</A>
+</TD>
+<TD ALIGN="RIGHT"><A HREF="#2750">2750</A></TD>
+<TD ALIGN="CENTER">ready</TD>
+<TD ALIGN="CENTER"></TD>
+<TD ALIGN="LEFT">
+construct_at without constructor call
+</TD>
+</TR>
+<TR>
 <TD ALIGN="LEFT">8.6.5&#160;
   <A href="https://wg21.link/stmt.ranged">stmt.ranged</A>
 </TD>
@@ -5875,7 +5887,7 @@ Overbroad grammar for <I>parameter-declaration</I>
   <A href="https://wg21.link/dcl.fct">dcl.fct</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#2553">2553</A></TD>
-<TD ALIGN="CENTER">ready</TD>
+<TD ALIGN="CENTER">drafting</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Restrictions on explicit object member functions
@@ -10439,6 +10451,44 @@ executed during constant evaluation. -- end note ]</INS>.
 </BLOCKQUOTE>
 
 <BR><BR><HR>
+<A NAME="2750"></A><H4>2750.
+  
+construct_at without constructor call
+</H4>
+<B>Section: </B>7.7&#160; [<A href="https://wg21.link/expr.const">expr.const</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>ready
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>CWG
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-06-16<BR>
+
+
+<P>Subclause 7.7 [<A href="https://wg21.link/expr.const#6">expr.const</A>] paragraph 6 talks about invoking
+the "underlying constructor", but there is no constructor when
+creating an aggregate or a scalar type.</P>
+
+<P><B>Proposed resolution:</B></P>
+
+<BLOCKQUOTE>
+
+For the purposes of determining whether an expression E is a core
+constant expression, the evaluation of the body of a member function
+of std::allocator&lt;T&gt; as defined in
+20.2.10.2 [<A href="https://wg21.link/allocator.members">allocator.members</A>], where T is a literal type, is
+ignored. Similarly, the evaluation of the body of std::construct_at or
+std::ranges::construct_at is considered to include only the
+<DEL>underlying constructor call</DEL> <INS>initialization of
+the <TT>T</TT> object</INS> if the first argument (of type T*) points
+to storage allocated with std::allocator&lt;T&gt; or to an object
+whose lifetime began within the evaluation of E.
+
+</BLOCKQUOTE>
+
+<BR><BR><HR>
 <A NAME="2550"></A><H4>2550.
   
 Type "reference to <I>cv</I> <TT>void</TT>" outside of a declarator
@@ -10482,103 +10532,6 @@ example is not covered by the prohibition:</P>
 &#8220;reference to <I>cv</I> <TT>void</TT>&#8221; is ill-formed.
 
 </BLOCKQUOTE>
-
-<BR><BR><HR>
-<A NAME="2553"></A><H4>2553.
-  
-Restrictions on explicit object member functions
-</H4>
-<B>Section: </B>9.3.4.6&#160; [<A href="https://wg21.link/dcl.fct">dcl.fct</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>ready
- &#160;&#160;&#160;
-
- <B>Submitter: </B>Jens Maurer
- &#160;&#160;&#160;
-
- <B>Date: </B>2021-12-10<BR>
-
-
-
-
-<P>Subclause 9.3.4.6 [<A href="https://wg21.link/dcl.fct#6">dcl.fct</A>] paragraph 6 specifies</P>
-
-<BLOCKQUOTE>
-
-A <I>member-declarator</I> with
-an <I>explicit-object-parameter-declaration</I> shall not include
-a <I>ref-qualifier</I> or a <I>cv-qualifier-seq</I> and shall not be
-declared <TT>static</TT> or <TT>virtual</TT>.
-
-</BLOCKQUOTE>
-
-<P>This does not address the situation when an explicit object member
-function becomes implicitly virtual by overriding an implicit object
-member function.  That should be prevented.</P>
-
-<P>This also does not address class-specific allocation and
-deallocation functions, which are implicitly <TT>static</TT>.</P>
-
-<P><B>Proposed resolution (approved by CWG 2023-06-15):</B></P>
-
-<OL>
-<LI>
-<P>Change in 9.3.4.6 [<A href="https://wg21.link/dcl.fct#6">dcl.fct</A>] paragraph 6 as follows:</P>
-
-<BLOCKQUOTE>
-
-A <I>member-declarator</I> with
-an <I>explicit-object-parameter-declaration</I> shall not include
-a <I>ref-qualifier</I> or a <I>cv-qualifier-seq</I> and shall not be
-declared <TT>static</TT> <DEL>or <TT>virtual</TT></DEL>.
-
-</BLOCKQUOTE>
-
-</LI>
-
-<LI>
-<P>Change in 9.3.4.6 [<A href="https://wg21.link/dcl.fct#7">dcl.fct</A>] paragraph 7 as follows:</P>
-
-<BLOCKQUOTE>
-
-... An <I>implicit object member function</I> is a non-static member
-function without an explicit object parameter.
-<INS>[ <I>Note:</I> An explicit object member function cannot be
-virtual (11.7.3 [<A href="https://wg21.link/class.virtual">class.virtual</A>]). -- <I>end note</I> ]</INS>
-
-</BLOCKQUOTE>
-
-</LI>
-
-<LI>
-<P>Add a new paragraph before 11.7.3 [<A href="https://wg21.link/class.virtual#7">class.virtual</A>] paragraph 7 as
-follows:</P>
-
-<BLOCKQUOTE>
-
-<P><INS>A virtual function shall not be an explicit object member
-function (9.3.4.6 [<A href="https://wg21.link/dcl.fct">dcl.fct</A>]).</INS></P>
-
-<P><INS>[ <I>Example:</I></INS></P>
-<PRE class="ins">
-  struct B {
-    virtual void g(); // #1
-  };
-  struct D : B {
-    virtual void f(this D&amp;);  //<SPAN CLASS="cmnt"> error: explicit object member function cannot be virtual</SPAN>
-    void g(this D&amp;);          //<SPAN CLASS="cmnt"> error: overrides #1; explicit object member function cannot be virtual</SPAN>
-  };
-</PRE>
-<P><INS>-- <I>end example</I>]</INS></P>
-
-<P>The <I>ref-qualifier</I>, or lack thereof, ...</P>
-
-</BLOCKQUOTE>
-
-</LI>
-
-</OL>
 
 <BR><BR><HR>
 <A NAME="2683"></A><H4>2683.
@@ -17941,6 +17894,103 @@ A list is
 
 Furthermore, reducing the grammar to a <I>type-specifier-seq</I>
 appears to be sufficient.</P>
+
+<BR><BR><HR>
+<A NAME="2553"></A><H4>2553.
+  
+Restrictions on explicit object member functions
+</H4>
+<B>Section: </B>9.3.4.6&#160; [<A href="https://wg21.link/dcl.fct">dcl.fct</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>drafting
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Jens Maurer
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2021-12-10<BR>
+
+
+
+
+<P>Subclause 9.3.4.6 [<A href="https://wg21.link/dcl.fct#6">dcl.fct</A>] paragraph 6 specifies</P>
+
+<BLOCKQUOTE>
+
+A <I>member-declarator</I> with
+an <I>explicit-object-parameter-declaration</I> shall not include
+a <I>ref-qualifier</I> or a <I>cv-qualifier-seq</I> and shall not be
+declared <TT>static</TT> or <TT>virtual</TT>.
+
+</BLOCKQUOTE>
+
+<P>This does not address the situation when an explicit object member
+function becomes implicitly virtual by overriding an implicit object
+member function.  That should be prevented.</P>
+
+<P>This also does not address class-specific allocation and
+deallocation functions, which are implicitly <TT>static</TT>.</P>
+
+<P><B>Proposed resolution (approved by CWG 2023-06-15):</B></P>
+
+<OL>
+<LI>
+<P>Change in 9.3.4.6 [<A href="https://wg21.link/dcl.fct#6">dcl.fct</A>] paragraph 6 as follows:</P>
+
+<BLOCKQUOTE>
+
+A <I>member-declarator</I> with
+an <I>explicit-object-parameter-declaration</I> shall not include
+a <I>ref-qualifier</I> or a <I>cv-qualifier-seq</I> and shall not be
+declared <TT>static</TT> <DEL>or <TT>virtual</TT></DEL>.
+
+</BLOCKQUOTE>
+
+</LI>
+
+<LI>
+<P>Change in 9.3.4.6 [<A href="https://wg21.link/dcl.fct#7">dcl.fct</A>] paragraph 7 as follows:</P>
+
+<BLOCKQUOTE>
+
+... An <I>implicit object member function</I> is a non-static member
+function without an explicit object parameter.
+<INS>[ <I>Note:</I> An explicit object member function cannot be
+virtual (11.7.3 [<A href="https://wg21.link/class.virtual">class.virtual</A>]). -- <I>end note</I> ]</INS>
+
+</BLOCKQUOTE>
+
+</LI>
+
+<LI>
+<P>Add a new paragraph before 11.7.3 [<A href="https://wg21.link/class.virtual#7">class.virtual</A>] paragraph 7 as
+follows:</P>
+
+<BLOCKQUOTE>
+
+<P><INS>A virtual function shall not be an explicit object member
+function (9.3.4.6 [<A href="https://wg21.link/dcl.fct">dcl.fct</A>]).</INS></P>
+
+<P><INS>[ <I>Example:</I></INS></P>
+<PRE class="ins">
+  struct B {
+    virtual void g(); // #1
+  };
+  struct D : B {
+    virtual void f(this D&amp;);  //<SPAN CLASS="cmnt"> error: explicit object member function cannot be virtual</SPAN>
+    void g(this D&amp;);          //<SPAN CLASS="cmnt"> error: overrides #1; explicit object member function cannot be virtual</SPAN>
+  };
+</PRE>
+<P><INS>-- <I>end example</I>]</INS></P>
+
+<P>The <I>ref-qualifier</I>, or lack thereof, ...</P>
+
+</BLOCKQUOTE>
+
+</LI>
+
+</OL>
 
 <BR><BR><HR>
 <A NAME="325"></A><H4>325.
@@ -30550,7 +30600,6 @@ result. -- end note]</P>
 <P><U>Possible resolution:</U></P>
 
 <P>Change in 7.6.9 [<A href="https://wg21.link/expr.rel#4">expr.rel</A>] paragraph 4 and paragraph 5 as follows:</P>
-
 
 <BLOCKQUOTE>
 
