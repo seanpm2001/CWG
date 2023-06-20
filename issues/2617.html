@@ -15,7 +15,7 @@
   Core Issues List revision 111d.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-05-12</P>
+<P>2023-06-20</P>
 <HR>
 <A NAME="2617"></A><H4>2617.
   
@@ -24,7 +24,7 @@ Default template arguments for template members of non-template classes
 <B>Section: </B>13.2&#160; [<A href="https://wg21.link/temp.param">temp.param</A>]
  &#160;&#160;&#160;
 
- <B>Status: </B>open
+ <B>Status: </B>review
  &#160;&#160;&#160;
 
  <B>Submitter: </B>Mike Miller
@@ -70,6 +70,27 @@ template&lt;typename = int&gt; void f() { }
 </PRE>
 
 <P>which is explicitly permitted.</P>
+
+<P><B>Proposed resolution:</B></P>
+
+<P>Change in 13.2 [<A href="https://wg21.link/temp.param#10">temp.param</A>] paragraph 10 as follows:</P>
+
+<BLOCKQUOTE>
+
+... A default <I>template-argument</I> may be specified in a template
+declaration.  A default <I>template-argument</I> shall not be
+specified in the <I>template-parameter-list</I>s of the definition of
+a member of a <DEL>class template</DEL> <INS>templated class C</INS>
+that appears outside of the <DEL>member's class</DEL>
+<INS><I>class-specifier</I> of C</INS>.  A default
+<I>template-argument</I> shall not be specified in a friend class
+template declaration. If a friend function template declaration D
+specifies a default <I>template-argument</I>, that declaration shall
+be a definition and there shall be no other declaration of the
+function template which is reachable from D or from which D is
+reachable.
+
+</BLOCKQUOTE>
 
 <BR><BR>
 </BODY>

@@ -15,7 +15,7 @@
   Core Issues List revision 111d.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-05-12</P>
+<P>2023-06-20</P>
 <HR>
 <A NAME="2592"></A><H4>2592.
   
@@ -69,8 +69,7 @@ then</LI>
 requested size of the allocation. <INS>A <I>usual allocation
 function</I> is an allocation function with no parameters after the
 first or with a single parameter of type <TT>std::align_val_t</TT>
-after the first.  A <I>placement allocation function</I> is an
-allocation function that is not a usual allocation function.</INS>
+after the first.</INS>
 </P>
 
 <P>An allocation function can be a function template. ...</P>
@@ -79,24 +78,12 @@ allocation function that is not a usual allocation function.</INS>
 
 </LI>
 
-<LI>
-<P>Split 6.7.5.5.3 [<A href="https://wg21.link/basic.stc.dynamic.deallocation#3">basic.stc.dynamic.deallocation</A>] paragraph 3 and change it as follows:</P>
-
-<BLOCKQUOTE>
-
-<P>... A destroying operator delete shall be a usual deallocation
-function. <INS>A <I>placement deallocation function</I> is a
-deallocation function that is not a usual deallocation
-function.</INS>
-</P>
-
-<P>A deallocation function may be an instance of a function
-template. ...</P>
-
-</BLOCKQUOTE>
-</LI>
-
 </OL>
+
+<P><B>CWG 2023-06-17</B></P>
+
+<P>Replace "placement allocation / deallocation function" with "not a
+usual allocation / deallocation function".</P>
 
 <BR><BR>
 </BODY>

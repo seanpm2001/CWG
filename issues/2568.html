@@ -15,7 +15,7 @@
   Core Issues List revision 111d.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-05-12</P>
+<P>2023-06-20</P>
 <HR>
 <A NAME="2568"></A><H4>2568.
   
@@ -24,7 +24,7 @@ Access checking during synthesis of defaulted comparison operator
 <B>Section: </B>11.10.1&#160; [<A href="https://wg21.link/class.compare.default">class.compare.default</A>]
  &#160;&#160;&#160;
 
- <B>Status: </B>open
+ <B>Status: </B>review
  &#160;&#160;&#160;
 
  <B>Submitter: </B>Nicolai Josuttis
@@ -87,6 +87,26 @@ violates the protected access rules?  Is <TT>D::operator==</TT> not
 deleted, but synthesis fails on use because of the proctected access
 rules?  Is the synthesis not in the immediate context, making the
 expression <TT>comparable(D{})</TT> ill-formed?</P>
+
+<P><B>CWG 2023-06-17</B></P>
+
+<P>There is no implementation divergence; the first example is
+intended to be well-formed.</P>
+
+<P><U>Possible resolution:</U></P>
+
+<P>Change in 11.10.1 [<A href="https://wg21.link/class.compare.default#1">class.compare.default</A>] paragraph 1 as follows:</P>
+
+<BLOCKQUOTE>
+
+... Name lookups <INS>and access checks</INS> in the implicit
+definition (9.5.2 [<A href="https://wg21.link/dcl.fct.def.default">dcl.fct.def.default</A>]) of a comparison operator
+function are performed from a context equivalent to
+its <I>function-body</I> . A definition of a comparison operator as
+defaulted that appears in a class shall be the first declaration of
+that function.
+
+</BLOCKQUOTE>
 
 <BR><BR>
 </BODY>

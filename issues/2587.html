@@ -15,7 +15,7 @@
   Core Issues List revision 111d.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-05-12</P>
+<P>2023-06-20</P>
 <HR>
 <A NAME="2587"></A><H4>2587.
   
@@ -24,7 +24,7 @@ Visible side effects and initial value of an object
 <B>Section: </B>6.9.2.2&#160; [<A href="https://wg21.link/intro.races">intro.races</A>]
  &#160;&#160;&#160;
 
- <B>Status: </B>open
+ <B>Status: </B>review
  &#160;&#160;&#160;
 
  <B>Submitter: </B>Andrey Erokhin
@@ -70,6 +70,20 @@ execution environment.
 <P>It seems that initialization of an object is not a side effect, and
 thus the value of an scalar object can never be the value obtained
 during initialization.</P>
+
+<P><B>Proposed resolution:</B></P>
+
+<P>Change in 6.9.1 [<A href="https://wg21.link/intro.execution#7">intro.execution</A>] paragraph 7 as follows:</P>
+
+<BLOCKQUOTE>
+
+Reading an object designated by a volatile glvalue
+(7.2.1 [<A href="https://wg21.link/basic.lval">basic.lval</A>]), modifying an object <INS>(including
+initialization)</INS>, calling a library I/O function, or calling a
+function that does any of those operations are all side effects, which
+are changes in the state of the execution environment. ...
+
+</BLOCKQUOTE>
 
 <BR><BR>
 </BODY>

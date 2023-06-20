@@ -15,7 +15,7 @@
   Core Issues List revision 111d.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-05-12</P>
+<P>2023-06-20</P>
 <HR>
 <A NAME="2589"></A><H4>2589.
   
@@ -24,7 +24,7 @@ Context of access checks during constraint satisfaction checking
 <B>Section: </B>13.5.2.3&#160; [<A href="https://wg21.link/temp.constr.atomic">temp.constr.atomic</A>]
  &#160;&#160;&#160;
 
- <B>Status: </B>open
+ <B>Status: </B>review
  &#160;&#160;&#160;
 
  <B>Submitter: </B>Jason Merrill
@@ -83,6 +83,23 @@ satisfied if and only if evaluation of E results in true.  If, at
 different points in the program, the satisfaction result is different
 for identical atomic constraints and template arguments, the program
 is ill-formed, no diagnostic required.
+
+</BLOCKQUOTE>
+
+<P><B>Proposed resolution:</B></P>
+
+<P>Change in 13.5.2.3 [<A href="https://wg21.link/temp.constr.atomic#3">temp.constr.atomic</A>] paragraph 3 as follows:</P>
+
+<BLOCKQUOTE>
+
+To determine if an atomic constraint is <I>satisfied</I>, the
+parameter mapping and template arguments are first substituted into
+its expression. If substitution results in an invalid type or
+expression, the constraint is not satisfied<INS>; access checking is
+performed in the context in which the <I>constraint-expression</I>
+or <I>requires-expression</I> appears</INS>. Otherwise, the
+lvalue-to-rvalue conversion (7.3.2 [<A href="https://wg21.link/conv.lval">conv.lval</A>]) is performed
+if necessary, and E shall be a constant expression of type bool. ...
 
 </BLOCKQUOTE>
 

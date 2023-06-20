@@ -15,7 +15,7 @@
   Core Issues List revision 111d.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-05-12</P>
+<P>2023-06-20</P>
 <HR>
 <A NAME="2567"></A><H4>2567.
   
@@ -24,7 +24,7 @@ Operator lookup ambiguity
 <B>Section: </B>6.5.2&#160; [<A href="https://wg21.link/class.member.lookup">class.member.lookup</A>]
  &#160;&#160;&#160;
 
- <B>Status: </B>open
+ <B>Status: </B>NAD
  &#160;&#160;&#160;
 
  <B>Submitter: </B>Daveed Vandevoorde
@@ -114,6 +114,14 @@ candidate operator functions defined in 12.5 [<A href="https://wg21.link/over.bu
 search is an empty set; otherwise, the result is that set.</INS>
 
 </BLOCKQUOTE>
+
+<P><B>Rationale (CWG 2023-06-17)</B></P>
+
+<P>Changing the lookup rules to yield an empty set has undesirable
+effects on non-operator lookup, where fall-back to non-member lookup
+is actually desired.  The intended outcome for the example is as
+specified (i.e. the program is ill-formed).  The example can be
+addressed by making <TT>operator==</TT> a member of <TT>D</TT>.</P>
 
 <BR><BR>
 </BODY>

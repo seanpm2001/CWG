@@ -15,7 +15,7 @@
   Core Issues List revision 111d.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-05-12</P>
+<P>2023-06-20</P>
 <HR>
 <A NAME="2572"></A><H4>2572.
   
@@ -24,7 +24,7 @@ Address of overloaded function with no target
 <B>Section: </B>12.3&#160; [<A href="https://wg21.link/over.over">over.over</A>]
  &#160;&#160;&#160;
 
- <B>Status: </B>open
+ <B>Status: </B>review
  &#160;&#160;&#160;
 
  <B>Submitter: </B>Jason Merrill
@@ -68,7 +68,7 @@ shall remain exactly one selected function.
 <P>Major implementations reject the example as ambiguous, yet the
 wording specifies to unambiguously choose #2.</P>
 
-<P><U>Suggested resolution:</U></P>
+<P><U>Suggested resolution [SUPERSEDED]:</U></P>
 
 <P>Change in 12.3 [<A href="https://wg21.link/over.over#5">over.over</A>] paragraph 5 as follows:</P>
 
@@ -84,6 +84,22 @@ more specialized than the other</INS> according to the partial
 ordering rules of 13.7.7.3 [<A href="https://wg21.link/temp.func.order">temp.func.order</A>]. After such
 eliminations, if any, there shall remain exactly one selected
 function.
+
+</BLOCKQUOTE>
+
+<P><B>Proposed resolution:</B></P>
+
+
+<P>Change in 12.3 [<A href="https://wg21.link/over.over#5">over.over</A>] paragraph 5 as follows:</P>
+
+<BLOCKQUOTE>
+
+<DEL>Any</DEL> <INS>If there is a target, any</INS> given function template specialization F1 is eliminated if the set
+contains a second function template specialization whose function
+template is more specialized than the function template of F1
+according to the partial ordering rules of
+13.7.7.3 [<A href="https://wg21.link/temp.func.order">temp.func.order</A>]. After such eliminations, if any, there
+shall remain exactly one selected function.
 
 </BLOCKQUOTE>
 
