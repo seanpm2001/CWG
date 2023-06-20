@@ -21,7 +21,7 @@
       Date:
      </TD>
 <TD>
-      &#160;2023-05-12</TD>
+      &#160;2023-06-16</TD>
 </TR>
 <TR>
 <TD ALIGN="RIGHT">
@@ -3931,7 +3931,7 @@ Undefined behavior when lexing unmatched quotes
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#2726">2726</A></TD>
 <TD ALIGN="CENTER">review</TD>
-<TD ALIGN="CENTER"></TD>
+<TD ALIGN="CENTER">EWG</TD>
 <TD ALIGN="LEFT">
 Alternative tokens appearing as <I>attribute-token</I>s
 </TD>
@@ -5140,7 +5140,7 @@ Deallocation function templates
   <A href="https://wg21.link/expr.new">expr.new</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#2102">2102</A></TD>
-<TD ALIGN="CENTER">review</TD>
+<TD ALIGN="CENTER">tentatively ready</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Constructor checking in <I>new-expression</I>
@@ -5304,7 +5304,7 @@ Relational comparisons of pointers to <TT>void</TT>
   <A href="https://wg21.link/expr.rel">expr.rel</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#2749">2749</A></TD>
-<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER">tentatively ready</TD>
 <TD ALIGN="CENTER">SG22</TD>
 <TD ALIGN="LEFT">
 Treatment of "pointer to void" for relational comparisons
@@ -11522,6 +11522,244 @@ note</I>]
 <P>This also addresses <A HREF="cwg_active.html#1038">issue 1038</A>.</P>
 
 <BR><BR><HR>
+<A NAME="2102"></A><H4>2102.
+  
+Constructor checking in <I>new-expression</I>
+</H4>
+<B>Section: </B>7.6.2.8&#160; [<A href="https://wg21.link/expr.new">expr.new</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>tentatively ready
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Richard Smith
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2015-03-16<BR>
+
+
+
+
+<P>According to 7.6.2.8 [<A href="https://wg21.link/expr.new#25">expr.new</A>] paragraph 25,</P>
+
+<BLOCKQUOTE>
+
+If the <I>new-expression</I> creates an object or an array
+of objects of class type, access and ambiguity control are
+done for the allocation function, the deallocation function
+(11.4.11 [<A href="https://wg21.link/class.free">class.free</A>]), and the constructor
+(11.4.5 [<A href="https://wg21.link/class.ctor">class.ctor</A>]).
+
+</BLOCKQUOTE>
+
+<P>The mention of &#8220;the constructor&#8221; here is
+strange.  For the &#8220;object of class type&#8221; case,
+access and ambiguity control are done when we perform
+initialization in paragraph 17, and we might not be calling a
+constructor anyway (for aggregate initialization). This
+seems wrong.</P>
+
+<P>For the &#8220;array of objects of class type&#8221;
+case, it makes slightly more sense (we need to check the
+trailing array elements can be default-initialized) but
+again (a) we aren't necessarily using a constructor, (b) we
+should say <I>which</I> constructor &#8212; and we may need
+overload resolution to find it, and (c) shouldn't this be
+part of initialization, so we can distinguish between the
+cases where we should copy-initialize from <TT>{}</TT> and
+the cases where we should default-initialize?</P>
+
+<P><B>Additional notes (May, 2023):</B></P>
+
+<P>It is unclear whether default-initialization is required to be
+well-formed even for an array with no elements.</P>
+
+<P><B>Proposed resolution (approved by CWG 2023-06-16):</B></P>
+
+<OL>
+<LI>
+<P>Insert a new paragraph before 7.6.2.8 [<A href="https://wg21.link/expr.new#9">expr.new</A>] paragraph 9:</P>
+
+<BLOCKQUOTE>
+
+<P class="ins">If the allocated type is an array,
+the <I>new-initializer</I> is a <I>braced-init-list</I>, and
+the <I>expression</I> is potentially-evaluated and not a core constant
+expression, the semantic constraints of copy-initializing a
+hypothetical element of the array from an empty initializer list are
+checked (9.4.5 [<A href="https://wg21.link/dcl.init.list">dcl.init.list</A>]). [ Note: The array can contain
+more elements than there are elements in the <I>braced-init-list</I>,
+requiring initialization of the remainder of the array elements from
+an empty initializer list. -- end note ]</P>
+
+<P>Objects created by a new-expression have dynamic storage duration
+(6.7.5.5 [<A href="https://wg21.link/basic.stc.dynamic">basic.stc.dynamic</A>]). ...</P>
+
+</BLOCKQUOTE>
+
+</LI>
+
+<LI>
+<P>Change in 7.6.2.8 [<A href="https://wg21.link/expr.new#25">expr.new</A>] paragraph 25 as follows:</P>
+
+<BLOCKQUOTE>
+
+<DEL>If the <I>new-expression</I> creates an object or an array of objects
+of class type, access and ambiguity control are done for the
+allocation function, the deallocation function
+(6.7.5.5.3 [<A href="https://wg21.link/basic.stc.dynamic.deallocation">basic.stc.dynamic.deallocation</A>]), and the constructor
+(11.4.5 [<A href="https://wg21.link/class.ctor">class.ctor</A>]) selected for the initialization (if
+any).</DEL> If the <I>new-expression</I> creates an array of objects of
+class type, the destructor is potentially invoked
+(11.4.7 [<A href="https://wg21.link/class.dtor">class.dtor</A>]).
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+<P>Change in 7.6.2.8 [<A href="https://wg21.link/expr.new#28">expr.new</A>] paragraph 28 as follows:</P>
+
+<BLOCKQUOTE>
+
+A declaration of a placement deallocation function matches the
+declaration of a placement allocation function if it has the same
+number of parameters and, after parameter transformations
+(9.3.4.6 [<A href="https://wg21.link/dcl.fct">dcl.fct</A>]), all parameter types except the first
+are identical. If the lookup finds a single matching deallocation
+function, that function will be called; otherwise, no deallocation
+function will be called. If the lookup finds a usual deallocation
+function and that function, considered as a placement deallocation
+function, would have been selected as a match for the allocation
+function, the program is ill-formed. For a non-placement allocation
+function, the normal deallocation function lookup is used to find the
+matching deallocation function (7.6.2.9 [<A href="https://wg21.link/expr.delete">expr.delete</A>]).
+<INS>In any case, the matching deallocation function (if any) shall be
+non-deleted and accessible from the point where
+the <I>new-expression</I> appears.</INS>
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+<P>Change in 9.4.1 [<A href="https://wg21.link/dcl.init.general#7">dcl.init.general</A>] paragraph 7 as follows:</P>
+
+<BLOCKQUOTE>
+
+To <I>default-initialize</I> an object of type T means:
+<UL>
+<LI>...</LI>
+<LI>If T is an array type, <INS>the semantic constraints of
+default-initializing a hypothetical element shall be met and</INS>
+each element is default-initialized.</LI>
+<LI>...</LI>
+</UL>
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+<P>Change in 9.4.1 [<A href="https://wg21.link/dcl.init.general#9">dcl.init.general</A>] paragraph 9 as follows:</P>
+
+<BLOCKQUOTE>
+
+To <I>value-initialize</I> an object of type T means:
+
+<UL>
+<LI>
+<DEL>if</DEL> <INS>If</INS> T is a
+(possibly cv-qualified) class type (Clause 11 [<A href="https://wg21.link/class">class</A>]),
+then
+<UL>
+<LI>if T has either no default constructor
+(11.4.5.2 [<A href="https://wg21.link/class.default.ctor">class.default.ctor</A>]) or a default constructor that is
+user-provided or deleted, then the object is default-initialized;
+</LI>
+<LI>
+otherwise, the object is zero-initialized and the semantic constraints
+for default-initialization are checked, and if T has a non-trivial
+default constructor, the object is
+default-initialized<DEL>;</DEL><INS>.</INS>
+</LI>
+</UL>
+</LI>
+
+<LI>
+<DEL>if</DEL> <INS>If</INS> T is an array type, <INS>the semantic
+constraints of value-initializing a hypothetical element shall be met
+and</INS> each element is value-initialized<DEL>;</DEL><INS>.</INS>
+</LI>
+
+<LI>
+<DEL>otherwise</DEL><INS>Otherwise</INS>, the object is
+zero-initialized.</LI>
+
+</UL>
+
+</BLOCKQUOTE>
+</LI>
+
+
+
+</OL>
+
+<BR><BR><HR>
+<A NAME="2749"></A><H4>2749.
+  
+Treatment of "pointer to void" for relational comparisons
+</H4>
+<B>Section: </B>7.6.9&#160; [<A href="https://wg21.link/expr.rel">expr.rel</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>tentatively ready
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>lprv
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-03-12
+  &#160;&#160;&#160;
+  <B>Liaison: </B>SG22<BR>
+
+
+<P>(From editorial issue
+<A HREF="https://github.com/cplusplus/draft/pull/6173">6173</A>.)</P>
+
+<P>Subclause 7.6.9 [<A href="https://wg21.link/expr.rel#4">expr.rel</A>] paragraph 4 and paragraph 5 specify:</P>
+
+<BLOCKQUOTE>
+
+<P>The result of comparing unequal pointers to objects [ Footnote: ]
+is defined in terms of a partial order consistent with the following
+rules: ...</P>
+
+<P>[Note 1: A relational operator applied to unequal function
+pointers or to unequal pointers to void yields an unspecified
+result. -- end note]</P>
+
+</BLOCKQUOTE>
+
+<P>Comparing pointers to objects that are stored in a variable of type
+"pointer to void" should be fine.</P>
+
+<P><B>Possible resolution (approved by CWG 2023-06-16):</B></P>
+
+<P>Change in 7.6.9 [<A href="https://wg21.link/expr.rel#4">expr.rel</A>] paragraph 4 and paragraph 5 as follows:</P>
+
+<BLOCKQUOTE>
+
+<P>The result of comparing unequal pointers to objects [ Footnote:
+... ] is defined in terms of a partial order consistent with the
+following rules: ...</P>
+
+<P>[Note 1: A relational operator applied to unequal function
+pointers <DEL>or to unequal pointers to void</DEL> yields an
+unspecified result. <INS>A pointer value of type "pointer
+to <I>cv</I> <TT>void</TT>" can point to an object
+(6.8.4 [<A href="https://wg21.link/basic.compound">basic.compound</A>]).</INS> -- end note]</P>
+
+</BLOCKQUOTE>
+
+<BR><BR><HR>
 <A NAME="2476"></A><H4>2476.
   
 <I>placeholder-type-specifier</I>s and function declarators
@@ -12437,7 +12675,9 @@ Alternative tokens appearing as <I>attribute-token</I>s
  <B>Submitter: </B>Jim X
  &#160;&#160;&#160;
 
- <B>Date: </B>2023-03-16<BR>
+ <B>Date: </B>2023-03-16
+  &#160;&#160;&#160;
+  <B>Liaison: </B>EWG<BR>
 
 
 <P>Subclause 5.5 [<A href="https://wg21.link/lex.digraph#2">lex.digraph</A>] paragraph 2 specifies:</P>
@@ -12521,6 +12761,11 @@ treatment of examples such as <TT>#define and blah</TT> would change
 from ill-formed to well-formed.  Some opposition was voiced against
 changing the phase 4 treatment of alternative tokens.
 </P>
+
+<P><B>CWG 2023-06-16</B></P>
+
+<P>Forwarded to EWG with paper issue
+<A HREF="https://github.com/cplusplus/papers/issues/1581">#1581</A>.</P>
 
 <BR><BR><HR>
 <A NAME="1924"></A><H4>1924.
@@ -13129,187 +13374,6 @@ the <I>throw-expression</I></INS>.
 </UL>
 
 </BLOCKQUOTE>
-
-<BR><BR><HR>
-<A NAME="2102"></A><H4>2102.
-  
-Constructor checking in <I>new-expression</I>
-</H4>
-<B>Section: </B>7.6.2.8&#160; [<A href="https://wg21.link/expr.new">expr.new</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>review
- &#160;&#160;&#160;
-
- <B>Submitter: </B>Richard Smith
- &#160;&#160;&#160;
-
- <B>Date: </B>2015-03-16<BR>
-
-
-
-
-<P>According to 7.6.2.8 [<A href="https://wg21.link/expr.new#25">expr.new</A>] paragraph 25,</P>
-
-<BLOCKQUOTE>
-
-If the <I>new-expression</I> creates an object or an array
-of objects of class type, access and ambiguity control are
-done for the allocation function, the deallocation function
-(11.4.11 [<A href="https://wg21.link/class.free">class.free</A>]), and the constructor
-(11.4.5 [<A href="https://wg21.link/class.ctor">class.ctor</A>]).
-
-</BLOCKQUOTE>
-
-<P>The mention of &#8220;the constructor&#8221; here is
-strange.  For the &#8220;object of class type&#8221; case,
-access and ambiguity control are done when we perform
-initialization in paragraph 17, and we might not be calling a
-constructor anyway (for aggregate initialization). This
-seems wrong.</P>
-
-<P>For the &#8220;array of objects of class type&#8221;
-case, it makes slightly more sense (we need to check the
-trailing array elements can be default-initialized) but
-again (a) we aren't necessarily using a constructor, (b) we
-should say <I>which</I> constructor &#8212; and we may need
-overload resolution to find it, and (c) shouldn't this be
-part of initialization, so we can distinguish between the
-cases where we should copy-initialize from <TT>{}</TT> and
-the cases where we should default-initialize?</P>
-
-<P><B>Additional notes (May, 2023):</B></P>
-
-<P>It is unclear whether default-initialization is required to be
-well-formed even for an array with no elements.</P>
-
-<P><U>Possible resolution:</U></P>
-
-<OL>
-<LI>
-<P>Insert a new paragraph before 7.6.2.8 [<A href="https://wg21.link/expr.new#9">expr.new</A>] paragraph 9:</P>
-
-<BLOCKQUOTE>
-
-<P class="ins">If the allocated type is an array,
-the <I>new-initializer</I> is a <I>braced-init-list</I>, and
-the <I>expression</I> is potentially-evaluated and not a core constant
-expression, the semantic constraints of copy-initializing a
-hypothetical element of the array from an empty initializer list are
-checked (9.4.5 [<A href="https://wg21.link/dcl.init.list">dcl.init.list</A>]). [ Note: The array can contain
-more elements than there are elements in the <I>braced-init-list</I>,
-requiring initialization of the remainder of the array elements from
-an empty initializer list. -- end note ]</P>
-
-<P>Objects created by a new-expression have dynamic storage duration
-(6.7.5.5 [<A href="https://wg21.link/basic.stc.dynamic">basic.stc.dynamic</A>]). ...</P>
-
-</BLOCKQUOTE>
-
-</LI>
-
-<LI>
-<P>Change in 7.6.2.8 [<A href="https://wg21.link/expr.new#25">expr.new</A>] paragraph 25 as follows:</P>
-
-<BLOCKQUOTE>
-
-<DEL>If the <I>new-expression</I> creates an object or an array of objects
-of class type, access and ambiguity control are done for the
-allocation function, the deallocation function
-(6.7.5.5.3 [<A href="https://wg21.link/basic.stc.dynamic.deallocation">basic.stc.dynamic.deallocation</A>]), and the constructor
-(11.4.5 [<A href="https://wg21.link/class.ctor">class.ctor</A>]) selected for the initialization (if
-any).</DEL> If the <I>new-expression</I> creates an array of objects of
-class type, the destructor is potentially invoked
-(11.4.7 [<A href="https://wg21.link/class.dtor">class.dtor</A>]).
-
-</BLOCKQUOTE>
-</LI>
-
-<LI>
-<P>Change in 7.6.2.8 [<A href="https://wg21.link/expr.new#28">expr.new</A>] paragraph 28 as follows:</P>
-
-<BLOCKQUOTE>
-
-A declaration of a placement deallocation function matches the
-declaration of a placement allocation function if it has the same
-number of parameters and, after parameter transformations
-(9.3.4.6 [<A href="https://wg21.link/dcl.fct">dcl.fct</A>]), all parameter types except the first
-are identical. If the lookup finds a single matching deallocation
-function, that function will be called; otherwise, no deallocation
-function will be called. If the lookup finds a usual deallocation
-function and that function, considered as a placement deallocation
-function, would have been selected as a match for the allocation
-function, the program is ill-formed. For a non-placement allocation
-function, the normal deallocation function lookup is used to find the
-matching deallocation function (7.6.2.9 [<A href="https://wg21.link/expr.delete">expr.delete</A>]).
-<INS>In any case, the matching deallocation function (if any) shall be
-non-deleted and accessible from the point where
-the <I>new-expression</I> appears.</INS>
-
-</BLOCKQUOTE>
-</LI>
-
-<LI>
-<P>Change in 9.4.1 [<A href="https://wg21.link/dcl.init.general#7">dcl.init.general</A>] paragraph 7 as follows:</P>
-
-<BLOCKQUOTE>
-
-To <I>default-initialize</I> an object of type T means:
-<UL>
-<LI>...</LI>
-<LI>If T is an array type, <INS>the semantic constraints of
-default-initializing a hypothetical element shall be met and</INS>
-each element is default-initialized.</LI>
-<LI>...</LI>
-</UL>
-
-</BLOCKQUOTE>
-</LI>
-
-<LI>
-<P>Change in 9.4.1 [<A href="https://wg21.link/dcl.init.general#9">dcl.init.general</A>] paragraph 9 as follows:</P>
-
-<BLOCKQUOTE>
-
-To <I>value-initialize</I> an object of type T means:
-
-<UL>
-<LI>
-<DEL>if</DEL> <INS>If</INS> T is a
-(possibly cv-qualified) class type (Clause 11 [<A href="https://wg21.link/class">class</A>]),
-then
-<UL>
-<LI>if T has either no default constructor
-(11.4.5.2 [<A href="https://wg21.link/class.default.ctor">class.default.ctor</A>]) or a default constructor that is
-user-provided or deleted, then the object is default-initialized;
-</LI>
-<LI>
-otherwise, the object is zero-initialized and the semantic constraints
-for default-initialization are checked, and if T has a non-trivial
-default constructor, the object is
-default-initialized<DEL>;</DEL><INS>.</INS>
-</LI>
-</UL>
-</LI>
-
-<LI>
-<DEL>if</DEL> <INS>If</INS> T is an array type, <INS>the semantic
-constraints of value-initializing a hypothetical element shall be met
-and</INS> each element is value-initialized<DEL>;</DEL><INS>.</INS>
-</LI>
-
-<LI>
-<DEL>otherwise</DEL><INS>Otherwise</INS>, the object is
-zero-initialized.</LI>
-
-</UL>
-
-</BLOCKQUOTE>
-</LI>
-
-
-
-</OL>
 
 <BR><BR><HR>
 <A NAME="2531"></A><H4>2531.
@@ -30557,63 +30621,6 @@ type.</P>
 <P><B>February, 2023</B></P>
 
 <P>Requested confirmation of the C status quo from SG22.</P>
-
-<BR><BR><HR>
-<A NAME="2749"></A><H4>2749.
-  
-Treatment of "pointer to void" for relational comparisons
-</H4>
-<B>Section: </B>7.6.9&#160; [<A href="https://wg21.link/expr.rel">expr.rel</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>open
- &#160;&#160;&#160;
-
- <B>Submitter: </B>lprv
- &#160;&#160;&#160;
-
- <B>Date: </B>2023-03-12
-  &#160;&#160;&#160;
-  <B>Liaison: </B>SG22<BR>
-
-
-<P>(From editorial issue
-<A HREF="https://github.com/cplusplus/draft/pull/6173">6173</A>.)</P>
-
-<P>Subclause 7.6.9 [<A href="https://wg21.link/expr.rel#4">expr.rel</A>] paragraph 4 and paragraph 5 specify:</P>
-
-<BLOCKQUOTE>
-
-<P>The result of comparing unequal pointers to objects [ Footnote: ]
-is defined in terms of a partial order consistent with the following
-rules: ...</P>
-
-<P>[Note 1: A relational operator applied to unequal function
-pointers or to unequal pointers to void yields an unspecified
-result. -- end note]</P>
-
-</BLOCKQUOTE>
-
-<P>Comparing pointers to objects that are stored in a variable of type
-"pointer to void" should be fine.</P>
-
-<P><U>Possible resolution:</U></P>
-
-<P>Change in 7.6.9 [<A href="https://wg21.link/expr.rel#4">expr.rel</A>] paragraph 4 and paragraph 5 as follows:</P>
-
-<BLOCKQUOTE>
-
-<P>The result of comparing unequal pointers to objects [ Footnote:
-... ] is defined in terms of a partial order consistent with the
-following rules: ...</P>
-
-<P>[Note 1: A relational operator applied to unequal function
-pointers <DEL>or to unequal pointers to void</DEL> yields an
-unspecified result. <INS>A pointer value of type "pointer
-to <I>cv</I> <TT>void</TT>" can point to an object
-(6.8.4 [<A href="https://wg21.link/basic.compound">basic.compound</A>]).</INS> -- end note]</P>
-
-</BLOCKQUOTE>
 
 <BR><BR><HR>
 <A NAME="1256"></A><H4>1256.
