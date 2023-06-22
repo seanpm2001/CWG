@@ -15,7 +15,7 @@
   Core Issues List revision 111d.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-06-16</P>
+<P>2023-06-22</P>
 <HR>
 <A NAME="2553"></A><H4>2553.
   
@@ -24,7 +24,7 @@ Restrictions on explicit object member functions
 <B>Section: </B>9.3.4.6&#160; [<A href="https://wg21.link/dcl.fct">dcl.fct</A>]
  &#160;&#160;&#160;
 
- <B>Status: </B>drafting
+ <B>Status: </B>review
  &#160;&#160;&#160;
 
  <B>Submitter: </B>Jens Maurer
@@ -53,7 +53,7 @@ member function.  That should be prevented.</P>
 <P>This also does not address class-specific allocation and
 deallocation functions, which are implicitly <TT>static</TT>.</P>
 
-<P><B>Proposed resolution (approved by CWG 2023-06-15):</B></P>
+<P><B>Proposed resolution (approved by CWG 2023-06-15) [SUPERSEDED]:</B></P>
 
 <OL>
 <LI>
@@ -82,6 +82,103 @@ virtual (11.7.3 [<A href="https://wg21.link/class.virtual">class.virtual</A>]). 
 
 </BLOCKQUOTE>
 
+</LI>
+
+<LI>
+<P>Add a new paragraph before 11.7.3 [<A href="https://wg21.link/class.virtual#7">class.virtual</A>] paragraph 7 as
+follows:</P>
+
+<BLOCKQUOTE>
+
+<P><INS>A virtual function shall not be an explicit object member
+function (9.3.4.6 [<A href="https://wg21.link/dcl.fct">dcl.fct</A>]).</INS></P>
+
+<P><INS>[ <I>Example:</I></INS></P>
+<PRE class="ins">
+  struct B {
+    virtual void g(); // #1
+  };
+  struct D : B {
+    virtual void f(this D&amp;);  //<SPAN CLASS="cmnt"> error: explicit object member function cannot be virtual</SPAN>
+    void g(this D&amp;);          //<SPAN CLASS="cmnt"> error: overrides #1; explicit object member function cannot be virtual</SPAN>
+  };
+</PRE>
+<P><INS>-- <I>end example</I>]</INS></P>
+
+<P>The <I>ref-qualifier</I>, or lack thereof, ...</P>
+
+</BLOCKQUOTE>
+
+</LI>
+
+</OL>
+
+<P><B>Proposed resolution:</B></P>
+
+<OL>
+<LI>
+<P>Change in 9.3.4.6 [<A href="https://wg21.link/dcl.fct#6">dcl.fct</A>] paragraph 6 as follows:</P>
+
+<BLOCKQUOTE>
+
+A <I>member-declarator</I> with
+an <I>explicit-object-parameter-declaration</I> shall not include
+a <I>ref-qualifier</I> or a <I>cv-qualifier-seq</I> and shall not be
+declared <TT>static</TT> <DEL>or <TT>virtual</TT></DEL>.
+
+</BLOCKQUOTE>
+
+</LI>
+
+<LI>
+<P>Change in 9.3.4.6 [<A href="https://wg21.link/dcl.fct#7">dcl.fct</A>] paragraph 7 as follows:</P>
+
+<BLOCKQUOTE>
+
+... An <I>implicit object member function</I> is a non-static member
+function without an explicit object parameter.
+<INS>[ <I>Note:</I> An explicit object member function cannot be
+virtual (11.7.3 [<A href="https://wg21.link/class.virtual">class.virtual</A>]). -- <I>end note</I> ]</INS>
+
+</BLOCKQUOTE>
+
+</LI>
+
+<LI>
+<P>Change in 11.4.11 [<A href="https://wg21.link/class.free#1">class.free</A>] paragraph 1 as follows:</P>
+
+<BLOCKQUOTE>
+
+Any allocation function for a class T is a static member (even if not
+explicitly declared static)<INS>; it shall not have an explicit object
+parameter</INS>.
+
+</BLOCKQUOTE>
+
+</LI>
+
+<LI>
+<P>Change in 11.4.11 [<A href="https://wg21.link/class.free#3">class.free</A>] paragraph 3 as follows:</P>
+
+<BLOCKQUOTE>
+
+Any deallocation function for a class T is a static member (even if not
+explicitly declared static)<INS>; it shall not have an explicit object
+parameter</INS>.
+
+</BLOCKQUOTE>
+
+</LI>
+
+<LI>
+<P>Change in 11.4.11 [<A href="https://wg21.link/class.free#4">class.free</A>] paragraph 4 as follows:</P>
+
+<BLOCKQUOTE>
+
+<INS>[ Note:</INS> Since member allocation and deallocation functions
+are static they cannot be virtual. <INS>-- end note ]</INS>
+
+</BLOCKQUOTE>
 </LI>
 
 <LI>
