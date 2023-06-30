@@ -22262,6 +22262,40 @@ exact duplicate of this one, was independently opened and
 resolved.</P>
 
 <BR><BR><HR>
+<A NAME="2696"></A><H4>2696.
+  
+Relational comparisons of pointers to <TT>void</TT>
+</H4>
+<B>Section: </B>7.6.9&#160; [<A href="https://wg21.link/expr.rel">expr.rel</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>dup
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>CWG
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-02-09
+  &#160;&#160;&#160;
+  <B>Liaison: </B>SG22<BR>
+
+
+<P>While discussing <A HREF="cwg_defects.html#2526">issue 2526</A>, it was
+noted that C++ yields an unspecified result for comparing unequal
+pointers to <TT>void</TT> in all cases, whereas C does specify the result
+if the pointer values point to the same object or (possibly different)
+subobjects thereof, because C considers <TT>void</TT> an object
+type.</P>
+
+<P><B>February, 2023</B></P>
+
+<P>Requested confirmation of the C status quo from SG22.</P>
+
+<P><B>Rationale (June, 2023)</B></P>
+
+<P>This issue is a duplicate of <A HREF="cwg_active.html#2749">issue 2749</A>.</P>
+
+<BR><BR><HR>
 <A NAME="1445"></A><H4>1445.
   
 Argument-dependent lookup of <TT>begin</TT> and <TT>end</TT>

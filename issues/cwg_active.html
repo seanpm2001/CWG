@@ -186,6 +186,11 @@ USA.</P>
 <A HREF="cwg_active.html#2748">2748</A>,
 <A HREF="cwg_active.html#2749">2749</A>,
 <A HREF="cwg_defects.html#2750">2750</A>,
+<A HREF="cwg_active.html#2751">2751</A>,
+<A HREF="cwg_active.html#2752">2752</A>,
+<A HREF="cwg_active.html#2753">2753</A>,
+<A HREF="cwg_active.html#2754">2754</A>,
+<A HREF="cwg_active.html#2755">2755</A>,
 Closed issues
 <A HREF="cwg_closed.html#6">6</A>,
 <A HREF="cwg_closed.html#504">504</A>,
@@ -237,7 +242,7 @@ Closed issues
 <A HREF="cwg_active.html#2693">2693</A>,
 <A HREF="cwg_active.html#2694">2694</A>,
 <A HREF="cwg_defects.html#2695">2695</A>,
-<A HREF="cwg_active.html#2696">2696</A>,
+<A HREF="cwg_closed.html#2696">2696</A>,
 <A HREF="cwg_defects.html#2697">2697</A>,
 <A HREF="cwg_defects.html#2698">2698</A>,
 <A HREF="cwg_defects.html#2699">2699</A>,
@@ -3970,6 +3975,17 @@ Definition of &#8220;literal&#8221; and kinds of literals
 </TD>
 </TR>
 <TR>
+<TD ALIGN="LEFT">5.13.4&#160;
+  <A href="https://wg21.link/lex.fcon">lex.fcon</A>
+</TD>
+<TD ALIGN="RIGHT"><A HREF="#2752">2752</A></TD>
+<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER">EWG</TD>
+<TD ALIGN="LEFT">
+Excess-precision floating-point literals
+</TD>
+</TR>
+<TR>
 <TD ALIGN="LEFT">5.13.8&#160;
   <A href="https://wg21.link/lex.ext">lex.ext</A>
 </TD>
@@ -4176,6 +4192,17 @@ Implicit object creation vs constant expressions
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Multiple objects of the same type at the same address
+</TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT">6.7.2&#160;
+  <A href="https://wg21.link/intro.object">intro.object</A>
+</TD>
+<TD ALIGN="RIGHT"><A HREF="#2753">2753</A></TD>
+<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER"></TD>
+<TD ALIGN="LEFT">
+Storage reuse for string literal objects and backing arrays
 </TD>
 </TR>
 <TR>
@@ -5106,21 +5133,10 @@ Pointer arithmetic in array-like containers
   <A href="https://wg21.link/expr.add">expr.add</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#2548">2548</A></TD>
-<TD ALIGN="CENTER">drafting</TD>
+<TD ALIGN="CENTER">review</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Array prvalues and additive operators
-</TD>
-</TR>
-<TR>
-<TD ALIGN="LEFT">7.6.9&#160;
-  <A href="https://wg21.link/expr.rel">expr.rel</A>
-</TD>
-<TD ALIGN="RIGHT"><A HREF="#2696">2696</A></TD>
-<TD ALIGN="CENTER">open</TD>
-<TD ALIGN="CENTER">SG22</TD>
-<TD ALIGN="LEFT">
-Relational comparisons of pointers to <TT>void</TT>
 </TD>
 </TR>
 <TR>
@@ -5344,6 +5360,17 @@ Too many objects have constexpr-unknown type
 </TD>
 </TR>
 <TR>
+<TD ALIGN="LEFT">7.7&#160;
+  <A href="https://wg21.link/expr.const">expr.const</A>
+</TD>
+<TD ALIGN="RIGHT"><A HREF="#2755">2755</A></TD>
+<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER"></TD>
+<TD ALIGN="LEFT">
+Incorrect wording applied by P2738R1
+</TD>
+</TR>
+<TR>
 <TD ALIGN="LEFT">8.6.5&#160;
   <A href="https://wg21.link/stmt.ranged">stmt.ranged</A>
 </TD>
@@ -5396,6 +5423,17 @@ Unusable <TT>promise::return_void</TT>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Omitted constant initialization of local static variables
+</TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT">8.8&#160;
+  <A href="https://wg21.link/stmt.dcl">stmt.dcl</A>
+</TD>
+<TD ALIGN="RIGHT"><A HREF="#2751">2751</A></TD>
+<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER">EWG</TD>
+<TD ALIGN="LEFT">
+Order of destruction for parameters for operator functions
 </TD>
 </TR>
 <TR>
@@ -5645,7 +5683,7 @@ Overbroad grammar for <I>parameter-declaration</I>
   <A href="https://wg21.link/dcl.fct">dcl.fct</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#2553">2553</A></TD>
-<TD ALIGN="CENTER">drafting</TD>
+<TD ALIGN="CENTER">review</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Restrictions on explicit object member functions
@@ -5957,6 +5995,17 @@ Exceptions thrown during coroutine startup
 <TD ALIGN="CENTER">EWG</TD>
 <TD ALIGN="LEFT">
 Initialization of coroutine result object
+</TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT">9.5.4&#160;
+  <A href="https://wg21.link/dcl.fct.def.coroutine">dcl.fct.def.coroutine</A>
+</TD>
+<TD ALIGN="RIGHT"><A HREF="#2754">2754</A></TD>
+<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER"></TD>
+<TD ALIGN="LEFT">
+Using *this in explicit object member functions that are coroutines
 </TD>
 </TR>
 <TR>
@@ -11002,6 +11051,70 @@ the behavior is undefined.
 
 </BLOCKQUOTE>
 <BR><BR><HR>
+<A NAME="2548"></A><H4>2548.
+  
+Array prvalues and additive operators
+</H4>
+<B>Section: </B>7.6.6&#160; [<A href="https://wg21.link/expr.add">expr.add</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>review
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Andrey Erokhin
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2022-03-08<BR>
+
+
+
+
+<P>Consider</P>
+
+<PRE>
+  int main()
+  {
+    using IA = int[];
+    IA{ 1, 2, 3 } + 0;
+  }
+</PRE>
+
+<P>This appears to be ill-formed given the current wording, because
+the operand is already a prvalue, thus 7.2.1 [<A href="https://wg21.link/basic.lval#6">basic.lval</A>] paragraph 6 does not apply and the array-to-pointer conversion is not
+applied:</P>
+
+<BLOCKQUOTE>
+
+Whenever a glvalue appears as an operand of an operator that expects a
+prvalue for that operand, the lvalue-to-rvalue
+(7.3.2 [<A href="https://wg21.link/conv.lval">conv.lval</A>]), array-to-pointer
+(7.3.3 [<A href="https://wg21.link/conv.array">conv.array</A>]), or function-to-pointer
+(7.3.4 [<A href="https://wg21.link/conv.func">conv.func</A>]) standard conversions are applied to
+convert the expression to a prvalue.
+
+</BLOCKQUOTE>
+
+<P>This outcome might be an oversight in the resolution for
+<A HREF="cwg_defects.html#1232">issue 1232</A>.</P>
+
+<P>See also
+<A HREF="https://github.com/llvm/llvm-project/issues/54016">clang issue 54016</A>.</P>
+
+<P><U>Possible resolution:</U></P>
+
+<P>Change in 7.6.6 [<A href="https://wg21.link/expr.add#1">expr.add</A>] paragraph 1 as follows:</P>
+
+<BLOCKQUOTE>
+
+The additive operators + and - group left-to-right. The usual
+arithmetic conversions (7.4 [<A href="https://wg21.link/expr.arith.conv">expr.arith.conv</A>]) are performed for
+operands of arithmetic or enumeration type. <INS>The array-to-pointer
+conversion (7.3.3 [<A href="https://wg21.link/conv.array">conv.array</A>]) is applied to an operand of
+array type.</INS>
+
+</BLOCKQUOTE>
+
+<BR><BR><HR>
 <A NAME="2531"></A><H4>2531.
   
 Static data members redeclared as constexpr
@@ -11184,6 +11297,200 @@ statements.
 -- end example ]
 
 </BLOCKQUOTE>
+
+<BR><BR><HR>
+<A NAME="2553"></A><H4>2553.
+  
+Restrictions on explicit object member functions
+</H4>
+<B>Section: </B>9.3.4.6&#160; [<A href="https://wg21.link/dcl.fct">dcl.fct</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>review
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Jens Maurer
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2021-12-10<BR>
+
+
+
+
+<P>Subclause 9.3.4.6 [<A href="https://wg21.link/dcl.fct#6">dcl.fct</A>] paragraph 6 specifies</P>
+
+<BLOCKQUOTE>
+
+A <I>member-declarator</I> with
+an <I>explicit-object-parameter-declaration</I> shall not include
+a <I>ref-qualifier</I> or a <I>cv-qualifier-seq</I> and shall not be
+declared <TT>static</TT> or <TT>virtual</TT>.
+
+</BLOCKQUOTE>
+
+<P>This does not address the situation when an explicit object member
+function becomes implicitly virtual by overriding an implicit object
+member function.  That should be prevented.</P>
+
+<P>This also does not address class-specific allocation and
+deallocation functions, which are implicitly <TT>static</TT>.</P>
+
+<P><B>Proposed resolution (approved by CWG 2023-06-15) [SUPERSEDED]:</B></P>
+
+<OL>
+<LI>
+<P>Change in 9.3.4.6 [<A href="https://wg21.link/dcl.fct#6">dcl.fct</A>] paragraph 6 as follows:</P>
+
+<BLOCKQUOTE>
+
+A <I>member-declarator</I> with
+an <I>explicit-object-parameter-declaration</I> shall not include
+a <I>ref-qualifier</I> or a <I>cv-qualifier-seq</I> and shall not be
+declared <TT>static</TT> <DEL>or <TT>virtual</TT></DEL>.
+
+</BLOCKQUOTE>
+
+</LI>
+
+<LI>
+<P>Change in 9.3.4.6 [<A href="https://wg21.link/dcl.fct#7">dcl.fct</A>] paragraph 7 as follows:</P>
+
+<BLOCKQUOTE>
+
+... An <I>implicit object member function</I> is a non-static member
+function without an explicit object parameter.
+<INS>[ <I>Note:</I> An explicit object member function cannot be
+virtual (11.7.3 [<A href="https://wg21.link/class.virtual">class.virtual</A>]). -- <I>end note</I> ]</INS>
+
+</BLOCKQUOTE>
+
+</LI>
+
+<LI>
+<P>Add a new paragraph before 11.7.3 [<A href="https://wg21.link/class.virtual#7">class.virtual</A>] paragraph 7 as
+follows:</P>
+
+<BLOCKQUOTE>
+
+<P><INS>A virtual function shall not be an explicit object member
+function (9.3.4.6 [<A href="https://wg21.link/dcl.fct">dcl.fct</A>]).</INS></P>
+
+<P><INS>[ <I>Example:</I></INS></P>
+<PRE class="ins">
+  struct B {
+    virtual void g(); // #1
+  };
+  struct D : B {
+    virtual void f(this D&amp;);  //<SPAN CLASS="cmnt"> error: explicit object member function cannot be virtual</SPAN>
+    void g(this D&amp;);          //<SPAN CLASS="cmnt"> error: overrides #1; explicit object member function cannot be virtual</SPAN>
+  };
+</PRE>
+<P><INS>-- <I>end example</I>]</INS></P>
+
+<P>The <I>ref-qualifier</I>, or lack thereof, ...</P>
+
+</BLOCKQUOTE>
+
+</LI>
+
+</OL>
+
+<P><B>Proposed resolution:</B></P>
+
+<OL>
+<LI>
+<P>Change in 9.3.4.6 [<A href="https://wg21.link/dcl.fct#6">dcl.fct</A>] paragraph 6 as follows:</P>
+
+<BLOCKQUOTE>
+
+A <I>member-declarator</I> with
+an <I>explicit-object-parameter-declaration</I> shall not include
+a <I>ref-qualifier</I> or a <I>cv-qualifier-seq</I> and shall not be
+declared <TT>static</TT> <DEL>or <TT>virtual</TT></DEL>.
+
+</BLOCKQUOTE>
+
+</LI>
+
+<LI>
+<P>Change in 9.3.4.6 [<A href="https://wg21.link/dcl.fct#7">dcl.fct</A>] paragraph 7 as follows:</P>
+
+<BLOCKQUOTE>
+
+... An <I>implicit object member function</I> is a non-static member
+function without an explicit object parameter.
+<INS>[ <I>Note:</I> An explicit object member function cannot be
+virtual (11.7.3 [<A href="https://wg21.link/class.virtual">class.virtual</A>]). -- <I>end note</I> ]</INS>
+
+</BLOCKQUOTE>
+
+</LI>
+
+<LI>
+<P>Change in 11.4.11 [<A href="https://wg21.link/class.free#1">class.free</A>] paragraph 1 as follows:</P>
+
+<BLOCKQUOTE>
+
+Any allocation function for a class T is a static member (even if not
+explicitly declared static)<INS>; it shall not have an explicit object
+parameter</INS>.
+
+</BLOCKQUOTE>
+
+</LI>
+
+<LI>
+<P>Change in 11.4.11 [<A href="https://wg21.link/class.free#3">class.free</A>] paragraph 3 as follows:</P>
+
+<BLOCKQUOTE>
+
+Any deallocation function for a class T is a static member (even if not
+explicitly declared static)<INS>; it shall not have an explicit object
+parameter</INS>.
+
+</BLOCKQUOTE>
+
+</LI>
+
+<LI>
+<P>Change in 11.4.11 [<A href="https://wg21.link/class.free#4">class.free</A>] paragraph 4 as follows:</P>
+
+<BLOCKQUOTE>
+
+<INS>[ Note:</INS> Since member allocation and deallocation functions
+are static they cannot be virtual. <INS>-- end note ]</INS>
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+<P>Add a new paragraph before 11.7.3 [<A href="https://wg21.link/class.virtual#7">class.virtual</A>] paragraph 7 as
+follows:</P>
+
+<BLOCKQUOTE>
+
+<P><INS>A virtual function shall not be an explicit object member
+function (9.3.4.6 [<A href="https://wg21.link/dcl.fct">dcl.fct</A>]).</INS></P>
+
+<P><INS>[ <I>Example:</I></INS></P>
+<PRE class="ins">
+  struct B {
+    virtual void g(); // #1
+  };
+  struct D : B {
+    virtual void f(this D&amp;);  //<SPAN CLASS="cmnt"> error: explicit object member function cannot be virtual</SPAN>
+    void g(this D&amp;);          //<SPAN CLASS="cmnt"> error: overrides #1; explicit object member function cannot be virtual</SPAN>
+  };
+</PRE>
+<P><INS>-- <I>end example</I>]</INS></P>
+
+<P>The <I>ref-qualifier</I>, or lack thereof, ...</P>
+
+</BLOCKQUOTE>
+
+</LI>
+
+</OL>
 
 <BR><BR><HR>
 <A NAME="2252"></A><H4>2252.
@@ -14868,56 +15175,6 @@ expects this to continue.  Some changes to the interface of
 <TT>std::launder</TT> as part of iterator processing.</P>
 
 <BR><BR><HR>
-<A NAME="2548"></A><H4>2548.
-  
-Array prvalues and additive operators
-</H4>
-<B>Section: </B>7.6.6&#160; [<A href="https://wg21.link/expr.add">expr.add</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>drafting
- &#160;&#160;&#160;
-
- <B>Submitter: </B>Andrey Erokhin
- &#160;&#160;&#160;
-
- <B>Date: </B>2022-03-08<BR>
-
-
-
-
-<P>Consider</P>
-
-<PRE>
-  int main()
-  {
-    using IA = int[];
-    IA{ 1, 2, 3 } + 0;
-  }
-</PRE>
-
-<P>This appears to be ill-formed given the current wording, because
-the operand is already a prvalue, thus 7.2.1 [<A href="https://wg21.link/basic.lval#6">basic.lval</A>] paragraph 6 does not apply and the array-to-pointer conversion is not
-applied:</P>
-
-<BLOCKQUOTE>
-
-Whenever a glvalue appears as an operand of an operator that expects a
-prvalue for that operand, the lvalue-to-rvalue
-(7.3.2 [<A href="https://wg21.link/conv.lval">conv.lval</A>]), array-to-pointer
-(7.3.3 [<A href="https://wg21.link/conv.array">conv.array</A>]), or function-to-pointer
-(7.3.4 [<A href="https://wg21.link/conv.func">conv.func</A>]) standard conversions are applied to
-convert the expression to a prvalue.
-
-</BLOCKQUOTE>
-
-<P>This outcome might be an oversight in the resolution for
-<A HREF="cwg_defects.html#1232">issue 1232</A>.</P>
-
-<P>See also
-<A HREF="https://github.com/llvm/llvm-project/issues/54016">clang issue 54016</A>.</P>
-
-<BR><BR><HR>
 <A NAME="2023"></A><H4>2023.
   
 Composite reference result type of conditional operator
@@ -16004,103 +16261,6 @@ A list is
 
 Furthermore, reducing the grammar to a <I>type-specifier-seq</I>
 appears to be sufficient.</P>
-
-<BR><BR><HR>
-<A NAME="2553"></A><H4>2553.
-  
-Restrictions on explicit object member functions
-</H4>
-<B>Section: </B>9.3.4.6&#160; [<A href="https://wg21.link/dcl.fct">dcl.fct</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>drafting
- &#160;&#160;&#160;
-
- <B>Submitter: </B>Jens Maurer
- &#160;&#160;&#160;
-
- <B>Date: </B>2021-12-10<BR>
-
-
-
-
-<P>Subclause 9.3.4.6 [<A href="https://wg21.link/dcl.fct#6">dcl.fct</A>] paragraph 6 specifies</P>
-
-<BLOCKQUOTE>
-
-A <I>member-declarator</I> with
-an <I>explicit-object-parameter-declaration</I> shall not include
-a <I>ref-qualifier</I> or a <I>cv-qualifier-seq</I> and shall not be
-declared <TT>static</TT> or <TT>virtual</TT>.
-
-</BLOCKQUOTE>
-
-<P>This does not address the situation when an explicit object member
-function becomes implicitly virtual by overriding an implicit object
-member function.  That should be prevented.</P>
-
-<P>This also does not address class-specific allocation and
-deallocation functions, which are implicitly <TT>static</TT>.</P>
-
-<P><B>Proposed resolution (approved by CWG 2023-06-15):</B></P>
-
-<OL>
-<LI>
-<P>Change in 9.3.4.6 [<A href="https://wg21.link/dcl.fct#6">dcl.fct</A>] paragraph 6 as follows:</P>
-
-<BLOCKQUOTE>
-
-A <I>member-declarator</I> with
-an <I>explicit-object-parameter-declaration</I> shall not include
-a <I>ref-qualifier</I> or a <I>cv-qualifier-seq</I> and shall not be
-declared <TT>static</TT> <DEL>or <TT>virtual</TT></DEL>.
-
-</BLOCKQUOTE>
-
-</LI>
-
-<LI>
-<P>Change in 9.3.4.6 [<A href="https://wg21.link/dcl.fct#7">dcl.fct</A>] paragraph 7 as follows:</P>
-
-<BLOCKQUOTE>
-
-... An <I>implicit object member function</I> is a non-static member
-function without an explicit object parameter.
-<INS>[ <I>Note:</I> An explicit object member function cannot be
-virtual (11.7.3 [<A href="https://wg21.link/class.virtual">class.virtual</A>]). -- <I>end note</I> ]</INS>
-
-</BLOCKQUOTE>
-
-</LI>
-
-<LI>
-<P>Add a new paragraph before 11.7.3 [<A href="https://wg21.link/class.virtual#7">class.virtual</A>] paragraph 7 as
-follows:</P>
-
-<BLOCKQUOTE>
-
-<P><INS>A virtual function shall not be an explicit object member
-function (9.3.4.6 [<A href="https://wg21.link/dcl.fct">dcl.fct</A>]).</INS></P>
-
-<P><INS>[ <I>Example:</I></INS></P>
-<PRE class="ins">
-  struct B {
-    virtual void g(); // #1
-  };
-  struct D : B {
-    virtual void f(this D&amp;);  //<SPAN CLASS="cmnt"> error: explicit object member function cannot be virtual</SPAN>
-    void g(this D&amp;);          //<SPAN CLASS="cmnt"> error: overrides #1; explicit object member function cannot be virtual</SPAN>
-  };
-</PRE>
-<P><INS>-- <I>end example</I>]</INS></P>
-
-<P>The <I>ref-qualifier</I>, or lack thereof, ...</P>
-
-</BLOCKQUOTE>
-
-</LI>
-
-</OL>
 
 <BR><BR><HR>
 <A NAME="325"></A><H4>325.
@@ -24952,6 +25112,143 @@ by decision of the CWG and SG12 chairs.
 </P>
 
 <BR><BR><HR>
+<A NAME="2752"></A><H4>2752.
+  
+Excess-precision floating-point literals
+</H4>
+<B>Section: </B>5.13.4&#160; [<A href="https://wg21.link/lex.fcon">lex.fcon</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Peter Dimov
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-06-29
+  &#160;&#160;&#160;
+  <B>Liaison: </B>EWG<BR>
+
+
+
+
+<P>Consider:</P>
+
+<PRE>
+  int main()
+  {
+    constexpr auto x = 3.14f;
+    assert( x == 3.14f );         //<SPAN CLASS="cmnt"> can fail?</SPAN>
+    static_assert( x == 3.14f );  //<SPAN CLASS="cmnt"> can fail?</SPAN>
+  }
+</PRE>
+
+<P>Can a conforming implementation represent a floating-point literal
+with excess precision, causing the comparisons to fail?</P>
+
+<P>Subclause 5.13.4 [<A href="https://wg21.link/lex.fcon#3">lex.fcon</A>] paragraph 3 specifies:</P>
+
+<BLOCKQUOTE>
+
+If the scaled value is not in the range of representable values for
+its type, the program is ill-formed. Otherwise, the value of
+a <I>floating-point-literal</I> is the scaled value if representable,
+else the larger or smaller representable value nearest the scaled
+value, chosen in an implementation-defined manner.
+
+</BLOCKQUOTE>
+
+<P>This phrasing leaves little leeway for excess precision.  In
+contrast, C23 (WG14 N3096) specifies in section 6.4.4.2 paragraph 6:
+
+<BLOCKQUOTE>
+
+The values of floating constants may be represented in greater range
+and precision than that required by the type (determined by the
+suffix); the types are not changed thereby. ...
+
+</BLOCKQUOTE>
+</P>
+
+<P>Subclause 7.1 [<A href="https://wg21.link/expr.pre#6">expr.pre</A>] paragraph 6 allows excess precision
+for floating-point computations (including their operands):</P>
+
+<BLOCKQUOTE>
+
+The values of the floating-point operands and the results of
+floating-point expressions may be represented in greater precision and
+range than that required by the type; the types are not changed
+thereby. [ Footnote: The cast and assignment operators must still
+perform their specific conversions as described in
+7.6.1.4 [<A href="https://wg21.link/expr.type.conv">expr.type.conv</A>], 7.6.3 [<A href="https://wg21.link/expr.cast">expr.cast</A>],
+7.6.1.9 [<A href="https://wg21.link/expr.static.cast">expr.static.cast</A>] and 7.6.19 [<A href="https://wg21.link/expr.ass">expr.ass</A>]. -- end
+footnote ]
+
+</BLOCKQUOTE>
+
+<P>Taken together, that means that <TT>314.f / 100.f</TT> can be
+computed and represented more precisely than <TT>3.14f</TT>, which is
+hard to justify.  The footnote appears to imply
+that <TT>(float)3.14f</TT> is required to yield a value
+with <TT>float</TT> precision, but that conversion (eventually) ends up at 9.4.1 [<A href="https://wg21.link/dcl.init.general#16.9">dcl.init.general</A>] bullet 16.9:</P>
+
+<BLOCKQUOTE>
+
+<UL>
+<LI>...</LI>
+<LI>Otherwise, the initial value of the object being initialized is the
+(possibly converted) value of the initializer expression. ... </LI>
+</UL>
+
+</BLOCKQUOTE>
+
+<P>This phrasing leaves no permission to discard excess precision when
+converting from a <TT>float</TT> value to type <TT>float</TT> ("... is
+the value...").</P>
+
+<P>However, if initialization is intended to drop excess precision,
+then an overloaded operator returning <TT>float</TT> can never behave
+like a built-in operation with excess precision, because returning a value
+means initializing the return value.</P>
+
+<P>The C++ standard library inherits the <TT>FLT_EVAL_METHOD</TT>
+macro from the C standard library. C23 (WG14 N3096) specifies it as
+follows in section 5.2.4.2.2:</P>
+
+<BLOCKQUOTE>
+
+<TABLE>
+<TR>
+<TD>0</TD>
+<TD>evaluate all operations and constants just to the range and precision
+of the type;</TD>
+</TR>
+<TR>
+<TD VALIGN="TOP">1</TD>
+<TD>evaluate operations and constants of type float and
+double to the range and precision of the double type, evaluate long
+double operations and constants to the range and precision of the long
+double type;</TD>
+</TR>
+<TR>
+<TD>2</TD>
+<TD>evaluate all operations and constants to the range and
+precision of the long double type.</TD>
+</TR>
+</TABLE>
+
+</BLOCKQUOTE>
+
+<P>Taken together, a conforming C++ implementation cannot
+define <TT>FLT_EVAL_METHOD</TT> to 1 or 2, because literals (=
+"constants") cannot be represented with excess precision in C++.</P>
+
+<P><B>Additional notes (June, 2023)</B></P>
+
+<P>Forwarded to EWG via
+<A HREF="https://github.com/cplusplus/papers/issues/1584">cplusplus/papers#1584</A>, by decision of the CWG chair.</P>
+
+<BR><BR><HR>
 <A NAME="1266"></A><H4>1266.
   
 <I>user-defined-integer-literal</I> overflow
@@ -25456,6 +25753,155 @@ nested within e.</LI>
 </UL>
 
 </BLOCKQUOTE>
+
+<BR><BR><HR>
+<A NAME="2753"></A><H4>2753.
+  
+Storage reuse for string literal objects and backing arrays
+</H4>
+<B>Section: </B>6.7.2&#160; [<A href="https://wg21.link/intro.object">intro.object</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Brian Bi
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-06-29<BR>
+
+
+
+
+<P>Subclause 6.7.2 [<A href="https://wg21.link/intro.object#9">intro.object</A>] paragraph 9 specifies the general
+principle that two objects with overlapping lifetimes have
+non-overlapping storage, which can be observed by comparing
+addresses:</P>
+
+<BLOCKQUOTE>
+
+Unless an object is a bit-field or a subobject of zero size, the
+address of that object is the address of the first byte it
+occupies. Two objects with overlapping lifetimes that are not
+bit-fields may have the same address if one is nested within the
+other, or if at least one is a subobject of zero size and they are of
+different types; otherwise, they have distinct addresses and occupy
+disjoint bytes of storage.
+
+</BLOCKQUOTE>
+
+<P>After P2752, there are two exceptions: string literal objects and
+backing arrays for initializer lists.</P>
+
+<P>Subclause 5.13.5 [<A href="https://wg21.link/lex.string#9">lex.string</A>] paragraph 9 specifies:</P>
+
+<BLOCKQUOTE>
+
+Evaluating a <I>string-literal</I> results in a string literal object
+with static storage duration (6.7.5 [<A href="https://wg21.link/basic.stc">basic.stc</A>]). Whether
+all <I>string-literal</I>s are distinct (that is, are stored in
+nonoverlapping objects) and whether successive evaluations of
+a <I>string-literal</I> yield the same or a different object is
+unspecified.
+
+</BLOCKQUOTE>
+
+<P>Subclause 9.4.4 [<A href="https://wg21.link/dcl.init.ref#5">dcl.init.ref</A>] paragraph 5, after application of P2752R3 (approved in June, 2023), specifies:</P>
+
+<BLOCKQUOTE>
+
+Whether all backing arrays are distinct (that is, are stored in
+non-overlapping objects) is unspecified.
+
+</BLOCKQUOTE>
+
+<P>It is unclear whether a backing array can overlap with a string
+literal object and whether any such object can overlap with named
+objects or temporaries, for example:</P>
+
+<PRE>
+  const char (&amp;r) [] = "foo";
+  const char a[] = {'f', 'o', 'o', '\0'};
+
+  int main() {  
+    assert(&amp;r == &amp;a);   // allowed not to fail?
+  }
+</PRE>
+
+<P><U>Possible resolution:</U></P>
+
+<OL>
+
+<LI>
+<P>Add a new paragraph before 6.7.2 [<A href="https://wg21.link/intro.object#9">intro.object</A>] paragraph 9 and
+change the latter as follows:</P>
+
+<BLOCKQUOTE>
+
+<P class="ins">
+An object is a <I>non-unique object</I> if it is a string literal
+object (5.13.5 [<A href="https://wg21.link/lex.string">lex.string</A>]) or the backing array of an
+initializer list (9.4.4 [<A href="https://wg21.link/dcl.init.ref">dcl.init.ref</A>]).
+</P>
+
+<P>Unless an object is a bit-field or a subobject of zero size, the
+address of that object is the address of the first byte it
+occupies. Two objects with overlapping lifetimes that are not
+bit-fields may have the same address if one is nested within the
+other, or if at least one is a subobject of zero size and they are of
+different types<INS>, or if they are both non-unique objects</INS>;
+otherwise, they have distinct addresses and occupy disjoint bytes of
+storage.</P>
+
+<P>[Example 2:</P>
+
+<PRE>
+  static const char test1 = 'x';
+  static const char test2 = 'x';
+  const bool b = &amp;test1 != &amp;test2;  //<SPAN CLASS="cmnt"> always true</SPAN>
+
+<INS>  const char (&amp;r) [] = "foo";
+  const char a[] = {'f', 'o', 'o', '\0'};
+  const bool b2 = &amp;r != &amp;a;    //<SPAN CLASS="cmnt"> unspecified result</SPAN></INS>
+</PRE>
+<P> -- end example]</P>
+
+</BLOCKQUOTE>
+
+</LI>
+
+<LI>
+<P>Change in subclause 5.13.5 [<A href="https://wg21.link/lex.string#9">lex.string</A>] paragraph 9 as follows:</P>
+
+<BLOCKQUOTE>
+
+Evaluating a <I>string-literal</I> results in a string literal object
+with static storage duration (6.7.5 [<A href="https://wg21.link/basic.stc">basic.stc</A>]). <INS>[ Note: String literal objects are non-unique
+objects (6.7.2 [<A href="https://wg21.link/intro.object">intro.object</A>]).</INS> Whether
+<DEL>all <I>string-literal</I>s are distinct (that is, are stored in
+nonoverlapping objects) and whether</DEL> successive evaluations of
+a <I>string-literal</I> yield the same or a different object
+is <INS>thus</INS> unspecified. <INS>-- end note ]</INS>
+
+</BLOCKQUOTE>
+
+</LI>
+
+<LI>
+<P>Change in subclause 9.4.4 [<A href="https://wg21.link/dcl.init.ref#5">dcl.init.ref</A>] paragraph 5, after
+application of P2752R3 (approved in June, 2023), as follows:</P>
+
+<BLOCKQUOTE>
+
+<DEL>Whether all backing arrays are distinct (that is, are stored in
+non-overlapping objects) is unspecified.</DEL> <INS>[ Note: Backing
+arrays are non-unique objects (6.7.2 [<A href="https://wg21.link/intro.object">intro.object</A>]). -- end
+note ]</INS>
+
+</BLOCKQUOTE>
+</LI>
+
+</OL>
 
 <BR><BR><HR>
 <A NAME="419"></A><H4>419.
@@ -28431,36 +28877,6 @@ a <I>delete-expression</I> shall be evaluated exactly once.
 </OL>
 
 <BR><BR><HR>
-<A NAME="2696"></A><H4>2696.
-  
-Relational comparisons of pointers to <TT>void</TT>
-</H4>
-<B>Section: </B>7.6.9&#160; [<A href="https://wg21.link/expr.rel">expr.rel</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>open
- &#160;&#160;&#160;
-
- <B>Submitter: </B>CWG
- &#160;&#160;&#160;
-
- <B>Date: </B>2023-02-09
-  &#160;&#160;&#160;
-  <B>Liaison: </B>SG22<BR>
-
-
-<P>While discussing <A HREF="cwg_defects.html#2526">issue 2526</A>, it was
-noted that C++ yields an unspecified result for comparing unequal
-pointers to <TT>void</TT> in all cases, whereas C does specify the result
-if the pointer values point to the same object or (possibly different)
-subobjects thereof, because C considers <TT>void</TT> an object
-type.</P>
-
-<P><B>February, 2023</B></P>
-
-<P>Requested confirmation of the C status quo from SG22.</P>
-
-<BR><BR><HR>
 <A NAME="1256"></A><H4>1256.
   
 Unevaluated operands are not necessarily constant expressions
@@ -29294,6 +29710,64 @@ lifetime did not begin within E are treated as having a dynamic type
 that is their declared type.</P>
 
 <BR><BR><HR>
+<A NAME="2755"></A><H4>2755.
+  
+Incorrect wording applied by P2738R1
+</H4>
+<B>Section: </B>7.7&#160; [<A href="https://wg21.link/expr.const">expr.const</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Jens Maurer
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-06-28<BR>
+
+
+<P>
+<A HREF="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2738r1.pdf">P2738R1</A>
+(constexpr cast from void*: towards constexpr type-erasure)
+applied incorrect wording to 7.7 [<A href="https://wg21.link/expr.const#5.14">expr.const</A>] bullet 5.14:</P>
+
+<BLOCKQUOTE>
+
+<UL>
+<LI>...</LI>
+<LI>a conversion from a prvalue P of type &#8221;pointer to cv
+void&#8221; to a pointer-to-object type T unless P points to an object
+whose type is similar to T;
+</LI>
+
+<LI>...</LI>
+</UL>
+
+</BLOCKQUOTE>
+
+<P>The issue is that <TT>T</TT> is defined to be a pointer type, but
+the "similar to" phrasing uses it as the pointee type.</P>
+
+<P><U>Possible resolution</U></P>
+
+<P>Change in 7.7 [<A href="https://wg21.link/expr.const#5.14">expr.const</A>] bullet 5.14 as follows:</P>
+
+<BLOCKQUOTE>
+
+<UL>
+<LI>...</LI>
+<LI>a conversion from a prvalue P of type &#8221;pointer to cv
+void&#8221; to a <DEL>pointer-to-object</DEL> type <INS>"<I>cv</I>
+pointer to <TT>T</TT>"</INS> <DEL>T</DEL> unless P points to an object
+whose type is similar to T;
+</LI>
+
+<LI>...</LI>
+</UL>
+
+</BLOCKQUOTE>
+
+<BR><BR><HR>
 <A NAME="2495"></A><H4>2495.
   
 Glvalue result of a function call
@@ -29464,6 +29938,110 @@ their function only via a returned object. It was still to be
 decided whether this should be undefined behavior or an error
 on use of such a type. It was also noted that the same issue can
 arise with static member functions.</P>
+
+<BR><BR><HR>
+<A NAME="2751"></A><H4>2751.
+  
+Order of destruction for parameters for operator functions
+</H4>
+<B>Section: </B>8.8&#160; [<A href="https://wg21.link/stmt.dcl">stmt.dcl</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Richard Smith
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2020-06-10
+  &#160;&#160;&#160;
+  <B>Liaison: </B>EWG<BR>
+
+
+
+
+<P>Subclause 8.8 [<A href="https://wg21.link/stmt.dcl#2">stmt.dcl</A>] paragraph 2 specifies:</P>
+
+<BLOCKQUOTE>
+
+Upon each transfer of control (including sequential execution of
+statements) within a function from point P to point Q, all variables
+with automatic storage duration that are active at P and not at Q are
+destroyed in the reverse order of their construction.  ...  when a
+function returns, Q is after its body.
+
+</BLOCKQUOTE>
+
+<P>Another description of the same rule is in a note in
+8.7.1 [<A href="https://wg21.link/stmt.jump.general#2">stmt.jump.general</A>] paragraph 2:</P>
+
+<BLOCKQUOTE>
+
+[<I>Note 1:</I> On exit from a scope (however accomplished), objects
+with automatic storage duration (6.7.5.4 [<A href="https://wg21.link/basic.stc.auto">basic.stc.auto</A>]) that
+have been constructed in that scope are destroyed in the reverse order
+of their construction. ...  &#8212;<I>end note</I>]
+
+</BLOCKQUOTE>
+
+<P>However, 12.2.2.3 [<A href="https://wg21.link/over.match.oper#2">over.match.oper</A>] paragraph 2 specifies:</P>
+
+<BLOCKQUOTE>
+
+... Therefore, the operator notation is first transformed to the
+equivalent function-call notation as summarized in Table 18 (where @
+denotes one of the operators covered in the specified
+subclause). However, the operands are sequenced in the order
+prescribed for the built-in operator (7.6 [<A href="https://wg21.link/expr.compound">expr.compound</A>]).
+
+</BLOCKQUOTE>
+
+<P>For <TT>operator+=</TT> (for example), 7.6.19 [<A href="https://wg21.link/expr.ass#1">expr.ass</A>] paragraph 1 requires:</P>
+
+<BLOCKQUOTE>
+
+... The right operand is sequenced before the left operand. ...
+
+</BLOCKQUOTE>
+
+<P>Now, consider an ABI with callee-cleanup and this example:</P>
+
+<PRE>
+  void operator&lt;&lt;(A, B);
+  void operator+=(A, B);
+  void (*p)(A, B) = cond ? &amp;operator&lt;&lt; : &amp;operator+=;
+</PRE>
+
+<P>In <TT>A() &lt;&lt; B()</TT>, <TT>A()</TT> is sequenced
+before <TT>B()</TT>. In <TT>A() += B()</TT>, <TT>B() is sequenced
+before A()</TT>.  For an ABI with callee-cleanup, this means that
+<TT>operator&lt;&lt;</TT> must destroy the <TT>B</TT> parameter before
+the <TT>A</TT> parameter, and <TT>operator+=</TT> must destroy
+the <TT>A</TT> parameter before the <TT>B</TT> parameter.</P>
+
+<P>But this means we have a problem emitting a call to <TT>p(A(),
+B())</TT>: no order of parameter initialization guarantees that
+parameters are destroyed in reverse construction order.</P>
+
+<P>A possible implementation strategy would be to emit a second
+definition of <TT>operator+=</TT> with the opposite parameter
+destruction order that is used when naming the function
+<TT>operator+=</TT>, e.g. when taking the address or using function
+call notation (as opposed to using operator notation).</P>
+
+<P>Another alternative is to relax the rules about destruction of
+parameters in the reverse order of construction for the case of binary
+operator functions and <TT>operator new</TT> and <TT>operator
+delete</TT>.</P>
+
+<P><B>Additional notes (June, 2023)</B></P>
+
+<P>Forwarded to EWG via
+<A HREF="https://github.com/cplusplus/papers/issues/1583">paper issue 1583</A>,
+per decision of the CWG chair, to either affirm the intent
+of the rules (requiring a more involved implementation strategy as
+outlined above) or agree on a relaxation of the rules for the order of
+destruction of parameters.</P>
 
 <BR><BR><HR>
 <A NAME="157"></A><H4>157.
@@ -30772,6 +31350,56 @@ carrying with it ownership of the coroutine state.</LI>
 </UL>
 
 <P>See also <A HREF="cwg_defects.html#2451">issue 2451</A>.</P>
+
+<BR><BR><HR>
+<A NAME="2754"></A><H4>2754.
+  
+Using *this in explicit object member functions that are coroutines
+</H4>
+<B>Section: </B>9.5.4&#160; [<A href="https://wg21.link/dcl.fct.def.coroutine">dcl.fct.def.coroutine</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Christof Meerwald
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-06-23<BR>
+
+
+<P>Subclause 9.5.4 [<A href="https://wg21.link/dcl.fct.def.coroutine#4">dcl.fct.def.coroutine</A>] paragraph 4 specifies:</P>
+
+<BLOCKQUOTE>
+
+In the following, pi is an lvalue of type Pi , where p1 denotes the
+object parameter and pi+1 denotes the ith non-object function
+parameter for a non-static member function, and pi denotes the ith
+function parameter otherwise. For a non-static member function, q1 is
+an lvalue that denotes <TT>*this</TT>; any other qi is an lvalue that denotes
+the parameter copy corresponding to pi , as described below.
+
+</BLOCKQUOTE>
+
+<P>An explicit object member function is a non-static member function,
+but there is no <TT>this</TT>.</P>
+
+<P><U>Suggested resolution:</U></P>
+
+<P>Change in 9.5.4 [<A href="https://wg21.link/dcl.fct.def.coroutine#4">dcl.fct.def.coroutine</A>] paragraph 4 as follows:</P>
+
+<BLOCKQUOTE>
+
+In the following, pi is an lvalue of type Pi , where p1 denotes the
+object parameter and pi+1 denotes the ith non-object function
+parameter for <DEL>a non-static</DEL> <INS>an implicit object</INS>
+member function, and pi denotes the ith function parameter
+otherwise. For <DEL>a non-static</DEL> <INS>an implicit object</INS>
+member function, q1 is an lvalue that denotes <TT>*this</TT>; any
+other qi is an lvalue that denotes the parameter copy corresponding to
+pi, as described below.
+
+</BLOCKQUOTE>
 
 <BR><BR><HR>
 <A NAME="2340"></A><H4>2340.
