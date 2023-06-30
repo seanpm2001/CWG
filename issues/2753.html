@@ -101,7 +101,7 @@ change the latter as follows:</P>
 <BLOCKQUOTE>
 
 <P class="ins">
-An object is a <I>non-unique object</I> if it is a string literal
+An object is a <I>potentially non-unique object</I> if it is a string literal
 object (5.13.5 [<A href="https://wg21.link/lex.string">lex.string</A>]) or the backing array of an
 initializer list (9.4.4 [<A href="https://wg21.link/dcl.init.ref">dcl.init.ref</A>]).
 </P>
@@ -111,7 +111,7 @@ address of that object is the address of the first byte it
 occupies. Two objects with overlapping lifetimes that are not
 bit-fields may have the same address if one is nested within the
 other, or if at least one is a subobject of zero size and they are of
-different types<INS>, or if they are both non-unique objects</INS>;
+different types<INS>, or if they are both potentially non-unique objects</INS>;
 otherwise, they have distinct addresses and occupy disjoint bytes of
 storage.</P>
 
@@ -122,9 +122,13 @@ storage.</P>
   static const char test2 = 'x';
   const bool b = &amp;test1 != &amp;test2;  //<SPAN CLASS="cmnt"> always true</SPAN>
 
-<INS>  const char (&amp;r) [] = "foo";
-  const char a[] = {'f', 'o', 'o', '\0'};
-  const bool b2 = &amp;r != &amp;a;    //<SPAN CLASS="cmnt"> unspecified result</SPAN></INS>
+<INS>  static const char (&amp;r) [] = "x";
+  static const char *s = "x";  
+  static std::initializer_list&lt;char&gt; il = { 'x' };
+  const bool b2 = &amp;r != il.begin();        //<SPAN CLASS="cmnt"> unspecified result</SPAN>
+  const bool b3 = &amp;r != s;                 //<SPAN CLASS="cmnt"> unspecified result</SPAN>
+  const bool b4 = il.begin() != &amp;test1;    //<SPAN CLASS="cmnt"> always </SPAN>true
+  const bool b5 = &amp;r != &amp;test1;            //<SPAN CLASS="cmnt"> always </SPAN>true</INS>
 </PRE>
 <P> -- end example]</P>
 
@@ -138,7 +142,7 @@ storage.</P>
 <BLOCKQUOTE>
 
 Evaluating a <I>string-literal</I> results in a string literal object
-with static storage duration (6.7.5 [<A href="https://wg21.link/basic.stc">basic.stc</A>]). <INS>[ Note: String literal objects are non-unique
+with static storage duration (6.7.5 [<A href="https://wg21.link/basic.stc">basic.stc</A>]). <INS>[ Note: String literal objects are potentially non-unique
 objects (6.7.2 [<A href="https://wg21.link/intro.object">intro.object</A>]).</INS> Whether
 <DEL>all <I>string-literal</I>s are distinct (that is, are stored in
 nonoverlapping objects) and whether</DEL> successive evaluations of
@@ -157,7 +161,7 @@ application of P2752R3 (approved in June, 2023), as follows:</P>
 
 <DEL>Whether all backing arrays are distinct (that is, are stored in
 non-overlapping objects) is unspecified.</DEL> <INS>[ Note: Backing
-arrays are non-unique objects (6.7.2 [<A href="https://wg21.link/intro.object">intro.object</A>]). -- end
+arrays are potentially non-unique objects (6.7.2 [<A href="https://wg21.link/intro.object">intro.object</A>]). -- end
 note ]</INS>
 
 </BLOCKQUOTE>
