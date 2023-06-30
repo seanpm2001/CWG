@@ -127,7 +127,7 @@ storage.</P>
   static std::initializer_list&lt;char&gt; il = { 'x' };
   const bool b2 = r != il.begin();        //<SPAN CLASS="cmnt"> unspecified result</SPAN>
   const bool b3 = r != s;                 //<SPAN CLASS="cmnt"> unspecified result</SPAN>
-  const bool b4 = il.begin() != &amp;test1;    //<SPAN CLASS="cmnt"> always </SPAN>true
+  const bool b4 = il.begin() != &amp;test1;   //<SPAN CLASS="cmnt"> always </SPAN>true
   const bool b5 = r != &amp;test1;            //<SPAN CLASS="cmnt"> always </SPAN>true</INS>
 </PRE>
 <P> -- end example]</P>
