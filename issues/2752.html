@@ -15,7 +15,7 @@
   Core Issues List revision 111d.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-06-29</P>
+<P>2023-06-30</P>
 <HR>
 <A NAME="2752"></A><H4>2752.
   
@@ -61,7 +61,8 @@ value, chosen in an implementation-defined manner.
 
 </BLOCKQUOTE>
 
-<P>This phrasing leaves little leeway for excess precision.  However, C23 (WG14 N3096) specifies in section 6.4.4.2 paragraph 6:
+<P>This phrasing leaves little leeway for excess precision.  In
+contrast, C23 (WG14 N3096) specifies in section 6.4.4.2 paragraph 6:
 
 <BLOCKQUOTE>
 
@@ -110,8 +111,8 @@ the value...").</P>
 
 <P>However, if initialization is intended to drop excess precision,
 then an overloaded operator returning <TT>float</TT> can never behave
-like a built-in type, because returning a value means initializing the
-return value.</P>
+like a built-in operation with excess precision, because returning a value
+means initializing the return value.</P>
 
 <P>The C++ standard library inherits the <TT>FLT_EVAL_METHOD</TT>
 macro from the C standard library. C23 (WG14 N3096) specifies it as
@@ -143,7 +144,12 @@ precision of the long double type.</TD>
 
 <P>Taken together, a conforming C++ implementation cannot
 define <TT>FLT_EVAL_METHOD</TT> to 1 or 2, because literals (=
-constants) cannot be represented with excess precision in C++.</P>
+"constants") cannot be represented with excess precision in C++.</P>
+
+<P><B>Additional notes (June, 2023)</B></P>
+
+<P>Forwarded to EWG via
+<A HREF="https://github.com/cplusplus/papers/issues/1584">cplusplus/papers#1584</A>, by decision of the CWG chair.</P>
 
 <BR><BR>
 </BODY>
