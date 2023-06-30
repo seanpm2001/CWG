@@ -1,0 +1,85 @@
+<HTML>
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<TITLE>
+    CWG Issue 2757</TITLE>
+<STYLE TYPE="text/css">
+  INS { text-decoration:none; font-weight:bold; background-color:#A0FFA0 }
+  .INS { text-decoration:none; background-color:#D0FFD0 }
+  DEL { text-decoration:line-through; background-color:#FFA0A0 }
+  SPAN.cmnt { font-family:Times; font-style:italic }
+</STYLE>
+</HEAD>
+<BODY>
+<P><EM>This is an unofficial snapshot of the ISO/IEC JTC1 SC22 WG21
+  Core Issues List revision 111d.
+  See http://www.open-std.org/jtc1/sc22/wg21/ for the official
+  list.</EM></P>
+<P>2023-06-30</P>
+<HR>
+<A NAME="2757"></A><H4>2757.
+  
+Deleting or deallocating storage of an object during its construction
+</H4>
+<B>Section: </B>11.9.5&#160; [<A href="https://wg21.link/class.cdtor">class.cdtor</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Jiang An
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-06-14<BR>
+
+
+<P>Subclause 6.7.3 [<A href="https://wg21.link/basic.life#6">basic.life</A>] paragraph 6 specifies:</P>
+
+<BLOCKQUOTE>
+
+... For an object under construction or destruction, see
+11.9.5 [<A href="https://wg21.link/class.cdtor">class.cdtor</A>]. Otherwise, ...
+
+</BLOCKQUOTE>
+
+<P>However, the referenced subclause does not discuss deleting the
+object or deallocating its storage.</P>
+
+<P><U>Possible resolution:</U></P>
+
+<P>Insert before 11.9.5 [<A href="https://wg21.link/class.cdtor#2">class.cdtor</A>] paragraph 2 as follows:</P>
+
+<BLOCKQUOTE>
+
+<P class="ins">
+During the construction or destruction of an object, evaluating
+a <I>delete-expression</I> with an operand that points to the object
+or releasing or reusing (6.7.3 [<A href="https://wg21.link/basic.life">basic.life</A>]) the storage which
+the object occupies is undefined behavior. [ Example:</P>
+
+<PRE class="ins">
+  struct A() {
+    A() {
+      ::operator delete(this);
+    }
+  };
+
+  A *p1 = new A;  //<SPAN CLASS="cmnt"> undefined behavior</SPAN>
+
+  struct B() {
+    B() {
+      delete this;
+    }
+  };
+
+  B *p2 = new B;  //<SPAN CLASS="cmnt"> undefined behavior</SPAN>
+</PRE>
+<P class="ins">-- end example ]</P>
+
+<P>During the construction of an object, if the value of the object ...</P>
+
+</BLOCKQUOTE>
+
+<BR><BR>
+</BODY>
+</HTML>
