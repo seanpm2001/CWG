@@ -15,7 +15,7 @@
   Core Issues List revision 111d.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-05-12</P>
+<P>2023-07-02</P>
 <HR>
 <A NAME="473"></A><H4>473.
   
@@ -24,7 +24,7 @@ Block-scope declarations of allocator functions
 <B>Section: </B>7.6.2.8&#160; [<A href="https://wg21.link/expr.new">expr.new</A>]
  &#160;&#160;&#160;
 
- <B>Status: </B>open
+ <B>Status: </B>NAD
  &#160;&#160;&#160;
 
  <B>Submitter: </B>John Spicer
@@ -71,6 +71,12 @@ be ill-formed or it should be found by the lookup.</P>
 found by the lookup in a <I>new-expression</I>.  It would,
 however, be found by ordinary lookup if the allocation function
 were invoked explicitly.</P>
+
+<P><B>Rationale</B></P>
+
+<P>The wording correctly reflects the intent; block-scope allocation
+functions are not found by the special lookup in
+a <I>new-expression</I>.</P>
 
 <BR><BR>
 </BODY>
