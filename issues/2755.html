@@ -15,7 +15,7 @@
   Core Issues List revision 111d.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-06-30</P>
+<P>2023-07-02</P>
 <HR>
 <A NAME="2755"></A><H4>2755.
   
@@ -65,8 +65,9 @@ the "similar to" phrasing uses it as the pointee type.</P>
 <LI>...</LI>
 <LI>a conversion from a prvalue P of type &#8221;pointer to cv
 void&#8221; to a <DEL>pointer-to-object</DEL> type <INS>"<I>cv</I>
-pointer to <TT>T</TT>"</INS> <DEL>T</DEL> unless P points to an object
-whose type is similar to T;
+pointer to <TT>T</TT>", where <TT>T</TT> is
+not <I>cv</I> <TT>void</TT>,</INS> <DEL>T</DEL> unless P points to an
+object whose type is similar to T;
 </LI>
 
 <LI>...</LI>
