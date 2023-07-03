@@ -15,7 +15,7 @@
   Core Issues List revision 111d.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-05-12</P>
+<P>2023-07-03</P>
 <HR>
 <A NAME="2533"></A><H4>2533.
   
@@ -24,7 +24,7 @@ Storage duration of implicitly created objects
 <B>Section: </B>6.7.5&#160; [<A href="https://wg21.link/basic.stc">basic.stc</A>]
  &#160;&#160;&#160;
 
- <B>Status: </B>drafting
+ <B>Status: </B>review
  &#160;&#160;&#160;
 
  <B>Submitter: </B>Andrey Erokhin
@@ -98,7 +98,7 @@ region of storage and returns a pointer to a suitable created object.
 </LI>
 
 <LI>
-<P>No change in 6.7.5.1 [<A href="https://wg21.link/basic.stc.general#2">basic.stc.general</A>] paragraph 2:</P>
+<P>Change in 6.7.5.1 [<A href="https://wg21.link/basic.stc.general#2">basic.stc.general</A>] paragraph 2 as follows:</P>
 
 <BLOCKQUOTE>
 
@@ -106,11 +106,28 @@ Static, thread, and automatic storage durations are associated with
 objects introduced by declarations (6.2 [<A href="https://wg21.link/basic.def">basic.def</A>]) and
 implicitly created by the implementation
 (6.7.7 [<A href="https://wg21.link/class.temporary">class.temporary</A>]). The dynamic storage duration is
-associated with objects created by a <I>new-expression</I>
-(7.6.2.8 [<A href="https://wg21.link/expr.new">expr.new</A>]).
+associated with objects created <DEL>by a <I>new-expression</I>
+(7.6.2.8 [<A href="https://wg21.link/expr.new">expr.new</A>])</DEL> <INS>in storage returned by an
+allocation function (6.7.5.5.2 [<A href="https://wg21.link/basic.stc.dynamic.allocation">basic.stc.dynamic.allocation</A>]) other than a
+non-allocating form (17.6.3.4 [<A href="https://wg21.link/new.delete.placement">new.delete.placement</A>]) or by C library
+memory allocation (20.2.12 [<A href="https://wg21.link/c.malloc">c.malloc</A>])</INS>.
 
 </BLOCKQUOTE>
 
+</LI>
+
+<LI>
+<P>Change in 6.7.5.5.2 [<A href="https://wg21.link/basic.stc.dynamic.allocation#3">basic.stc.dynamic.allocation</A>] paragraph 3 as follows:</P>
+
+<BLOCKQUOTE>
+
+For an allocation function <DEL>other than a reserved placement
+allocation function</DEL> <INS>other than a non-allocating form</INS>
+(17.6.3.4 [<A href="https://wg21.link/new.delete.placement">new.delete.placement</A>]), the pointer returned on a successful
+call shall represent the address of storage that is aligned as
+follows:
+
+</BLOCKQUOTE>
 </LI>
 
 <LI>

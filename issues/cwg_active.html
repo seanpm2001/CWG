@@ -191,6 +191,9 @@ USA.</P>
 <A HREF="cwg_active.html#2753">2753</A>,
 <A HREF="cwg_active.html#2754">2754</A>,
 <A HREF="cwg_active.html#2755">2755</A>,
+<A HREF="cwg_active.html#2756">2756</A>,
+<A HREF="cwg_active.html#2757">2757</A>,
+<A HREF="cwg_active.html#2758">2758</A>,
 Closed issues
 <A HREF="cwg_closed.html#6">6</A>,
 <A HREF="cwg_closed.html#504">504</A>,
@@ -1992,7 +1995,7 @@ Added new issues
 <A HREF="cwg_defects.html#1375">1375</A>,
 <A HREF="cwg_defects.html#1376">1376</A>,
 <A HREF="cwg_closed.html#1377">1377</A>,
-<A HREF="cwg_active.html#1378">1378</A>,
+<A HREF="cwg_defects.html#1378">1378</A>,
 <A HREF="cwg_closed.html#1379">1379</A>,
 <A HREF="cwg_defects.html#1380">1380</A>,
 <A HREF="cwg_defects.html#1381">1381</A>,
@@ -3398,7 +3401,7 @@ and added new issues
 <A HREF="cwg_defects.html#470">470</A>,
 <A HREF="cwg_closed.html#471">471</A>,
 <A HREF="cwg_active.html#472">472</A>,
-<A HREF="cwg_active.html#473">473</A>, and
+<A HREF="cwg_closed.html#473">473</A>, and
 <A HREF="cwg_defects.html#474">474</A>.
 </LI>
 
@@ -4979,17 +4982,6 @@ Alignment requirement for <I>new-expression</I>s
 <TD ALIGN="LEFT">7.6.2.8&#160;
   <A href="https://wg21.link/expr.new">expr.new</A>
 </TD>
-<TD ALIGN="RIGHT"><A HREF="#473">473</A></TD>
-<TD ALIGN="CENTER">open</TD>
-<TD ALIGN="CENTER"></TD>
-<TD ALIGN="LEFT">
-Block-scope declarations of allocator functions
-</TD>
-</TR>
-<TR>
-<TD ALIGN="LEFT">7.6.2.8&#160;
-  <A href="https://wg21.link/expr.new">expr.new</A>
-</TD>
 <TD ALIGN="RIGHT"><A HREF="#901">901</A></TD>
 <TD ALIGN="CENTER">drafting</TD>
 <TD ALIGN="CENTER"></TD>
@@ -5046,7 +5038,7 @@ Kind of pointer value returned by <TT>new T[0]</TT>
   <A href="https://wg21.link/expr.new">expr.new</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#2566">2566</A></TD>
-<TD ALIGN="CENTER">drafting</TD>
+<TD ALIGN="CENTER">review</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Matching deallocation for uncaught exception
@@ -5093,6 +5085,17 @@ Arguments to deallocation functions </TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Evaluation of conversions in a <I>delete-expression</I>
+</TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT">7.6.2.9&#160;
+  <A href="https://wg21.link/expr.delete">expr.delete</A>
+</TD>
+<TD ALIGN="RIGHT"><A HREF="#2758">2758</A></TD>
+<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER"></TD>
+<TD ALIGN="LEFT">
+What is "access and ambiguity control"?
 </TD>
 </TR>
 <TR>
@@ -6570,6 +6573,17 @@ Base class access in aggregate initialization
 </TD>
 </TR>
 <TR>
+<TD ALIGN="LEFT">11.9&#160;
+  <A href="https://wg21.link/class.init">class.init</A>
+</TD>
+<TD ALIGN="RIGHT"><A HREF="#2756">2756</A></TD>
+<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER"></TD>
+<TD ALIGN="LEFT">
+Completion of initialization by delegating constructor
+</TD>
+</TR>
+<TR>
 <TD ALIGN="LEFT">11.9.3&#160;
   <A href="https://wg21.link/class.base.init">class.base.init</A>
 </TD>
@@ -6633,6 +6647,17 @@ Inheriting constructors from virtual base classes
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Unclear/missing description of behavior during construction/destruction
+</TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT">11.9.5&#160;
+  <A href="https://wg21.link/class.cdtor">class.cdtor</A>
+</TD>
+<TD ALIGN="RIGHT"><A HREF="#2757">2757</A></TD>
+<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER"></TD>
+<TD ALIGN="LEFT">
+Deleting or deallocating storage of an object during its construction
 </TD>
 </TR>
 <TR>
@@ -7799,17 +7824,6 @@ Generic non-template members
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Alias template specializations
-</TD>
-</TR>
-<TR>
-<TD ALIGN="LEFT">13.9.2&#160;
-  <A href="https://wg21.link/temp.inst">temp.inst</A>
-</TD>
-<TD ALIGN="RIGHT"><A HREF="#1378">1378</A></TD>
-<TD ALIGN="CENTER">open</TD>
-<TD ALIGN="CENTER"></TD>
-<TD ALIGN="LEFT">
-When is an instantiation required?
 </TD>
 </TR>
 <TR>
@@ -10977,6 +10991,165 @@ F is a constexpr function if...
 
 </BLOCKQUOTE>
 
+</LI>
+
+</OL>
+
+<BR><BR><HR>
+<A NAME="2566"></A><H4>2566.
+  
+Matching deallocation for uncaught exception
+</H4>
+<B>Section: </B>7.6.2.8&#160; [<A href="https://wg21.link/expr.new">expr.new</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>review
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Jim X
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2022-04-13<BR>
+
+
+<P>Initialization of an object may terminate via an exception, in
+which case any dynamically-allocated memory is freed, per
+7.6.2.8 [<A href="https://wg21.link/expr.new#26">expr.new</A>] paragraph 26:</P>
+
+<BLOCKQUOTE>
+
+If any part of the object initialization described above [ Footnote:
+... ] terminates by throwing an exception and a suitable deallocation
+function can be found, the deallocation function is called to free the
+memory in which the object was being constructed, after which the
+exception continues to propagate in the context of
+the <I>new-expression</I>.  If no unambiguous matching deallocation
+function can be found, propagating the exception does not cause the
+object's memory to be freed.
+
+</BLOCKQUOTE>
+
+<P>However, implementations do not consistently support this provision
+in case the exception remains uncaught:</P>
+
+<PRE>
+  #include &lt;iostream&gt;
+  struct C {
+    void* operator new(std::size_t n) {
+      std::cout &lt;&lt; "malloc\n";
+      return malloc(n);
+    }
+    void operator delete(void* ptr) {
+      std::cout &lt;&lt; "free\n";
+      free(ptr);
+    }
+    C() {
+      throw 0;
+    }
+  };
+  int main() {
+    auto ptr = new C;
+  }
+</PRE>
+
+<P>Both clang and GCC do not free the memory in this example; they do
+so if the exception is caught in <TT>main</TT>.</P>
+
+<P>Maybe a similar provision as used for stack unwinding in
+14.4 [<A href="https://wg21.link/except.handle#9">except.handle</A>] paragraph 9 is desirable:</P>
+
+<BLOCKQUOTE>
+
+If no matching handler is found, the function <TT>std::terminate</TT> is
+invoked; whether or not the stack is unwound before this invocation of
+<TT>std::terminate</TT> is implementation-defined
+(14.6.2 [<A href="https://wg21.link/except.terminate">except.terminate</A>]).
+
+</BLOCKQUOTE>
+
+<P><U>Suggested resolution:</U></P>
+
+<P>Integrate freeing dynamically-allocated memory with stack unwinding
+(14.3 [<A href="https://wg21.link/except.ctor">except.ctor</A>]), since this is what implementations
+actually do.</P>
+
+<P><U>Possible resolution:</U></P>
+
+<OL>
+<LI>
+<P>Change in 7.6.2.8 [<A href="https://wg21.link/expr.new#26">expr.new</A>] paragraph 26, 27, and 28 as follows:</P>
+
+
+<BLOCKQUOTE>
+
+<P><DEL>If any part of the object initialization described above [
+Footnote: This can include evaluating a <I>new-initializer</I> and/or
+calling a constructor. ] terminates by throwing an exception and a
+suitable deallocation function can be found, the deallocation function
+is called to free the memory in which the object was being
+constructed, after which the exception continues to propagate in the
+context of the <I>new-expression</I>.  If no unambiguous matching
+deallocation function can be found, propagating the exception does not
+cause the object's memory to be freed.  [<I>Note 13:</I> This is
+appropriate when the called allocation function does not allocate
+memory; otherwise, it is likely to result in a memory
+leak. &#8212;<I>end note</I>]</DEL></P>
+
+<P>
+<INS>For purposes of stack unwinding (14.3 [<A href="https://wg21.link/except.ctor">except.ctor</A>]), the <I>matching deallocation function</I> is determined as follows:</INS>
+If the <I>new-expression</I> does not begin with a unary ::
+operator and the allocated type is a class type T or an array thereof,
+a search is performed for the deallocation function's name in the
+scope of T. Otherwise, or if nothing is found, the deallocation
+function's name is looked up by searching for it in the global scope.</P>
+
+<P>A declaration of a placement deallocation function matches the
+declaration of a placement allocation function if it has the same
+number of parameters and, after parameter transformations
+(9.3.4.6 [<A href="https://wg21.link/dcl.fct">dcl.fct</A>]), all parameter types except the first
+are identical. If the lookup finds a single matching deallocation
+function, that function <DEL>will be called</DEL> <INS>is the matching
+deallocation function</INS>; otherwise, <DEL>no deallocation function
+will be called</DEL> <INS>there is no matching deallocation
+function</INS>. If the lookup finds a usual deallocation function and
+that function, considered as a placement deallocation function, would
+have been selected as a match for the allocation function, the program
+is ill-formed. For a non-placement allocation function, the normal
+deallocation function lookup is used to find the matching deallocation
+function (7.6.2.9 [<A href="https://wg21.link/expr.delete">expr.delete</A>]).</P>
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+<P>Change in 14.3 [<A href="https://wg21.link/except.ctor#1">except.ctor</A>] paragraph 1 as follows:</P>
+
+<BLOCKQUOTE>
+
+As control passes from the point where an exception is thrown to a
+handler, objects are destroyed <INS>and deallocation functions are
+invoked</INS> by a process, specified in this subclause,
+called <I>stack unwinding</I>.
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+<P>Change in 14.3 [<A href="https://wg21.link/except.ctor#5">except.ctor</A>] paragraph 5 as follows:</P>
+
+<BLOCKQUOTE>
+
+<DEL>[<I>Note 4:</I> If the object was allocated by a <I>new-expression</I>
+(7.6.2.8 [<A href="https://wg21.link/expr.new">expr.new</A>]),</DEL>
+<INS>If the evaluation of a <I>new-expression</I> other than the
+invocation of the allocation function is terminated by an
+exception,</INS> the matching deallocation function
+<DEL>(6.7.5.5.3 [<A href="https://wg21.link/basic.stc.dynamic.deallocation">basic.stc.dynamic.deallocation</A>])</DEL>, if any, is
+called <INS>(7.6.2.8 [<A href="https://wg21.link/expr.new">expr.new</A>])</INS>
+<DEL>to free the storage occupied by the
+object</DEL>. <DEL>&#8212;<I>end note</I>]</DEL>
+
+</BLOCKQUOTE>
 </LI>
 
 </OL>
@@ -14970,84 +15143,6 @@ alignment feature, which is new.</P>
 <P><B>Notes from the March, 2018 meeting:</B></P>
 
 <P>CWG concurred with the recommendation.</P>
-
-<BR><BR><HR>
-<A NAME="2566"></A><H4>2566.
-  
-Matching deallocation for uncaught exception
-</H4>
-<B>Section: </B>7.6.2.8&#160; [<A href="https://wg21.link/expr.new">expr.new</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>drafting
- &#160;&#160;&#160;
-
- <B>Submitter: </B>Jim X
- &#160;&#160;&#160;
-
- <B>Date: </B>2022-04-13<BR>
-
-
-<P>Initialization of an object may terminate via an exception, in
-which case any dynamically-allocated memory is freed, per
-7.6.2.8 [<A href="https://wg21.link/expr.new#26">expr.new</A>] paragraph 26:</P>
-
-<BLOCKQUOTE>
-
-If any part of the object initialization described above [ Footnote:
-... ] terminates by throwing an exception and a suitable deallocation
-function can be found, the deallocation function is called to free the
-memory in which the object was being constructed, after which the
-exception continues to propagate in the context of
-the <I>new-expression</I>.  If no unambiguous matching deallocation
-function can be found, propagating the exception does not cause the
-object's memory to be freed.
-
-</BLOCKQUOTE>
-
-<P>However, implementations do not consistently support this provision
-in case the exception remains uncaught:</P>
-
-<PRE>
-  #include &lt;iostream&gt;
-  struct C {
-    void* operator new(std::size_t n) {
-      std::cout &lt;&lt; "malloc\n";
-      return malloc(n);
-    }
-    void operator delete(void* ptr) {
-      std::cout &lt;&lt; "free\n";
-      free(ptr);
-    }
-    C() {
-      throw 0;
-    }
-  };
-  int main() {
-    auto ptr = new C;
-  }
-</PRE>
-
-<P>Both clang and GCC do not free the memory in this example; they do
-so if the exception is caught in <TT>main</TT>.</P>
-
-<P>Maybe a similar provision as used for stack unwinding in
-14.4 [<A href="https://wg21.link/except.handle#9">except.handle</A>] paragraph 9 is desirable:</P>
-
-<BLOCKQUOTE>
-
-If no matching handler is found, the function <TT>std::terminate</TT> is
-invoked; whether or not the stack is unwound before this invocation of
-<TT>std::terminate</TT> is implementation-defined
-(14.6.2 [<A href="https://wg21.link/except.terminate">except.terminate</A>]).
-
-</BLOCKQUOTE>
-
-<P><U>Suggested resolution:</U></P>
-
-<P>Integrate freeing dynamically-allocated memory with stack unwinding
-(14.3 [<A href="https://wg21.link/except.ctor">except.ctor</A>]), since this is what implementations
-actually do.</P>
 
 <BR><BR><HR>
 <A NAME="2623"></A><H4>2623.
@@ -25839,7 +25934,7 @@ change the latter as follows:</P>
 <BLOCKQUOTE>
 
 <P class="ins">
-An object is a <I>non-unique object</I> if it is a string literal
+An object is a <I>potentially non-unique object</I> if it is a string literal
 object (5.13.5 [<A href="https://wg21.link/lex.string">lex.string</A>]) or the backing array of an
 initializer list (9.4.4 [<A href="https://wg21.link/dcl.init.ref">dcl.init.ref</A>]).
 </P>
@@ -25849,7 +25944,7 @@ address of that object is the address of the first byte it
 occupies. Two objects with overlapping lifetimes that are not
 bit-fields may have the same address if one is nested within the
 other, or if at least one is a subobject of zero size and they are of
-different types<INS>, or if they are both non-unique objects</INS>;
+different types<INS>, or if they are both potentially non-unique objects</INS>;
 otherwise, they have distinct addresses and occupy disjoint bytes of
 storage.</P>
 
@@ -25860,9 +25955,13 @@ storage.</P>
   static const char test2 = 'x';
   const bool b = &amp;test1 != &amp;test2;  //<SPAN CLASS="cmnt"> always true</SPAN>
 
-<INS>  const char (&amp;r) [] = "foo";
-  const char a[] = {'f', 'o', 'o', '\0'};
-  const bool b2 = &amp;r != &amp;a;    //<SPAN CLASS="cmnt"> unspecified result</SPAN></INS>
+<INS>  static const char (&amp;r) [] = "x";
+  static const char *s = "x";  
+  static std::initializer_list&lt;char&gt; il = { 'x' };
+  const bool b2 = r != il.begin();        //<SPAN CLASS="cmnt"> unspecified result</SPAN>
+  const bool b3 = r != s;                 //<SPAN CLASS="cmnt"> unspecified result</SPAN>
+  const bool b4 = il.begin() != &amp;test1;   //<SPAN CLASS="cmnt"> always </SPAN>true
+  const bool b5 = r != &amp;test1;            //<SPAN CLASS="cmnt"> always </SPAN>true</INS>
 </PRE>
 <P> -- end example]</P>
 
@@ -25876,7 +25975,7 @@ storage.</P>
 <BLOCKQUOTE>
 
 Evaluating a <I>string-literal</I> results in a string literal object
-with static storage duration (6.7.5 [<A href="https://wg21.link/basic.stc">basic.stc</A>]). <INS>[ Note: String literal objects are non-unique
+with static storage duration (6.7.5 [<A href="https://wg21.link/basic.stc">basic.stc</A>]). <INS>[ Note: String literal objects are potentially non-unique
 objects (6.7.2 [<A href="https://wg21.link/intro.object">intro.object</A>]).</INS> Whether
 <DEL>all <I>string-literal</I>s are distinct (that is, are stored in
 nonoverlapping objects) and whether</DEL> successive evaluations of
@@ -25895,7 +25994,7 @@ application of P2752R3 (approved in June, 2023), as follows:</P>
 
 <DEL>Whether all backing arrays are distinct (that is, are stored in
 non-overlapping objects) is unspecified.</DEL> <INS>[ Note: Backing
-arrays are non-unique objects (6.7.2 [<A href="https://wg21.link/intro.object">intro.object</A>]). -- end
+arrays are potentially non-unique objects (6.7.2 [<A href="https://wg21.link/intro.object">intro.object</A>]). -- end
 note ]</INS>
 
 </BLOCKQUOTE>
@@ -28481,62 +28580,6 @@ and back to its original type yields the original pointer value...
 multiple of a weaker alignment does not arise.</P>
 
 <BR><BR><HR>
-<A NAME="473"></A><H4>473.
-  
-Block-scope declarations of allocator functions
-</H4>
-<B>Section: </B>7.6.2.8&#160; [<A href="https://wg21.link/expr.new">expr.new</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>open
- &#160;&#160;&#160;
-
- <B>Submitter: </B>John Spicer
- &#160;&#160;&#160;
-
- <B>Date: </B>12 Jul 2004<BR>
-
-
-<P>Looking up <TT>operator new</TT> in a <I>new-expression</I>
-uses a different mechanism from ordinary lookup.  According to
-7.6.2.8 [<A href="https://wg21.link/expr.new#9">expr.new</A>] paragraph 9,</P>
-
-<BLOCKQUOTE>
-If the <I>new-expression</I> begins with a unary <TT>::</TT>
-operator, the allocation function's name is looked up in the
-global scope. Otherwise, if the allocated type is a class type
-<TT>T</TT> or array thereof, the allocation function's name is
-looked up in the scope of <TT>T</TT>. If this lookup fails to
-find the name, or if the allocated type is not a class type, the
-allocation function's name is looked up in the global scope.
-</BLOCKQUOTE>
-
-<P>Note in particular that the scope in which the
-<I>new-expression</I> occurs is not considered.  For example,</P>
-
-<PRE>
-    void f() {
-        void* operator new(std::size_t, void*);
-        int* i = new int;    // okay?
-    }
-</PRE>
-
-<P>In this example, the implicit reference to <TT>operator
-new(std::size_t)</TT> finds the global declaration, even though
-the block-scope declaration of <tt>operator new</tt> with a
-different signature would hide it from an ordinary reference.</P>
-
-<P>This seems strange; either the block-scope declaration should
-be ill-formed or it should be found by the lookup.</P>
-
-<P><B>Notes from October 2004 meeting:</B></P>
-
-<P>The CWG agreed that the block-scope declaration should not be
-found by the lookup in a <I>new-expression</I>.  It would,
-however, be found by ordinary lookup if the allocation function
-were invoked explicitly.</P>
-
-<BR><BR><HR>
 <A NAME="1628"></A><H4>1628.
   
 Deallocation function templates
@@ -28870,6 +28913,94 @@ remainder of this subclause.</DEL> ... </P>
 
 The <DEL><I>cast-expression</I> in</DEL> <INS>operand of</INS>
 a <I>delete-expression</I> shall be evaluated exactly once.
+
+</BLOCKQUOTE>
+</LI>
+
+</OL>
+
+<BR><BR><HR>
+<A NAME="2758"></A><H4>2758.
+  
+What is "access and ambiguity control"?
+</H4>
+<B>Section: </B>7.6.2.9&#160; [<A href="https://wg21.link/expr.delete">expr.delete</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>CWG
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-06-12<BR>
+
+
+<P>Subclause 7.6.2.9 [<A href="https://wg21.link/expr.delete#12">expr.delete</A>] paragraph 12 specifies:</P>
+
+<BLOCKQUOTE>
+
+Access and ambiguity control are done for both the deallocation
+function and the destructor (11.4.7 [<A href="https://wg21.link/class.dtor">class.dtor</A>],
+11.4.11 [<A href="https://wg21.link/class.free">class.free</A>]).
+
+</BLOCKQUOTE>
+
+<P>It is unclear what that means.  In particular, ambiguity checking
+is part of overload resolution, and access checking requires a point
+of reference.</P>
+
+<P><U>Possible resolution:</U></P>
+
+<OL>
+<LI>
+<P>Change in 7.6.2.9 [<A href="https://wg21.link/expr.delete#6">expr.delete</A>] paragraph 6 as follows:</P>
+
+<BLOCKQUOTE>
+
+If the value of the operand of the <I>delete-expression</I> is not a
+null pointer value and the selected deallocation function (see below)
+is not a destroying operator delete, <INS>evaluating</INS>
+the <I>delete-expression</I> <DEL>will invoke</DEL> <INS>invokes</INS>
+the destructor (if any) for the object or the elements of the array
+being deleted. <INS>The destructor shall be accessible from the point
+where the <I>delete-expression</I> appears.</INS> In the case of an
+array, the elements <DEL>will be</DEL> <INS>are</INS> destroyed in
+order of decreasing address (that is, in reverse order of the
+completion of their constructor; see 11.9.3 [<A href="https://wg21.link/class.base.init">class.base.init</A>]).
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+<P>Change in 7.6.2.9 [<A href="https://wg21.link/expr.delete#10">expr.delete</A>] paragraph 10</P>
+
+<BLOCKQUOTE>
+
+<DEL>If more than one deallocation function is found,
+the</DEL> <INS>The deallocation</INS> function to be called is
+selected as follows:
+
+<UL>
+<LI>...</LI>
+</UL>
+
+<P class="ins">Unless the deallocation function is selected at the
+point of definition of the dynamic type's virtual destructor, the
+selected deallocation function shall be accessible from the point
+where the <I>delete-expression</I> appears.</P>
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+<P>Remove 7.6.2.9 [<A href="https://wg21.link/expr.delete#12">expr.delete</A>] paragraph 12:</P>
+
+<BLOCKQUOTE>
+
+<DEL>Access and ambiguity control are done for both the deallocation
+function and the destructor (11.4.7 [<A href="https://wg21.link/class.dtor">class.dtor</A>],
+11.4.11 [<A href="https://wg21.link/class.free">class.free</A>]).</DEL>
 
 </BLOCKQUOTE>
 </LI>
@@ -29748,7 +29879,7 @@ whose type is similar to T;
 <P>The issue is that <TT>T</TT> is defined to be a pointer type, but
 the "similar to" phrasing uses it as the pointee type.</P>
 
-<P><U>Possible resolution</U></P>
+<P><U>Possible resolution:</U></P>
 
 <P>Change in 7.7 [<A href="https://wg21.link/expr.const#5.14">expr.const</A>] bullet 5.14 as follows:</P>
 
@@ -29758,8 +29889,9 @@ the "similar to" phrasing uses it as the pointee type.</P>
 <LI>...</LI>
 <LI>a conversion from a prvalue P of type &#8221;pointer to cv
 void&#8221; to a <DEL>pointer-to-object</DEL> type <INS>"<I>cv</I>
-pointer to <TT>T</TT>"</INS> <DEL>T</DEL> unless P points to an object
-whose type is similar to T;
+pointer to <TT>T</TT>", where <TT>T</TT> is
+not <I>cv</I> <TT>void</TT>,</INS> <DEL>T</DEL> unless P points to an
+object whose type is similar to T;
 </LI>
 
 <LI>...</LI>
@@ -32498,6 +32630,103 @@ rejecting <TT>h</TT>.</P>
 implicit object expression assumed for these cases. </P>
 
 <BR><BR><HR>
+<A NAME="2756"></A><H4>2756.
+  
+Completion of initialization by delegating constructor
+</H4>
+<B>Section: </B>11.9&#160; [<A href="https://wg21.link/class.init">class.init</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Brian Bi
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-06-20<BR>
+
+
+
+
+<P>Subclause 6.7.3 [<A href="https://wg21.link/basic.life#1">basic.life</A>] paragraph 1 specifies:</P>
+
+<BLOCKQUOTE>
+
+... The lifetime of an object of type T begins when:
+<UL>
+<LI>storage with the proper alignment and size for type T is obtained,
+and</LI>
+<LI>its initialization (if any) is complete (including vacuous
+initialization) (9.4 [<A href="https://wg21.link/dcl.init">dcl.init</A>]),</LI>
+</UL>
+
+except that ...
+
+</BLOCKQUOTE>
+
+<P>It is unclear whether initialization is considered complete when
+the (ultimate) target constructor completes, or when the outermost
+delegating constructor completes.  Subclause 14.3 [<A href="https://wg21.link/except.ctor#4">except.ctor</A>] paragraph 4 suggests it is the former:</P>
+
+<BLOCKQUOTE>
+
+If the <I>compound-statement</I> of the <I>function-body</I> of a
+delegating constructor for an object exits via an exception, the
+object's destructor is invoked. ...
+
+</BLOCKQUOTE>
+
+<P><U>Suggested resolution:</U></P>
+
+<OL>
+
+<LI>
+<P>Split and change 11.9.3 [<A href="https://wg21.link/class.base.init#9">class.base.init</A>] paragraph 9 as follows:</P>
+
+<BLOCKQUOTE>
+
+<P>[Note 3: An abstract class ... -- end note ]
+<DEL>An attempt to initialize more than one non-static data member of a
+union renders the program ill-formed.</DEL>
+[Note 4: After the call to a constructor for class X ... -- end note ]
+[Example 6: ... -- end example ]</P>
+
+<P class="ins">
+An attempt to initialize more than one non-static data
+member of a union renders the program ill-formed.</P>
+
+<P class="ins">
+An object's initialization is considered complete when a
+non-delegating constructor for that object returns. [Note: Therefore,
+an object's lifetime can begin (6.7.3 [<A href="https://wg21.link/basic.life">basic.life</A>]) before all
+delegating constructors have completed. -- end note]</P>
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+
+<P>Change in 6.7.3 [<A href="https://wg21.link/basic.life#1.2">basic.life</A>] bullet 1.2 as follows:</P>
+
+<BLOCKQUOTE>
+
+... The lifetime of an object of type T begins when:
+<UL>
+<LI>storage with the proper alignment and size for type T is obtained,
+and</LI>
+<LI>its initialization (if any) is complete (including vacuous
+initialization) (9.4 [<A href="https://wg21.link/dcl.init">dcl.init</A>]<INS>,
+11.9.3 [<A href="https://wg21.link/class.base.init">class.base.init</A>]</INS>),</LI>
+</UL>
+
+except that ...
+
+</BLOCKQUOTE>
+
+</LI>
+</OL>
+
+<BR><BR><HR>
 <A NAME="1915"></A><H4>1915.
   
 Potentially-invoked destructors in non-throwing constructors
@@ -32749,6 +32978,70 @@ reference.
 
 <P>Forwarded to EWG via
 <A HREF="https://github.com/cplusplus/papers/issues/1511">cplusplus/papers#1511</A>.</P>
+
+<BR><BR><HR>
+<A NAME="2757"></A><H4>2757.
+  
+Deleting or deallocating storage of an object during its construction
+</H4>
+<B>Section: </B>11.9.5&#160; [<A href="https://wg21.link/class.cdtor">class.cdtor</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Jiang An
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-06-14<BR>
+
+
+<P>Subclause 6.7.3 [<A href="https://wg21.link/basic.life#6">basic.life</A>] paragraph 6 specifies:</P>
+
+<BLOCKQUOTE>
+
+... For an object under construction or destruction, see
+11.9.5 [<A href="https://wg21.link/class.cdtor">class.cdtor</A>]. Otherwise, ...
+
+</BLOCKQUOTE>
+
+<P>However, the referenced subclause does not discuss deleting the
+object or deallocating its storage.</P>
+
+<P><U>Possible resolution:</U></P>
+
+<P>Insert before 11.9.5 [<A href="https://wg21.link/class.cdtor#2">class.cdtor</A>] paragraph 2 as follows:</P>
+
+<BLOCKQUOTE>
+
+<P class="ins">
+During the construction or destruction of an object, evaluating
+a <I>delete-expression</I> with an operand that points to the object
+or releasing or reusing (6.7.3 [<A href="https://wg21.link/basic.life">basic.life</A>]) the storage which
+the object occupies is undefined behavior. [ Example:</P>
+
+<PRE class="ins">
+  struct A() {
+    A() {
+      ::operator delete(this);
+    }
+  };
+
+  A *p1 = new A;  //<SPAN CLASS="cmnt"> undefined behavior</SPAN>
+
+  struct B() {
+    B() {
+      delete this;
+    }
+  };
+
+  B *p2 = new B;  //<SPAN CLASS="cmnt"> undefined behavior</SPAN>
+</PRE>
+<P class="ins">-- end example ]</P>
+
+<P>During the construction of an object, if the value of the object ...</P>
+
+</BLOCKQUOTE>
 
 <BR><BR><HR>
 <A NAME="1049"></A><H4>1049.
@@ -35830,113 +36123,6 @@ and the specializations mentioned here; in particular, an
 alias template cannot be explicitly specialized, and it is
 not the result of instantiation (paragraph 1) but simply of
 substitution (13.7.8 [<A href="https://wg21.link/temp.alias#2">temp.alias</A>] paragraph 2).)</P>
-
-<BR><BR><HR>
-<A NAME="1378"></A><H4>1378.
-  
-When is an instantiation required?
-</H4>
-<B>Section: </B>13.9.2&#160; [<A href="https://wg21.link/temp.inst">temp.inst</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>open
- &#160;&#160;&#160;
-
- <B>Submitter: </B>Jason Merrill
- &#160;&#160;&#160;
-
- <B>Date: </B>2011-08-18<BR>
-
-
-
-
-<P>A template instantiation can be &#8220;required&#8221; without
-there being a need for it at link time if it can appear in a
-constant expression:</P>
-
-<PRE>
-    template &lt;class T&gt; struct A {
-       static const T t;
-    };
-    template &lt;class T&gt; const T A&lt;T&gt;::t = 0;
-    template &lt;int I&gt; struct B { };
-    int a = sizeof(B&lt;A&lt;int&gt;::t&gt;);
-
-    template &lt;class T&gt; constexpr T f(T t) { return t; }
-    int b = sizeof(B&lt;f(42)&gt;);
-</PRE>
-
-<P>It seems like it might be useful to define a term other than odr-used
-for this sort of use, which is like odr-used but doesn't depend on
-potentially evaluated context or lvalue-rvalue conversions.</P>
-
-<P><U>Nikolay Ivchenkov:</U></P>
-
-<P>Another possibility would be to introduce the extension
-described in the closed <A HREF="cwg_closed.html#1272">issue 1272</A> and
-then change 6.3 [<A href="https://wg21.link/basic.def.odr#2">basic.def.odr</A>] paragraph 2 as follows:</P>
-
-<BLOCKQUOTE>
-
-<P>An expression <INS><TT>E</TT></INS> is <I>potentially
-evaluated</I> <DEL>unless it is an unevaluated operand (
-Clause 7 [<A href="https://wg21.link/expr">expr</A>]) or a subexpression thereof.</DEL>
-<INS>if and only if</INS>
-</P>
-
-<UL>
-<LI><P><INS><TT>E</TT> is a full-expression, or</INS></P></LI>
-
-<LI><P><INS><TT>E</TT> appears in a context where a constant expression
-is required, or</INS></P></LI>
-
-<LI><P><INS><TT>E</TT> is a direct subexpression of a potentially-evaluated
-expression and <TT>E</TT> is not an unevaluated operand.</INS></P></LI>
-
-</UL>
-
-<P>
-<INS>An expression <TT>S</TT> is a <I>direct subexpression</I> of an
-expression <TT>E</TT> if and only if <TT>S</TT> and <TT>E</TT>
-are different expressions, <TT>S</TT> is a subexpression of
-<TT>E</TT>, and there is no expression <TT>X</TT> such that
-<TT>X</TT> differs from both <TT>S</TT> and <TT>E</TT>,
-<TT>S</TT> is a subexpression of <TT>X</TT>, and <TT>X</TT> is a
-subexpression of <TT>E</TT>.</INS> A variable whose name appears
-as a potentially-evaluated expression is <I>odr-used</I>
-<DEL>unless it is an object that satisfies the requirements for
-appearing in a constant expression (7.7 [<A href="https://wg21.link/expr.const">expr.const</A>])
-and the lvalue-to-rvalue conversion (4.1) is immediately
-applied</DEL>...</P>
-
-<P><INS>[<I>Example:</I></INS></P>
-
-<PRE>
-<INS>    template &lt;class T&gt; struct X {
-        static int const m = 1;
-        static int const n;
-    };
-    template &lt;class T&gt; int const X&lt;T&gt;::n = 2;
-
-    int main() {
-        //<SPAN CLASS="cmnt"> </SPAN>X&lt;void&gt;::m<SPAN CLASS="cmnt"> is odr-used,</SPAN>
-        //<SPAN CLASS="cmnt"> </SPAN>X&lt;void&gt;::m<SPAN CLASS="cmnt"> is defined implicitly</SPAN>
-        std::cout &lt;&lt; X&lt;void&gt;::m &lt;&lt; std::endl;
-
-        //<SPAN CLASS="cmnt"> </SPAN>X&lt;void&gt;::n<SPAN CLASS="cmnt"> is odr-used,</SPAN>
-        //<SPAN CLASS="cmnt"> </SPAN>X&lt;void&gt;::n<SPAN CLASS="cmnt"> is defined explicitly</SPAN>
-        std::cout &lt;&lt; X&lt;void&gt;::n &lt;&lt; std::endl;
-
-        //<SPAN CLASS="cmnt"> OK (issue 712 is not relevant here)</SPAN>
-        std::cout &lt;&lt; (1 ? X&lt;void&gt;::m : X&lt;void&gt;::n) &lt;&lt; std::endl;
-    }
-</INS>
-</PRE>
-
-</BLOCKQUOTE>
-
-<P>(See also issues <A HREF="cwg_defects.html#712">712</A> and
-<A HREF="cwg_closed.html#1254">1254</A>.)</P>
 
 <BR><BR><HR>
 <A NAME="1856"></A><H4>1856.
