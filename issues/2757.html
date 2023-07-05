@@ -15,7 +15,7 @@
   Core Issues List revision 111d.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-06-30</P>
+<P>2023-07-05</P>
 <HR>
 <A NAME="2757"></A><H4>2757.
   
@@ -45,6 +45,8 @@ Deleting or deallocating storage of an object during its construction
 <P>However, the referenced subclause does not discuss deleting the
 object or deallocating its storage.</P>
 
+<P>See also <A HREF="2258.html">issue 2258</A>.</P>
+
 <P><U>Possible resolution:</U></P>
 
 <P>Insert before 11.9.5 [<A href="https://wg21.link/class.cdtor#2">class.cdtor</A>] paragraph 2 as follows:</P>
@@ -55,7 +57,9 @@ object or deallocating its storage.</P>
 During the construction or destruction of an object, evaluating
 a <I>delete-expression</I> with an operand that points to the object
 or releasing or reusing (6.7.3 [<A href="https://wg21.link/basic.life">basic.life</A>]) the storage which
-the object occupies is undefined behavior. [ Example:</P>
+the object occupies is undefined behavior. [ Note: Creating an object
+nested within some object <I>o</I> does not reuse the storage
+for <I>o</I>. -- end note ] [ Example:</P>
 
 <PRE class="ins">
   struct A() {
