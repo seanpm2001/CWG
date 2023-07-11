@@ -1,0 +1,86 @@
+<HTML>
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<TITLE>
+    CWG Issue 2761</TITLE>
+<STYLE TYPE="text/css">
+  INS { text-decoration:none; font-weight:bold; background-color:#A0FFA0 }
+  .INS { text-decoration:none; background-color:#D0FFD0 }
+  DEL { text-decoration:line-through; background-color:#FFA0A0 }
+  SPAN.cmnt { font-family:Times; font-style:italic }
+</STYLE>
+</HEAD>
+<BODY>
+<P><EM>This is an unofficial snapshot of the ISO/IEC JTC1 SC22 WG21
+  Core Issues List revision 111d.
+  See http://www.open-std.org/jtc1/sc22/wg21/ for the official
+  list.</EM></P>
+<P>2023-07-11</P>
+<HR>
+<A NAME="2761"></A><H4>2761.
+  
+Implicitly invoking the deleted destructor of an anonymous union member
+</H4>
+<B>Section: </B>11.4.7&#160; [<A href="https://wg21.link/class.dtor">class.dtor</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Corentin Jabot
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-07-11<BR>
+
+
+
+
+<P>Consider:</P>
+
+<PRE>
+  struct S{
+    ~S() {}
+  };
+
+  struct A {
+    union {
+      S arr_;
+    };
+    ~A(); //<SPAN CLASS="cmnt"> user-provided!</SPAN>
+  };
+
+  auto foo() {
+    return A{S()};
+  }
+</PRE>
+
+<P>Does the destructor of <TT>A</TT> attempt to destroy the (unnamed)
+data member that is the anonymous union?  The latter has a deleted
+destructor per 11.4.7 [<A href="https://wg21.link/class.dtor">class.dtor</A>].  For the default
+constructor, 11.9.3 [<A href="https://wg21.link/class.base.init#9.2">class.base.init</A>] paragraph 9.2 prevents the
+corresponding construction.</P>
+
+<P><U>Possible resolution:</U></P>
+
+<P>Change in 11.4.7 [<A href="https://wg21.link/class.dtor#13">class.dtor</A>] paragraph 13 as follows:</P>
+
+<BLOCKQUOTE>
+
+After executing the body of the destructor and destroying any objects
+with automatic storage duration allocated within the body, a
+destructor for class X calls the destructors for X's direct
+non-variant non-static data members <INS>other than anonymous
+unions</INS>, the destructors for X's non-virtual direct base classes
+and, if X is the most derived class (11.9.3 [<A href="https://wg21.link/class.base.init">class.base.init</A>]), its
+destructor calls the destructors for X's virtual base classes. All
+destructors are called as if they were referenced with a qualified
+name, that is, ignoring any possible virtual overriding destructors in
+more derived classes.  Bases and members are destroyed in the reverse
+order of the completion of their constructor (see
+11.9.3 [<A href="https://wg21.link/class.base.init">class.base.init</A>]).
+
+</BLOCKQUOTE>
+
+<BR><BR>
+</BODY>
+</HTML>
