@@ -194,6 +194,9 @@ USA.</P>
 <A HREF="cwg_active.html#2756">2756</A>,
 <A HREF="cwg_active.html#2757">2757</A>,
 <A HREF="cwg_active.html#2758">2758</A>,
+<A HREF="cwg_active.html#2759">2759</A>,
+<A HREF="cwg_active.html#2760">2760</A>,
+<A HREF="cwg_active.html#2761">2761</A>,
 Closed issues
 <A HREF="cwg_closed.html#6">6</A>,
 <A HREF="cwg_closed.html#504">504</A>,
@@ -4334,7 +4337,7 @@ Temporary storage duration
   <A href="https://wg21.link/basic.stc">basic.stc</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#2533">2533</A></TD>
-<TD ALIGN="CENTER">drafting</TD>
+<TD ALIGN="CENTER">review</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Storage duration of implicitly created objects
@@ -5374,6 +5377,17 @@ Incorrect wording applied by P2738R1
 </TD>
 </TR>
 <TR>
+<TD ALIGN="LEFT">7.7&#160;
+  <A href="https://wg21.link/expr.const">expr.const</A>
+</TD>
+<TD ALIGN="RIGHT"><A HREF="#2760">2760</A></TD>
+<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER"></TD>
+<TD ALIGN="LEFT">
+Defaulted constructor that is an immediate function
+</TD>
+</TR>
+<TR>
 <TD ALIGN="LEFT">8.6.5&#160;
   <A href="https://wg21.link/stmt.ranged">stmt.ranged</A>
 </TD>
@@ -6243,6 +6257,17 @@ Missing disambiguation rule for <I>pure-specifier</I> vs. <I>brace-or-equal-init
 </TD>
 </TR>
 <TR>
+<TD ALIGN="LEFT">11.4.1&#160;
+  <A href="https://wg21.link/class.mem.general">class.mem.general</A>
+</TD>
+<TD ALIGN="RIGHT"><A HREF="#2759">2759</A></TD>
+<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER"></TD>
+<TD ALIGN="LEFT">
+[[no_unique_address] and common initial sequence
+</TD>
+</TR>
+<TR>
 <TD ALIGN="LEFT">11.4.4&#160;
   <A href="https://wg21.link/special">special</A>
 </TD>
@@ -6383,6 +6408,17 @@ Contradictory results of failed destructor lookup
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Polymorphic behavior during destruction
+</TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT">11.4.7&#160;
+  <A href="https://wg21.link/class.dtor">class.dtor</A>
+</TD>
+<TD ALIGN="RIGHT"><A HREF="#2761">2761</A></TD>
+<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER"></TD>
+<TD ALIGN="LEFT">
+Implicitly invoking the deleted destructor of an anonymous union member
 </TD>
 </TR>
 <TR>
@@ -10562,6 +10598,171 @@ for which:</INS>
 </OL>
 
 <BR><BR><HR>
+<A NAME="2533"></A><H4>2533.
+  
+Storage duration of implicitly created objects
+</H4>
+<B>Section: </B>6.7.5&#160; [<A href="https://wg21.link/basic.stc">basic.stc</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>review
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Andrey Erokhin
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2022-02-17<BR>
+
+
+
+
+<P>In subclause 6.7.2 [<A href="https://wg21.link/intro.object#10">intro.object</A>] paragraph 10,
+operations implicitly creating objects are defined:</P>
+
+<BLOCKQUOTE>
+
+Some operations are described as <I>implicitly creating objects</I>
+within a specified region of storage. For each operation that is
+specified as implicitly creating objects, that operation implicitly
+creates and starts the lifetime of zero or more objects of
+implicit-lifetime types (6.8.1 [<A href="https://wg21.link/basic.types.general">basic.types.general</A>]) in its specified
+region of storage if...
+
+</BLOCKQUOTE>
+
+<P>However, the standard does not specify the storage duration that
+such an implicitly-created object has; this new method of object
+creation is not mentioned in 6.7.5.1 [<A href="https://wg21.link/basic.stc.general#2">basic.stc.general</A>] paragraph 2:</P>
+
+<BLOCKQUOTE>
+
+Static, thread, and automatic storage durations are associated with
+objects introduced by declarations (6.2 [<A href="https://wg21.link/basic.def">basic.def</A>]) and
+implicitly created by the implementation
+(6.7.7 [<A href="https://wg21.link/class.temporary">class.temporary</A>]). The dynamic storage duration is
+associated with objects created by a <I>new-expression</I>
+(7.6.2.8 [<A href="https://wg21.link/expr.new">expr.new</A>]).
+
+</BLOCKQUOTE>
+
+<P>With the exception of <TT>malloc</TT>, the storage duration should
+probably be that of the object providing storage (if any), similar to
+the provision for subobjects in 6.7.5.6 [<A href="https://wg21.link/basic.stc.inherit">basic.stc.inherit</A>]:</P>
+
+<BLOCKQUOTE>
+
+The storage duration of subobjects and reference members is that of
+their complete object (6.7.2 [<A href="https://wg21.link/intro.object">intro.object</A>]).
+
+</BLOCKQUOTE>
+
+<P>The storage duration of an object created by a non-allocating form
+of an allocation function (17.6.3.4 [<A href="https://wg21.link/new.delete.placement">new.delete.placement</A>]) should be
+treated similarly.</P>
+
+<P><U>Possible resolution:</U></P>
+
+<OL>
+
+<LI>
+<P>Change in 6.7.2 [<A href="https://wg21.link/intro.object#13">intro.object</A>] paragraph 13 as follows:</P>
+
+<BLOCKQUOTE>
+
+Any implicit or explicit invocation of a function named <TT>operator
+new</TT> or <TT>operator new[]</TT> implicitly creates
+objects <INS>with dynamic storage duration</INS> in the returned
+region of storage and returns a pointer to a suitable created object.
+
+</BLOCKQUOTE>
+
+</LI>
+
+<LI>
+<P>Change in 6.7.5.1 [<A href="https://wg21.link/basic.stc.general#2">basic.stc.general</A>] paragraph 2 as follows:</P>
+
+<BLOCKQUOTE>
+
+Static, thread, and automatic storage durations are associated with
+objects introduced by declarations (6.2 [<A href="https://wg21.link/basic.def">basic.def</A>]) and
+implicitly created by the implementation
+(6.7.7 [<A href="https://wg21.link/class.temporary">class.temporary</A>]). The dynamic storage duration is
+associated with objects created <DEL>by a <I>new-expression</I>
+(7.6.2.8 [<A href="https://wg21.link/expr.new">expr.new</A>])</DEL> <INS>in storage returned by an
+allocation function (6.7.5.5.2 [<A href="https://wg21.link/basic.stc.dynamic.allocation">basic.stc.dynamic.allocation</A>]) other than a
+non-allocating form (17.6.3.4 [<A href="https://wg21.link/new.delete.placement">new.delete.placement</A>]) or by C library
+memory allocation (20.2.12 [<A href="https://wg21.link/c.malloc">c.malloc</A>])</INS>.
+
+</BLOCKQUOTE>
+
+</LI>
+
+<LI>
+<P>Change in 6.7.5.5.2 [<A href="https://wg21.link/basic.stc.dynamic.allocation#3">basic.stc.dynamic.allocation</A>] paragraph 3 as follows:</P>
+
+<BLOCKQUOTE>
+
+For an allocation function <DEL>other than a reserved placement
+allocation function</DEL> <INS>other than a non-allocating form</INS>
+(17.6.3.4 [<A href="https://wg21.link/new.delete.placement">new.delete.placement</A>]), the pointer returned on a successful
+call shall represent the address of storage that is aligned as
+follows:
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+<P>Change in 6.7.5.6 [<A href="https://wg21.link/basic.stc.inherit#1">basic.stc.inherit</A>] paragraph 1 as follows:</P>
+
+<BLOCKQUOTE>
+
+The storage duration of <DEL>subobjects and</DEL> reference members is
+that of their complete object<INS>. The storage duration of an object
+nested within another object <I>x</I> is the storage duration
+of <I>x</I></INS> (6.7.2 [<A href="https://wg21.link/intro.object">intro.object</A>]).
+
+</BLOCKQUOTE>
+
+</LI>
+
+<LI>
+<P>Change in 7.6.2.8 [<A href="https://wg21.link/expr.new#9">expr.new</A>] paragraph 9 as follows:</P>
+
+<BLOCKQUOTE>
+
+<INS>An object created by a <I>new-expression</I> that invokes an
+allocation function with a non-allocating form (see below) has the
+storage duration of the object that used to occupy the region of
+storage where the new object is created.</INS>
+
+<DEL>Objects</DEL> <INS>Any other object</INS> created by
+a <I>new-expression</I> <DEL>have</DEL> <INS>has</INS>
+dynamic storage duration (6.7.5.5 [<A href="https://wg21.link/basic.stc.dynamic">basic.stc.dynamic</A>]).  [<I>Note
+5:</I> The lifetime of such an object is not necessarily restricted to
+the scope in which it is created. &#8212;<I>end note</I>]
+
+</BLOCKQUOTE>
+
+</LI>
+
+<LI>
+<P>Change in 20.2.12 [<A href="https://wg21.link/c.malloc#4">c.malloc</A>] paragraph 4 as follows:</P>
+
+<BLOCKQUOTE>
+
+These functions implicitly create objects (6.7.2 [<A href="https://wg21.link/intro.object">intro.object</A>])
+<INS>with dynamic storage duration</INS> in the returned region of
+storage and return a pointer to a suitable created object. In the case
+of calloc and realloc, the objects are created before the storage is
+zeroed or copied, respectively.
+
+</BLOCKQUOTE>
+
+</LI>
+
+</OL>
+
+<BR><BR><HR>
 <A NAME="2689"></A><H4>2689.
   
 Are cv-qualified <TT>std::nullptr_t</TT> fundamental types?
@@ -13881,154 +14082,6 @@ duration for temporaries whose lifetime is not extended.</P>
 
 <P>See also issues <A HREF="cwg_active.html#365">365</A> and
 <A HREF="cwg_defects.html#2256">2256</A>.</P>
-
-<BR><BR><HR>
-<A NAME="2533"></A><H4>2533.
-  
-Storage duration of implicitly created objects
-</H4>
-<B>Section: </B>6.7.5&#160; [<A href="https://wg21.link/basic.stc">basic.stc</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>drafting
- &#160;&#160;&#160;
-
- <B>Submitter: </B>Andrey Erokhin
- &#160;&#160;&#160;
-
- <B>Date: </B>2022-02-17<BR>
-
-
-
-
-<P>In subclause 6.7.2 [<A href="https://wg21.link/intro.object#10">intro.object</A>] paragraph 10,
-operations implicitly creating objects are defined:</P>
-
-<BLOCKQUOTE>
-
-Some operations are described as <I>implicitly creating objects</I>
-within a specified region of storage. For each operation that is
-specified as implicitly creating objects, that operation implicitly
-creates and starts the lifetime of zero or more objects of
-implicit-lifetime types (6.8.1 [<A href="https://wg21.link/basic.types.general">basic.types.general</A>]) in its specified
-region of storage if...
-
-</BLOCKQUOTE>
-
-<P>However, the standard does not specify the storage duration that
-such an implicitly-created object has; this new method of object
-creation is not mentioned in 6.7.5.1 [<A href="https://wg21.link/basic.stc.general#2">basic.stc.general</A>] paragraph 2:</P>
-
-<BLOCKQUOTE>
-
-Static, thread, and automatic storage durations are associated with
-objects introduced by declarations (6.2 [<A href="https://wg21.link/basic.def">basic.def</A>]) and
-implicitly created by the implementation
-(6.7.7 [<A href="https://wg21.link/class.temporary">class.temporary</A>]). The dynamic storage duration is
-associated with objects created by a <I>new-expression</I>
-(7.6.2.8 [<A href="https://wg21.link/expr.new">expr.new</A>]).
-
-</BLOCKQUOTE>
-
-<P>With the exception of <TT>malloc</TT>, the storage duration should
-probably be that of the object providing storage (if any), similar to
-the provision for subobjects in 6.7.5.6 [<A href="https://wg21.link/basic.stc.inherit">basic.stc.inherit</A>]:</P>
-
-<BLOCKQUOTE>
-
-The storage duration of subobjects and reference members is that of
-their complete object (6.7.2 [<A href="https://wg21.link/intro.object">intro.object</A>]).
-
-</BLOCKQUOTE>
-
-<P>The storage duration of an object created by a non-allocating form
-of an allocation function (17.6.3.4 [<A href="https://wg21.link/new.delete.placement">new.delete.placement</A>]) should be
-treated similarly.</P>
-
-<P><U>Possible resolution:</U></P>
-
-<OL>
-
-<LI>
-<P>Change in 6.7.2 [<A href="https://wg21.link/intro.object#13">intro.object</A>] paragraph 13 as follows:</P>
-
-<BLOCKQUOTE>
-
-Any implicit or explicit invocation of a function named <TT>operator
-new</TT> or <TT>operator new[]</TT> implicitly creates
-objects <INS>with dynamic storage duration</INS> in the returned
-region of storage and returns a pointer to a suitable created object.
-
-</BLOCKQUOTE>
-
-</LI>
-
-<LI>
-<P>No change in 6.7.5.1 [<A href="https://wg21.link/basic.stc.general#2">basic.stc.general</A>] paragraph 2:</P>
-
-<BLOCKQUOTE>
-
-Static, thread, and automatic storage durations are associated with
-objects introduced by declarations (6.2 [<A href="https://wg21.link/basic.def">basic.def</A>]) and
-implicitly created by the implementation
-(6.7.7 [<A href="https://wg21.link/class.temporary">class.temporary</A>]). The dynamic storage duration is
-associated with objects created by a <I>new-expression</I>
-(7.6.2.8 [<A href="https://wg21.link/expr.new">expr.new</A>]).
-
-</BLOCKQUOTE>
-
-</LI>
-
-<LI>
-<P>Change in 6.7.5.6 [<A href="https://wg21.link/basic.stc.inherit#1">basic.stc.inherit</A>] paragraph 1 as follows:</P>
-
-<BLOCKQUOTE>
-
-The storage duration of <DEL>subobjects and</DEL> reference members is
-that of their complete object<INS>. The storage duration of an object
-nested within another object <I>x</I> is the storage duration
-of <I>x</I></INS> (6.7.2 [<A href="https://wg21.link/intro.object">intro.object</A>]).
-
-</BLOCKQUOTE>
-
-</LI>
-
-<LI>
-<P>Change in 7.6.2.8 [<A href="https://wg21.link/expr.new#9">expr.new</A>] paragraph 9 as follows:</P>
-
-<BLOCKQUOTE>
-
-<INS>An object created by a <I>new-expression</I> that invokes an
-allocation function with a non-allocating form (see below) has the
-storage duration of the object that used to occupy the region of
-storage where the new object is created.</INS>
-
-<DEL>Objects</DEL> <INS>Any other object</INS> created by
-a <I>new-expression</I> <DEL>have</DEL> <INS>has</INS>
-dynamic storage duration (6.7.5.5 [<A href="https://wg21.link/basic.stc.dynamic">basic.stc.dynamic</A>]).  [<I>Note
-5:</I> The lifetime of such an object is not necessarily restricted to
-the scope in which it is created. &#8212;<I>end note</I>]
-
-</BLOCKQUOTE>
-
-</LI>
-
-<LI>
-<P>Change in 20.2.12 [<A href="https://wg21.link/c.malloc#4">c.malloc</A>] paragraph 4 as follows:</P>
-
-<BLOCKQUOTE>
-
-These functions implicitly create objects (6.7.2 [<A href="https://wg21.link/intro.object">intro.object</A>])
-<INS>with dynamic storage duration</INS> in the returned region of
-storage and return a pointer to a suitable created object. In the case
-of calloc and realloc, the objects are created before the storage is
-zeroed or copied, respectively.
-
-</BLOCKQUOTE>
-
-</LI>
-
-</OL>
 
 <BR><BR><HR>
 <A NAME="1676"></A><H4>1676.
@@ -26187,6 +26240,10 @@ the matter.</P>
 
 <P>The consensus view was that this should be undefined behavior.</P>
 
+<P><B>Additional notes (July, 2023)</B></P>
+
+<P>This issue is a subset of <A HREF="cwg_active.html#2757">issue 2757</A>.</P>
+
 <BR><BR><HR>
 <A NAME="2676"></A><H4>2676.
   
@@ -29900,6 +29957,113 @@ object whose type is similar to T;
 </BLOCKQUOTE>
 
 <BR><BR><HR>
+<A NAME="2760"></A><H4>2760.
+  
+Defaulted constructor that is an immediate function
+</H4>
+<B>Section: </B>7.7&#160; [<A href="https://wg21.link/expr.const">expr.const</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Corentin Jabot
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-07-08<BR>
+
+
+<P>Consider:</P>
+
+<PRE>
+  consteval int f(int);
+  struct S {
+   int x = f(0);
+   S() = default;
+  };
+
+  int main() {
+    S s;     //<SPAN CLASS="cmnt"> OK?</SPAN>
+  }
+</PRE>
+
+<P>Is <TT>S</TT> an immediate function?</P>
+
+<P>The relevant specification is in 7.7 [<A href="https://wg21.link/expr.const#18">expr.const</A>] paragraph 18:</P>
+
+<BLOCKQUOTE>
+
+An immediate function is a function or constructor that is
+<UL>
+<LI>declared with the <TT>consteval</TT> specifier, or</LI>
+<LI>an immediate-escalating function F whose function body contains an
+immediate-escalating expression E such that E's innermost enclosing
+non-block scope is F's function parameter scope.</LI>
+</UL>
+
+</BLOCKQUOTE>
+
+<P><U>Suggested resolution:</U></P>
+
+<P>Change in 7.7 [<A href="https://wg21.link/expr.const#18">expr.const</A>] paragraph 18 as follows:</P>
+
+<BLOCKQUOTE>
+
+An immediate function is a function or constructor that is
+<UL>
+<LI>declared with the <TT>consteval</TT> specifier, or</LI>
+<LI>an immediate-escalating function F whose function body contains an
+immediate-escalating expression E such that E's innermost enclosing
+non-block scope is F's function parameter scope<INS>, or</INS>
+</LI>
+<LI class="ins">an immediate-escalating default constructor of a class
+which has at least one non-static data member with an
+immediate-escalating default member initializer.</LI>
+</UL>
+
+</BLOCKQUOTE>
+
+<P><U>Alternative possible resolution:</U></P>
+
+<OL>
+<LI>
+<P>Change in 7.7 [<A href="https://wg21.link/expr.const#18">expr.const</A>] paragraph 18 as follows:</P>
+
+<BLOCKQUOTE>
+
+An immediate function is a function or constructor that is
+<UL>
+<LI>declared with the <TT>consteval</TT> specifier, or</LI>
+<LI>an immediate-escalating function F whose function body contains an
+immediate-escalating expression E such that E's innermost enclosing
+non-block scope is F's function parameter scope.
+<INS>[ Note: Default member initializers used to initialize a base or
+member subobject (11.9.3 [<A href="https://wg21.link/class.base.init">class.base.init</A>]) are considered to be
+part of the function body (9.5.1 [<A href="https://wg21.link/dcl.fct.def.general">dcl.fct.def.general</A>]). -- end note
+]</INS>
+</LI>
+</UL>
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+<P>Change in 9.5.1 [<A href="https://wg21.link/dcl.fct.def.general#1">dcl.fct.def.general</A>] paragraph 1 as follows:</P>
+
+<BLOCKQUOTE>
+
+Any informal reference to the body of a function should be interpreted
+as a reference to the non-terminal <I>function-body</I><INS>,
+including default member initializers or default initialization used
+to initialize a base or member subobject in the absence of
+a <I>mem-initializer-id</I> (11.9.3 [<A href="https://wg21.link/class.base.init">class.base.init</A>])</INS>.
+
+</BLOCKQUOTE>
+</LI>
+
+</OL>
+
+<BR><BR><HR>
 <A NAME="2495"></A><H4>2495.
   
 Glvalue result of a function call
@@ -32246,6 +32410,146 @@ instantiation, the program is ill-formed; see 13.9.1 [<A href="https://wg21.link
 </BLOCKQUOTE>
 
 <BR><BR><HR>
+<A NAME="2759"></A><H4>2759.
+  
+[[no_unique_address] and common initial sequence
+</H4>
+<B>Section: </B>11.4.1&#160; [<A href="https://wg21.link/class.mem.general">class.mem.general</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Richard Smith
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2020-11-10<BR>
+
+
+
+
+<P>The interaction of [[no_unique_address]] and the definition of
+common initial sequence is still problematic.  Subclause
+11.4.1 [<A href="https://wg21.link/class.mem.general#23.3">class.mem.general</A>] bullet 23.3 specifies that corresponding
+members in a common initial sequence are not allowed to differ with
+respect to the presence or absence of a [[no_unique_address]]
+attribute.  However, the Itanium ABI will not allocate two successive
+data members of the same empty class type at the same address, causing
+non-conforming behavior for the following example:</P>
+
+<PRE>
+  struct A {};
+  struct B {};
+
+  struct C {
+   [[no_unique_address]] A a;
+   [[no_unique_address]] B b;
+  };
+
+  struct D {
+   [[no_unique_address]] A a1;
+   [[no_unique_address]] A a2;
+  };
+
+  static_assert(offsetof(C, b) == offsetof(D, a2));
+</PRE>
+
+<P>See <A HREF="https://github.com/itanium-cxx-abi/cxx-abi/issues/108">Itanium
+ABI issue 108</A>.</P>
+
+<P>Since "common initial sequence" and "layout compatible" are
+concepts mostly used for C compatibility, but [[no_unique_address]]
+does not exist in C, it seems reasonable to terminate a common initial
+sequence at the first data member that is declared
+[[no_unique_address]].</P>
+
+<P>Another concern is the behavior
+of <TT>std::is_layout_compatible</TT> on implementations that ignore
+[[no_unique_address]]. On such an implementation, the following
+example would be considered layout-compatible, although it actually is
+not:</P>
+
+<PRE>
+  struct E {};
+
+  struct A {
+    E e;
+    int i;
+  };
+
+  struct B {
+    [[no_unique_address]] E e;
+    int i;
+  };
+
+  static_assert(
+    std::is_layout_compatible_v&lt;A, B&gt;
+  );
+</PRE>
+
+<P><U>Suggested resolution:</U></P>
+
+<P>Change in 11.4.1 [<A href="https://wg21.link/class.mem.general#23">class.mem.general</A>] paragraph 23 as follows:</P>
+
+<BLOCKQUOTE>
+
+The common initial sequence of two standard-layout struct
+(11.2 [<A href="https://wg21.link/class.prop">class.prop</A>]) types is the longest sequence of
+non-static data members and bit-fields in declaration order, starting
+with the first such entity in each of the structs, such that
+<UL>
+<LI>corresponding entities have layout-compatible types
+(6.8 [<A href="https://wg21.link/basic.types">basic.types</A>]),</LI>
+
+<LI>corresponding entities have the same alignment requirements
+(6.7.6 [<A href="https://wg21.link/basic.align">basic.align</A>]),</LI>
+
+<LI>
+<DEL>either both entities are declared with the no_unique_address
+attribute (9.12.11 [<A href="https://wg21.link/dcl.attr.nouniqueaddr">dcl.attr.nouniqueaddr</A>]) or neither is,</DEL>
+<INS>if a <I>has-attribute-expression</I> (15.2 [<A href="https://wg21.link/cpp.cond">cpp.cond</A>])
+is not 0 for the <TT>no_unique_address</TT> attribute, then neither
+entity is declared with the <TT>no_unique_address</TT> attribute
+(9.12.11 [<A href="https://wg21.link/dcl.attr.nouniqueaddr">dcl.attr.nouniqueaddr</A>]),</INS> and</LI>
+
+<LI>either both entities are bit-fields with the same width or neither
+is a bit-field.
+</LI>
+</UL>
+
+</BLOCKQUOTE>
+
+<P><U>Alternative possible resolution:</U></P>
+
+<P>Change in 11.4.1 [<A href="https://wg21.link/class.mem.general#23">class.mem.general</A>] paragraph 23 as follows:</P>
+
+<BLOCKQUOTE>
+
+The common initial sequence of two standard-layout struct
+(11.2 [<A href="https://wg21.link/class.prop">class.prop</A>]) types is the longest sequence of
+non-static data members and bit-fields in declaration order, starting
+with the first such entity in each of the structs, such that
+<UL>
+<LI>corresponding entities have layout-compatible types
+(6.8 [<A href="https://wg21.link/basic.types">basic.types</A>]),</LI>
+
+<LI>corresponding entities have the same alignment requirements
+(6.7.6 [<A href="https://wg21.link/basic.align">basic.align</A>]),</LI>
+
+<LI>
+<DEL>either both entities are declared with the no_unique_address
+attribute (9.12.11 [<A href="https://wg21.link/dcl.attr.nouniqueaddr">dcl.attr.nouniqueaddr</A>]) or neither is,</DEL>
+<INS>neither entity is declared with the <TT>no_unique_address</TT>
+attribute (9.12.11 [<A href="https://wg21.link/dcl.attr.nouniqueaddr">dcl.attr.nouniqueaddr</A>]),</INS> and</LI>
+
+<LI>either both entities are bit-fields with the same width or neither
+is a bit-field.
+</LI>
+</UL>
+
+</BLOCKQUOTE>
+
+<BR><BR><HR>
 <A NAME="2743"></A><H4>2743.
   
 Copying non-trivial objects nested within a union
@@ -32359,6 +32663,71 @@ created, and the lifetime of o begins before the copy is performed.
 </LI>
 
 </OL>
+
+<BR><BR><HR>
+<A NAME="2761"></A><H4>2761.
+  
+Implicitly invoking the deleted destructor of an anonymous union member
+</H4>
+<B>Section: </B>11.4.7&#160; [<A href="https://wg21.link/class.dtor">class.dtor</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Corentin Jabot
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-07-11<BR>
+
+
+
+
+<P>Consider:</P>
+
+<PRE>
+  struct S{
+    ~S() {}
+  };
+
+  struct A {
+    union {
+      S arr_;
+    };
+    ~A(); //<SPAN CLASS="cmnt"> user-provided!</SPAN>
+  };
+
+  auto foo() {
+    return A{S()};
+  }
+</PRE>
+
+<P>Does the destructor of <TT>A</TT> attempt to destroy the (unnamed)
+data member that is the anonymous union?  The latter has a deleted
+destructor per 11.4.7 [<A href="https://wg21.link/class.dtor">class.dtor</A>].  For the default
+constructor, 11.9.3 [<A href="https://wg21.link/class.base.init#9.2">class.base.init</A>] paragraph 9.2 prevents the
+corresponding construction.</P>
+
+<P><U>Possible resolution:</U></P>
+
+<P>Change in 11.4.7 [<A href="https://wg21.link/class.dtor#13">class.dtor</A>] paragraph 13 as follows:</P>
+
+<BLOCKQUOTE>
+
+After executing the body of the destructor and destroying any objects
+with automatic storage duration allocated within the body, a
+destructor for class X calls the destructors for X's direct
+non-variant non-static data members <INS>other than anonymous
+unions</INS>, the destructors for X's non-virtual direct base classes
+and, if X is the most derived class (11.9.3 [<A href="https://wg21.link/class.base.init">class.base.init</A>]), its
+destructor calls the destructors for X's virtual base classes. All
+destructors are called as if they were referenced with a qualified
+name, that is, ignoring any possible virtual overriding destructors in
+more derived classes.  Bases and members are destroyed in the reverse
+order of the completion of their constructor (see
+11.9.3 [<A href="https://wg21.link/class.base.init">class.base.init</A>]).
+
+</BLOCKQUOTE>
 
 <BR><BR><HR>
 <A NAME="2513"></A><H4>2513.
@@ -33008,6 +33377,8 @@ Deleting or deallocating storage of an object during its construction
 <P>However, the referenced subclause does not discuss deleting the
 object or deallocating its storage.</P>
 
+<P>See also <A HREF="cwg_active.html#2258">issue 2258</A>.</P>
+
 <P><U>Possible resolution:</U></P>
 
 <P>Insert before 11.9.5 [<A href="https://wg21.link/class.cdtor#2">class.cdtor</A>] paragraph 2 as follows:</P>
@@ -33018,7 +33389,9 @@ object or deallocating its storage.</P>
 During the construction or destruction of an object, evaluating
 a <I>delete-expression</I> with an operand that points to the object
 or releasing or reusing (6.7.3 [<A href="https://wg21.link/basic.life">basic.life</A>]) the storage which
-the object occupies is undefined behavior. [ Example:</P>
+the object occupies is undefined behavior. [ Note: Creating an object
+nested within some object <I>o</I> does not reuse the storage
+for <I>o</I>. -- end note ] [ Example:</P>
 
 <PRE class="ins">
   struct A() {

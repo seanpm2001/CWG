@@ -62,6 +62,21 @@ corresponding construction.</P>
 
 <P><U>Possible resolution:</U></P>
 
+<OL>
+<LI>
+<P>Change in 9.4.2 [<A href="https://wg21.link/dcl.init.aggr#9">dcl.init.aggr</A>] paragraph 9 as follows:</P>
+
+<BLOCKQUOTE>
+
+The destructor for each element of class type <INS>other than an
+anonymous union member</INS> is potentially invoked
+(11.4.7 [<A href="https://wg21.link/class.dtor">class.dtor</A>]) from the context where the aggregate
+initialization occurs
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
 <P>Change in 11.4.7 [<A href="https://wg21.link/class.dtor#13">class.dtor</A>] paragraph 13 as follows:</P>
 
 <BLOCKQUOTE>
@@ -80,6 +95,8 @@ order of the completion of their constructor (see
 11.9.3 [<A href="https://wg21.link/class.base.init">class.base.init</A>]).
 
 </BLOCKQUOTE>
+</LI>
+</OL>
 
 <BR><BR>
 </BODY>
