@@ -15,7 +15,7 @@
   Core Issues List revision 111d.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-06-30</P>
+<P>2023-07-14</P>
 <HR>
 <A NAME="2753"></A><H4>2753.
   
@@ -102,8 +102,8 @@ change the latter as follows:</P>
 
 <P class="ins">
 An object is a <I>potentially non-unique object</I> if it is a string literal
-object (5.13.5 [<A href="https://wg21.link/lex.string">lex.string</A>]) or the backing array of an
-initializer list (9.4.4 [<A href="https://wg21.link/dcl.init.ref">dcl.init.ref</A>]).
+object (5.13.5 [<A href="https://wg21.link/lex.string">lex.string</A>]), the backing array of an
+initializer list (9.4.4 [<A href="https://wg21.link/dcl.init.ref">dcl.init.ref</A>]), or a subobject thereof.
 </P>
 
 <P>Unless an object is a bit-field or a subobject of zero size, the
