@@ -15,7 +15,7 @@
   Core Issues List revision 111d.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-06-15</P>
+<P>2023-07-14</P>
 <HR>
 <A NAME="2548"></A><H4>2548.
   
@@ -24,7 +24,7 @@ Array prvalues and additive operators
 <B>Section: </B>7.6.6&#160; [<A href="https://wg21.link/expr.add">expr.add</A>]
  &#160;&#160;&#160;
 
- <B>Status: </B>drafting
+ <B>Status: </B>review
  &#160;&#160;&#160;
 
  <B>Submitter: </B>Andrey Erokhin
@@ -65,6 +65,20 @@ convert the expression to a prvalue.
 
 <P>See also
 <A HREF="https://github.com/llvm/llvm-project/issues/54016">clang issue 54016</A>.</P>
+
+<P><U>Possible resolution:</U></P>
+
+<P>Change in 7.6.6 [<A href="https://wg21.link/expr.add#1">expr.add</A>] paragraph 1 as follows:</P>
+
+<BLOCKQUOTE>
+
+The additive operators + and - group left-to-right. The usual
+arithmetic conversions (7.4 [<A href="https://wg21.link/expr.arith.conv">expr.arith.conv</A>]) are performed for
+operands of arithmetic or enumeration type. <INS>The array-to-pointer
+conversion (7.3.3 [<A href="https://wg21.link/conv.array">conv.array</A>]) is applied to an operand of
+array type.</INS>
+
+</BLOCKQUOTE>
 
 <BR><BR>
 </BODY>
