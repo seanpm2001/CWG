@@ -15,7 +15,7 @@
   Core Issues List revision 111d.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-07-14</P>
+<P>2023-07-15</P>
 <HR>
 <A NAME="2747"></A><H4>2747.
   
@@ -24,7 +24,7 @@ Cannot depend on an already-deleted splice
 <B>Section: </B>5.2&#160; [<A href="https://wg21.link/lex.phases">lex.phases</A>]
  &#160;&#160;&#160;
 
- <B>Status: </B>open
+ <B>Status: </B>ready
  &#160;&#160;&#160;
 
  <B>Submitter: </B>Jim X
@@ -54,7 +54,7 @@ new-line character were appended to the file.
 and then the last sentence checks for a splice that has already been
 deleted.</P>
 
-<P><U>Possible resolution:</U></P>
+<P><B>Proposed resolution (approved by CWG 2023-07-14):</B></P>
 
 <P>Change in 5.2 [<A href="https://wg21.link/lex.phases#2">lex.phases</A>] paragraph 2 as follows:</P>
 
@@ -69,6 +69,14 @@ in a splice,</DEL> shall be processed as
 if an additional new-line character were appended to the file.
 
 </BLOCKQUOTE>
+
+<P><B>CWG 2023-07-14</B></P>
+
+<P>CWG noted that a lone backslash at the end of a file remains (in
+the status quo and with the proposed change) and turns into an
+ill-formed <I>preprocessing-token</I>. The wording as amended seems
+sufficiently clear to consider <A HREF="1698.html">issue 1698</A>
+resolved.</P>
 
 <BR><BR>
 </BODY>
