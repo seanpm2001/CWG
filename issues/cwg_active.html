@@ -197,6 +197,9 @@ USA.</P>
 <A HREF="cwg_active.html#2759">2759</A>,
 <A HREF="cwg_active.html#2760">2760</A>,
 <A HREF="cwg_active.html#2761">2761</A>,
+<A HREF="cwg_active.html#2762">2762</A>,
+<A HREF="cwg_active.html#2763">2763</A>,
+<A HREF="cwg_active.html#2764">2764</A>,
 Closed issues
 <A HREF="cwg_closed.html#6">6</A>,
 <A HREF="cwg_closed.html#504">504</A>,
@@ -4080,6 +4083,17 @@ Overloading virtual functions and functions with trailing <I>requires-clause</I>
 </TD>
 </TR>
 <TR>
+<TD ALIGN="LEFT">6.4.1&#160;
+  <A href="https://wg21.link/basic.scope.scope">basic.scope.scope</A>
+</TD>
+<TD ALIGN="RIGHT"><A HREF="#2764">2764</A></TD>
+<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER"></TD>
+<TD ALIGN="LEFT">
+Use of placeholders affecting name mangling
+</TD>
+</TR>
+<TR>
 <TD ALIGN="LEFT">6.5.1&#160;
   <A href="https://wg21.link/basic.lookup.general">basic.lookup.general</A>
 </TD>
@@ -5385,6 +5399,17 @@ Incorrect wording applied by P2738R1
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Defaulted constructor that is an immediate function
+</TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT">7.7&#160;
+  <A href="https://wg21.link/expr.const">expr.const</A>
+</TD>
+<TD ALIGN="RIGHT"><A HREF="#2763">2763</A></TD>
+<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER"></TD>
+<TD ALIGN="LEFT">
+Ignorability of [[noreturn]] during constant evaluation
 </TD>
 </TR>
 <TR>
@@ -6738,6 +6763,17 @@ Three-way comparison requiring strong ordering for floating-point types, take 2
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Defaulted secondary comparison operators defined as deleted
+</TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT">12.2.2.1&#160;
+  <A href="https://wg21.link/over.match.funcs.general">over.match.funcs.general</A>
+</TD>
+<TD ALIGN="RIGHT"><A HREF="#2762">2762</A></TD>
+<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER"></TD>
+<TD ALIGN="LEFT">
+Type of implicit object parameter
 </TD>
 </TR>
 <TR>
@@ -25610,6 +25646,98 @@ discussion. </P>
 CWG solicits a paper to address this issue.</P>
 
 <BR><BR><HR>
+<A NAME="2764"></A><H4>2764.
+  
+Use of placeholders affecting name mangling
+</H4>
+<B>Section: </B>6.4.1&#160; [<A href="https://wg21.link/basic.scope.scope">basic.scope.scope</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Hubert Tong
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-07-05<BR>
+
+
+
+
+<P>Paper P2169R4 (A nice placeholder with no name), as approved by
+WG21 in Varna, added a placeholder facility.  The intent was that the
+use of placeholders is sufficiently limited such that they never need
+to be mangled.  Quote from 6.4.1 [<A href="https://wg21.link/basic.scope.scope#5">basic.scope.scope</A>] paragraph 5 as
+modified by the paper:</P>
+
+<BLOCKQUOTE>
+
+A declaration is name-independent if its name is _ and it declares a
+variable with automatic storage duration, a structured binding not
+inhabiting a namespace scope, the variable introduced by
+an <I>init-capture</I>, or a non-static data member.
+
+</BLOCKQUOTE>
+
+<P>The following example does not seem to follow that intent:</P>
+
+<PRE>
+  struct A { A(); };
+  inline void f() {
+    static union { A _{}; };
+    static union { A _{}; };
+  }
+  void g() { return f(); }
+</PRE>
+
+<P>The preceding example needs handling similar to the following
+example, which is unrelated to the placeholder feature:</P>
+
+<PRE>
+  struct A { A(); };
+  inline void f() {
+    { static union { A a{}; }; }
+    { static union { A a{}; }; }
+  }
+  void g() { return f(); }
+</PRE>
+
+<P>A similar problem may arise for <TT>static</TT>
+or <TT>thread_local</TT> structured bindings at block scope.</P>
+
+<P>Finally, another example involving placeholders in anonymous unions:</P>
+
+<PRE>
+  static union { int _ = 42; };
+  int &amp;ref = _;
+  int foo() { return 13; }
+  static union { int _ = foo(); };
+  int main() { return ref; }
+</PRE>
+
+<P><U>Possible resolution:</U></P>
+
+<P>Change in 6.4.1 [<A href="https://wg21.link/basic.scope.scope#5">basic.scope.scope</A>] paragraph 5 and add bullets as
+follows:</P>
+
+<BLOCKQUOTE>
+
+<INS>A class is <I>name-dependent</I> if it is an anonymous union
+declared at namespace scope or with a <I>storage-class-specifier</I>
+(11.5.2 [<A href="https://wg21.link/class.union.anon">class.union.anon</A>]).</INS> A declaration
+is <I>name-independent</I> if its name is _ and it declares
+<UL>
+<LI>a variable with automatic storage duration,</LI>
+<LI>a structured binding <INS>with no <I>storage-class-specifier</I>
+and</INS> not inhabiting a namespace scope,</LI>
+<LI>the variable introduced by an <I>init-capture</I>, or</LI>
+<LI>a non-static data member <INS>of other than a name-dependent
+class</INS>.</LI>
+</UL>
+
+</BLOCKQUOTE>
+
+<BR><BR><HR>
 <A NAME="380"></A><H4>380.
   
 Definition of "ambiguous base class" missing
@@ -30064,6 +30192,72 @@ a <I>mem-initializer-id</I> (11.9.3 [<A href="https://wg21.link/class.base.init"
 </OL>
 
 <BR><BR><HR>
+<A NAME="2763"></A><H4>2763.
+  
+Ignorability of [[noreturn]] during constant evaluation
+</H4>
+<B>Section: </B>7.7&#160; [<A href="https://wg21.link/expr.const">expr.const</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Jiang An
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-07-10<BR>
+
+
+<P>Subclause 9.12.10 [<A href="https://wg21.link/dcl.attr.noreturn#2">dcl.attr.noreturn</A>] paragraph 2 specifies:</P>
+
+<BLOCKQUOTE>
+
+If a function f is called where f was previously declared with the
+<TT>noreturn</TT> attribute and f eventually returns, the behavior is
+undefined.
+
+</BLOCKQUOTE>
+
+<P>Undefineed behavior is, in general, detected during constant
+evaluation, thus requiring an implementation to actually support
+the <TT>noreturn</TT> attribute, such as in the following example:</P>
+
+<PRE>
+  [[noreturn]] constexpr void f() {}
+  constexpr int x = (f(), 0);
+</PRE>
+
+<P>It might be desirable to treat the <TT>assume</TT>
+and <TT>noreturn</TT> attributes alike in that regard.</P>
+
+<P><U>Possible resolution:</U></P>
+
+<P>Split into a separate paragraph and change 7.7 [<A href="https://wg21.link/expr.const#5">expr.const</A>] paragraph 5 as follows:</P>
+
+<BLOCKQUOTE>
+
+It is unspecified whether E is a core constant expression if E
+satisfies the constraints of a core constant expression, but
+evaluation of E would evaluate
+<UL>
+<LI>an operation that has undefined
+behavior as specified in Clause 16 through Clause 33,</LI>
+<LI>an invocation of the va_start macro
+(17.13.2 [<A href="https://wg21.link/cstdarg.syn">cstdarg.syn</A>]), <DEL>or</DEL>
+</LI>
+<LI class="ins">a <TT>return</TT> statement in a function that was
+previously declared with the <TT>noreturn</TT> attribute
+(9.12.10 [<A href="https://wg21.link/dcl.attr.noreturn">dcl.attr.noreturn</A>]), or</LI>
+<LI>
+a statement with an assumption (9.12.3 [<A href="https://wg21.link/dcl.attr.assume">dcl.attr.assume</A>])
+whose converted <I>conditional-expression</I>, if evaluated where the
+assumption appears, would not disqualify E from being a core constant
+expression and would not evaluate to <TT>true</TT>.  [ Note: .... ]</LI>
+</UL>
+
+</BLOCKQUOTE>
+
+<BR><BR><HR>
 <A NAME="2495"></A><H4>2495.
   
 Glvalue result of a function call
@@ -32710,6 +32904,21 @@ corresponding construction.</P>
 
 <P><U>Possible resolution:</U></P>
 
+<OL>
+<LI>
+<P>Change in 9.4.2 [<A href="https://wg21.link/dcl.init.aggr#9">dcl.init.aggr</A>] paragraph 9 as follows:</P>
+
+<BLOCKQUOTE>
+
+The destructor for each element of class type <INS>other than an
+anonymous union member</INS> is potentially invoked
+(11.4.7 [<A href="https://wg21.link/class.dtor">class.dtor</A>]) from the context where the aggregate
+initialization occurs
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
 <P>Change in 11.4.7 [<A href="https://wg21.link/class.dtor#13">class.dtor</A>] paragraph 13 as follows:</P>
 
 <BLOCKQUOTE>
@@ -32728,6 +32937,8 @@ order of the completion of their constructor (see
 11.9.3 [<A href="https://wg21.link/class.base.init">class.base.init</A>]).
 
 </BLOCKQUOTE>
+</LI>
+</OL>
 
 <BR><BR><HR>
 <A NAME="2513"></A><H4>2513.
@@ -33485,6 +33696,68 @@ specification requires a paper.</P>
 
 
 
+<BR><BR><HR>
+<A NAME="2762"></A><H4>2762.
+  
+Type of implicit object parameter
+</H4>
+<B>Section: </B>12.2.2.1&#160; [<A href="https://wg21.link/over.match.funcs.general">over.match.funcs.general</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Jim X
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-07-11<BR>
+
+
+<P>Subclause 12.2.2.1 [<A href="https://wg21.link/over.match.funcs.general#4">over.match.funcs.general</A>] paragraph 4 specifies:</P>
+
+<BLOCKQUOTE>
+
+For implicit object member functions, the type of the implicit object
+parameter is
+<UL>
+<LI>&#8220;lvalue reference to cv X&#8221; for functions declared
+without a <I>ref-qualifier</I> or with the
+&amp; <I>ref-qualifier</I>
+</LI>
+<LI>&#8220;rvalue reference to cv X&#8221; for functions declared with
+the &amp;&amp; <I>ref-qualifier</I>
+</LI>
+</UL>
+where X is the class of which the function is a member and cv is the
+cv-qualification on the member function declaration.
+
+</BLOCKQUOTE>
+
+<P>Since a member of some class C is also a member of any class
+derived from C, this specification is unclear.</P>
+
+<P><U>Possible resolution:</U></P>
+
+<P>Change in 12.2.2.1 [<A href="https://wg21.link/over.match.funcs.general#4">over.match.funcs.general</A>] paragraph 4 as follows:</P>
+
+<BLOCKQUOTE>
+
+For implicit object member functions, the type of the implicit object
+parameter is
+<UL>
+<LI>&#8220;lvalue reference to cv X&#8221; for functions declared
+without a <I>ref-qualifier</I> or with the
+&amp; <I>ref-qualifier</I>
+</LI>
+<LI>&#8220;rvalue reference to cv X&#8221; for functions declared with
+the &amp;&amp; <I>ref-qualifier</I>
+</LI>
+</UL>
+where X is the class of which the function is a <INS>direct</INS>
+member and cv is the cv-qualification on the member function
+declaration.
+
+</BLOCKQUOTE>
 <BR><BR><HR>
 <A NAME="2189"></A><H4>2189.
   
