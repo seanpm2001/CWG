@@ -15,7 +15,7 @@
   Core Issues List revision 111d.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-07-11</P>
+<P>2023-07-15</P>
 <HR>
 <A NAME="2763"></A><H4>2763.
   
@@ -24,7 +24,7 @@ Ignorability of [[noreturn]] during constant evaluation
 <B>Section: </B>7.7&#160; [<A href="https://wg21.link/expr.const">expr.const</A>]
  &#160;&#160;&#160;
 
- <B>Status: </B>open
+ <B>Status: </B>ready
  &#160;&#160;&#160;
 
  <B>Submitter: </B>Jiang An
@@ -55,7 +55,7 @@ the <TT>noreturn</TT> attribute, such as in the following example:</P>
 <P>It might be desirable to treat the <TT>assume</TT>
 and <TT>noreturn</TT> attributes alike in that regard.</P>
 
-<P><U>Possible resolution:</U></P>
+<P><B>Proposed resolution (approved by CWG 2023-07-14)</B></P>
 
 <P>Split into a separate paragraph and change 7.7 [<A href="https://wg21.link/expr.const#5">expr.const</A>] paragraph 5 as follows:</P>
 
@@ -81,6 +81,13 @@ expression and would not evaluate to <TT>true</TT>.  [ Note: .... ]</LI>
 </UL>
 
 </BLOCKQUOTE>
+
+<P><B>CWG 2023-07-14</B></P>
+
+<P>As an alternative, all of 9.12 [<A href="https://wg21.link/dcl.attr">dcl.attr</A>] could be added
+to the "library undefined behavior" bullet.  However, CWG felt that a
+case-by-case consideration is warranted, given that assumptions set
+precedent in requiring special treatment.</P>
 
 <BR><BR>
 </BODY>
