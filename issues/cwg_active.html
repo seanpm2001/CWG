@@ -200,6 +200,7 @@ USA.</P>
 <A HREF="cwg_active.html#2762">2762</A>,
 <A HREF="cwg_active.html#2763">2763</A>,
 <A HREF="cwg_active.html#2764">2764</A>,
+<A HREF="cwg_active.html#2765">2765</A>,
 Closed issues
 <A HREF="cwg_closed.html#6">6</A>,
 <A HREF="cwg_closed.html#504">504</A>,
@@ -3878,7 +3879,7 @@ Requirements for freestanding implementations
   <A href="https://wg21.link/lex.phases">lex.phases</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#1698">1698</A></TD>
-<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER">ready</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Files ending in <TT>\</TT>
@@ -3900,7 +3901,7 @@ Undefined behavior when splicing results in a <I>universal-character-name</I>
   <A href="https://wg21.link/lex.phases">lex.phases</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#2747">2747</A></TD>
-<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER">ready</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Cannot depend on an already-deleted splice
@@ -4219,10 +4220,21 @@ Multiple objects of the same type at the same address
   <A href="https://wg21.link/intro.object">intro.object</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#2753">2753</A></TD>
-<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER">tentatively ready</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Storage reuse for string literal objects and backing arrays
+</TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT">6.7.2&#160;
+  <A href="https://wg21.link/intro.object">intro.object</A>
+</TD>
+<TD ALIGN="RIGHT"><A HREF="#2765">2765</A></TD>
+<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER"></TD>
+<TD ALIGN="LEFT">
+Address comparisons between potentially non-unique objects during constant evaluation
 </TD>
 </TR>
 <TR>
@@ -5384,7 +5396,7 @@ Too many objects have constexpr-unknown type
   <A href="https://wg21.link/expr.const">expr.const</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#2755">2755</A></TD>
-<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER">ready</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Incorrect wording applied by P2738R1
@@ -5406,7 +5418,7 @@ Defaulted constructor that is an immediate function
   <A href="https://wg21.link/expr.const">expr.const</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#2763">2763</A></TD>
-<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER">ready</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Ignorability of [[noreturn]] during constant evaluation
@@ -5725,7 +5737,7 @@ Overbroad grammar for <I>parameter-declaration</I>
   <A href="https://wg21.link/dcl.fct">dcl.fct</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#2553">2553</A></TD>
-<TD ALIGN="CENTER">review</TD>
+<TD ALIGN="CENTER">ready</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Restrictions on explicit object member functions
@@ -6044,7 +6056,7 @@ Initialization of coroutine result object
   <A href="https://wg21.link/dcl.fct.def.coroutine">dcl.fct.def.coroutine</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#2754">2754</A></TD>
-<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER">ready</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Using *this in explicit object member functions that are coroutines
@@ -6166,7 +6178,7 @@ Multiple <TT>alignas</TT> specifiers
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#2733">2733</A></TD>
 <TD ALIGN="CENTER">review</TD>
-<TD ALIGN="CENTER"></TD>
+<TD ALIGN="CENTER">EWG</TD>
 <TD ALIGN="LEFT">
 Applying <TT>[[maybe_unused]]</TT> to a label
 </TD>
@@ -6638,7 +6650,7 @@ Base class access in aggregate initialization
   <A href="https://wg21.link/class.init">class.init</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#2756">2756</A></TD>
-<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER">tentatively ready</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Completion of initialization by delegating constructor
@@ -8627,9 +8639,661 @@ Updating Annex C to C99
 </TABLE>
 <BR><BR><HR>
 <A NAME="Ready%20Status"></A><H3>Issues with "Ready" Status</H3>
+<HR>
+<A NAME="1698"></A><H4>1698.
+  
+Files ending in <TT>\</TT>
+</H4>
+<B>Section: </B>5.2&#160; [<A href="https://wg21.link/lex.phases">lex.phases</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>ready
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>David Krauss
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2013-06-10<BR>
+
+
+<P>The description of how to handle file not ending in a newline in
+5.2 [<A href="https://wg21.link/lex.phases#1">lex.phases</A>] paragraph 1, phase 2, is:</P>
+
+<OL START="2">
+<LI><P>Each instance of a backslash character (<TT>\</TT>)
+immediately followed by a new-line character is deleted, splicing physical
+source lines to form logical source lines. Only the last backslash on any
+physical source line shall be eligible for being part of such a splice. If,
+as a result, a character sequence that matches the syntax of a
+universal-character-name is produced, the behavior is undefined. A source
+file that is not empty and that does not end in a new-line character, or
+that ends in a new-line character immediately preceded by a backslash
+character before any such splicing takes place, shall be processed as if an
+additional new-line character were appended to the file.</P></LI>
+
+</OL>
+
+<P>This is not clear regarding what happens if the last character in the
+file is a backslash.  In such a case, presumably the result of adding the
+newline should not be a line splice but rather a
+backslash <I>preprocessing-token</I> (that will be diagnosed as an invalid
+token in phase 7), but that should be spelled out.</P>
+
+<P><B>CWG 2023-07-14</B></P>
+
+<P>Addressed by the resolution for <A HREF="cwg_active.html#2747">issue 2747</A>.</P>
+
 <BR><BR><HR>
+<A NAME="2747"></A><H4>2747.
+  
+Cannot depend on an already-deleted splice
+</H4>
+<B>Section: </B>5.2&#160; [<A href="https://wg21.link/lex.phases">lex.phases</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>ready
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Jim X
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2021-09-14<BR>
+
+
+<P>(From editorial issue
+<A HREF="https://github.com/cplusplus/draft/issues/4903">4903</A>.)</P>
+
+<P>Subclause 5.2 [<A href="https://wg21.link/lex.phases#2">lex.phases</A>] paragraph 2 specifies:</P>
+
+<BLOCKQUOTE>
+
+... Each sequence of a backslash character (\) immediately
+followed by zero or more whitespace characters other than new-line
+followed by a new-line character is deleted, splicing physical source
+lines to form logical source lines. ...  A source
+file that is not empty and that does not end in a new-line character,
+or that ends in a splice, shall be processed as if an additional
+new-line character were appended to the file.
+
+</BLOCKQUOTE>
+
+<P>This is confusing, because the first sentence deletes all splices,
+and then the last sentence checks for a splice that has already been
+deleted.</P>
+
+<P><B>Proposed resolution (approved by CWG 2023-07-14):</B></P>
+
+<P>Change in 5.2 [<A href="https://wg21.link/lex.phases#2">lex.phases</A>] paragraph 2 as follows:</P>
+
+<BLOCKQUOTE>
+
+... Each sequence of a backslash character (\) immediately
+followed by zero or more whitespace characters other than new-line
+followed by a new-line character is deleted, splicing physical source
+lines to form logical source lines. ...  A source file that is not
+empty and that <INS>(after splicing)</INS> does not end in a new-line character<DEL>, or that ends
+in a splice,</DEL> shall be processed as
+if an additional new-line character were appended to the file.
+
+</BLOCKQUOTE>
+
+<P><B>CWG 2023-07-14</B></P>
+
+<P>CWG noted that a lone backslash at the end of a file remains (in
+the status quo and with the proposed change) and turns into an
+ill-formed <I>preprocessing-token</I>. The wording as amended seems
+sufficiently clear to consider <A HREF="cwg_active.html#1698">issue 1698</A>
+resolved.</P>
+
+<BR><BR><HR>
+<A NAME="2755"></A><H4>2755.
+  
+Incorrect wording applied by P2738R1
+</H4>
+<B>Section: </B>7.7&#160; [<A href="https://wg21.link/expr.const">expr.const</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>ready
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Jens Maurer
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-06-28<BR>
+
+
+<P>
+<A HREF="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2738r1.pdf">P2738R1</A>
+(constexpr cast from void*: towards constexpr type-erasure)
+applied incorrect wording to 7.7 [<A href="https://wg21.link/expr.const#5.14">expr.const</A>] bullet 5.14:</P>
+
+<BLOCKQUOTE>
+
+<UL>
+<LI>...</LI>
+<LI>a conversion from a prvalue P of type &#8221;pointer to cv
+void&#8221; to a pointer-to-object type T unless P points to an object
+whose type is similar to T;
+</LI>
+
+<LI>...</LI>
+</UL>
+
+</BLOCKQUOTE>
+
+<P>The issue is that <TT>T</TT> is defined to be a pointer type, but
+the "similar to" phrasing uses it as the pointee type.</P>
+
+<P><B>Proposed resolution (approved by CWG 2023-07-14):</B></P>
+
+<P>Change in 7.7 [<A href="https://wg21.link/expr.const#5.14">expr.const</A>] bullet 5.14 as follows:</P>
+
+<BLOCKQUOTE>
+
+<UL>
+<LI>...</LI>
+<LI>a conversion from a prvalue P of type &#8221;pointer to cv
+void&#8221; to a <DEL>pointer-to-object</DEL> type <DEL>T</DEL> <INS>"<I>cv1</I>
+pointer to <TT>T</TT>", where <TT>T</TT> is
+not <I>cv2</I> <TT>void</TT>,</INS> unless P points to an
+object whose type is similar to T;
+</LI>
+
+<LI>...</LI>
+</UL>
+
+</BLOCKQUOTE>
+
+<BR><BR><HR>
+<A NAME="2763"></A><H4>2763.
+  
+Ignorability of [[noreturn]] during constant evaluation
+</H4>
+<B>Section: </B>7.7&#160; [<A href="https://wg21.link/expr.const">expr.const</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>ready
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Jiang An
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-07-10<BR>
+
+
+<P>Subclause 9.12.10 [<A href="https://wg21.link/dcl.attr.noreturn#2">dcl.attr.noreturn</A>] paragraph 2 specifies:</P>
+
+<BLOCKQUOTE>
+
+If a function f is called where f was previously declared with the
+<TT>noreturn</TT> attribute and f eventually returns, the behavior is
+undefined.
+
+</BLOCKQUOTE>
+
+<P>Undefineed behavior is, in general, detected during constant
+evaluation, thus requiring an implementation to actually support
+the <TT>noreturn</TT> attribute, such as in the following example:</P>
+
+<PRE>
+  [[noreturn]] constexpr void f() {}
+  constexpr int x = (f(), 0);
+</PRE>
+
+<P>It might be desirable to treat the <TT>assume</TT>
+and <TT>noreturn</TT> attributes alike in that regard.</P>
+
+<P><B>Proposed resolution (approved by CWG 2023-07-14)</B></P>
+
+<P>Split into a separate paragraph and change 7.7 [<A href="https://wg21.link/expr.const#5">expr.const</A>] paragraph 5 as follows:</P>
+
+<BLOCKQUOTE>
+
+It is unspecified whether E is a core constant expression if E
+satisfies the constraints of a core constant expression, but
+evaluation of E would evaluate
+<UL>
+<LI>an operation that has undefined
+behavior as specified in Clause 16 through Clause 33,</LI>
+<LI>an invocation of the va_start macro
+(17.13.2 [<A href="https://wg21.link/cstdarg.syn">cstdarg.syn</A>]), <DEL>or</DEL>
+</LI>
+<LI class="ins">a <TT>return</TT> statement in a function that was
+previously declared with the <TT>noreturn</TT> attribute
+(9.12.10 [<A href="https://wg21.link/dcl.attr.noreturn">dcl.attr.noreturn</A>]), or</LI>
+<LI>
+a statement with an assumption (9.12.3 [<A href="https://wg21.link/dcl.attr.assume">dcl.attr.assume</A>])
+whose converted <I>conditional-expression</I>, if evaluated where the
+assumption appears, would not disqualify E from being a core constant
+expression and would not evaluate to <TT>true</TT>.  [ Note: .... ]</LI>
+</UL>
+
+</BLOCKQUOTE>
+
+<P><B>CWG 2023-07-14</B></P>
+
+<P>As an alternative, all of 9.12 [<A href="https://wg21.link/dcl.attr">dcl.attr</A>] could be added
+to the "library undefined behavior" bullet.  However, CWG felt that a
+case-by-case consideration is warranted, given that assumptions set
+precedent in requiring special treatment.</P>
+
+<BR><BR><HR>
+<A NAME="2553"></A><H4>2553.
+  
+Restrictions on explicit object member functions
+</H4>
+<B>Section: </B>9.3.4.6&#160; [<A href="https://wg21.link/dcl.fct">dcl.fct</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>ready
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Jens Maurer
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2021-12-10<BR>
+
+
+
+
+<P>Subclause 9.3.4.6 [<A href="https://wg21.link/dcl.fct#6">dcl.fct</A>] paragraph 6 specifies</P>
+
+<BLOCKQUOTE>
+
+A <I>member-declarator</I> with
+an <I>explicit-object-parameter-declaration</I> shall not include
+a <I>ref-qualifier</I> or a <I>cv-qualifier-seq</I> and shall not be
+declared <TT>static</TT> or <TT>virtual</TT>.
+
+</BLOCKQUOTE>
+
+<P>This does not address the situation when an explicit object member
+function becomes implicitly virtual by overriding an implicit object
+member function.  That should be prevented.</P>
+
+<P>This also does not address class-specific allocation and
+deallocation functions, which are implicitly <TT>static</TT>.</P>
+
+<P><B>Proposed resolution (approved by CWG 2023-06-15) [SUPERSEDED]:</B></P>
+
+<OL>
+<LI>
+<P>Change in 9.3.4.6 [<A href="https://wg21.link/dcl.fct#6">dcl.fct</A>] paragraph 6 as follows:</P>
+
+<BLOCKQUOTE>
+
+A <I>member-declarator</I> with
+an <I>explicit-object-parameter-declaration</I> shall not include
+a <I>ref-qualifier</I> or a <I>cv-qualifier-seq</I> and shall not be
+declared <TT>static</TT> <DEL>or <TT>virtual</TT></DEL>.
+
+</BLOCKQUOTE>
+
+</LI>
+
+<LI>
+<P>Change in 9.3.4.6 [<A href="https://wg21.link/dcl.fct#7">dcl.fct</A>] paragraph 7 as follows:</P>
+
+<BLOCKQUOTE>
+
+... An <I>implicit object member function</I> is a non-static member
+function without an explicit object parameter.
+<INS>[ <I>Note:</I> An explicit object member function cannot be
+virtual (11.7.3 [<A href="https://wg21.link/class.virtual">class.virtual</A>]). -- <I>end note</I> ]</INS>
+
+</BLOCKQUOTE>
+
+</LI>
+
+<LI>
+<P>Add a new paragraph before 11.7.3 [<A href="https://wg21.link/class.virtual#7">class.virtual</A>] paragraph 7 as
+follows:</P>
+
+<BLOCKQUOTE>
+
+<P><INS>A virtual function shall not be an explicit object member
+function (9.3.4.6 [<A href="https://wg21.link/dcl.fct">dcl.fct</A>]).</INS></P>
+
+<P><INS>[ <I>Example:</I></INS></P>
+<PRE class="ins">
+  struct B {
+    virtual void g(); // #1
+  };
+  struct D : B {
+    virtual void f(this D&amp;);  //<SPAN CLASS="cmnt"> error: explicit object member function cannot be virtual</SPAN>
+    void g(this D&amp;);          //<SPAN CLASS="cmnt"> error: overrides #1; explicit object member function cannot be virtual</SPAN>
+  };
+</PRE>
+<P><INS>-- <I>end example</I>]</INS></P>
+
+<P>The <I>ref-qualifier</I>, or lack thereof, ...</P>
+
+</BLOCKQUOTE>
+
+</LI>
+
+</OL>
+
+<P><B>Proposed resolution (approved by CWG 2023-07-14):</B></P>
+
+<OL>
+<LI>
+<P>Change in 9.3.4.6 [<A href="https://wg21.link/dcl.fct#6">dcl.fct</A>] paragraph 6 as follows:</P>
+
+<BLOCKQUOTE>
+
+A <I>member-declarator</I> with
+an <I>explicit-object-parameter-declaration</I> shall not include
+a <I>ref-qualifier</I> or a <I>cv-qualifier-seq</I> and shall not be
+declared <TT>static</TT> <DEL>or <TT>virtual</TT></DEL>.
+
+</BLOCKQUOTE>
+
+</LI>
+
+<LI>
+<P>Change in 9.3.4.6 [<A href="https://wg21.link/dcl.fct#7">dcl.fct</A>] paragraph 7 as follows:</P>
+
+<BLOCKQUOTE>
+
+... An <I>implicit object member function</I> is a non-static member
+function without an explicit object parameter.
+<INS>[ <I>Note:</I> An explicit object member function cannot be
+virtual (11.7.3 [<A href="https://wg21.link/class.virtual">class.virtual</A>]). -- <I>end note</I> ]</INS>
+
+</BLOCKQUOTE>
+
+</LI>
+
+<LI>
+<P>Change in 11.4.11 [<A href="https://wg21.link/class.free#1">class.free</A>] paragraph 1 as follows:</P>
+
+<BLOCKQUOTE>
+
+Any allocation function for a class T is a static member (even if not
+explicitly declared static)<INS>; it shall not have an explicit object
+parameter</INS>.
+
+</BLOCKQUOTE>
+
+</LI>
+
+<LI>
+<P>Change in 11.4.11 [<A href="https://wg21.link/class.free#3">class.free</A>] paragraph 3 as follows:</P>
+
+<BLOCKQUOTE>
+
+Any deallocation function for a class T is a static member (even if not
+explicitly declared static)<INS>; it shall not have an explicit object
+parameter</INS>.
+
+</BLOCKQUOTE>
+
+</LI>
+
+<LI>
+<P>Change in 11.4.11 [<A href="https://wg21.link/class.free#4">class.free</A>] paragraph 4 as follows:</P>
+
+<BLOCKQUOTE>
+
+<INS>[ Note:</INS> Since member allocation and deallocation functions
+are static they cannot be virtual. <INS>-- end note ]</INS>
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+<P>Add a new paragraph before 11.7.3 [<A href="https://wg21.link/class.virtual#7">class.virtual</A>] paragraph 7 as
+follows:</P>
+
+<BLOCKQUOTE>
+
+<P><INS>A virtual function shall not be an explicit object member
+function (9.3.4.6 [<A href="https://wg21.link/dcl.fct">dcl.fct</A>]).</INS></P>
+
+<P><INS>[ <I>Example:</I></INS></P>
+<PRE class="ins">
+  struct B {
+    virtual void g(); // #1
+  };
+  struct D : B {
+    virtual void f(this D&amp;);  //<SPAN CLASS="cmnt"> error: explicit object member function cannot be virtual</SPAN>
+    void g(this D&amp;);          //<SPAN CLASS="cmnt"> error: overrides #1; explicit object member function cannot be virtual</SPAN>
+  };
+</PRE>
+<P><INS>-- <I>end example</I>]</INS></P>
+
+<P>The <I>ref-qualifier</I>, or lack thereof, ...</P>
+
+</BLOCKQUOTE>
+
+</LI>
+
+</OL>
+
+<BR><BR><HR>
+<A NAME="2754"></A><H4>2754.
+  
+Using *this in explicit object member functions that are coroutines
+</H4>
+<B>Section: </B>9.5.4&#160; [<A href="https://wg21.link/dcl.fct.def.coroutine">dcl.fct.def.coroutine</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>ready
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Christof Meerwald
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-06-23<BR>
+
+
+<P>Subclause 9.5.4 [<A href="https://wg21.link/dcl.fct.def.coroutine#4">dcl.fct.def.coroutine</A>] paragraph 4 specifies:</P>
+
+<BLOCKQUOTE>
+
+In the following, pi is an lvalue of type Pi , where p1 denotes the
+object parameter and pi+1 denotes the ith non-object function
+parameter for a non-static member function, and pi denotes the ith
+function parameter otherwise. For a non-static member function, q1 is
+an lvalue that denotes <TT>*this</TT>; any other qi is an lvalue that denotes
+the parameter copy corresponding to pi , as described below.
+
+</BLOCKQUOTE>
+
+<P>An explicit object member function is a non-static member function,
+but there is no <TT>this</TT>.</P>
+
+<P><B>Proposed resolution (approved by CWG 2023-07-14):</B></P>
+
+<P>Change in 9.5.4 [<A href="https://wg21.link/dcl.fct.def.coroutine#4">dcl.fct.def.coroutine</A>] paragraph 4 as follows:</P>
+
+<BLOCKQUOTE>
+
+In the following, pi is an lvalue of type Pi , where p1 denotes the
+object parameter and pi+1 denotes the ith non-object function
+parameter for <DEL>a non-static</DEL> <INS>an implicit object</INS>
+member function, and pi denotes the ith function parameter
+otherwise. For <DEL>a non-static</DEL> <INS>an implicit object</INS>
+member function, q1 is an lvalue that denotes <TT>*this</TT>; any
+other qi is an lvalue that denotes the parameter copy corresponding to
+pi, as described below.
+
+</BLOCKQUOTE>
+
+<BR><BR><BR><BR><HR>
 <A NAME="Tentatively%20Ready%20Status"></A><H3>Issues with "Tentatively Ready" Status</H3>
 <HR>
+<A NAME="2753"></A><H4>2753.
+  
+Storage reuse for string literal objects and backing arrays
+</H4>
+<B>Section: </B>6.7.2&#160; [<A href="https://wg21.link/intro.object">intro.object</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>tentatively ready
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Brian Bi
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-06-29<BR>
+
+
+
+
+<P>Subclause 6.7.2 [<A href="https://wg21.link/intro.object#9">intro.object</A>] paragraph 9 specifies the general
+principle that two objects with overlapping lifetimes have
+non-overlapping storage, which can be observed by comparing
+addresses:</P>
+
+<BLOCKQUOTE>
+
+Unless an object is a bit-field or a subobject of zero size, the
+address of that object is the address of the first byte it
+occupies. Two objects with overlapping lifetimes that are not
+bit-fields may have the same address if one is nested within the
+other, or if at least one is a subobject of zero size and they are of
+different types; otherwise, they have distinct addresses and occupy
+disjoint bytes of storage.
+
+</BLOCKQUOTE>
+
+<P>After P2752, there are two exceptions: string literal objects and
+backing arrays for initializer lists.</P>
+
+<P>Subclause 5.13.5 [<A href="https://wg21.link/lex.string#9">lex.string</A>] paragraph 9 specifies:</P>
+
+<BLOCKQUOTE>
+
+Evaluating a <I>string-literal</I> results in a string literal object
+with static storage duration (6.7.5 [<A href="https://wg21.link/basic.stc">basic.stc</A>]). Whether
+all <I>string-literal</I>s are distinct (that is, are stored in
+nonoverlapping objects) and whether successive evaluations of
+a <I>string-literal</I> yield the same or a different object is
+unspecified.
+
+</BLOCKQUOTE>
+
+<P>Subclause 9.4.4 [<A href="https://wg21.link/dcl.init.ref#5">dcl.init.ref</A>] paragraph 5, after application of P2752R3 (approved in June, 2023), specifies:</P>
+
+<BLOCKQUOTE>
+
+Whether all backing arrays are distinct (that is, are stored in
+non-overlapping objects) is unspecified.
+
+</BLOCKQUOTE>
+
+<P>It is unclear whether a backing array can overlap with a string
+literal object.</P>
+
+<P>Furthermore, it is unclear whether any such object can overlap with
+named objects or temporaries, for example:</P>
+
+<PRE>
+  const char (&amp;r) [] = "foo";
+  const char a[] = {'f', 'o', 'o', '\0'};
+
+  int main() {  
+    assert(&amp;r == &amp;a);   // allowed not to fail?
+  }
+</PRE>
+
+<P><B>Proposed resolution (approved by CWG 2023-07-14):</B></P>
+
+<OL>
+
+<LI>
+<P>Add a new paragraph before 6.7.2 [<A href="https://wg21.link/intro.object#9">intro.object</A>] paragraph 9 and
+change the latter as follows:</P>
+
+<BLOCKQUOTE>
+
+<P class="ins">
+An object is a <I>potentially non-unique object</I> if it is a string literal
+object (5.13.5 [<A href="https://wg21.link/lex.string">lex.string</A>]), the backing array of an
+initializer list (9.4.4 [<A href="https://wg21.link/dcl.init.ref">dcl.init.ref</A>]), or a subobject thereof.
+</P>
+
+<P>Unless an object is a bit-field or a subobject of zero size, the
+address of that object is the address of the first byte it
+occupies. Two objects with overlapping lifetimes that are not
+bit-fields may have the same address if one is nested within the
+other, or if at least one is a subobject of zero size and they are of
+different types<INS>, or if they are both potentially non-unique objects</INS>;
+otherwise, they have distinct addresses and occupy disjoint bytes of
+storage.</P>
+
+<P>[Example 2:</P>
+
+<PRE>
+  static const char test1 = 'x';
+  static const char test2 = 'x';
+  const bool b = &amp;test1 != &amp;test2;  //<SPAN CLASS="cmnt"> always true</SPAN>
+
+<INS>  static const char (&amp;r) [] = "x";
+  static const char *s = "x";  
+  static std::initializer_list&lt;char&gt; il = { 'x' };
+  const bool b2 = r != il.begin();        //<SPAN CLASS="cmnt"> unspecified result</SPAN>
+  const bool b3 = r != s;                 //<SPAN CLASS="cmnt"> unspecified result</SPAN>
+  const bool b4 = il.begin() != &amp;test1;   //<SPAN CLASS="cmnt"> always </SPAN>true
+  const bool b5 = r != &amp;test1;            //<SPAN CLASS="cmnt"> always </SPAN>true</INS>
+</PRE>
+<P> -- end example]</P>
+
+</BLOCKQUOTE>
+
+</LI>
+
+<LI>
+<P>Change in subclause 5.13.5 [<A href="https://wg21.link/lex.string#9">lex.string</A>] paragraph 9 as follows:</P>
+
+<BLOCKQUOTE>
+
+Evaluating a <I>string-literal</I> results in a string literal object
+with static storage duration (6.7.5 [<A href="https://wg21.link/basic.stc">basic.stc</A>]). <INS>[ Note: String literal objects are potentially non-unique
+objects (6.7.2 [<A href="https://wg21.link/intro.object">intro.object</A>]).</INS> Whether
+<DEL>all <I>string-literal</I>s are distinct (that is, are stored in
+nonoverlapping objects) and whether</DEL> successive evaluations of
+a <I>string-literal</I> yield the same or a different object
+is unspecified. <INS>-- end note ]</INS>
+
+</BLOCKQUOTE>
+
+</LI>
+
+<LI>
+<P>Change in subclause 9.4.4 [<A href="https://wg21.link/dcl.init.ref#5">dcl.init.ref</A>] paragraph 5, after
+application of P2752R3 (approved in June, 2023), as follows:</P>
+
+<BLOCKQUOTE>
+
+<DEL>Whether all backing arrays are distinct (that is, are stored in
+non-overlapping objects) is unspecified.</DEL> <INS>[ Note: Backing
+arrays are potentially non-unique objects (6.7.2 [<A href="https://wg21.link/intro.object">intro.object</A>]). -- end
+note ]</INS>
+
+</BLOCKQUOTE>
+</LI>
+
+</OL>
+
+<P><B>CWG 2023-07-14</B></P>
+
+<P>CWG resolved that a named or temporary object is always disjoint
+from any other object, and thus cannot overlap with a string literal
+object or a backing array.  The lines <TT>b4</TT> and <TT>b5</TT> in the example
+highlight that outcome.</P>
+
+<P>Backing arrays and string literals can arbitrarily overlap among
+themselves; CWG believes the proposed wording achieves that
+outcome.</P>
+
+<P>The ancillary question how address comparisons between potentially
+non-unique objects are treated during constant evaluation is handled
+in <A HREF="cwg_active.html#2765">issue 2765</A>.</P>
+
+<BR><BR><HR>
 <A NAME="2565"></A><H4>2565.
   
 Invalid types in the <I>parameter-declaration-clause</I> of a <I>requires-expression</I>
@@ -9571,6 +10235,103 @@ of the left and right operands and before the assignment.
 logical, but S(E) is a set of subexpressions of E and there is no form
 of expression that names an anonymous union member. Redefining S(E) to
 be a set of objects might be a better option.</P>
+
+<BR><BR><HR>
+<A NAME="2756"></A><H4>2756.
+  
+Completion of initialization by delegating constructor
+</H4>
+<B>Section: </B>11.9&#160; [<A href="https://wg21.link/class.init">class.init</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>tentatively ready
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Brian Bi
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-06-20<BR>
+
+
+
+
+<P>Subclause 6.7.3 [<A href="https://wg21.link/basic.life#1">basic.life</A>] paragraph 1 specifies:</P>
+
+<BLOCKQUOTE>
+
+... The lifetime of an object of type T begins when:
+<UL>
+<LI>storage with the proper alignment and size for type T is obtained,
+and</LI>
+<LI>its initialization (if any) is complete (including vacuous
+initialization) (9.4 [<A href="https://wg21.link/dcl.init">dcl.init</A>]),</LI>
+</UL>
+
+except that ...
+
+</BLOCKQUOTE>
+
+<P>It is unclear whether initialization is considered complete when
+the (ultimate) target constructor completes, or when the outermost
+delegating constructor completes.  Subclause 14.3 [<A href="https://wg21.link/except.ctor#4">except.ctor</A>] paragraph 4 suggests it is the former:</P>
+
+<BLOCKQUOTE>
+
+If the <I>compound-statement</I> of the <I>function-body</I> of a
+delegating constructor for an object exits via an exception, the
+object's destructor is invoked. ...
+
+</BLOCKQUOTE>
+
+<P><B>Proposed resolution (approved by CWG 2023-07-14):</B></P>
+
+<OL>
+
+<LI>
+<P>Split and change 11.9.3 [<A href="https://wg21.link/class.base.init#9">class.base.init</A>] paragraph 9 as follows:</P>
+
+<BLOCKQUOTE>
+
+<P>[Note 3: An abstract class ... -- end note ]
+<DEL>An attempt to initialize more than one non-static data member of a
+union renders the program ill-formed.</DEL>
+[Note 4: After the call to a constructor for class X ... -- end note ]
+[Example 6: ... -- end example ]</P>
+
+<P class="ins">
+An attempt to initialize more than one non-static data
+member of a union renders the program ill-formed.</P>
+
+<P class="ins">
+An object's initialization is considered complete when a
+non-delegating constructor for that object returns. [Note: Therefore,
+an object's lifetime can begin (6.7.3 [<A href="https://wg21.link/basic.life">basic.life</A>]) before all
+delegating constructors have completed. -- end note]</P>
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+
+<P>Change in 6.7.3 [<A href="https://wg21.link/basic.life#1.2">basic.life</A>] bullet 1.2 as follows:</P>
+
+<BLOCKQUOTE>
+
+... The lifetime of an object of type T begins when:
+<UL>
+<LI>storage with the proper alignment and size for type T is obtained,
+and</LI>
+<LI>its initialization (if any) is complete (including vacuous
+initialization) (9.4 [<A href="https://wg21.link/dcl.init">dcl.init</A>]<INS>,
+11.9.3 [<A href="https://wg21.link/class.base.init">class.base.init</A>]</INS>),</LI>
+</UL>
+
+except that ...
+
+</BLOCKQUOTE>
+
+</LI>
+</OL>
 
 <BR><BR><HR>
 <A NAME="1038"></A><H4>1038.
@@ -11510,7 +12271,7 @@ convert the expression to a prvalue.
 <P>See also
 <A HREF="https://github.com/llvm/llvm-project/issues/54016">clang issue 54016</A>.</P>
 
-<P><U>Possible resolution:</U></P>
+<P><B>Proposed resolution:</B></P>
 
 <P>Change in 7.6.6 [<A href="https://wg21.link/expr.add#1">expr.add</A>] paragraph 1 as follows:</P>
 
@@ -11523,6 +12284,13 @@ conversion (7.3.3 [<A href="https://wg21.link/conv.array">conv.array</A>]) is ap
 array type.</INS>
 
 </BLOCKQUOTE>
+
+<P><B>CWG 2023-07-14</B></P>
+
+<P>CWG is generally in favor of the proposed resolution, but the
+interaction with the surrounding text needs to be checked in more
+detail after a Working Draft reflecting the Varna straw polls has
+become available.</P>
 
 <BR><BR><HR>
 <A NAME="2531"></A><H4>2531.
@@ -11707,200 +12475,6 @@ statements.
 -- end example ]
 
 </BLOCKQUOTE>
-
-<BR><BR><HR>
-<A NAME="2553"></A><H4>2553.
-  
-Restrictions on explicit object member functions
-</H4>
-<B>Section: </B>9.3.4.6&#160; [<A href="https://wg21.link/dcl.fct">dcl.fct</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>review
- &#160;&#160;&#160;
-
- <B>Submitter: </B>Jens Maurer
- &#160;&#160;&#160;
-
- <B>Date: </B>2021-12-10<BR>
-
-
-
-
-<P>Subclause 9.3.4.6 [<A href="https://wg21.link/dcl.fct#6">dcl.fct</A>] paragraph 6 specifies</P>
-
-<BLOCKQUOTE>
-
-A <I>member-declarator</I> with
-an <I>explicit-object-parameter-declaration</I> shall not include
-a <I>ref-qualifier</I> or a <I>cv-qualifier-seq</I> and shall not be
-declared <TT>static</TT> or <TT>virtual</TT>.
-
-</BLOCKQUOTE>
-
-<P>This does not address the situation when an explicit object member
-function becomes implicitly virtual by overriding an implicit object
-member function.  That should be prevented.</P>
-
-<P>This also does not address class-specific allocation and
-deallocation functions, which are implicitly <TT>static</TT>.</P>
-
-<P><B>Proposed resolution (approved by CWG 2023-06-15) [SUPERSEDED]:</B></P>
-
-<OL>
-<LI>
-<P>Change in 9.3.4.6 [<A href="https://wg21.link/dcl.fct#6">dcl.fct</A>] paragraph 6 as follows:</P>
-
-<BLOCKQUOTE>
-
-A <I>member-declarator</I> with
-an <I>explicit-object-parameter-declaration</I> shall not include
-a <I>ref-qualifier</I> or a <I>cv-qualifier-seq</I> and shall not be
-declared <TT>static</TT> <DEL>or <TT>virtual</TT></DEL>.
-
-</BLOCKQUOTE>
-
-</LI>
-
-<LI>
-<P>Change in 9.3.4.6 [<A href="https://wg21.link/dcl.fct#7">dcl.fct</A>] paragraph 7 as follows:</P>
-
-<BLOCKQUOTE>
-
-... An <I>implicit object member function</I> is a non-static member
-function without an explicit object parameter.
-<INS>[ <I>Note:</I> An explicit object member function cannot be
-virtual (11.7.3 [<A href="https://wg21.link/class.virtual">class.virtual</A>]). -- <I>end note</I> ]</INS>
-
-</BLOCKQUOTE>
-
-</LI>
-
-<LI>
-<P>Add a new paragraph before 11.7.3 [<A href="https://wg21.link/class.virtual#7">class.virtual</A>] paragraph 7 as
-follows:</P>
-
-<BLOCKQUOTE>
-
-<P><INS>A virtual function shall not be an explicit object member
-function (9.3.4.6 [<A href="https://wg21.link/dcl.fct">dcl.fct</A>]).</INS></P>
-
-<P><INS>[ <I>Example:</I></INS></P>
-<PRE class="ins">
-  struct B {
-    virtual void g(); // #1
-  };
-  struct D : B {
-    virtual void f(this D&amp;);  //<SPAN CLASS="cmnt"> error: explicit object member function cannot be virtual</SPAN>
-    void g(this D&amp;);          //<SPAN CLASS="cmnt"> error: overrides #1; explicit object member function cannot be virtual</SPAN>
-  };
-</PRE>
-<P><INS>-- <I>end example</I>]</INS></P>
-
-<P>The <I>ref-qualifier</I>, or lack thereof, ...</P>
-
-</BLOCKQUOTE>
-
-</LI>
-
-</OL>
-
-<P><B>Proposed resolution:</B></P>
-
-<OL>
-<LI>
-<P>Change in 9.3.4.6 [<A href="https://wg21.link/dcl.fct#6">dcl.fct</A>] paragraph 6 as follows:</P>
-
-<BLOCKQUOTE>
-
-A <I>member-declarator</I> with
-an <I>explicit-object-parameter-declaration</I> shall not include
-a <I>ref-qualifier</I> or a <I>cv-qualifier-seq</I> and shall not be
-declared <TT>static</TT> <DEL>or <TT>virtual</TT></DEL>.
-
-</BLOCKQUOTE>
-
-</LI>
-
-<LI>
-<P>Change in 9.3.4.6 [<A href="https://wg21.link/dcl.fct#7">dcl.fct</A>] paragraph 7 as follows:</P>
-
-<BLOCKQUOTE>
-
-... An <I>implicit object member function</I> is a non-static member
-function without an explicit object parameter.
-<INS>[ <I>Note:</I> An explicit object member function cannot be
-virtual (11.7.3 [<A href="https://wg21.link/class.virtual">class.virtual</A>]). -- <I>end note</I> ]</INS>
-
-</BLOCKQUOTE>
-
-</LI>
-
-<LI>
-<P>Change in 11.4.11 [<A href="https://wg21.link/class.free#1">class.free</A>] paragraph 1 as follows:</P>
-
-<BLOCKQUOTE>
-
-Any allocation function for a class T is a static member (even if not
-explicitly declared static)<INS>; it shall not have an explicit object
-parameter</INS>.
-
-</BLOCKQUOTE>
-
-</LI>
-
-<LI>
-<P>Change in 11.4.11 [<A href="https://wg21.link/class.free#3">class.free</A>] paragraph 3 as follows:</P>
-
-<BLOCKQUOTE>
-
-Any deallocation function for a class T is a static member (even if not
-explicitly declared static)<INS>; it shall not have an explicit object
-parameter</INS>.
-
-</BLOCKQUOTE>
-
-</LI>
-
-<LI>
-<P>Change in 11.4.11 [<A href="https://wg21.link/class.free#4">class.free</A>] paragraph 4 as follows:</P>
-
-<BLOCKQUOTE>
-
-<INS>[ Note:</INS> Since member allocation and deallocation functions
-are static they cannot be virtual. <INS>-- end note ]</INS>
-
-</BLOCKQUOTE>
-</LI>
-
-<LI>
-<P>Add a new paragraph before 11.7.3 [<A href="https://wg21.link/class.virtual#7">class.virtual</A>] paragraph 7 as
-follows:</P>
-
-<BLOCKQUOTE>
-
-<P><INS>A virtual function shall not be an explicit object member
-function (9.3.4.6 [<A href="https://wg21.link/dcl.fct">dcl.fct</A>]).</INS></P>
-
-<P><INS>[ <I>Example:</I></INS></P>
-<PRE class="ins">
-  struct B {
-    virtual void g(); // #1
-  };
-  struct D : B {
-    virtual void f(this D&amp;);  //<SPAN CLASS="cmnt"> error: explicit object member function cannot be virtual</SPAN>
-    void g(this D&amp;);          //<SPAN CLASS="cmnt"> error: overrides #1; explicit object member function cannot be virtual</SPAN>
-  };
-</PRE>
-<P><INS>-- <I>end example</I>]</INS></P>
-
-<P>The <I>ref-qualifier</I>, or lack thereof, ...</P>
-
-</BLOCKQUOTE>
-
-</LI>
-
-</OL>
 
 <BR><BR><HR>
 <A NAME="2252"></A><H4>2252.
@@ -12104,7 +12678,9 @@ Applying <TT>[[maybe_unused]]</TT> to a label
  <B>Submitter: </B>Barry Revzin
  &#160;&#160;&#160;
 
- <B>Date: </B>2023-05-25<BR>
+ <B>Date: </B>2023-05-25
+  &#160;&#160;&#160;
+  <B>Liaison: </B>EWG<BR>
 
 
 <P>Subclause 9.12.8 [<A href="https://wg21.link/dcl.attr.unused#2">dcl.attr.unused</A>] paragraph 2 specifies:</P>
@@ -12122,7 +12698,7 @@ an enumerator.
 accept <TT>[[maybe_unused]]</TT> on a label, and behave
 accordingly.</P>
 
-<P><B>Proposed resolution (June, 2023):</B></P>
+<P><B>Proposed resolution (approved by CWG 2023-07-14)</B></P>
 
 <P>Change in 9.12.8 [<A href="https://wg21.link/dcl.attr.unused">dcl.attr.unused</A>] as follows:</P>
 
@@ -12173,6 +12749,15 @@ that <TT>b</TT> <INS>or <TT>x</TT></INS> is unused, whether or not
 <TT>NDEBUG</TT> is defined. &#8212; <I>end example</I>]
 
 </BLOCKQUOTE>
+
+<P><B>CWG 2023-07-14</B></P>
+
+<P>
+CWG has reviewed and approved the proposed resolution.  However, this
+is a new (albeit small) feature, thus forwarding to EWG via
+<A HREF="https://github.com/cplusplus/papers/issues/1585">paper issue 1585</A>
+for approval.
+</P>
 
 <BR><BR><HR>
 <A NAME="2554"></A><H4>2554.
@@ -25121,46 +25706,6 @@ what is implementation-defined.</P>
 attempting to resolve this issue.</P>
 
 <BR><BR><HR>
-<A NAME="1698"></A><H4>1698.
-  
-Files ending in <TT>\</TT>
-</H4>
-<B>Section: </B>5.2&#160; [<A href="https://wg21.link/lex.phases">lex.phases</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>open
- &#160;&#160;&#160;
-
- <B>Submitter: </B>David Krauss
- &#160;&#160;&#160;
-
- <B>Date: </B>2013-06-10<BR>
-
-
-<P>The description of how to handle file not ending in a newline in
-5.2 [<A href="https://wg21.link/lex.phases#1">lex.phases</A>] paragraph 1, phase 2, is:</P>
-
-<OL START="2">
-<LI><P>Each instance of a backslash character (<TT>\</TT>)
-immediately followed by a new-line character is deleted, splicing physical
-source lines to form logical source lines. Only the last backslash on any
-physical source line shall be eligible for being part of such a splice. If,
-as a result, a character sequence that matches the syntax of a
-universal-character-name is produced, the behavior is undefined. A source
-file that is not empty and that does not end in a new-line character, or
-that ends in a new-line character immediately preceded by a backslash
-character before any such splicing takes place, shall be processed as if an
-additional new-line character were appended to the file.</P></LI>
-
-</OL>
-
-<P>This is not clear regarding what happens if the last character in the
-file is a backslash.  In such a case, presumably the result of adding the
-newline should not be a line splice but rather a
-backslash <I>preprocessing-token</I> (that will be diagnosed as an invalid
-token in phase 7), but that should be spelled out.</P>
-
-<BR><BR><HR>
 <A NAME="2573"></A><H4>2573.
   
 Undefined behavior when splicing results in a <I>universal-character-name</I>
@@ -25200,60 +25745,6 @@ ought to be well-defined, ill-formed, or conditionally-supported.</P>
 <A HREF="https://github.com/cplusplus/papers/issues/1405">paper issue 1405</A>,
 by decision of the CWG and SG12 chairs.
 </P>
-
-<BR><BR><HR>
-<A NAME="2747"></A><H4>2747.
-  
-Cannot depend on an already-deleted splice
-</H4>
-<B>Section: </B>5.2&#160; [<A href="https://wg21.link/lex.phases">lex.phases</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>open
- &#160;&#160;&#160;
-
- <B>Submitter: </B>Jim X
- &#160;&#160;&#160;
-
- <B>Date: </B>2021-09-14<BR>
-
-
-<P>(From editorial issue
-<A HREF="https://github.com/cplusplus/draft/issues/4903">4903</A>.)</P>
-
-<P>Subclause 5.2 [<A href="https://wg21.link/lex.phases#2">lex.phases</A>] paragraph 2 specifies:</P>
-
-<BLOCKQUOTE>
-
-... Each sequence of a backslash character (\) immediately
-followed by zero or more whitespace characters other than new-line
-followed by a new-line character is deleted, splicing physical source
-lines to form logical source lines. ...  A source
-file that is not empty and that does not end in a new-line character,
-or that ends in a splice, shall be processed as if an additional
-new-line character were appended to the file.
-
-</BLOCKQUOTE>
-
-<P>This is confusing, because the first sentence deletes all splices,
-and then the last sentence checks for a splice that has already been
-deleted.</P>
-
-<P><U>Possible resolution:</U></P>
-
-<P>Change in 5.2 [<A href="https://wg21.link/lex.phases#2">lex.phases</A>] paragraph 2 as follows:</P>
-
-<BLOCKQUOTE>
-
-... Each sequence of a backslash character (\) immediately
-followed by zero or more whitespace characters other than new-line
-followed by a new-line character is deleted, splicing physical source
-lines to form logical source lines. ...  A source file that is not
-empty and that does not end in a new-line character<DEL>, or that ends
-in a splice,</DEL> <INS>(after splicing)</INS> shall be processed as
-if an additional new-line character were appended to the file.
-
-</BLOCKQUOTE>
 
 <BR><BR><HR>
 <A NAME="2574"></A><H4>2574.
@@ -26031,9 +26522,9 @@ nested within e.</LI>
 </BLOCKQUOTE>
 
 <BR><BR><HR>
-<A NAME="2753"></A><H4>2753.
+<A NAME="2765"></A><H4>2765.
   
-Storage reuse for string literal objects and backing arrays
+Address comparisons between potentially non-unique objects during constant evaluation
 </H4>
 <B>Section: </B>6.7.2&#160; [<A href="https://wg21.link/intro.object">intro.object</A>]
  &#160;&#160;&#160;
@@ -26041,147 +26532,51 @@ Storage reuse for string literal objects and backing arrays
  <B>Status: </B>open
  &#160;&#160;&#160;
 
- <B>Submitter: </B>Brian Bi
+ <B>Submitter: </B>CWG
  &#160;&#160;&#160;
 
- <B>Date: </B>2023-06-29<BR>
+ <B>Date: </B>2023-07-14<BR>
 
 
-
-
-<P>Subclause 6.7.2 [<A href="https://wg21.link/intro.object#9">intro.object</A>] paragraph 9 specifies the general
-principle that two objects with overlapping lifetimes have
-non-overlapping storage, which can be observed by comparing
-addresses:</P>
-
-<BLOCKQUOTE>
-
-Unless an object is a bit-field or a subobject of zero size, the
-address of that object is the address of the first byte it
-occupies. Two objects with overlapping lifetimes that are not
-bit-fields may have the same address if one is nested within the
-other, or if at least one is a subobject of zero size and they are of
-different types; otherwise, they have distinct addresses and occupy
-disjoint bytes of storage.
-
-</BLOCKQUOTE>
-
-<P>After P2752, there are two exceptions: string literal objects and
-backing arrays for initializer lists.</P>
-
-<P>Subclause 5.13.5 [<A href="https://wg21.link/lex.string#9">lex.string</A>] paragraph 9 specifies:</P>
-
-<BLOCKQUOTE>
-
-Evaluating a <I>string-literal</I> results in a string literal object
-with static storage duration (6.7.5 [<A href="https://wg21.link/basic.stc">basic.stc</A>]). Whether
-all <I>string-literal</I>s are distinct (that is, are stored in
-nonoverlapping objects) and whether successive evaluations of
-a <I>string-literal</I> yield the same or a different object is
-unspecified.
-
-</BLOCKQUOTE>
-
-<P>Subclause 9.4.4 [<A href="https://wg21.link/dcl.init.ref#5">dcl.init.ref</A>] paragraph 5, after application of P2752R3 (approved in June, 2023), specifies:</P>
-
-<BLOCKQUOTE>
-
-Whether all backing arrays are distinct (that is, are stored in
-non-overlapping objects) is unspecified.
-
-</BLOCKQUOTE>
-
-<P>It is unclear whether a backing array can overlap with a string
-literal object and whether any such object can overlap with named
-objects or temporaries, for example:</P>
-
-<PRE>
-  const char (&amp;r) [] = "foo";
-  const char a[] = {'f', 'o', 'o', '\0'};
-
-  int main() {  
-    assert(&amp;r == &amp;a);   // allowed not to fail?
-  }
-</PRE>
-
-<P><U>Possible resolution:</U></P>
-
-<OL>
-
-<LI>
-<P>Add a new paragraph before 6.7.2 [<A href="https://wg21.link/intro.object#9">intro.object</A>] paragraph 9 and
-change the latter as follows:</P>
-
-<BLOCKQUOTE>
-
-<P class="ins">
-An object is a <I>potentially non-unique object</I> if it is a string literal
-object (5.13.5 [<A href="https://wg21.link/lex.string">lex.string</A>]) or the backing array of an
-initializer list (9.4.4 [<A href="https://wg21.link/dcl.init.ref">dcl.init.ref</A>]).
+<P>
+The (arguably) expanded treatment of backing arrays and string
+literals as potentially non-unique objects in
+<A HREF="cwg_active.html#2753">issue 2753</A> lead to the question how
+the resulting address comparisons are treated during constant evaluation.
 </P>
 
-<P>Unless an object is a bit-field or a subobject of zero size, the
-address of that object is the address of the first byte it
-occupies. Two objects with overlapping lifetimes that are not
-bit-fields may have the same address if one is nested within the
-other, or if at least one is a subobject of zero size and they are of
-different types<INS>, or if they are both potentially non-unique objects</INS>;
-otherwise, they have distinct addresses and occupy disjoint bytes of
-storage.</P>
+<P>Subclause 7.7 [<A href="https://wg21.link/expr.const#5.24">expr.const</A>] bullet 5.24 specifies:</P>
 
-<P>[Example 2:</P>
+<BLOCKQUOTE>
+
+An expression E is a <I>core constant expression</I> unless the
+evaluation of E, following the rules of the abstract machine
+(6.9.1 [<A href="https://wg21.link/intro.execution">intro.execution</A>]), would evaluate one of the following:
+<UL>
+<LI>...</LI>
+<LI>a three-way comparison (7.6.8 [<A href="https://wg21.link/expr.spaceship">expr.spaceship</A>]), relational
+(7.6.9 [<A href="https://wg21.link/expr.rel">expr.rel</A>]), or equality
+(7.6.10 [<A href="https://wg21.link/expr.eq">expr.eq</A>]) operator where the result is
+unspecified;</LI>
+<LI>...</LI>
+</UL>
+
+</BLOCKQUOTE>
+
+<P>This phrasing is understood to refer to explicitly unspecified
+outcomes only.  The treatment of an example such as</P>
 
 <PRE>
-  static const char test1 = 'x';
-  static const char test2 = 'x';
-  const bool b = &amp;test1 != &amp;test2;  //<SPAN CLASS="cmnt"> always true</SPAN>
-
-<INS>  static const char (&amp;r) [] = "x";
-  static const char *s = "x";  
-  static std::initializer_list&lt;char&gt; il = { 'x' };
-  const bool b2 = r != il.begin();        //<SPAN CLASS="cmnt"> unspecified result</SPAN>
-  const bool b3 = r != s;                 //<SPAN CLASS="cmnt"> unspecified result</SPAN>
-  const bool b4 = il.begin() != &amp;test1;   //<SPAN CLASS="cmnt"> always </SPAN>true
-  const bool b5 = r != &amp;test1;            //<SPAN CLASS="cmnt"> always </SPAN>true</INS>
+  constexpr bool b = "abc" == "abc";
 </PRE>
-<P> -- end example]</P>
 
-</BLOCKQUOTE>
+<P>is unclear, given that identical string literals may or may not
+yield distinct string literal objects.</P>
 
-</LI>
-
-<LI>
-<P>Change in subclause 5.13.5 [<A href="https://wg21.link/lex.string#9">lex.string</A>] paragraph 9 as follows:</P>
-
-<BLOCKQUOTE>
-
-Evaluating a <I>string-literal</I> results in a string literal object
-with static storage duration (6.7.5 [<A href="https://wg21.link/basic.stc">basic.stc</A>]). <INS>[ Note: String literal objects are potentially non-unique
-objects (6.7.2 [<A href="https://wg21.link/intro.object">intro.object</A>]).</INS> Whether
-<DEL>all <I>string-literal</I>s are distinct (that is, are stored in
-nonoverlapping objects) and whether</DEL> successive evaluations of
-a <I>string-literal</I> yield the same or a different object
-is <INS>thus</INS> unspecified. <INS>-- end note ]</INS>
-
-</BLOCKQUOTE>
-
-</LI>
-
-<LI>
-<P>Change in subclause 9.4.4 [<A href="https://wg21.link/dcl.init.ref#5">dcl.init.ref</A>] paragraph 5, after
-application of P2752R3 (approved in June, 2023), as follows:</P>
-
-<BLOCKQUOTE>
-
-<DEL>Whether all backing arrays are distinct (that is, are stored in
-non-overlapping objects) is unspecified.</DEL> <INS>[ Note: Backing
-arrays are potentially non-unique objects (6.7.2 [<A href="https://wg21.link/intro.object">intro.object</A>]). -- end
-note ]</INS>
-
-</BLOCKQUOTE>
-</LI>
-
-</OL>
+<P>The assumption that equality comparison of
+<TT>std::string_view</TT> would compare addresses as a short-cut
+before comparing the character sequence could not be confirmed
+(23.2.2 [<A href="https://wg21.link/char.traits.require">char.traits.require</A>], 23.3.3.8 [<A href="https://wg21.link/string.view.ops#12">string.view.ops</A>] paragraph 12).</P>
 
 <BR><BR><HR>
 <A NAME="419"></A><H4>419.
@@ -30026,65 +30421,6 @@ lifetime did not begin within E are treated as having a dynamic type
 that is their declared type.</P>
 
 <BR><BR><HR>
-<A NAME="2755"></A><H4>2755.
-  
-Incorrect wording applied by P2738R1
-</H4>
-<B>Section: </B>7.7&#160; [<A href="https://wg21.link/expr.const">expr.const</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>open
- &#160;&#160;&#160;
-
- <B>Submitter: </B>Jens Maurer
- &#160;&#160;&#160;
-
- <B>Date: </B>2023-06-28<BR>
-
-
-<P>
-<A HREF="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2738r1.pdf">P2738R1</A>
-(constexpr cast from void*: towards constexpr type-erasure)
-applied incorrect wording to 7.7 [<A href="https://wg21.link/expr.const#5.14">expr.const</A>] bullet 5.14:</P>
-
-<BLOCKQUOTE>
-
-<UL>
-<LI>...</LI>
-<LI>a conversion from a prvalue P of type &#8221;pointer to cv
-void&#8221; to a pointer-to-object type T unless P points to an object
-whose type is similar to T;
-</LI>
-
-<LI>...</LI>
-</UL>
-
-</BLOCKQUOTE>
-
-<P>The issue is that <TT>T</TT> is defined to be a pointer type, but
-the "similar to" phrasing uses it as the pointee type.</P>
-
-<P><U>Possible resolution:</U></P>
-
-<P>Change in 7.7 [<A href="https://wg21.link/expr.const#5.14">expr.const</A>] bullet 5.14 as follows:</P>
-
-<BLOCKQUOTE>
-
-<UL>
-<LI>...</LI>
-<LI>a conversion from a prvalue P of type &#8221;pointer to cv
-void&#8221; to a <DEL>pointer-to-object</DEL> type <INS>"<I>cv</I>
-pointer to <TT>T</TT>", where <TT>T</TT> is
-not <I>cv</I> <TT>void</TT>,</INS> <DEL>T</DEL> unless P points to an
-object whose type is similar to T;
-</LI>
-
-<LI>...</LI>
-</UL>
-
-</BLOCKQUOTE>
-
-<BR><BR><HR>
 <A NAME="2760"></A><H4>2760.
   
 Defaulted constructor that is an immediate function
@@ -30190,72 +30526,6 @@ a <I>mem-initializer-id</I> (11.9.3 [<A href="https://wg21.link/class.base.init"
 </LI>
 
 </OL>
-
-<BR><BR><HR>
-<A NAME="2763"></A><H4>2763.
-  
-Ignorability of [[noreturn]] during constant evaluation
-</H4>
-<B>Section: </B>7.7&#160; [<A href="https://wg21.link/expr.const">expr.const</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>open
- &#160;&#160;&#160;
-
- <B>Submitter: </B>Jiang An
- &#160;&#160;&#160;
-
- <B>Date: </B>2023-07-10<BR>
-
-
-<P>Subclause 9.12.10 [<A href="https://wg21.link/dcl.attr.noreturn#2">dcl.attr.noreturn</A>] paragraph 2 specifies:</P>
-
-<BLOCKQUOTE>
-
-If a function f is called where f was previously declared with the
-<TT>noreturn</TT> attribute and f eventually returns, the behavior is
-undefined.
-
-</BLOCKQUOTE>
-
-<P>Undefineed behavior is, in general, detected during constant
-evaluation, thus requiring an implementation to actually support
-the <TT>noreturn</TT> attribute, such as in the following example:</P>
-
-<PRE>
-  [[noreturn]] constexpr void f() {}
-  constexpr int x = (f(), 0);
-</PRE>
-
-<P>It might be desirable to treat the <TT>assume</TT>
-and <TT>noreturn</TT> attributes alike in that regard.</P>
-
-<P><U>Possible resolution:</U></P>
-
-<P>Split into a separate paragraph and change 7.7 [<A href="https://wg21.link/expr.const#5">expr.const</A>] paragraph 5 as follows:</P>
-
-<BLOCKQUOTE>
-
-It is unspecified whether E is a core constant expression if E
-satisfies the constraints of a core constant expression, but
-evaluation of E would evaluate
-<UL>
-<LI>an operation that has undefined
-behavior as specified in Clause 16 through Clause 33,</LI>
-<LI>an invocation of the va_start macro
-(17.13.2 [<A href="https://wg21.link/cstdarg.syn">cstdarg.syn</A>]), <DEL>or</DEL>
-</LI>
-<LI class="ins">a <TT>return</TT> statement in a function that was
-previously declared with the <TT>noreturn</TT> attribute
-(9.12.10 [<A href="https://wg21.link/dcl.attr.noreturn">dcl.attr.noreturn</A>]), or</LI>
-<LI>
-a statement with an assumption (9.12.3 [<A href="https://wg21.link/dcl.attr.assume">dcl.attr.assume</A>])
-whose converted <I>conditional-expression</I>, if evaluated where the
-assumption appears, would not disqualify E from being a core constant
-expression and would not evaluate to <TT>true</TT>.  [ Note: .... ]</LI>
-</UL>
-
-</BLOCKQUOTE>
 
 <BR><BR><HR>
 <A NAME="2495"></A><H4>2495.
@@ -31842,56 +32112,6 @@ carrying with it ownership of the coroutine state.</LI>
 <P>See also <A HREF="cwg_defects.html#2451">issue 2451</A>.</P>
 
 <BR><BR><HR>
-<A NAME="2754"></A><H4>2754.
-  
-Using *this in explicit object member functions that are coroutines
-</H4>
-<B>Section: </B>9.5.4&#160; [<A href="https://wg21.link/dcl.fct.def.coroutine">dcl.fct.def.coroutine</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>open
- &#160;&#160;&#160;
-
- <B>Submitter: </B>Christof Meerwald
- &#160;&#160;&#160;
-
- <B>Date: </B>2023-06-23<BR>
-
-
-<P>Subclause 9.5.4 [<A href="https://wg21.link/dcl.fct.def.coroutine#4">dcl.fct.def.coroutine</A>] paragraph 4 specifies:</P>
-
-<BLOCKQUOTE>
-
-In the following, pi is an lvalue of type Pi , where p1 denotes the
-object parameter and pi+1 denotes the ith non-object function
-parameter for a non-static member function, and pi denotes the ith
-function parameter otherwise. For a non-static member function, q1 is
-an lvalue that denotes <TT>*this</TT>; any other qi is an lvalue that denotes
-the parameter copy corresponding to pi , as described below.
-
-</BLOCKQUOTE>
-
-<P>An explicit object member function is a non-static member function,
-but there is no <TT>this</TT>.</P>
-
-<P><U>Suggested resolution:</U></P>
-
-<P>Change in 9.5.4 [<A href="https://wg21.link/dcl.fct.def.coroutine#4">dcl.fct.def.coroutine</A>] paragraph 4 as follows:</P>
-
-<BLOCKQUOTE>
-
-In the following, pi is an lvalue of type Pi , where p1 denotes the
-object parameter and pi+1 denotes the ith non-object function
-parameter for <DEL>a non-static</DEL> <INS>an implicit object</INS>
-member function, and pi denotes the ith function parameter
-otherwise. For <DEL>a non-static</DEL> <INS>an implicit object</INS>
-member function, q1 is an lvalue that denotes <TT>*this</TT>; any
-other qi is an lvalue that denotes the parameter copy corresponding to
-pi, as described below.
-
-</BLOCKQUOTE>
-
-<BR><BR><HR>
 <A NAME="2340"></A><H4>2340.
   
 Reference collapsing and structured bindings
@@ -33208,103 +33428,6 @@ rejecting <TT>h</TT>.</P>
 
 <P>CWG affirmed the earlier direction and felt that there should be an
 implicit object expression assumed for these cases. </P>
-
-<BR><BR><HR>
-<A NAME="2756"></A><H4>2756.
-  
-Completion of initialization by delegating constructor
-</H4>
-<B>Section: </B>11.9&#160; [<A href="https://wg21.link/class.init">class.init</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>open
- &#160;&#160;&#160;
-
- <B>Submitter: </B>Brian Bi
- &#160;&#160;&#160;
-
- <B>Date: </B>2023-06-20<BR>
-
-
-
-
-<P>Subclause 6.7.3 [<A href="https://wg21.link/basic.life#1">basic.life</A>] paragraph 1 specifies:</P>
-
-<BLOCKQUOTE>
-
-... The lifetime of an object of type T begins when:
-<UL>
-<LI>storage with the proper alignment and size for type T is obtained,
-and</LI>
-<LI>its initialization (if any) is complete (including vacuous
-initialization) (9.4 [<A href="https://wg21.link/dcl.init">dcl.init</A>]),</LI>
-</UL>
-
-except that ...
-
-</BLOCKQUOTE>
-
-<P>It is unclear whether initialization is considered complete when
-the (ultimate) target constructor completes, or when the outermost
-delegating constructor completes.  Subclause 14.3 [<A href="https://wg21.link/except.ctor#4">except.ctor</A>] paragraph 4 suggests it is the former:</P>
-
-<BLOCKQUOTE>
-
-If the <I>compound-statement</I> of the <I>function-body</I> of a
-delegating constructor for an object exits via an exception, the
-object's destructor is invoked. ...
-
-</BLOCKQUOTE>
-
-<P><U>Suggested resolution:</U></P>
-
-<OL>
-
-<LI>
-<P>Split and change 11.9.3 [<A href="https://wg21.link/class.base.init#9">class.base.init</A>] paragraph 9 as follows:</P>
-
-<BLOCKQUOTE>
-
-<P>[Note 3: An abstract class ... -- end note ]
-<DEL>An attempt to initialize more than one non-static data member of a
-union renders the program ill-formed.</DEL>
-[Note 4: After the call to a constructor for class X ... -- end note ]
-[Example 6: ... -- end example ]</P>
-
-<P class="ins">
-An attempt to initialize more than one non-static data
-member of a union renders the program ill-formed.</P>
-
-<P class="ins">
-An object's initialization is considered complete when a
-non-delegating constructor for that object returns. [Note: Therefore,
-an object's lifetime can begin (6.7.3 [<A href="https://wg21.link/basic.life">basic.life</A>]) before all
-delegating constructors have completed. -- end note]</P>
-
-</BLOCKQUOTE>
-</LI>
-
-<LI>
-
-<P>Change in 6.7.3 [<A href="https://wg21.link/basic.life#1.2">basic.life</A>] bullet 1.2 as follows:</P>
-
-<BLOCKQUOTE>
-
-... The lifetime of an object of type T begins when:
-<UL>
-<LI>storage with the proper alignment and size for type T is obtained,
-and</LI>
-<LI>its initialization (if any) is complete (including vacuous
-initialization) (9.4 [<A href="https://wg21.link/dcl.init">dcl.init</A>]<INS>,
-11.9.3 [<A href="https://wg21.link/class.base.init">class.base.init</A>]</INS>),</LI>
-</UL>
-
-except that ...
-
-</BLOCKQUOTE>
-
-</LI>
-</OL>
 
 <BR><BR><HR>
 <A NAME="1915"></A><H4>1915.
