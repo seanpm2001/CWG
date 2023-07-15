@@ -50,19 +50,54 @@ because any definition attempt would violate the one-definition rule
 
 <P><U>Possible resolution:</U></P>
 
-<P>Change in 11.5.2 [<A href="https://wg21.link/class.union.anon">class.union.anon</A>] as follows:</P>
+<P>Split 11.5.2 [<A href="https://wg21.link/class.union.anon#1">class.union.anon</A>] paragraph 1 and change as follows:</P>
 
 <BLOCKQUOTE>
 
-<DEL>Anonymous unions declared in the scope of a namespace with external
-linkage shall be declared static.  Anonymous unions declared at block
-scope shall be declared with any storage class allowed for a block
-variable, or with no storage class.</DEL>
-<INS>An anonymous union whose declaration inhabits a namespace scope
-shall have internal linkage (6.6 [<A href="https://wg21.link/basic.link">basic.link</A>]).  An anonymous
-union whose declaration inhabits a block scope shall be a block
-variable (6.4.3 [<A href="https://wg21.link/basic.scope.block">basic.scope.block</A>]).</INS> A storage class is not
-allowed in a declaration of an anonymous union in a class scope.
+<P>
+<DEL>A union of the form</DEL>
+<INS>A <I>simple-declaration</I> of the form</INS>
+<PRE class="ins">
+  <I>decl-specifier-seq</I> ;
+</PRE>
+<INS>where one of the <I>decl-specifier</I>s is a <I>class-specifier</I>
+of the form</INS>
+<PRE>
+  union { <I>member-specification</I> } <DEL>;</DEL>
+</PRE>
+<DEL>is called</DEL> <INS>declares</INS> an <I>anonymous union</I>; it
+defines an unnamed type and an unnamed object of that type called an
+anonymous union member if it is a non-static data member or an
+anonymous union variable otherwise.
+<INS>The <I>storage-class-specifier</I> <TT>extern</TT>
+(9.2.2 [<A href="https://wg21.link/dcl.stc">dcl.stc</A>]) shall not be among
+the <I>decl-specifier</I>s declaring an anonymous union.</INS>
+</P>
+
+<P>
+Each <I>member-declaration</I> in the <I>member-specification</I> of
+an anonymous union shall either define one or more public non-static
+data members or be a static_<I>assert-declaration</I>. Nested types,
+anonymous unions, and functions shall not be declared within an
+anonymous union. The names of the members of an anonymous union are
+bound in the scope inhabited by the union declaration.
+</P>
+
+</BLOCKQUOTE>
+
+<P>Change in 11.5.2 [<A href="https://wg21.link/class.union.anon#2">class.union.anon</A>] paragraph 2 as follows:</P>
+
+<BLOCKQUOTE>
+
+<DEL>Anonymous unions declared in the scope of</DEL> <INS>An anonymous
+union whose declaration inhabits</INS> a namespace <INS>scope</INS>
+with external linkage shall be declared <TT>static</TT>.
+<DEL>Anonymous unions declared at block scope shall be declared with
+any storage class allowed for a block variable, or with no storage
+class.  A storage class is not allowed in a declaration of an
+anonymous union in a class scope.</DEL>
+<INS>An anonymous union whose declaration inhabits a class scope shall
+not be declared with a <I>storage-class-specifier</I>.</INS>
 
 </BLOCKQUOTE>
 
