@@ -1,0 +1,71 @@
+<HTML>
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<TITLE>
+    CWG Issue 2767</TITLE>
+<STYLE TYPE="text/css">
+  INS { text-decoration:none; font-weight:bold; background-color:#A0FFA0 }
+  .INS { text-decoration:none; background-color:#D0FFD0 }
+  DEL { text-decoration:line-through; background-color:#FFA0A0 }
+  SPAN.cmnt { font-family:Times; font-style:italic }
+</STYLE>
+</HEAD>
+<BODY>
+<P><EM>This is an unofficial snapshot of the ISO/IEC JTC1 SC22 WG21
+  Core Issues List revision 111d.
+  See http://www.open-std.org/jtc1/sc22/wg21/ for the official
+  list.</EM></P>
+<P>2023-07-15</P>
+<HR>
+<A NAME="2767"></A><H4>2767.
+  
+Non-defining declarations of anonymous unions
+</H4>
+<B>Section: </B>11.5.2&#160; [<A href="https://wg21.link/class.union.anon">class.union.anon</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Hubert Tong
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-07-06<BR>
+
+
+
+
+<P>Currently, the specification permits this example:</P>
+
+<PRE>
+  namespace {
+    extern union { int x, y; };
+    union { int x, y; };
+  };
+</PRE>
+
+<P>However, those non-defining declarations seem to be mostly useless,
+because any definition attempt would violate the one-definition rule
+(6.3 [<A href="https://wg21.link/basic.def.odr">basic.def.odr</A>]).</P>
+
+<P><U>Possible resolution:</U></P>
+
+<P>Change in 11.5.2 [<A href="https://wg21.link/class.union.anon">class.union.anon</A>] as follows:</P>
+
+<BLOCKQUOTE>
+
+<DEL>Anonymous unions declared in the scope of a namespace with external
+linkage shall be declared static.  Anonymous unions declared at block
+scope shall be declared with any storage class allowed for a block
+variable, or with no storage class.</DEL>
+<INS>An anonymous union whose declaration inhabits a namespace scope
+shall have internal linkage (6.6 [<A href="https://wg21.link/basic.link">basic.link</A>]).  An anonymous
+union whose declaration inhabits a block scope shall be a block
+variable (6.4.3 [<A href="https://wg21.link/basic.scope.block">basic.scope.block</A>]).</INS> A storage class is not
+allowed in a declaration of an anonymous union in a class scope.
+
+</BLOCKQUOTE>
+
+<BR><BR>
+</BODY>
+</HTML>
