@@ -50,13 +50,18 @@ because any definition attempt would violate the one-definition rule
 
 <P><U>Possible resolution:</U></P>
 
+<P>This resolution also addresses <A HREF="1702.html">issue 1702</A>.</P>
+
+<OL>
+<LI>
 <P>Split 11.5.2 [<A href="https://wg21.link/class.union.anon#1">class.union.anon</A>] paragraph 1 and change as follows:</P>
 
 <BLOCKQUOTE>
 
 <P>
 <DEL>A union of the form</DEL>
-<INS>A <I>simple-declaration</I> of the form</INS>
+<INS>A <I>simple-declaration</I> or <I>member-declaration</I> of the
+form</INS>
 <PRE class="ins">
   <I>decl-specifier-seq</I> ;
 </PRE>
@@ -66,9 +71,11 @@ of the form</INS>
   union { <I>member-specification</I> } <DEL>;</DEL>
 </PRE>
 <DEL>is called</DEL> <INS>declares</INS> an <I>anonymous union</I>; it
-defines an unnamed type and an unnamed object of that type called an
+defines an unnamed type <INS><TT>T</TT></INS> and an unnamed object
+of <DEL>that</DEL> type <INS><I>cv</I> <TT>T</TT></INS> called an
 anonymous union member if it is a non-static data member or an
-anonymous union variable otherwise.
+anonymous union variable otherwise<INS>, where <I>cv</I> is determined
+from the <I>cv-qualifier</I>s of the declaration</INS>.
 <INS>The <I>storage-class-specifier</I> <TT>extern</TT>
 (9.2.2 [<A href="https://wg21.link/dcl.stc">dcl.stc</A>]) shall not be among
 the <I>decl-specifier</I>s declaring an anonymous union.</INS>
@@ -84,7 +91,9 @@ bound in the scope inhabited by the union declaration.
 </P>
 
 </BLOCKQUOTE>
+</LI>
 
+<LI>
 <P>Change in 11.5.2 [<A href="https://wg21.link/class.union.anon#2">class.union.anon</A>] paragraph 2 as follows:</P>
 
 <BLOCKQUOTE>
@@ -100,6 +109,8 @@ anonymous union in a class scope.</DEL>
 not be declared with a <I>storage-class-specifier</I>.</INS>
 
 </BLOCKQUOTE>
+</LI>
+</OL>
 
 <BR><BR>
 </BODY>
