@@ -15,7 +15,7 @@
   Core Issues List revision 111d.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-07-05</P>
+<P>2023-07-15</P>
 <HR>
 <A NAME="2757"></A><H4>2757.
   
@@ -77,6 +77,20 @@ for <I>o</I>. -- end note ] [ Example:</P>
   };
 
   B *p2 = new B;  //<SPAN CLASS="cmnt"> undefined behavior</SPAN>
+
+  struct S {
+    constexpr S() { this-&gt;~S(); }
+    constexpr S(int) {}
+  };
+
+  constexpr int f() {
+    S s(0);
+    s.~S();
+    std::construct_at(&amp;s);  // <SPAN CLASS="cmnt">#1</SPAN>
+    return 0;
+  }
+
+  constexpr int x = f();  // <SPAN CLASS="cmnt">error: undefined behavior at #1 during constant evaluation</SPAN>
 </PRE>
 <P class="ins">-- end example ]</P>
 
