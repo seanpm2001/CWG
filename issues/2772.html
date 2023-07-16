@@ -1,0 +1,68 @@
+<HTML>
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<TITLE>
+    CWG Issue 2772</TITLE>
+<STYLE TYPE="text/css">
+  INS { text-decoration:none; font-weight:bold; background-color:#A0FFA0 }
+  .INS { text-decoration:none; background-color:#D0FFD0 }
+  DEL { text-decoration:line-through; background-color:#FFA0A0 }
+  SPAN.cmnt { font-family:Times; font-style:italic }
+</STYLE>
+</HEAD>
+<BODY>
+<P><EM>This is an unofficial snapshot of the ISO/IEC JTC1 SC22 WG21
+  Core Issues List revision 111d.
+  See http://www.open-std.org/jtc1/sc22/wg21/ for the official
+  list.</EM></P>
+<P>2023-07-16</P>
+<HR>
+<A NAME="2772"></A><H4>2772.
+  
+Missing Annex C entry for linkage effects of <I>linkage-specification</I>
+</H4>
+<B>Section: </B>C.5.4&#160; [<A href="https://wg21.link/diff.cpp03.dcl.dcl">diff.cpp03.dcl.dcl</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Hubert Tong
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-07-15<BR>
+
+
+
+
+<P>With C++11, <TT>extern "C"</TT> obtained the effects
+of <TT>extern</TT> on linkage of the names declared in
+the <I>name-declaration</I> of a <I>linkage-specification</I>, but a
+corresponding Annex C entry is missing.</P>
+
+<P><U>Possible resolution:</U></P>
+
+<P>Add a new paragraph in C.5.4 [<A href="https://wg21.link/diff.cpp03.dcl.dcl">diff.cpp03.dcl.dcl</A>] as follows:</P>
+
+<BLOCKQUOTE class="ins">
+
+Affected subclause: 9.11 [<A href="https://wg21.link/dcl.link">dcl.link</A>]<BR>
+Change: Names directly declared in a <I>linkage-specification</I> have external linkage.<BR>
+Rationale: Alignment with user expectations.<BR>
+Effect on original feature: Valid C++ 2003 code may violate the one-definition rule (6.3 [<A href="https://wg21.link/basic.def.odr">basic.def.odr</A>]) in this revision of C++. For example:
+<PRE>
+  // <SPAN CLASS="cmnt">translation unit #1</SPAN>
+  extern "C" {
+    extern const int x = 1;     // <SPAN CLASS="cmnt">definition with external linkage</SPAN>
+  }
+
+  // <SPAN CLASS="cmnt">translation unit #2</SPAN>
+  extern "C" const int x = 2;   // <SPAN CLASS="cmnt">previously internal linkage, now external linkage</SPAN>
+</PRE>
+This code is valid in C++ 2003, but defines <TT>x</TT> twice in this
+revision of C++, violating the one-definition rule.
+</BLOCKQUOTE>
+
+<BR><BR>
+</BODY>
+</HTML>
