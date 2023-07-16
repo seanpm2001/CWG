@@ -15,7 +15,7 @@
   Core Issues List revision 111d.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-07-14</P>
+<P>2023-07-16</P>
 <HR>
 <A NAME="2753"></A><H4>2753.
   
@@ -24,7 +24,7 @@ Storage reuse for string literal objects and backing arrays
 <B>Section: </B>6.7.2&#160; [<A href="https://wg21.link/intro.object">intro.object</A>]
  &#160;&#160;&#160;
 
- <B>Status: </B>open
+ <B>Status: </B>tentatively ready
  &#160;&#160;&#160;
 
  <B>Submitter: </B>Brian Bi
@@ -78,8 +78,10 @@ non-overlapping objects) is unspecified.
 </BLOCKQUOTE>
 
 <P>It is unclear whether a backing array can overlap with a string
-literal object and whether any such object can overlap with named
-objects or temporaries, for example:</P>
+literal object.</P>
+
+<P>Furthermore, it is unclear whether any such object can overlap with
+named objects or temporaries, for example:</P>
 
 <PRE>
   const char (&amp;r) [] = "foo";
@@ -90,7 +92,7 @@ objects or temporaries, for example:</P>
   }
 </PRE>
 
-<P><U>Possible resolution:</U></P>
+<P><B>Proposed resolution (approved by CWG 2023-07-14):</B></P>
 
 <OL>
 
@@ -168,6 +170,21 @@ note ]</INS>
 </LI>
 
 </OL>
+
+<P><B>CWG 2023-07-14</B></P>
+
+<P>CWG resolved that a named or temporary object is always disjoint
+from any other object, and thus cannot overlap with a string literal
+object or a backing array.  The lines <TT>b4</TT> and <TT>b5</TT> in the example
+highlight that outcome.</P>
+
+<P>Backing arrays and string literals can arbitrarily overlap among
+themselves; CWG believes the proposed wording achieves that
+outcome.</P>
+
+<P>The ancillary question how address comparisons between potentially
+non-unique objects are treated during constant evaluation is handled
+in <A HREF="2765.html">issue 2765</A>.</P>
 
 <BR><BR>
 </BODY>
