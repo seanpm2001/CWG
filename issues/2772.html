@@ -47,20 +47,18 @@ corresponding Annex C entry is missing.</P>
 <BLOCKQUOTE class="ins">
 
 Affected subclause: 9.11 [<A href="https://wg21.link/dcl.link">dcl.link</A>]<BR>
-Change: Names directly declared in a <I>linkage-specification</I> have external linkage.<BR>
+Change: Language linkage applies to names with external linkage only,
+and names directly declared in a <I>linkage-specification</I> are
+considered to be declared <TT>extern</TT>.<BR>
 Rationale: Alignment with user expectations.<BR>
 Effect on original feature: Valid C++ 2003 code may violate the one-definition rule (6.3 [<A href="https://wg21.link/basic.def.odr">basic.def.odr</A>]) in this revision of C++. For example:
 <PRE>
-  // <SPAN CLASS="cmnt">translation unit #1</SPAN>
-  extern "C" {
-    extern const int x = 1;     // <SPAN CLASS="cmnt">definition with external linkage</SPAN>
-  }
-
-  // <SPAN CLASS="cmnt">translation unit #2</SPAN>
-  extern "C" const int x = 2;   // <SPAN CLASS="cmnt">previously internal linkage, now external linkage</SPAN>
+  namespace { extern "C" int x; }           // <SPAN CLASS="cmnt">#1, internal linkage; previously C language linkage, now C++ language linkage</SPAN>
+  namespace A { extern "C" int x = 42; }    // <SPAN CLASS="cmnt">#2, external linkage and C language linkage</SPAN>
+  int main(void) { return x; }
 </PRE>
-This code is valid in C++ 2003, but defines <TT>x</TT> twice in this
-revision of C++, violating the one-definition rule.
+This code is valid in C++ 2003, but #2 is not a definition for #1 in
+this revision of C++, violating the one-definition rule.
 </BLOCKQUOTE>
 
 <BR><BR>
