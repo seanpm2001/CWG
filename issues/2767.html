@@ -15,7 +15,7 @@
   Core Issues List revision 111d.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-07-15</P>
+<P>2023-07-16</P>
 <HR>
 <A NAME="2767"></A><H4>2767.
   
@@ -68,7 +68,7 @@ form</INS>
 <INS>where one of the <I>decl-specifier</I>s is a <I>class-specifier</I>
 of the form</INS>
 <PRE>
-  union { <I>member-specification</I> } <DEL>;</DEL>
+  union <I>attribute-specifier-seq</I><SUB>opt</SUB> { <I>member-specification</I> } <DEL>;</DEL>
 </PRE>
 <DEL>is called</DEL> <INS>declares</INS> an <I>anonymous union</I>; it
 defines an unnamed type <INS><TT>T</TT></INS> and an unnamed object
@@ -78,7 +78,10 @@ anonymous union variable otherwise<INS>, where <I>cv</I> is determined
 from the <I>cv-qualifier</I>s of the declaration</INS>.
 <INS>The <I>storage-class-specifier</I> <TT>extern</TT>
 (9.2.2 [<A href="https://wg21.link/dcl.stc">dcl.stc</A>]) shall not be among
-the <I>decl-specifier</I>s declaring an anonymous union.</INS>
+the <I>decl-specifier</I>s declaring an anonymous union.  The
+declaration of an anonymous union shall not be
+the <I>name-declaration</I> of a <I>linkage-specification</I>
+(9.11 [<A href="https://wg21.link/dcl.link">dcl.link</A>]).</INS>
 </P>
 
 <P>
