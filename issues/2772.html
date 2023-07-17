@@ -15,7 +15,7 @@
   Core Issues List revision 111d.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-07-16</P>
+<P>2023-07-17</P>
 <HR>
 <A NAME="2772"></A><H4>2772.
   
@@ -53,7 +53,7 @@ considered to be declared <TT>extern</TT>.<BR>
 Rationale: Alignment with user expectations.<BR>
 Effect on original feature: Valid C++ 2003 code may violate the one-definition rule (6.3 [<A href="https://wg21.link/basic.def.odr">basic.def.odr</A>]) in this revision of C++. For example:
 <PRE>
-  namespace { extern "C" int x; }           // <SPAN CLASS="cmnt">#1, internal linkage; previously C language linkage, now C++ language linkage</SPAN>
+  namespace { extern "C" int x; }           // <SPAN CLASS="cmnt">#1, previously external linkage and C language linkage, now internal linkage and C++ language linkage</SPAN>
   namespace A { extern "C" int x = 42; }    // <SPAN CLASS="cmnt">#2, external linkage and C language linkage</SPAN>
   int main(void) { return x; }
 </PRE>
