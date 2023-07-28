@@ -15,7 +15,7 @@
   Core Issues List revision 111d.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-07-23</P>
+<P>2023-07-28</P>
 <HR>
 <A NAME="2666"></A><H4>2666.
   
@@ -148,6 +148,40 @@ const_cast.
 </LI>
 
 </OL>
+
+<P><U>Suggested resolution:</U></P>
+
+<P>Change in 6.7.7 [<A href="https://wg21.link/class.temporary#6.6">class.temporary</A>] bullet 6.6 as follows:</P>
+
+<BLOCKQUOTE>
+
+<UL>
+<LI>...</LI>
+<LI>a
+<UL>
+<LI>const_cast (7.6.1.11 [<A href="https://wg21.link/expr.const.cast">expr.const.cast</A>]),</LI>
+<LI>static_cast (7.6.1.9 [<A href="https://wg21.link/expr.static.cast">expr.static.cast</A>]),</LI>
+<LI>dynamic_cast (7.6.1.7 [<A href="https://wg21.link/expr.dynamic.cast">expr.dynamic.cast</A>]), or</LI>
+<LI>reinterpret_cast (7.6.1.10 [<A href="https://wg21.link/expr.reinterpret.cast">expr.reinterpret.cast</A>])</LI>
+</UL>
+<DEL>converting, without a user-defined conversion, a glvalue operand that
+is one of these expressions to a glvalue that refers to the object
+designated by the operand, or to its complete object or a subobject
+thereof</DEL>,
+
+<INS>where</INS>
+<UL class="ins">
+<LI>the cast does not invoke a user-defined conversion, or</LI>
+<LI>the cast invokes a user-defined conversion that yields a prvalue,
+and the glvalue result of the cast is bound directly
+(9.4.4 [<A href="https://wg21.link/dcl.init.ref">dcl.init.ref</A>]) to that prvalue,</LI>
+</UL>
+
+</LI>
+<LI>...</LI>
+</UL>
+
+</BLOCKQUOTE>
 
 <BR><BR>
 </BODY>
