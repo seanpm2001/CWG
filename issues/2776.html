@@ -69,14 +69,11 @@ implementation limit is reached.</P>
 </LI>
 
 <LI>
-<INS>Otherwise:</INS>
-<UL>
-<LI>
-If a program contains no
-violations of the rules <DEL>in Clause 5 [<A href="https://wg21.link/lex">lex</A>] through
-Clause 33 [<A href="https://wg21.link/thread">thread</A>] and Annex D</DEL>, a conforming implementation
-shall <DEL>, within its resource limits as described in Annex B,</DEL>
-accept and correctly execute [ Footnote: ... ] that program.
+<DEL>If a program contains no
+violations of the rules in Clause 5 [<A href="https://wg21.link/lex">lex</A>] through
+Clause 33 [<A href="https://wg21.link/thread">thread</A>] and Annex D, a conforming implementation
+shall, within its resource limits as described in Annex B,
+accept and correctly execute [ Footnote: ... ] that program.</DEL>
 </LI>
 
 <LI>
@@ -86,13 +83,18 @@ requirement on implementations with respect to that program.</DEL>
 </LI>
 
 <LI>
-<DEL>Otherwise, if</DEL> <INS>If</INS> a program contains a violation
+Otherwise, if <DEL>a</DEL> <INS>that</INS> program contains a violation
 of any diagnosable rule or an occurrence of a construct described in
 this document as &#8220;conditionally-supported&#8221; when the
 implementation does not support that construct, a conforming
 implementation shall issue at least one diagnostic message.
 </LI>
-</UL>
+
+<LI class="ins">
+Otherwise, a conforming implementation shall accept and correctly
+execute that program.  [ Note: "Correct execution" can include
+undefined behavior, depending on the data being processed; see
+Clause 3 [<A href="https://wg21.link/intro.defs">intro.defs</A>] and 4.1.2 [<A href="https://wg21.link/intro.abstract">intro.abstract</A>]. -- end note ] 
 </LI>
 </UL>
 </BLOCKQUOTE>
