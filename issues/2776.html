@@ -1,0 +1,129 @@
+<HTML>
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<TITLE>
+    CWG Issue 2776</TITLE>
+<STYLE TYPE="text/css">
+  INS { text-decoration:none; font-weight:bold; background-color:#A0FFA0 }
+  .INS { text-decoration:none; background-color:#D0FFD0 }
+  DEL { text-decoration:line-through; background-color:#FFA0A0 }
+  SPAN.cmnt { font-family:Times; font-style:italic }
+</STYLE>
+</HEAD>
+<BODY>
+<P><EM>This is an unofficial snapshot of the ISO/IEC JTC1 SC22 WG21
+  Core Issues List revision 111d.
+  See http://www.open-std.org/jtc1/sc22/wg21/ for the official
+  list.</EM></P>
+<P>2023-07-29</P>
+<HR>
+<A NAME="2776"></A><H4>2776.
+  
+Substitution failure and implementation limits
+</H4>
+<B>Section: </B>4.1.1&#160; [<A href="https://wg21.link/intro.compliance.general">intro.compliance.general</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Corentin Jabot
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-07-27<BR>
+
+
+
+
+<P>Are there behavioral bounds in case an implementation limit is
+encountered?  For example, a constant expression may fail to be
+recognized as such due to an implementation limit (e.g. a recursion or
+step limit), causing overload resolution to pick a different overload.
+Is that acceptable?</P>
+
+<P><U>Possible resolution:</U></P>
+
+<OL>
+<LI>
+<P>Change in 4.1.1 [<A href="https://wg21.link/intro.compliance.general#2">intro.compliance.general</A>] paragraph 2 as follows:</P>
+
+<BLOCKQUOTE>
+
+Although this document states only requirements on C++
+implementations, those requirements are often easier to understand if
+they are phrased as requirements on programs, parts of programs, or
+execution of programs <INS>as specified in the rules in
+Clause 5 [<A href="https://wg21.link/lex">lex</A>] through Clause 33 [<A href="https://wg21.link/thread">thread</A>] and Annex
+D</INS>. Such requirements have the following meaning:
+<UL>
+<LI class="ins">
+<P>If a program contains a violation of a rule for which no diagnostic
+is required or if an implementation limit (Annex B) is reached during
+translation, this document places no requirement on implementations
+with respect to that program.</P>
+<P>
+<I>Recommended practice:</I> An implementation should document
+limits where they are known, and should issue a diagnostic and reject
+the program in cases where it can reasonably detect that the
+implementation limit is reached.</P>
+</LI>
+
+<LI>
+<INS>Otherwise:</INS>
+<UL>
+<LI>
+If a program contains no
+violations of the rules <DEL>in Clause 5 [<A href="https://wg21.link/lex">lex</A>] through
+Clause 33 [<A href="https://wg21.link/thread">thread</A>] and Annex D</DEL>, a conforming implementation
+shall <DEL>, within its resource limits as described in Annex B,</DEL>
+accept and correctly execute [ Footnote: ... ] that program.
+</LI>
+
+<LI>
+<DEL>If a program contains a violation
+of a rule for which no diagnostic is required, this document places no
+requirement on implementations with respect to that program.</DEL>
+</LI>
+
+<LI>
+<DEL>Otherwise, if</DEL> <INS>If</INS> a program contains a violation
+of any diagnosable rule or an occurrence of a construct described in
+this document as &#8220;conditionally-supported&#8221; when the
+implementation does not support that construct, a conforming
+implementation shall issue at least one diagnostic message.
+</LI>
+</UL>
+</LI>
+</UL>
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+<P>Add a new paragraph after 4.1.2 [<A href="https://wg21.link/intro.abstract#6">intro.abstract</A>] paragraph 6 as follows:</P>
+
+<BLOCKQUOTE>
+
+<P>
+[Note 2 : More stringent correspondences between abstract and actual
+semantics can be defined by each implementation.  -- end note]
+</P>
+
+<P class="ins">
+If an implementation limit (Annex B) is reached, the behavior is
+undefined.
+</P>
+
+<P class="ins">
+<I>Recommended practice:</I> An implementation should document limits
+where they are known and abort the execution of the program in cases
+where it can reasonably detect that the implementation limit is
+reached.
+</P>
+
+</BLOCKQUOTE>
+</LI>
+</OL>
+
+<BR><BR>
+</BODY>
+</HTML>
