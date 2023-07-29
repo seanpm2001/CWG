@@ -15,7 +15,7 @@
   Core Issues List revision 111d.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-07-23</P>
+<P>2023-07-29</P>
 <HR>
 <A NAME="2672"></A><H4>2672.
   
@@ -54,6 +54,23 @@ function signature.</P>
 the body of a lambda is never in the immediate context of substitution
 into the lambda-expression and move the rule somewhere more
 general.</P>
+
+<P><U>Possible resolution:</U></P>
+
+<P>Change in 13.10.3.1 [<A href="https://wg21.link/temp.deduct.general">temp.deduct.general</A>] as follows:</P>
+
+<BLOCKQUOTE>
+
+<DEL>A <I>lambda-expression</I> appearing in a function type or a template
+parameter</DEL>
+<INS>Substituting into the body of a <I>lambda-expression</I></INS>
+is <DEL>not considered part of</DEL> <INS>never in</INS> the immediate
+context <INS>of substitution into the <I>lambda-expression</I></INS>
+for the purposes of template argument deduction.  [<I>Note 7:</I> The
+intent is to avoid requiring implementations to deal with substitution
+failure involving arbitrary statements.
+
+</BLOCKQUOTE>
 
 <BR><BR>
 </BODY>
