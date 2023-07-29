@@ -57,6 +57,26 @@ general.</P>
 
 <P><U>Possible resolution:</U></P>
 
+<OL>
+<LI>
+<P>Change in 13.5.2.3 [<A href="https://wg21.link/temp.constr.atomic">temp.constr.atomic</A>] as follows:</P>
+
+<BLOCKQUOTE>
+
+To determine if an atomic constraint is satisfied, the parameter
+mapping and template arguments are first substituted into its
+expression. If substitution results in an invalid type or
+expression <INS>in the immediate context of the atomic constraint
+(13.10.3.1 [<A href="https://wg21.link/temp.deduct.general">temp.deduct.general</A>])</INS>, the constraint is not
+satisfied. Otherwise, the lvalue-to-rvalue conversion
+(7.3.2 [<A href="https://wg21.link/conv.lval">conv.lval</A>]) is performed if necessary, and E shall be
+a constant expression of type bool. The constraint is satisfied if and
+only if evaluation of E results in true.
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
 <P>Change in 13.10.3.1 [<A href="https://wg21.link/temp.deduct.general">temp.deduct.general</A>] as follows:</P>
 
 <BLOCKQUOTE>
@@ -65,12 +85,14 @@ general.</P>
 parameter</DEL>
 <INS>Substituting into the body of a <I>lambda-expression</I></INS>
 is <DEL>not considered part of</DEL> <INS>never in</INS> the immediate
-context <INS>of substitution into the <I>lambda-expression</I></INS>
-for the purposes of template argument deduction.  [<I>Note 7:</I> The
-intent is to avoid requiring implementations to deal with substitution
-failure involving arbitrary statements.
+context <DEL>for the purposes of template argument deduction</DEL>
+<INS>of substitution into the <I>lambda-expression</I></INS>.
+[<I>Note 7:</I> The intent is to avoid requiring implementations to
+deal with substitution failure involving arbitrary statements.
 
 </BLOCKQUOTE>
+</LI>
+</OL>
 
 <BR><BR>
 </BODY>
