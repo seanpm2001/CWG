@@ -15,7 +15,7 @@
   Core Issues List revision 111d.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-07-29</P>
+<P>2023-07-30</P>
 <HR>
 <A NAME="2776"></A><H4>2776.
   
@@ -121,6 +121,19 @@ where they are known and abort the execution of the program in cases
 where it can reasonably detect that the implementation limit is
 reached.
 </P>
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+<P>Change in 13.9.2 [<A href="https://wg21.link/temp.inst#16">temp.inst</A>] paragraph 16 as follows:</P>
+
+<BLOCKQUOTE>
+
+There is an implementation-defined quantity that specifies the limit
+on the total depth of recursive instantiations (Annex B), which could
+involve more than one template. <DEL>The result of an infinite recursion in
+instantiation is undefined.</DEL>
 
 </BLOCKQUOTE>
 </LI>
