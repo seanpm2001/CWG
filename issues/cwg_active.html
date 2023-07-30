@@ -201,11 +201,26 @@ USA.</P>
 <A HREF="cwg_active.html#2763">2763</A>,
 <A HREF="cwg_active.html#2764">2764</A>,
 <A HREF="cwg_active.html#2765">2765</A>,
+<A HREF="cwg_active.html#2766">2766</A>,
+<A HREF="cwg_active.html#2767">2767</A>,
+<A HREF="cwg_active.html#2768">2768</A>,
+<A HREF="cwg_active.html#2769">2769</A>,
+<A HREF="cwg_active.html#2770">2770</A>,
+<A HREF="cwg_active.html#2771">2771</A>,
+<A HREF="cwg_active.html#2772">2772</A>,
+<A HREF="cwg_active.html#2773">2773</A>,
+<A HREF="cwg_active.html#2774">2774</A>,
+<A HREF="cwg_active.html#2775">2775</A>,
+<A HREF="cwg_active.html#2776">2776</A>,
+<A HREF="cwg_active.html#2777">2777</A>,
+<A HREF="cwg_active.html#2778">2778</A>,
 Closed issues
 <A HREF="cwg_closed.html#6">6</A>,
 <A HREF="cwg_closed.html#504">504</A>,
-<A HREF="cwg_closed.html#528">528</A>,
-<A HREF="cwg_closed.html#640">640</A>,
+<A HREF="cwg_closed.html#528">528</A>, and
+<A HREF="cwg_closed.html#640">640</A>.
+Reflected the decisions of the June, 2023 plenary meeting.
+Reflected the deliberations of the teleconferences up to 2023-07-14.
 </P>
 
 <P><B>Revision 111, 2023-03-24:</B></P>
@@ -3875,6 +3890,17 @@ Requirements for freestanding implementations
 </TD>
 </TR>
 <TR>
+<TD ALIGN="LEFT">4.1.1&#160;
+  <A href="https://wg21.link/intro.compliance.general">intro.compliance.general</A>
+</TD>
+<TD ALIGN="RIGHT"><A HREF="#2776">2776</A></TD>
+<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER"></TD>
+<TD ALIGN="LEFT">
+Substitution failure and implementation limits
+</TD>
+</TR>
+<TR>
 <TD ALIGN="LEFT">5.2&#160;
   <A href="https://wg21.link/lex.phases">lex.phases</A>
 </TD>
@@ -3996,7 +4022,18 @@ Excess-precision floating-point literals
 </TD>
 </TR>
 <TR>
-<TD ALIGN="LEFT">5.13.8&#160;
+<TD ALIGN="LEFT">5.13.5&#160;
+  <A href="https://wg21.link/lex.string">lex.string</A>
+</TD>
+<TD ALIGN="RIGHT"><A HREF="#2766">2766</A></TD>
+<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER"></TD>
+<TD ALIGN="LEFT">
+Repeated evaluation of a <I>string-literal</I> may yield different objects
+</TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT">5.13.9&#160;
   <A href="https://wg21.link/lex.ext">lex.ext</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#1266">1266</A></TD>
@@ -4007,7 +4044,7 @@ Excess-precision floating-point literals
 </TD>
 </TR>
 <TR>
-<TD ALIGN="LEFT">5.13.8&#160;
+<TD ALIGN="LEFT">5.13.9&#160;
   <A href="https://wg21.link/lex.ext">lex.ext</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#1723">1723</A></TD>
@@ -4018,7 +4055,7 @@ Multicharacter user-defined character literals
 </TD>
 </TR>
 <TR>
-<TD ALIGN="LEFT">5.13.8&#160;
+<TD ALIGN="LEFT">5.13.9&#160;
   <A href="https://wg21.link/lex.ext">lex.ext</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#1735">1735</A></TD>
@@ -5216,6 +5253,17 @@ Compound assignment of <I>braced-init-list</I>
 </TD>
 </TR>
 <TR>
+<TD ALIGN="LEFT">7.6.19&#160;
+  <A href="https://wg21.link/expr.ass">expr.ass</A>
+</TD>
+<TD ALIGN="RIGHT"><A HREF="#2768">2768</A></TD>
+<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER"></TD>
+<TD ALIGN="LEFT">
+Assignment to scalar with a <I>braced-init-list</I>
+</TD>
+</TR>
+<TR>
 <TD ALIGN="LEFT">7.7&#160;
   <A href="https://wg21.link/expr.const">expr.const</A>
 </TD>
@@ -5422,6 +5470,17 @@ Defaulted constructor that is an immediate function
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Ignorability of [[noreturn]] during constant evaluation
+</TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT">7.7&#160;
+  <A href="https://wg21.link/expr.const">expr.const</A>
+</TD>
+<TD ALIGN="RIGHT"><A HREF="#2778">2778</A></TD>
+<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER"></TD>
+<TD ALIGN="LEFT">
+Trivial destructor does not imply constant destruction
 </TD>
 </TR>
 <TR>
@@ -6305,6 +6364,17 @@ Missing disambiguation rule for <I>pure-specifier</I> vs. <I>brace-or-equal-init
 </TD>
 </TR>
 <TR>
+<TD ALIGN="LEFT">11.4.3&#160;
+  <A href="https://wg21.link/class.mfct.non.static">class.mfct.non.static</A>
+</TD>
+<TD ALIGN="RIGHT"><A HREF="#2771">2771</A></TD>
+<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER"></TD>
+<TD ALIGN="LEFT">
+Transformation for <I>unqualified-id</I>s in address operator
+</TD>
+</TR>
+<TR>
 <TD ALIGN="LEFT">11.4.4&#160;
   <A href="https://wg21.link/special">special</A>
 </TD>
@@ -6555,6 +6625,28 @@ Implicit change of active union member for anonymous union in union
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 <TT>start_lifetime_as</TT>, placement-new, and active union members
+</TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT">11.5.2&#160;
+  <A href="https://wg21.link/class.union.anon">class.union.anon</A>
+</TD>
+<TD ALIGN="RIGHT"><A HREF="#2767">2767</A></TD>
+<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER"></TD>
+<TD ALIGN="LEFT">
+Non-defining declarations of anonymous unions
+</TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT">11.5.2&#160;
+  <A href="https://wg21.link/class.union.anon">class.union.anon</A>
+</TD>
+<TD ALIGN="RIGHT"><A HREF="#2773">2773</A></TD>
+<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER"></TD>
+<TD ALIGN="LEFT">
+Naming anonymous union members as class members
 </TD>
 </TR>
 <TR>
@@ -7273,6 +7365,17 @@ Default template arguments for template members of non-template classes
 </TD>
 </TR>
 <TR>
+<TD ALIGN="LEFT">13.2&#160;
+  <A href="https://wg21.link/temp.param">temp.param</A>
+</TD>
+<TD ALIGN="RIGHT"><A HREF="#2777">2777</A></TD>
+<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER"></TD>
+<TD ALIGN="LEFT">
+Type of <I>id-expression</I> denoting a template parameter object
+</TD>
+</TR>
+<TR>
 <TD ALIGN="LEFT">13.3&#160;
   <A href="https://wg21.link/temp.names">temp.names</A>
 </TD>
@@ -7812,6 +7915,17 @@ Type dependency of placeholder types
 </TD>
 </TR>
 <TR>
+<TD ALIGN="LEFT">13.8.3.4&#160;
+  <A href="https://wg21.link/temp.dep.constexpr">temp.dep.constexpr</A>
+</TD>
+<TD ALIGN="RIGHT"><A HREF="#2774">2774</A></TD>
+<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER"></TD>
+<TD ALIGN="LEFT">
+Value-dependence of <I>requires-expression</I>s
+</TD>
+</TR>
+<TR>
 <TD ALIGN="LEFT">13.8.3.5&#160;
   <A href="https://wg21.link/temp.dep.temp">temp.dep.temp</A>
 </TD>
@@ -8219,6 +8333,28 @@ Lambda body SFINAE is still required, contrary to intent and note
 </TD>
 </TR>
 <TR>
+<TD ALIGN="LEFT">13.10.3.1&#160;
+  <A href="https://wg21.link/temp.deduct.general">temp.deduct.general</A>
+</TD>
+<TD ALIGN="RIGHT"><A HREF="#2769">2769</A></TD>
+<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER"></TD>
+<TD ALIGN="LEFT">
+Substitution into template parameters and default template arguments should be interleaved
+</TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT">13.10.3.1&#160;
+  <A href="https://wg21.link/temp.deduct.general">temp.deduct.general</A>
+</TD>
+<TD ALIGN="RIGHT"><A HREF="#2770">2770</A></TD>
+<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER"></TD>
+<TD ALIGN="LEFT">
+Trailing <I>requires-clause</I> can refer to function parameters before they are substituted into
+</TD>
+</TR>
+<TR>
 <TD ALIGN="LEFT">13.10.3.2&#160;
   <A href="https://wg21.link/temp.deduct.call">temp.deduct.call</A>
 </TD>
@@ -8315,6 +8451,17 @@ Length mismatch in template type deduction
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Unclear presentation style of template argument deduction rules
+</TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT">14.2&#160;
+  <A href="https://wg21.link/except.throw">except.throw</A>
+</TD>
+<TD ALIGN="RIGHT"><A HREF="#2775">2775</A></TD>
+<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER"></TD>
+<TD ALIGN="LEFT">
+Unclear argument type for copy of exception object
 </TD>
 </TR>
 <TR>
@@ -8615,7 +8762,7 @@ New C incompatibilities
 </TD>
 </TR>
 <TR>
-<TD ALIGN="LEFT">C.5&#160;
+<TD ALIGN="LEFT">C.6&#160;
   <A href="https://wg21.link/diff.cpp03">diff.cpp03</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#1279">1279</A></TD>
@@ -8626,7 +8773,18 @@ Additional differences between C++ 2003 and C++ 2011
 </TD>
 </TR>
 <TR>
-<TD ALIGN="LEFT">C.6&#160;
+<TD ALIGN="LEFT">C.6.4&#160;
+  <A href="https://wg21.link/diff.cpp03.dcl.dcl">diff.cpp03.dcl.dcl</A>
+</TD>
+<TD ALIGN="RIGHT"><A HREF="#2772">2772</A></TD>
+<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER"></TD>
+<TD ALIGN="LEFT">
+Missing Annex C entry for linkage effects of <I>linkage-specification</I>
+</TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT">C.7&#160;
   <A href="https://wg21.link/diff.iso">diff.iso</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#1248">1248</A></TD>
@@ -14080,7 +14238,7 @@ overloaded.</P>
   
 Multicharacter user-defined character literals
 </H4>
-<B>Section: </B>5.13.8&#160; [<A href="https://wg21.link/lex.ext">lex.ext</A>]
+<B>Section: </B>5.13.9&#160; [<A href="https://wg21.link/lex.ext">lex.ext</A>]
  &#160;&#160;&#160;
 
  <B>Status: </B>drafting
@@ -14098,7 +14256,7 @@ Multicharacter user-defined character literals
 literal like <TT>'ab'</TT> is conditionally-supported and has
 type <TT>int</TT>.</P>
 
-<P>According to 5.13.8 [<A href="https://wg21.link/lex.ext#6">lex.ext</A>] paragraph 6,</P>
+<P>According to 5.13.9 [<A href="https://wg21.link/lex.ext#6">lex.ext</A>] paragraph 6,</P>
 
 <BLOCKQUOTE>
 
@@ -14124,7 +14282,7 @@ thus require a literal operator</P>
 <P>Should multicharacter <I>user-defined-character-literal</I>s be
 conditionally-supported?  If so, 12.6 [<A href="https://wg21.link/over.literal#3">over.literal</A>] paragraph 3
 should be adjusted accordingly.  If not, a note in
-5.13.8 [<A href="https://wg21.link/lex.ext#6">lex.ext</A>] paragraph 6 saying explicitly that they are not
+5.13.9 [<A href="https://wg21.link/lex.ext#6">lex.ext</A>] paragraph 6 saying explicitly that they are not
 supported would be helpful.</P>
 
 <BR><BR><HR>
@@ -14132,7 +14290,7 @@ supported would be helpful.</P>
   
 Out-of-range literals in <I>user-defined-literal</I>s
 </H4>
-<B>Section: </B>5.13.8&#160; [<A href="https://wg21.link/lex.ext">lex.ext</A>]
+<B>Section: </B>5.13.9&#160; [<A href="https://wg21.link/lex.ext">lex.ext</A>]
  &#160;&#160;&#160;
 
  <B>Status: </B>drafting
@@ -14146,7 +14304,7 @@ Out-of-range literals in <I>user-defined-literal</I>s
 
 <P>The description of the numeric literals occurring as part of
 <I>user-defined-integer-literal</I>s and
-<I>user-defined-floating-literal</I>s in 5.13.8 [<A href="https://wg21.link/lex.ext">lex.ext</A>] says
+<I>user-defined-floating-literal</I>s in 5.13.9 [<A href="https://wg21.link/lex.ext">lex.ext</A>] says
 nothing about whether they are required to satisfy the same constraints as
 literals that are not part of a <I>user-defined-literal</I>.  In
 particular, because it is the spelling, not the value, of the literal
@@ -19686,6 +19844,10 @@ are to be treated, and there is implementation variance on some:</P>
    static const union { int e = 0; }; //<SPAN CLASS="cmnt"> is </SPAN>e<SPAN CLASS="cmnt"> const? Clang says yes, gcc says no</SPAN>
    static constexpr union { int f = 0; };
 </PRE>
+
+<P><B>Additional notes (July, 2023)</B></P>
+
+<P>This issue is addressed by <A HREF="cwg_active.html#2767">issue 2767</A>.</P>
 
 <BR><BR><HR>
 <A NAME="2246"></A><H4>2246.
@@ -25505,7 +25667,7 @@ normative, it should not use &#8220;shall.&#8221;</P>
   
 Additional differences between C++ 2003 and C++ 2011
 </H4>
-<B>Section: </B>C.5&#160; [<A href="https://wg21.link/diff.cpp03">diff.cpp03</A>]
+<B>Section: </B>C.6&#160; [<A href="https://wg21.link/diff.cpp03">diff.cpp03</A>]
  &#160;&#160;&#160;
 
  <B>Status: </B>drafting
@@ -25520,10 +25682,10 @@ Additional differences between C++ 2003 and C++ 2011
 
 
 <P>A number of differences between C++03 and C++11 were omitted from
-C.5 [<A href="https://wg21.link/diff.cpp03">diff.cpp03</A>]:</P>
+C.6 [<A href="https://wg21.link/diff.cpp03">diff.cpp03</A>]:</P>
 
 <UL>
-<LI><P>New keywords.  Although these are said in C.5.2 [<A href="https://wg21.link/diff.cpp03.lex">diff.cpp03.lex</A>] only to invalidate C++03 code, they can also change
+<LI><P>New keywords.  Although these are said in C.6.2 [<A href="https://wg21.link/diff.cpp03.lex">diff.cpp03.lex</A>] only to invalidate C++03 code, they can also change
 the meaning, e.g., <TT>thread_local x(y)</TT>, which would declare
 a variable <TT>thread_local</TT> initialized with <TT>y</TT> in
 C++03 and a thread-local variable <TT>y</TT> in C++11.</P></LI>
@@ -25546,11 +25708,11 @@ template <I>template-argument</I>.</P></LI>
 <P><B>Additional note (January, 2012):</B></P>
 
 <P>In addition to the items previously mentioned, access declarations
-were removed from C++11 but are not mentioned in C.5 [<A href="https://wg21.link/diff.cpp03">diff.cpp03</A>].</P>
+were removed from C++11 but are not mentioned in C.6 [<A href="https://wg21.link/diff.cpp03">diff.cpp03</A>].</P>
 
 <P><B>Proposed (partial) resolution (February, 2012):</B></P>
 
-<P>Add the following as a new section in C.5 [<A href="https://wg21.link/diff.cpp03">diff.cpp03</A>]:</P>
+<P>Add the following as a new section in C.6 [<A href="https://wg21.link/diff.cpp03">diff.cpp03</A>]:</P>
 
 <BLOCKQUOTE>
 
@@ -25704,6 +25866,129 @@ what is implementation-defined.</P>
 
 <P>The CWG felt that it needed a specific proposal in a paper before
 attempting to resolve this issue.</P>
+
+<BR><BR><HR>
+<A NAME="2776"></A><H4>2776.
+  
+Substitution failure and implementation limits
+</H4>
+<B>Section: </B>4.1.1&#160; [<A href="https://wg21.link/intro.compliance.general">intro.compliance.general</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Corentin Jabot
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-07-27<BR>
+
+
+
+
+<P>Are there behavioral bounds in case an implementation limit is
+encountered?  For example, a constant expression may fail to be
+recognized as such due to an implementation limit (e.g. a recursion or
+step limit), causing overload resolution to pick a different overload.
+Is that acceptable?</P>
+
+<P><U>Possible resolution:</U></P>
+
+<OL>
+<LI>
+<P>Change in 4.1.1 [<A href="https://wg21.link/intro.compliance.general#2">intro.compliance.general</A>] paragraph 2 as follows:</P>
+
+<BLOCKQUOTE>
+
+Although this document states only requirements on C++
+implementations, those requirements are often easier to understand if
+they are phrased as requirements on programs, parts of programs, or
+execution of programs <INS>as specified in the rules in
+Clause 5 [<A href="https://wg21.link/lex">lex</A>] through Clause 33 [<A href="https://wg21.link/thread">thread</A>] and Annex
+D</INS>. Such requirements have the following meaning:
+<UL>
+<LI class="ins">
+<P>If a program contains a violation of a rule for which no diagnostic
+is required or if an implementation limit (Annex B) is reached during
+translation, this document places no requirement on implementations
+with respect to that program.</P>
+<P>
+<I>Recommended practice:</I> An implementation should document
+limits where they are known, and should issue a diagnostic and reject
+the program in cases where it can reasonably detect that the
+implementation limit is reached.</P>
+</LI>
+
+<LI>
+<DEL>If a program contains no
+violations of the rules in Clause 5 [<A href="https://wg21.link/lex">lex</A>] through
+Clause 33 [<A href="https://wg21.link/thread">thread</A>] and Annex D, a conforming implementation
+shall, within its resource limits as described in Annex B,
+accept and correctly execute [ Footnote: ... ] that program.</DEL>
+</LI>
+
+<LI>
+<DEL>If a program contains a violation
+of a rule for which no diagnostic is required, this document places no
+requirement on implementations with respect to that program.</DEL>
+</LI>
+
+<LI>
+Otherwise, if <DEL>a</DEL> <INS>that</INS> program contains a violation
+of any diagnosable rule or an occurrence of a construct described in
+this document as &#8220;conditionally-supported&#8221; when the
+implementation does not support that construct, a conforming
+implementation shall issue at least one diagnostic message.
+</LI>
+
+<LI class="ins">
+Otherwise, a conforming implementation shall accept and correctly
+execute that program.  [ Note: "Correct execution" can include
+undefined behavior, depending on the data being processed; see
+Clause 3 [<A href="https://wg21.link/intro.defs">intro.defs</A>] and 4.1.2 [<A href="https://wg21.link/intro.abstract">intro.abstract</A>]. -- end note ] 
+</LI>
+</UL>
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+<P>Add a new paragraph after 4.1.2 [<A href="https://wg21.link/intro.abstract#6">intro.abstract</A>] paragraph 6 as follows:</P>
+
+<BLOCKQUOTE>
+
+<P>
+[Note 2 : More stringent correspondences between abstract and actual
+semantics can be defined by each implementation.  -- end note]
+</P>
+
+<P class="ins">
+If an implementation limit (Annex B) is reached, the behavior is
+undefined.
+</P>
+
+<P class="ins">
+<I>Recommended practice:</I> An implementation should document limits
+where they are known and abort the execution of the program in cases
+where it can reasonably detect that the implementation limit is
+reached.
+</P>
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+<P>Change in 13.9.2 [<A href="https://wg21.link/temp.inst#16">temp.inst</A>] paragraph 16 as follows:</P>
+
+<BLOCKQUOTE>
+
+There is an implementation-defined quantity that specifies the limit
+on the total depth of recursive instantiations (Annex B), which could
+involve more than one template. <DEL>The result of an infinite recursion in
+instantiation is undefined.</DEL>
+
+</BLOCKQUOTE>
+</LI>
+</OL>
 
 <BR><BR><HR>
 <A NAME="2573"></A><H4>2573.
@@ -25924,11 +26209,70 @@ define <TT>FLT_EVAL_METHOD</TT> to 1 or 2, because literals (=
 <A HREF="https://github.com/cplusplus/papers/issues/1584">cplusplus/papers#1584</A>, by decision of the CWG chair.</P>
 
 <BR><BR><HR>
+<A NAME="2766"></A><H4>2766.
+  
+Repeated evaluation of a <I>string-literal</I> may yield different objects
+</H4>
+<B>Section: </B>5.13.5&#160; [<A href="https://wg21.link/lex.string">lex.string</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Balog Pal
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-07-15<BR>
+
+
+
+
+<P>Prior to the resolution of <A HREF="cwg_defects.html#1823">issue 1823</A>
+(incorporated into C++17), the specification required in
+9.2.3 [<A href="https://wg21.link/dcl.fct.spec#4">dcl.fct.spec</A>] paragraph 4:</P>
+
+<BLOCKQUOTE>
+
+A string literal in the body of an <TT>extern</TT> <TT>inline</TT>
+function is the same object in different translation units.
+
+</BLOCKQUOTE>
+
+<P>That was changed to the following specification in
+5.13.5 [<A href="https://wg21.link/lex.string#9">lex.string</A>] paragraph 9:</P>
+
+<BLOCKQUOTE>
+
+Evaluating a <I>string-literal</I> results in a string literal object
+with static storage duration (6.7.5 [<A href="https://wg21.link/basic.stc">basic.stc</A>]).
+... whether successive evaluations of a <I>string-literal</I> yield
+the same or a different object is unspecified.
+
+</BLOCKQUOTE>
+
+<P>The treatment of string literal objects was harmonized with backing
+arrays in P2752R3 (approved in June, 2023) and
+<A HREF="cwg_active.html#2753">issue 2753</A>.</P>
+
+<P>The rationale for the change made by <A HREF="cwg_defects.html#1823">issue 1823</A> was deviating implementation practice: Implementations do
+not unify string literal objects in inline functions or template
+instantiations across different translation units.</P>
+
+<P>However, that was a silent behavior change for examples such as:</P>
+
+<PRE>
+  const char *f() { return "abc"; }
+  bool b = f() == f();    //<SPAN CLASS="cmnt"> guaranteed </SPAN>true<SPAN CLASS="cmnt"> prior to CWG1823, now unspecified</SPAN>
+</PRE>
+
+<P>The matter should be revisited in light of this new information.</P>
+
+<BR><BR><HR>
 <A NAME="1266"></A><H4>1266.
   
 <I>user-defined-integer-literal</I> overflow
 </H4>
-<B>Section: </B>5.13.8&#160; [<A href="https://wg21.link/lex.ext">lex.ext</A>]
+<B>Section: </B>5.13.9&#160; [<A href="https://wg21.link/lex.ext">lex.ext</A>]
  &#160;&#160;&#160;
 
  <B>Status: </B>open
@@ -25945,7 +26289,7 @@ might be too large for an <TT>unsigned long long</TT> to represent (in
 implementations with extended integer types).  In such cases, the
 original intent appears to have been to call a raw literal operator or
 a literal operator template; however, the existing wording of
-5.13.8 [<A href="https://wg21.link/lex.ext#3">lex.ext</A>] paragraph 3 always calls the
+5.13.9 [<A href="https://wg21.link/lex.ext#3">lex.ext</A>] paragraph 3 always calls the
 <TT>unsigned long long</TT> literal operator if it exists, regardless
 of the value of the <I>decimal-literal</I>.</P>
 
@@ -27101,97 +27445,39 @@ such.</P>
 <P>However, implementations treat all three cases the same and do
 extend the lifetime of the temporary.</P>
 
-<P><U>Possible resolution:</U></P>
+<P><U>Suggested resolution:</U></P>
 
-<OL>
-
-<LI>
-
-<P>Change in 7.6.1.9 [<A href="https://wg21.link/expr.static.cast#1">expr.static.cast</A>] paragraph 1 as follows:</P>
+<P>Change in 6.7.7 [<A href="https://wg21.link/class.temporary#6.6">class.temporary</A>] bullet 6.6 as follows:</P>
 
 <BLOCKQUOTE>
 
-The result of the expression <TT>static_cast&lt;T&gt;(v)</TT> is the
-result of converting the expression v to type T. If T is an lvalue
-reference type or an rvalue reference to function type, the result is
-an lvalue; if T is an rvalue reference to object type, the result is
-an xvalue; otherwise, the result is a prvalue. <INS>If <TT>T</TT> is a
-reference type, the operand shall be a glvalue; otherwise, the operand
-shall be a prvalue.</INS> The <TT>static_cast</TT> operator shall not
-cast away constness (7.6.1.11 [<A href="https://wg21.link/expr.const.cast">expr.const.cast</A>]).
+<UL>
+<LI>...</LI>
+<LI>a
+<UL>
+<LI>const_cast (7.6.1.11 [<A href="https://wg21.link/expr.const.cast">expr.const.cast</A>]),</LI>
+<LI>static_cast (7.6.1.9 [<A href="https://wg21.link/expr.static.cast">expr.static.cast</A>]),</LI>
+<LI>dynamic_cast (7.6.1.7 [<A href="https://wg21.link/expr.dynamic.cast">expr.dynamic.cast</A>]), or</LI>
+<LI>reinterpret_cast (7.6.1.10 [<A href="https://wg21.link/expr.reinterpret.cast">expr.reinterpret.cast</A>])</LI>
+</UL>
+<DEL>converting, without a user-defined conversion, a glvalue operand that
+is one of these expressions to a glvalue that refers to the object
+designated by the operand, or to its complete object or a subobject
+thereof</DEL>,
 
-</BLOCKQUOTE>
-
-</LI>
-
-<LI>
-
-<P>Change in 7.6.1.9 [<A href="https://wg21.link/expr.static.cast#8">expr.static.cast</A>] paragraph 8 as follows:</P>
-
-<BLOCKQUOTE>
-
-<DEL>The lvalue-to-rvalue (7.3.2 [<A href="https://wg21.link/conv.lval">conv.lval</A>]),
-array-to-pointer (7.3.3 [<A href="https://wg21.link/conv.array">conv.array</A>]), and function-to-pointer
-(7.3.4 [<A href="https://wg21.link/conv.func">conv.func</A>]) conversions are applied to the
-operand.</DEL> Such a <TT>static_cast</TT> is subject to the
-restriction that the explicit conversion does not cast away constness
-(7.6.1.11 [<A href="https://wg21.link/expr.const.cast">expr.const.cast</A>]), and the following additional rules
-for specific cases:
-
-</BLOCKQUOTE>
+<INS>where</INS>
+<UL class="ins">
+<LI>the cast does not invoke a user-defined conversion, or</LI>
+<LI>the cast invokes a user-defined conversion that yields a prvalue,
+and the glvalue result of the cast is bound directly
+(9.4.4 [<A href="https://wg21.link/dcl.init.ref">dcl.init.ref</A>]) to that prvalue,</LI>
+</UL>
 
 </LI>
-
-<LI>
-
-<P>Change in 7.6.1.10 [<A href="https://wg21.link/expr.reinterpret.cast#1">expr.reinterpret.cast</A>] paragraph 1 as follows:</P>
-
-<BLOCKQUOTE>
-
-The result of the expression reinterpret_cast&lt;T&gt;(v) is the
-result of converting the expression v to type T. If T is an lvalue
-reference type or an rvalue reference to function type, the result is
-an lvalue; if T is an rvalue reference to object type, the result is
-an xvalue; otherwise, the result is a prvalue <DEL>and the lvalue-to-rvalue
-(7.3.2 [<A href="https://wg21.link/conv.lval">conv.lval</A>]), array-to-pointer
-(7.3.3 [<A href="https://wg21.link/conv.array">conv.array</A>]), and function-to-pointer
-(7.3.4 [<A href="https://wg21.link/conv.func">conv.func</A>]) standard conversions are performed on the
-expression v</DEL>.
-<INS>If T is a reference type, the operand shall be a glvalue;
-otherwise, the operand shall be a prvalue.</INS>
-Conversions that can be performed explicitly using
-reinterpret_cast are listed below. No other conversion can be
-performed explicitly using reinterpret_cast.
+<LI>...</LI>
+</UL>
 
 </BLOCKQUOTE>
-
-</LI>
-
-<LI>
-
-<P>Change in 7.6.1.11 [<A href="https://wg21.link/expr.const.cast#1">expr.const.cast</A>] paragraph 1 as follows:</P>
-
-<BLOCKQUOTE>
-
-The result of the expression <TT>const_cast&lt;T&gt;(v)</TT> is of type T. If T
-is an lvalue reference to object type, the result is an lvalue; if T
-is an rvalue reference to object type, the result is an xvalue;
-otherwise, the result is a prvalue
-<DEL>and the lvalue-to-rvalue (7.3.2 [<A href="https://wg21.link/conv.lval">conv.lval</A>]),
-array-to-pointer (7.3.3 [<A href="https://wg21.link/conv.array">conv.array</A>]), and function-to-pointer
-(7.3.4 [<A href="https://wg21.link/conv.func">conv.func</A>]) standard conversions are performed on the
-expression v</DEL>.
-<INS>If T is a reference type, the operand shall be a glvalue;
-otherwise, the operand shall be a prvalue.</INS>
-Conversions that can be performed explicitly using const_cast are
-listed below. No other conversion shall be performed explicitly using
-const_cast.
-
-</BLOCKQUOTE>
-
-</LI>
-
-</OL>
 
 <BR><BR><HR>
 <A NAME="350"></A><H4>350.
@@ -29588,6 +29874,80 @@ function and the destructor (11.4.7 [<A href="https://wg21.link/class.dtor">clas
 </OL>
 
 <BR><BR><HR>
+<A NAME="2768"></A><H4>2768.
+  
+Assignment to scalar with a <I>braced-init-list</I>
+</H4>
+<B>Section: </B>7.6.19&#160; [<A href="https://wg21.link/expr.ass">expr.ass</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Shafik Yaghmour
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-07-06<BR>
+
+
+<P>Consider:</P>
+
+<PRE>
+   enum class E {E1};
+
+   void f() {
+     E e;
+     e = E{0}; //<SPAN CLASS="cmnt"> #1</SPAN>
+     e = {0};  //<SPAN CLASS="cmnt"> #2</SPAN>
+   }
+</PRE>
+
+<P>#1 first initializes a temporary of type <TT>E</TT> and then
+assigns that to <TT>e</TT>.  For #2,
+7.6.19 [<A href="https://wg21.link/expr.ass#8.1">expr.ass</A>] bullet 8.1 specifies that #2 is
+equivalent to #1:</P>
+
+<BLOCKQUOTE>
+
+A <I>braced-init-list</I> may appear on the right-hand side of
+<UL>
+<LI>
+an assignment to a scalar, in which case the initializer list shall
+have at most a single element. The meaning of <TT>x = {v}</TT>, where T is the
+scalar type of the expression x, is that of <TT>x = T{v}</TT>. The meaning of
+<TT>x = {}</TT> is <TT>x = T{}</TT>.</LI>
+<LI>...</LI>
+</UL>
+
+</BLOCKQUOTE>
+
+<P>However, there is no syntactic hint that #2 would invoke
+direct-initialization, and in fact gcc, icc, and MSVC reject #2, but
+clang accepts.</P>
+
+<P><U>Possible resolution:</U></P>
+
+<P>Change in 7.6.19 [<A href="https://wg21.link/expr.ass#8.1">expr.ass</A>] bullet 8.1 as follows:</P>
+
+<BLOCKQUOTE>
+
+A <I>braced-init-list</I> may appear on the right-hand side of
+<UL>
+<LI>
+an assignment to a scalar, in which case the initializer list shall
+have at most a single element. The meaning of <TT>x =
+<DEL>{v}</DEL></TT> <INS><I>braced-init-list</I> is <TT>x = t</TT>,
+where <TT>t</TT> is some invented temporary variable declared and
+initialized as <TT>T t = <I>braced-init-list</I></TT></INS>, where T
+is the scalar type of the expression x<DEL>, is that of <TT>x =
+T{v}</TT>. The meaning of <TT>x = {}</TT> is <TT>x =
+T{}</TT></DEL>.</LI>
+<LI>...</LI>
+</UL>
+
+</BLOCKQUOTE>
+
+<BR><BR><HR>
 <A NAME="1256"></A><H4>1256.
   
 Unevaluated operands are not necessarily constant expressions
@@ -30526,6 +30886,100 @@ a <I>mem-initializer-id</I> (11.9.3 [<A href="https://wg21.link/class.base.init"
 </LI>
 
 </OL>
+
+<BR><BR><HR>
+<A NAME="2778"></A><H4>2778.
+  
+Trivial destructor does not imply constant destruction
+</H4>
+<B>Section: </B>7.7&#160; [<A href="https://wg21.link/expr.const">expr.const</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Jiang An
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-07-27<BR>
+
+
+<P>Consider:</P>
+
+<PRE>
+  struct Foo {};
+  struct Bar {
+    mutable Foo f;
+  };
+  constexpr Bar b{};     //<SPAN CLASS="cmnt"> #1</SPAN>
+</PRE>
+
+<P>In C++20, Foo and Bar are literal types, and #1 is well-formed.  In
+C++23, the requirement for the variable <TT>b</TT> changed to
+"constant destruction".  However, <TT>Bar</TT> does not have constant
+destruction, because its mutable member violates
+7.7 [<A href="https://wg21.link/expr.const#5.17">expr.const</A>] bullet 5.17:</P>
+
+<BLOCKQUOTE>
+
+<UL>
+<LI>...</LI>
+<LI>
+an invocation of a destructor (11.4.7 [<A href="https://wg21.link/class.dtor">class.dtor</A>]) or a
+function call whose <I>postfix-expression</I> names a
+pseudo-destructor (7.6.1.3 [<A href="https://wg21.link/expr.call">expr.call</A>]), in either case for
+an object whose lifetime did not begin within the evaluation of E;
+</LI>
+<LI>...</LI>
+</UL>
+
+</BLOCKQUOTE>
+
+<P>This is because the mutable member is considered to have its
+lifetime begin outside of E per 7.7 [<A href="https://wg21.link/expr.const#9">expr.const</A>] paragraph 9:</P>
+
+<BLOCKQUOTE>
+
+An object a is said to have constant destruction if:
+<UL>
+<LI>it is not
+of class type nor (possibly multidimensional) array thereof, or
+</LI>
+<LI>
+it is of class type or (possibly multidimensional) array thereof, that
+class type has a constexpr destructor, and for a hypothetical
+expression E whose only effect is to destroy a, E would be a core
+constant expression if the lifetime of a and its non-mutable
+subobjects (but not its mutable subobjects) were considered to start
+within E.
+</LI>
+</UL>
+
+</BLOCKQUOTE>
+
+<P><U>Possible resolution:</U></P>
+
+<P>Change in 7.7 [<A href="https://wg21.link/expr.const#9">expr.const</A>] paragraph 9 as follows:</P>
+
+<BLOCKQUOTE>
+
+An object a is said to have constant destruction if:
+<UL>
+<LI>it is not
+of class type nor (possibly multidimensional) array thereof, or
+</LI>
+<LI>
+it is of class type or (possibly multidimensional) array thereof, that
+class type has a constexpr destructor, <INS>any mutable member has a
+trivial destructor,</INS> and for a hypothetical expression E whose
+only effect is to destroy a, E would be a core constant expression
+<INS>if any mutable members were ignored and</INS> if the lifetime of
+a and its non-mutable subobjects (but not its mutable subobjects) were
+considered to start within E.
+</LI>
+</UL>
+
+</BLOCKQUOTE>
 
 <BR><BR><HR>
 <A NAME="2495"></A><H4>2495.
@@ -32964,6 +33418,199 @@ is a bit-field.
 </BLOCKQUOTE>
 
 <BR><BR><HR>
+<A NAME="2771"></A><H4>2771.
+  
+Transformation for <I>unqualified-id</I>s in address operator
+</H4>
+<B>Section: </B>11.4.3&#160; [<A href="https://wg21.link/class.mfct.non.static">class.mfct.non.static</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Jim X
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-07-16<BR>
+
+
+<P>Consider:</P>
+
+<PRE>
+  struct A{
+    int a;
+    void show(){
+      int* r = &amp;a; //<SPAN CLASS="cmnt"> #1 </SPAN>
+    }
+  };
+</PRE>
+
+<P>According to 11.4.3 [<A href="https://wg21.link/class.mfct.non.static#2">class.mfct.non.static</A>] paragraph 2, the
+transformation to class member access does not happen for
+the <I>id-expression</I> <TT>a</TT>, because it is the unparenthesized
+operand of <TT>&amp;</TT>:</P>
+
+<BLOCKQUOTE>
+
+When an <I>id-expression</I> (7.5.4 [<A href="https://wg21.link/expr.prim.id">expr.prim.id</A>]) that is
+neither part of a class member access syntax
+(7.6.1.5 [<A href="https://wg21.link/expr.ref">expr.ref</A>]) nor the un-parenthesized operand of the
+unary &amp; operator (7.6.2.2 [<A href="https://wg21.link/expr.unary.op">expr.unary.op</A>]) is used where the
+current class is X (7.5.2 [<A href="https://wg21.link/expr.prim.this">expr.prim.this</A>]), if name lookup
+(6.5 [<A href="https://wg21.link/basic.lookup">basic.lookup</A>]) resolves the name in
+the <I>id-expression</I> to a non-static non-type member of some class
+C, and if either the <I>id-expression</I> is potentially evaluated or
+C is X or a base class of X, the <I>id-expression</I> is transformed
+into a class member access expression (7.6.1.5 [<A href="https://wg21.link/expr.ref">expr.ref</A>])
+using (*this) as the <I>postfix-expression</I> to the left of the .
+operator.  [<I>Note 1:</I> If C is not X or a base class of X, the
+class member access expression is ill-formed. &#8212;<I>end
+note</I>] This transformation does not apply in the template
+definition context (13.8.3.2 [<A href="https://wg21.link/temp.dep.type">temp.dep.type</A>]).
+
+</BLOCKQUOTE>
+
+<P><U>Possible resolution:</U></P>
+
+<P>This resolution moves the transformation to
+7.5.4.1 [<A href="https://wg21.link/expr.prim.id.general">expr.prim.id.general</A>], where the similar transformation for
+anonymous unions is already described.</P>
+
+<OL>
+
+<LI>
+<P>Change in 6.3 [<A href="https://wg21.link/basic.def.odr#7">basic.def.odr</A>] paragraph 7 as follows:</P>
+
+<BLOCKQUOTE>
+
+<TT>*this</TT> is odr-used if this appears as a potentially-evaluated
+expression (including as the result of <DEL>the</DEL> <INS>any</INS>
+implicit transformation <DEL>in the body of a non-static member
+function</DEL> <INS>to a class member access expression</INS>
+(<DEL>11.4.3 [<A href="https://wg21.link/class.mfct.non.static">class.mfct.non.static</A>]</DEL>
+<INS>7.5.4.1 [<A href="https://wg21.link/expr.prim.id.general">expr.prim.id.general</A>]</INS>)).
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+<P>Add a new paragraph before 7.5.4.1 [<A href="https://wg21.link/expr.prim.id.general#2">expr.prim.id.general</A>] paragraph 2:</P>
+
+<BLOCKQUOTE>
+
+<DIV class="ins">
+<P>
+If an <I>id-expression</I> <I>E</I> denotes a non-static non-type member of
+some class <TT>C</TT> at a point where the current class
+(7.5.2 [<A href="https://wg21.link/expr.prim.this">expr.prim.this</A>]) is <TT>X</TT> and
+<UL class="ins">
+<LI>
+<I>E</I> is potentially evaluated or <TT>C</TT> is <TT>X</TT> or a
+base class of <TT>X</TT>, and</LI>
+<LI>
+<I>E</I> is not the <I>id-expression</I> of a class member access
+expression (7.6.1.5 [<A href="https://wg21.link/expr.ref">expr.ref</A>]), and</LI>
+<LI>if <I>E</I> is a <I>qualified-id</I>, <I>E</I> is not the
+un-parenthesized operand of the unary <TT>&amp;</TT> operator
+(7.6.2.2 [<A href="https://wg21.link/expr.unary.op">expr.unary.op</A>]),</LI>
+</UL>
+the <I>id-expression</I> is transformed into a class member access
+expression using <TT>(*this)</TT> as the object expression.
+[<I>Note 1:</I> If C is not X or a base class of X, the
+class member access expression is ill-formed. &#8212;<I>end
+note</I>] This transformation does not apply in the template
+definition context (13.8.3.2 [<A href="https://wg21.link/temp.dep.type">temp.dep.type</A>]).
+</P>
+</DIV>
+
+<P>If an <I>id-expression</I> E denotes a member M of an anonymous union 
+(11.5.2 [<A href="https://wg21.link/class.union.anon">class.union.anon</A>]) U:
+<UL>
+<LI>If U is a non-static data member, E refers to M as a member of the
+lookup context of the terminal name of E (after
+any <INS>implicit</INS> transformation to a class member access
+expression <DEL>(11.4.3 [<A href="https://wg21.link/class.mfct.non.static">class.mfct.non.static</A>])</DEL>).</LI>
+<LI>...</LI>
+</UL>
+</P>
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+<P>Change in 7.5.4.1 [<A href="https://wg21.link/expr.prim.id.general#3">expr.prim.id.general</A>] paragraph 3 as follows:</P>
+
+<BLOCKQUOTE>
+
+An <I>id-expression</I> that denotes a non-static data member or
+implicit object member function of a class can only be used:
+
+<UL>
+<LI>as part of a class member access
+(<DEL>7.6.1.5 [<A href="https://wg21.link/expr.ref">expr.ref</A>]</DEL><INS>after any implicit
+transformation (see above)</INS>) in which the
+object expression refers to the member's class <DEL>[ Footnote: This
+also applies when the object expression is an
+implicit <TT>(*this)</TT> (11.4.3 [<A href="https://wg21.link/class.mfct.non.static">class.mfct.non.static</A>]).]</DEL> or a
+class derived from that class, or</LI>
+<LI>...</LI>
+</UL>
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+<P>Change in 7.5.4.2 [<A href="https://wg21.link/expr.prim.id.unqual#1">expr.prim.id.unqual</A>] paragraph 1 as follows:</P>
+
+<BLOCKQUOTE>
+
+... [ Note: ... <DEL>Within the definition of a non-static member
+function, an identifier that names a non-static member is transformed
+to a class member access expression
+(11.4.3 [<A href="https://wg21.link/class.mfct.non.static">class.mfct.non.static</A>]).</DEL> &#8212;<I>end note</I>]
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+<P>Remove 11.4.3 [<A href="https://wg21.link/class.mfct.non.static#2">class.mfct.non.static</A>] paragraph 2, including the example:</P>
+
+<BLOCKQUOTE>
+
+<DEL>When an <I>id-expression</I> (7.5.4 [<A href="https://wg21.link/expr.prim.id">expr.prim.id</A>]) that is
+neither part of a class member access syntax
+(7.6.1.5 [<A href="https://wg21.link/expr.ref">expr.ref</A>]) nor the un-parenthesized operand of the
+unary &amp; operator (7.6.2.2 [<A href="https://wg21.link/expr.unary.op">expr.unary.op</A>]) is used where the
+current class is X (7.5.2 [<A href="https://wg21.link/expr.prim.this">expr.prim.this</A>]), if name lookup
+(6.5 [<A href="https://wg21.link/basic.lookup">basic.lookup</A>]) resolves the name in
+the <I>id-expression</I> to a non-static non-type member of some class
+C, and if either the <I>id-expression</I> is potentially evaluated or
+C is X or a base class of X, the <I>id-expression</I> is transformed
+into a class member access expression (7.6.1.5 [<A href="https://wg21.link/expr.ref">expr.ref</A>])
+using (*this) as the <I>postfix-expression</I> to the left of the .
+operator.  [<I>Note 1:</I> If C is not X or a base class of X, the
+class member access expression is ill-formed. &#8212;<I>end
+note</I>] This transformation does not apply in the template
+definition context (13.8.3.2 [<A href="https://wg21.link/temp.dep.type">temp.dep.type</A>]). [ Example: ... ]</DEL>
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+<P>Change in 13.8.3.1 [<A href="https://wg21.link/temp.dep.general#6">temp.dep.general</A>] paragraph 6 as follows:</P>
+
+<BLOCKQUOTE>
+[ Example: ...
+<PRE>
+  template int C&lt;B&gt;::g();    //<SPAN CLASS="cmnt"> OK, transformation to class member access syntax</SPAN>
+                             //<SPAN CLASS="cmnt"> does not occur in the template definition context; see <DEL>11.4.3 [<A href="https://wg21.link/class.mfct.non.static">class.mfct.non.static</A>]</DEL> <INS>7.5.4.1 [<A href="https://wg21.link/expr.prim.id.general">expr.prim.id.general</A>]</INS></SPAN>
+</PRE>
+-- end example ]
+</BLOCKQUOTE>
+
+</LI>
+</OL>
+
+<BR><BR><HR>
 <A NAME="2743"></A><H4>2743.
   
 Copying non-trivial objects nested within a union
@@ -33291,6 +33938,153 @@ in a union at any time.
 <P>Similar questions arise for placement-new and
 for <TT>construct_at</TT>; for the latter also during constant
 evaluation.</P>
+
+<BR><BR><HR>
+<A NAME="2767"></A><H4>2767.
+  
+Non-defining declarations of anonymous unions
+</H4>
+<B>Section: </B>11.5.2&#160; [<A href="https://wg21.link/class.union.anon">class.union.anon</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Hubert Tong
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-07-06<BR>
+
+
+
+
+<P>Currently, the specification permits this example:</P>
+
+<PRE>
+  namespace {
+    extern union { int x, y; };
+    union { int x, y; };
+  };
+</PRE>
+
+<P>However, those non-defining declarations seem to be mostly useless,
+because any definition attempt would violate the one-definition rule
+(6.3 [<A href="https://wg21.link/basic.def.odr">basic.def.odr</A>]).</P>
+
+<P><U>Possible resolution:</U></P>
+
+<P>This resolution also addresses <A HREF="cwg_active.html#1702">issue 1702</A>.</P>
+
+<OL>
+<LI>
+<P>Split 11.5.2 [<A href="https://wg21.link/class.union.anon#1">class.union.anon</A>] paragraph 1 and change as follows:</P>
+
+<BLOCKQUOTE>
+
+<P>
+<DEL>A union of the form</DEL>
+<INS>A <I>simple-declaration</I> or <I>member-declaration</I> of the
+form</INS>
+<PRE class="ins">
+  <I>decl-specifier-seq</I> ;
+</PRE>
+<INS>where one of the <I>decl-specifier</I>s is a <I>class-specifier</I>
+of the form</INS>
+<PRE>
+  union <INS><I>attribute-specifier-seq</I><SUB>opt</SUB></INS> { <I>member-specification</I> } <DEL>;</DEL>
+</PRE>
+<DEL>is called</DEL> <INS>declares</INS> an <I>anonymous union</I>; it
+defines an unnamed type <INS><TT>T</TT></INS> and an unnamed object
+of <DEL>that</DEL> type <INS><I>cv</I> <TT>T</TT></INS> called an
+anonymous union member if it is a non-static data member or an
+anonymous union variable otherwise<INS>, where <I>cv</I> is determined
+from the <I>cv-qualifier</I>s of the declaration</INS>.
+<INS>The <I>storage-class-specifier</I> <TT>extern</TT>
+(9.2.2 [<A href="https://wg21.link/dcl.stc">dcl.stc</A>]) shall not be among
+the <I>decl-specifier</I>s declaring an anonymous union.  The
+declaration of an anonymous union shall not be
+the <I>name-declaration</I> of a <I>linkage-specification</I>
+(9.11 [<A href="https://wg21.link/dcl.link">dcl.link</A>]).</INS>
+</P>
+
+<P>
+Each <I>member-declaration</I> in the <I>member-specification</I> of
+an anonymous union shall either define one or more public non-static
+data members or be a static_<I>assert-declaration</I>. Nested types,
+anonymous unions, and functions shall not be declared within an
+anonymous union. The names of the members of an anonymous union are
+bound in the scope inhabited by the union declaration.
+</P>
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+<P>Change in 11.5.2 [<A href="https://wg21.link/class.union.anon#2">class.union.anon</A>] paragraph 2 as follows:</P>
+
+<BLOCKQUOTE>
+
+<DEL>Anonymous unions declared in the scope of</DEL> <INS>An anonymous
+union whose declaration inhabits</INS> a namespace <INS>scope</INS>
+with external linkage shall be declared <TT>static</TT>.
+<DEL>Anonymous unions declared at block scope shall be declared with
+any storage class allowed for a block variable, or with no storage
+class.  A storage class is not allowed in a declaration of an
+anonymous union in a class scope.</DEL>
+<INS>An anonymous union whose declaration inhabits a class scope shall
+not be declared with a <I>storage-class-specifier</I>.</INS>
+
+</BLOCKQUOTE>
+</LI>
+</OL>
+
+<BR><BR><HR>
+<A NAME="2773"></A><H4>2773.
+  
+Naming anonymous union members as class members
+</H4>
+<B>Section: </B>11.5.2&#160; [<A href="https://wg21.link/class.union.anon">class.union.anon</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Hubert Tong
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-07-16<BR>
+
+
+
+
+<P>Consider:</P>
+
+<PRE>
+  template &lt;typename T&gt;
+  int f(T *tp) { return tp-&gt;x; }
+
+  static union { int x = f(this); };
+</PRE>
+
+<P>According to 11.5.2 [<A href="https://wg21.link/class.union.anon#1">class.union.anon</A>] paragraph 1:</P>
+
+<BLOCKQUOTE>
+
+... The names of the members of an anonymous union are bound in the scope
+inhabited by the union declaration.
+
+</BLOCKQUOTE>
+
+<P>Thus, the example above is ill-formed, because the member names are
+not bound in the scope of the class of the anonymous union.  However,
+there is implementation divergence: clang and gcc accept the example
+(contrary to the wording), icc rejects.
+Notwithstanding, <TT>this</TT> refers to the anonymous union itself,
+not to an enclosing class.</P>
+
+<P><U>Possible resolution:</U></P>
+
+<P>tbd</P>
 
 <BR><BR><HR>
 <A NAME="1699"></A><H4>1699.
@@ -33743,6 +34537,20 @@ for <I>o</I>. -- end note ] [ Example:</P>
   };
 
   B *p2 = new B;  //<SPAN CLASS="cmnt"> undefined behavior</SPAN>
+
+  struct S {
+    constexpr S() { this-&gt;~S(); }
+    constexpr S(int) {}
+  };
+
+  constexpr int f() {
+    S s(0);
+    s.~S();
+    std::construct_at(&amp;s);  // <SPAN CLASS="cmnt">#1</SPAN>
+    return 0;
+  }
+
+  constexpr int x = f();  // <SPAN CLASS="cmnt">error: undefined behavior at #1 during constant evaluation</SPAN>
 </PRE>
 <P class="ins">-- end example ]</P>
 
@@ -35304,6 +36112,89 @@ user-defined literal operators cannot have a parameter of an
 extended integer type.  This seems like an oversight.</P>
 
 <BR><BR><HR>
+<A NAME="2777"></A><H4>2777.
+  
+Type of <I>id-expression</I> denoting a template parameter object
+</H4>
+<B>Section: </B>13.2&#160; [<A href="https://wg21.link/temp.param">temp.param</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Jim X
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-07-26<BR>
+
+
+<P>The type of a template parameter object is specified to
+be <TT>const T</TT> in 13.2 [<A href="https://wg21.link/temp.param#8">temp.param</A>] paragraph 8:</P>
+
+<BLOCKQUOTE>
+
+An <I>id-expression</I> naming a non-type <I>template-parameter</I> of
+class type T denotes a static storage duration object of
+type <TT>const T</TT>, known as a template parameter object, whose
+value is that of the corresponding template argument after it has been
+converted to the type of the <I>template-parameter</I>.  ...
+
+</BLOCKQUOTE>
+
+<P>However, it is unclear what the type of an <I>id-expression</I> is
+that refers to such an object.  There is implementation divergence in
+the treatment of the following example:</P>
+
+<PRE>
+  struct A {};
+
+  template&lt;auto a, auto x&gt;  // <SPAN CLASS="cmnt">also consider</SPAN> A a <SPAN CLASS="cmnt">and</SPAN> const auto x
+  int f() {
+    decltype(a) b;          // <SPAN CLASS="cmnt">also consider</SPAN> decltype((a))
+    A&amp; rb = b;
+    decltype(x) y;
+    int&amp; ry = y;
+  }
+
+  int x = f&lt;A{}, 42&gt;();
+</PRE>
+
+<P>Note that non-type template parameters are handled specially for <TT>decltype</TT>, as specified in 9.2.9.5 [<A href="https://wg21.link/dcl.type.decltype#1">dcl.type.decltype</A>] paragraph 1:</P>
+
+<BLOCKQUOTE>
+
+For an expression E, the type denoted by <TT>decltype(E)</TT> is defined as
+follows:
+
+<UL>
+<LI>...</LI>
+<LI>
+otherwise, if E is an unparenthesized <I>id-expression</I> naming a
+non-type <I>template-parameter</I> (13.2 [<A href="https://wg21.link/temp.param">temp.param</A>]),
+decltype(E) is the type of the <I>template-parameter</I> after
+performing any necessary type deduction (9.2.9.6 [<A href="https://wg21.link/dcl.spec.auto">dcl.spec.auto</A>],
+9.2.9.7 [<A href="https://wg21.link/dcl.type.class.deduct">dcl.type.class.deduct</A>]);
+</LI>
+<LI>...</LI>
+</UL>
+
+</BLOCKQUOTE>
+
+<P><U>Possible resolution:</U></P>
+
+<P>Change in 7.5.4.2 [<A href="https://wg21.link/expr.prim.id.unqual#3">expr.prim.id.unqual</A>] paragraph 3 as follows:</P>
+
+<BLOCKQUOTE>
+
+<DEL>[<I>Note 4:</I></DEL> If the entity is a template parameter object for a
+template parameter of type T (13.2 [<A href="https://wg21.link/temp.param">temp.param</A>]), the type of
+the expression is <TT>const T</TT>. <DEL>&#8212;<I>end note</I>]</DEL>
+<INS>In all other case, the type of the expression is the type of the
+entity.</INS>
+
+</BLOCKQUOTE>
+
+<BR><BR><HR>
 <A NAME="579"></A><H4>579.
   
 What is a &#8220;nested&#8221; <TT>&gt;</TT> or <TT>&gt;&gt;</TT>?
@@ -36744,6 +37635,90 @@ and of phrases like &#8220;member of a class that is the current
 instantiation&#8221; is not formally specified.</P>
 
 <BR><BR><HR>
+<A NAME="2774"></A><H4>2774.
+  
+Value-dependence of <I>requires-expression</I>s
+</H4>
+<B>Section: </B>13.8.3.4&#160; [<A href="https://wg21.link/temp.dep.constexpr">temp.dep.constexpr</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Christof Meerwald
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-07-17<BR>
+
+
+
+
+<P>Consider:</P>
+
+
+
+<PRE>
+   template&lt;typename T&gt;
+   struct A
+   {
+     static_assert(sizeof(T) == 3);    // <SPAN CLASS="cmnt">#1</SPAN>
+   };
+
+   template&lt;bool B&gt;
+   struct C
+   {
+     static_assert(B);                 // <SPAN CLASS="cmnt">#2</SPAN>
+   };
+
+   template&lt;typename T, typename U&gt;
+   int f(typename C&lt;requires { typename T::type; }&gt;::type, typename A&lt;T&gt;::type, U);
+
+   int i = f&lt;char&gt;(0, 1, 2);
+</PRE>
+
+<P>Is the <I>requires-expression</I> value-dependent after
+substituting the explicit template argument, thus failing at #2
+instead of at #1?</P>
+
+<P><U>Suggested resolution:</U></P>
+
+<OL>
+<LI>
+<P>Change in 13.8.3.3 [<A href="https://wg21.link/temp.dep.expr#4">temp.dep.expr</A>] paragraph 4 as follows:</P>
+
+<BLOCKQUOTE>
+
+Expressions of the following forms are never type-dependent (because
+the type of the expression cannot be dependent):
+
+<PRE>
+  ...
+  noexcept ( <I>expression</I> )
+  <INS><I>requires-expression</I></INS>
+</PRE>
+
+</BLOCKQUOTE>
+
+</LI>
+
+<LI>
+<P>Insert a new paragraph before 13.8.3.4 [<A href="https://wg21.link/temp.dep.constexpr#5">temp.dep.constexpr</A>] paragraph 5:</P>
+
+<BLOCKQUOTE>
+
+<P class="ins">
+A <I>requires-expression</I> is value-dependent if it depends on a
+template parameter.
+</P>
+
+<P>An expression of the form &amp;<I>qualified-id</I> where
+the <I>qualified-id</I> names a dependent member ...</P>
+
+</BLOCKQUOTE>
+</LI>
+</OL>
+
+<BR><BR><HR>
 <A NAME="2250"></A><H4>2250.
   
 Implicit instantiation, destruction, and TUs
@@ -37385,6 +38360,202 @@ the body of a lambda is never in the immediate context of substitution
 into the lambda-expression and move the rule somewhere more
 general.</P>
 
+<P><U>Possible resolution:</U></P>
+
+<OL>
+<LI>
+<P>Change in 13.5.2.3 [<A href="https://wg21.link/temp.constr.atomic">temp.constr.atomic</A>] as follows:</P>
+
+<BLOCKQUOTE>
+
+To determine if an atomic constraint is satisfied, the parameter
+mapping and template arguments are first substituted into its
+expression. If substitution results in an invalid type or
+expression <INS>in the immediate context of the atomic constraint
+(13.10.3.1 [<A href="https://wg21.link/temp.deduct.general">temp.deduct.general</A>])</INS>, the constraint is not
+satisfied. Otherwise, the lvalue-to-rvalue conversion
+(7.3.2 [<A href="https://wg21.link/conv.lval">conv.lval</A>]) is performed if necessary, and E shall be
+a constant expression of type bool. The constraint is satisfied if and
+only if evaluation of E results in true.
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+<P>Change in 13.10.3.1 [<A href="https://wg21.link/temp.deduct.general">temp.deduct.general</A>] as follows:</P>
+
+<BLOCKQUOTE>
+
+<DEL>A <I>lambda-expression</I> appearing in a function type or a template
+parameter</DEL>
+<INS>Substituting into the body of a <I>lambda-expression</I></INS>
+is <DEL>not considered part of</DEL> <INS>never in</INS> the immediate
+context <DEL>for the purposes of template argument deduction</DEL>
+<INS>of substitution into the <I>lambda-expression</I></INS>.
+[<I>Note 7:</I> The intent is to avoid requiring implementations to
+deal with substitution failure involving arbitrary statements.
+
+</BLOCKQUOTE>
+</LI>
+</OL>
+
+<BR><BR><HR>
+<A NAME="2769"></A><H4>2769.
+  
+Substitution into template parameters and default template arguments should be interleaved
+</H4>
+<B>Section: </B>13.10.3.1&#160; [<A href="https://wg21.link/temp.deduct.general">temp.deduct.general</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Richard Smith
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-07-14<BR>
+
+
+
+
+<P>Subclause 13.10.3.1 [<A href="https://wg21.link/temp.deduct.general#5">temp.deduct.general</A>] paragraph 5 specifies:</P>
+
+<BLOCKQUOTE>
+
+If a template argument has not been deduced and its corresponding
+template parameter has a default argument, the template argument is
+determined by substituting the template arguments determined for
+preceding template parameters into the default argument. ... 
+When all template arguments have been deduced or obtained from default
+template arguments, all uses of template parameters in the template
+parameter list of the template are replaced with the corresponding
+deduced or default argument values.
+
+</BLOCKQUOTE>
+
+<P>This description is confused.  We need to have already substituted
+into the template parameter declaration in order to finish forming a
+template argument, and we need to finish forming a template argument
+before we can substitute it into a later default template argument.
+Consider:</P>
+
+<PRE>
+  struct X { constexpr operator int() { return 0; } };
+  template&lt;const int*&gt; struct Y {};
+  extern int arr[];
+  template&lt;typename T, T K = X(), const int *p = &amp;arr[K], Y&lt;p&gt; y = {}&gt; struct A {};
+  A&lt;int&gt; a;
+</PRE>
+
+<P>Here, we need to substitute <TT>T = int</TT> into the type
+of <TT>K</TT>, then convert the default template argument <TT>X()</TT>
+to <TT>int</TT>, then substitute the converted value of <TT>p</TT>
+into the type of <TT>y</TT>.  The substitution into template
+parameters and into default template arguments is necessarily
+interleaved.</P>
+
+<P><U>Suggested resolution:</U></P>
+
+<P>Change in 13.10.3.1 [<A href="https://wg21.link/temp.deduct.general#5">temp.deduct.general</A>] paragraph 5 as follows:</P>
+
+<BLOCKQUOTE>
+
+The resulting substituted and adjusted function type is used as the
+type of the function template for template argument deduction.
+<INS>For each template parameter in turn:</INS>
+
+<UL>
+<LI class="ins">If a template argument has not been deduced and the
+template parameter is a parameter pack, the template argument is an
+empty pack.</LI>
+
+<LI>
+<INS>Otherwise,</INS> <DEL>If</DEL> <INS>if</INS> a template argument has
+not been deduced <DEL>and its corresponding template parameter has a
+default argument</DEL>, the template argument is determined by
+substituting the template arguments determined for preceding template
+parameters into the default argument. If <INS>the template parameter
+does not have a default template argument, or if</INS> the
+substitution results in an invalid type, as described above, type
+deduction fails. [ Example: ... ]
+</LI>
+
+<LI>
+<DEL>When all template arguments have been deduced or obtained from
+default template arguments, all uses of template parameters in the
+template parameter list of the template are replaced with the
+corresponding deduced or default argument values.</DEL> <INS>The
+substituted template parameter is determined by substituting the
+template arguments determined for preceding template parameters into
+the template parameter.</INS> If the substitution results in an
+invalid type, as described above, type deduction fails.</LI>
+
+<LI class="ins">
+The template argument is matched against the substituted template
+parameter (13.4.1 [<A href="https://wg21.link/temp.arg.general">temp.arg.general</A>]). If the template argument does not
+match the substituted template parameter, type deduction fails. [
+Note: Matching a template argument to a non-type template parameter
+may perform a conversion. The converted value is used for later
+substitutions. -- end note ]
+</LI>
+
+</UL>
+
+If the function template has associated constraints
+(13.5.3 [<A href="https://wg21.link/temp.constr.decl">temp.constr.decl</A>]), those constraints are checked for
+satisfaction (13.5.2 [<A href="https://wg21.link/temp.constr.constr">temp.constr.constr</A>]).  ...
+
+</BLOCKQUOTE>
+
+<BR><BR><HR>
+<A NAME="2770"></A><H4>2770.
+  
+Trailing <I>requires-clause</I> can refer to function parameters before they are substituted into
+</H4>
+<B>Section: </B>13.10.3.1&#160; [<A href="https://wg21.link/temp.deduct.general">temp.deduct.general</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Richard Smith
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-07-14<BR>
+
+
+
+
+<P>After the application of <A HREF="cwg_defects.html#2369">issue 2369</A>,
+satisfaction for a trailing <I>requires-clause</I> is checked prior to
+substitution into the function type.  Subclause
+13.10.3.1 [<A href="https://wg21.link/temp.deduct.general#5">temp.deduct.general</A>] paragraph 5 specifies:</P>
+
+<BLOCKQUOTE>
+
+If the function template has associated constraints
+(13.5.3 [<A href="https://wg21.link/temp.constr.decl">temp.constr.decl</A>]), those constraints are checked for
+satisfaction (13.5.2 [<A href="https://wg21.link/temp.constr.constr">temp.constr.constr</A>]). ...  If type deduction has
+not yet failed, then all uses of template parameters in the function
+type are replaced with the corresponding deduced or default argument
+values.
+
+</BLOCKQUOTE>
+
+<P>However, the associated constraints can refer to parameters, thus
+substitution into the parameter types must have been already done at
+the time of checking.  Consider:</P>
+
+<PRE>
+  template&lt;typename T&gt; void f(T t) requires (sizeof(t) == 5) {}
+</PRE>
+
+<P><U>Suggested resolution:</U></P>
+
+<P>Function parameters should be instantiated when they are needed by
+a satisfaction check of an atomic constraint or (recursively) by
+another function parameter.</P>
+
 <BR><BR><HR>
 <A NAME="503"></A><H4>503.
   
@@ -37593,6 +38764,64 @@ type.</P>
 rules seem to cover this case (deduction is not specified to
 &#8220;succeed,&#8221; so it's a reasonable conclusion that it fails),
 but it might be helpful to be clearer.</P>
+
+<BR><BR><HR>
+<A NAME="2775"></A><H4>2775.
+  
+Unclear argument type for copy of exception object
+</H4>
+<B>Section: </B>14.2&#160; [<A href="https://wg21.link/except.throw">except.throw</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Jiang An
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-05-31<BR>
+
+
+<P>Subclause 14.2 [<A href="https://wg21.link/except.throw#5">except.throw</A>] paragraph 5 specifies:</P>
+
+<BLOCKQUOTE>
+
+When the thrown object is a class object, the constructor selected for
+the copy-initialization as well as the constructor selected for a
+copy-initialization considering the thrown object as an lvalue shall
+be non-deleted and accessible, even if the copy/move operation is
+elided (11.9.6 [<A href="https://wg21.link/class.copy.elision">class.copy.elision</A>]). The destructor is potentially
+invoked (11.4.7 [<A href="https://wg21.link/class.dtor">class.dtor</A>]).
+
+</BLOCKQUOTE>
+
+<P>This provision is for capturing a copy constructor for
+implementations not using reference-counted
+<TT>std::exception_ptr</TT>s, but that ought to be described
+separately from the "thrown object", which can be interpreted as the
+operand of the <I>throw-expression</I>.</P>
+
+<P><U>Possible resolution:</U></P>
+
+<P>Change in 14.2 [<A href="https://wg21.link/except.throw#5">except.throw</A>] paragraph 5 as follows:</P>
+
+<BLOCKQUOTE>
+
+<DEL>When the thrown object is a class object, the constructor selected for
+the copy-initialization as well as the constructor selected for a
+copy-initialization considering the thrown object as an lvalue shall
+be non-deleted and accessible, even if the copy/move operation is
+elided (11.9.6 [<A href="https://wg21.link/class.copy.elision">class.copy.elision</A>]).</DEL>
+
+<INS>Let <TT>T</TT> denote the type of the exception
+object. If <TT>T</TT> is a class type, copy-initialization of an
+object of type <TT>T</TT> from an lvalue of type <TT>const T</TT> in a
+context unrelated to any class shall be well-formed.</INS>
+
+The destructor <INS>of <TT>T</TT></INS> is potentially invoked
+(11.4.7 [<A href="https://wg21.link/class.dtor">class.dtor</A>]).
+
+</BLOCKQUOTE>
 
 <BR><BR><HR>
 <A NAME="2417"></A><H4>2417.
@@ -38639,11 +39868,56 @@ found, hopefully without excessive duplication between the C and C++
 sections.</P>
 
 <BR><BR><HR>
+<A NAME="2772"></A><H4>2772.
+  
+Missing Annex C entry for linkage effects of <I>linkage-specification</I>
+</H4>
+<B>Section: </B>C.6.4&#160; [<A href="https://wg21.link/diff.cpp03.dcl.dcl">diff.cpp03.dcl.dcl</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Hubert Tong
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-07-15<BR>
+
+
+
+
+<P>With C++11, <TT>extern "C"</TT> obtained the effects
+of <TT>extern</TT> on linkage of the names declared in
+the <I>name-declaration</I> of a <I>linkage-specification</I>, but a
+corresponding Annex C entry is missing.</P>
+
+<P><U>Possible resolution:</U></P>
+
+<P>Add a new paragraph in C.6.4 [<A href="https://wg21.link/diff.cpp03.dcl.dcl">diff.cpp03.dcl.dcl</A>] as follows:</P>
+
+<BLOCKQUOTE class="ins">
+
+Affected subclause: 9.11 [<A href="https://wg21.link/dcl.link">dcl.link</A>]<BR>
+Change: Language linkage applies to names with external linkage only,
+and names directly declared in a <I>linkage-specification</I> are
+considered to be declared <TT>extern</TT>.<BR>
+Rationale: Alignment with user expectations.<BR>
+Effect on original feature: Valid C++ 2003 code may violate the one-definition rule (6.3 [<A href="https://wg21.link/basic.def.odr">basic.def.odr</A>]) in this revision of C++. For example:
+<PRE>
+  namespace { extern "C" int x; }           // <SPAN CLASS="cmnt">#1, previously external linkage and C language linkage, now internal linkage and C++ language linkage</SPAN>
+  namespace A { extern "C" int x = 42; }    // <SPAN CLASS="cmnt">#2, external linkage and C language linkage</SPAN>
+  int main(void) { return x; }
+</PRE>
+This code is valid in C++ 2003, but #2 is not a definition for #1 in
+this revision of C++, violating the one-definition rule.
+</BLOCKQUOTE>
+
+<BR><BR><HR>
 <A NAME="1248"></A><H4>1248.
   
 Updating Annex C to C99
 </H4>
-<B>Section: </B>C.6&#160; [<A href="https://wg21.link/diff.iso">diff.iso</A>]
+<B>Section: </B>C.7&#160; [<A href="https://wg21.link/diff.iso">diff.iso</A>]
  &#160;&#160;&#160;
 
  <B>Status: </B>open
@@ -38658,7 +39932,7 @@ Updating Annex C to C99
 
 
 <P>The description of incompatibilities with C in Annex
-C.6 [<A href="https://wg21.link/diff.iso">diff.iso</A>] refers to C89, but there are a number of
+C.7 [<A href="https://wg21.link/diff.iso">diff.iso</A>] refers to C89, but there are a number of
 new features in C99 that should be covered.</P>
 
 
