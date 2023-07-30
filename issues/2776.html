@@ -58,14 +58,18 @@ D</INS>. Such requirements have the following meaning:
 <UL>
 <LI class="ins">
 <P>If a program contains a violation of a rule for which no diagnostic
-is required or if an implementation limit (Annex B) is reached during
-translation, this document places no requirement on implementations
+is required, this document places no requirement on implementations
 with respect to that program.</P>
+</LI>
+
+<LI class="ins">
+<P>Otherwise, if an implementation limit (Annex B) is reached during
+translation, an implementation shall reject the program.</P>
 <P>
 <I>Recommended practice:</I> An implementation should document
-limits where they are known, and should issue a diagnostic and reject
-the program in cases where it can reasonably detect that the
-implementation limit is reached.</P>
+limits where they are known, and should issue a diagnostic in cases
+where it can reasonably detect that the implementation limit is
+reached.</P>
 </LI>
 
 <LI>
