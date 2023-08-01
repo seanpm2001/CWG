@@ -145,6 +145,14 @@ an operation that would have undefined behavior as specified in
 Clause 4 [<A href="https://wg21.link/intro">intro</A>] through Clause 15 [<A href="https://wg21.link/cpp">cpp</A>], excluding
 9.12.3 [<A href="https://wg21.link/dcl.attr.assume">dcl.attr.assume</A>] <INS>and exceeding an implementation limit
 (4.1.2 [<A href="https://wg21.link/intro.abstract">intro.abstract</A>])</INS>; [ Footnote: ... ]
+<DIV class="ins">[ Example:
+<PRE>
+  constexpr bool f(int x) { return (x == 0) || f(x-1); }
+  const bool g = f(60000);    // <SPAN CLASS="cmnt">well-formed static initialization (6.9.3.2 [<A href="https://wg21.link/basic.start.static">basic.start.static</A>]);</SPAN>
+                              // <SPAN CLASS="cmnt">program can be rejected because implementation limit is reached</SPAN>
+</PRE>
+-- end example ]
+</DIV>
 </LI>
 <LI>...</LI>
 </UL>
