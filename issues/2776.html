@@ -15,7 +15,7 @@
   Core Issues List revision 111d.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-07-30</P>
+<P>2023-08-01</P>
 <HR>
 <A NAME="2776"></A><H4>2776.
   
@@ -125,6 +125,29 @@ where they are known and abort the execution of the program in cases
 where it can reasonably detect that the implementation limit is
 reached.
 </P>
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+<P>Change in 7.7 [<A href="https://wg21.link/expr.const#5">expr.const</A>] paragraph 5 as follows:</P>
+
+<BLOCKQUOTE>
+
+<UL>
+<LI>...</LI>
+<LI>
+<DEL>an expression that would exceed the implementation-defined limits (see
+Annex B);</DEL>
+</LI>
+<LI>
+an operation that would have undefined behavior as specified in
+Clause 4 [<A href="https://wg21.link/intro">intro</A>] through Clause 15 [<A href="https://wg21.link/cpp">cpp</A>], excluding
+9.12.3 [<A href="https://wg21.link/dcl.attr.assume">dcl.attr.assume</A>] <INS>and exceeding an implementation limit
+(4.1.2 [<A href="https://wg21.link/intro.abstract">intro.abstract</A>])</INS>; [ Footnote: ... ]
+</LI>
+<LI>...</LI>
+</UL>
 
 </BLOCKQUOTE>
 </LI>

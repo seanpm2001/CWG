@@ -15,7 +15,7 @@
   Core Issues List revision 111d.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-07-30</P>
+<P>2023-08-01</P>
 <HR>
 <A NAME="2779"></A><H4>2779.
   
@@ -49,16 +49,23 @@ needed.</P>
 <P>Change in 5.3 [<A href="https://wg21.link/lex.charset#8">lex.charset</A>] paragraph 8 as follows and add to
 the index of implementation-defined behavior:</P>
 
+
 <BLOCKQUOTE>
 
-... The <I>ordinary literal encoding</I> is the
+A <I>code unit</I> is an integer value of character type
+(6.8.2 [<A href="https://wg21.link/basic.fundamental">basic.fundamental</A>]). Characters in a <I>character-literal</I>
+other than a multicharacter <DEL>or non-encodable character</DEL>
+literal or in a <I>string-literal</I> are encoded as a sequence of one
+or more code units, as determined by the <I>encoding-prefix</I>
+(5.13.3 [<A href="https://wg21.link/lex.ccon">lex.ccon</A>], 5.13.5 [<A href="https://wg21.link/lex.string">lex.string</A>]); this is
+termed the respective <I>literal encoding</I>.  The <I>ordinary literal
+encoding</I> is the
 <INS>implementation-defined</INS> encoding applied to an ordinary
-character or string literal<INS>; its code unit values are required to
-be representable as distinct values of type <TT>signed char</TT>
-or <TT>unsigned char</TT></INS>.  The <I>wide literal encoding</I> is
-the <INS>implementation-defined</INS> encoding applied to a wide
-character or string literal<INS>; its code unit values are required to
-be representable as distinct values of type <TT>wchar_t</TT></INS>.
+character or string literal<INS>; its code units are of
+type <TT>unsigned char</TT></INS>.  The <I>wide literal encoding</I>
+is the <INS>implementation-defined</INS> encoding applied to a wide
+character or string literal<INS>; its code units are of
+type <TT>wchar_t</TT></INS>.
 
 </BLOCKQUOTE>
 </LI>
