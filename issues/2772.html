@@ -15,7 +15,7 @@
   Core Issues List revision 111d.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-07-23</P>
+<P>2023-08-04</P>
 <HR>
 <A NAME="2772"></A><H4>2772.
   
@@ -35,10 +35,12 @@ Missing Annex C entry for linkage effects of <I>linkage-specification</I>
 
 
 
-<P>With C++11, <TT>extern "C"</TT> obtained the effects
-of <TT>extern</TT> on linkage of the names declared in
-the <I>name-declaration</I> of a <I>linkage-specification</I>, but a
-corresponding Annex C entry is missing.</P>
+<P>With C++11, anonymous namespaces changed from external linkage
+(with a unique namespace name) to internal linkage.  That implies
+that <TT>extern "C"</TT>, which affects names with external linkage
+only, no longer has an effect inside anonymous namespaces.</P>
+
+<P>However, a corresponding Annex C entry is missing.</P>
 
 <P><U>Possible resolution:</U></P>
 
@@ -47,14 +49,14 @@ corresponding Annex C entry is missing.</P>
 <BLOCKQUOTE class="ins">
 
 Affected subclause: 9.11 [<A href="https://wg21.link/dcl.link">dcl.link</A>]<BR>
-Change: Language linkage applies to names with external linkage only,
-and names directly declared in a <I>linkage-specification</I> are
-considered to be declared <TT>extern</TT>.<BR>
+Change: Names declared in an anonymous namespace changed from external
+linkage to internal linkage; language linkage applies to names with
+external linkage only.<BR>
 Rationale: Alignment with user expectations.<BR>
 Effect on original feature: Valid C++ 2003 code may violate the one-definition rule (6.3 [<A href="https://wg21.link/basic.def.odr">basic.def.odr</A>]) in this revision of C++. For example:
 <PRE>
-  namespace { extern "C" int x; }           // <SPAN CLASS="cmnt">#1, previously external linkage and C language linkage, now internal linkage and C++ language linkage</SPAN>
-  namespace A { extern "C" int x = 42; }    // <SPAN CLASS="cmnt">#2, external linkage and C language linkage</SPAN>
+  namespace { extern "C" { extern int x; } }  // <SPAN CLASS="cmnt">#1, previously external linkage and C language linkage, now internal linkage and C++ language linkage</SPAN>
+  namespace A { extern "C" int x = 42; }      // <SPAN CLASS="cmnt">#2, external linkage and C language linkage</SPAN>
   int main(void) { return x; }
 </PRE>
 This code is valid in C++ 2003, but #2 is not a definition for #1 in
