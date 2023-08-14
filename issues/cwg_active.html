@@ -214,6 +214,7 @@ USA.</P>
 <A HREF="cwg_active.html#2776">2776</A>,
 <A HREF="cwg_active.html#2777">2777</A>,
 <A HREF="cwg_active.html#2778">2778</A>,
+<A HREF="cwg_active.html#2779">2779</A>,
 Closed issues
 <A HREF="cwg_closed.html#6">6</A>,
 <A HREF="cwg_closed.html#504">504</A>,
@@ -3934,6 +3935,17 @@ Cannot depend on an already-deleted splice
 </TD>
 </TR>
 <TR>
+<TD ALIGN="LEFT">5.3&#160;
+  <A href="https://wg21.link/lex.charset">lex.charset</A>
+</TD>
+<TD ALIGN="RIGHT"><A HREF="#2779">2779</A></TD>
+<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER"></TD>
+<TD ALIGN="LEFT">
+Restrictions on the ordinary literal encoding
+</TD>
+</TR>
+<TR>
 <TD ALIGN="LEFT">5.4&#160;
   <A href="https://wg21.link/lex.pptoken">lex.pptoken</A>
 </TD>
@@ -5466,7 +5478,7 @@ Defaulted constructor that is an immediate function
   <A href="https://wg21.link/expr.const">expr.const</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#2763">2763</A></TD>
-<TD ALIGN="CENTER">ready</TD>
+<TD ALIGN="CENTER">review</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Ignorability of [[noreturn]] during constant evaluation
@@ -8963,79 +8975,6 @@ object whose type is similar to T;
 </BLOCKQUOTE>
 
 <BR><BR><HR>
-<A NAME="2763"></A><H4>2763.
-  
-Ignorability of [[noreturn]] during constant evaluation
-</H4>
-<B>Section: </B>7.7&#160; [<A href="https://wg21.link/expr.const">expr.const</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>ready
- &#160;&#160;&#160;
-
- <B>Submitter: </B>Jiang An
- &#160;&#160;&#160;
-
- <B>Date: </B>2023-07-10<BR>
-
-
-<P>Subclause 9.12.10 [<A href="https://wg21.link/dcl.attr.noreturn#2">dcl.attr.noreturn</A>] paragraph 2 specifies:</P>
-
-<BLOCKQUOTE>
-
-If a function f is called where f was previously declared with the
-<TT>noreturn</TT> attribute and f eventually returns, the behavior is
-undefined.
-
-</BLOCKQUOTE>
-
-<P>Undefineed behavior is, in general, detected during constant
-evaluation, thus requiring an implementation to actually support
-the <TT>noreturn</TT> attribute, such as in the following example:</P>
-
-<PRE>
-  [[noreturn]] constexpr void f() {}
-  constexpr int x = (f(), 0);
-</PRE>
-
-<P>It might be desirable to treat the <TT>assume</TT>
-and <TT>noreturn</TT> attributes alike in that regard.</P>
-
-<P><B>Proposed resolution (approved by CWG 2023-07-14)</B></P>
-
-<P>Split into a separate paragraph and change 7.7 [<A href="https://wg21.link/expr.const#5">expr.const</A>] paragraph 5 as follows:</P>
-
-<BLOCKQUOTE>
-
-It is unspecified whether E is a core constant expression if E
-satisfies the constraints of a core constant expression, but
-evaluation of E would evaluate
-<UL>
-<LI>an operation that has undefined
-behavior as specified in Clause 16 through Clause 33,</LI>
-<LI>an invocation of the va_start macro
-(17.13.2 [<A href="https://wg21.link/cstdarg.syn">cstdarg.syn</A>]), <DEL>or</DEL>
-</LI>
-<LI class="ins">a <TT>return</TT> statement in a function that was
-previously declared with the <TT>noreturn</TT> attribute
-(9.12.10 [<A href="https://wg21.link/dcl.attr.noreturn">dcl.attr.noreturn</A>]), or</LI>
-<LI>
-a statement with an assumption (9.12.3 [<A href="https://wg21.link/dcl.attr.assume">dcl.attr.assume</A>])
-whose converted <I>conditional-expression</I>, if evaluated where the
-assumption appears, would not disqualify E from being a core constant
-expression and would not evaluate to <TT>true</TT>.  [ Note: .... ]</LI>
-</UL>
-
-</BLOCKQUOTE>
-
-<P><B>CWG 2023-07-14</B></P>
-
-<P>As an alternative, all of 9.12 [<A href="https://wg21.link/dcl.attr">dcl.attr</A>] could be added
-to the "library undefined behavior" bullet.  However, CWG felt that a
-case-by-case consideration is warranted, given that assumptions set
-precedent in requiring special treatment.</P>
-
-<BR><BR><HR>
 <A NAME="2553"></A><H4>2553.
   
 Restrictions on explicit object member functions
@@ -12449,6 +12388,117 @@ array type.</INS>
 interaction with the surrounding text needs to be checked in more
 detail after a Working Draft reflecting the Varna straw polls has
 become available.</P>
+
+<BR><BR><HR>
+<A NAME="2763"></A><H4>2763.
+  
+Ignorability of [[noreturn]] during constant evaluation
+</H4>
+<B>Section: </B>7.7&#160; [<A href="https://wg21.link/expr.const">expr.const</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>review
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Jiang An
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-07-10<BR>
+
+
+<P>Subclause 9.12.10 [<A href="https://wg21.link/dcl.attr.noreturn#2">dcl.attr.noreturn</A>] paragraph 2 specifies:</P>
+
+<BLOCKQUOTE>
+
+If a function f is called where f was previously declared with the
+<TT>noreturn</TT> attribute and f eventually returns, the behavior is
+undefined.
+
+</BLOCKQUOTE>
+
+<P>Undefineed behavior is, in general, detected during constant
+evaluation, thus requiring an implementation to actually support
+the <TT>noreturn</TT> attribute, such as in the following example:</P>
+
+<PRE>
+  [[noreturn]] constexpr void f() {}
+  constexpr int x = (f(), 0);
+</PRE>
+
+<P>It might be desirable to treat the <TT>assume</TT>
+and <TT>noreturn</TT> attributes alike in that regard.</P>
+
+<P><B>Proposed resolution (approved by CWG 2023-07-14) [SUPERSEDED]:</B></P>
+
+<P>Split into a separate paragraph and change 7.7 [<A href="https://wg21.link/expr.const#5">expr.const</A>] paragraph 5 as follows:</P>
+
+<BLOCKQUOTE>
+
+It is unspecified whether E is a core constant expression if E
+satisfies the constraints of a core constant expression, but
+evaluation of E would evaluate
+<UL>
+<LI>an operation that has undefined
+behavior as specified in Clause 16 through Clause 33,</LI>
+<LI>an invocation of the va_start macro
+(17.13.2 [<A href="https://wg21.link/cstdarg.syn">cstdarg.syn</A>]), <DEL>or</DEL>
+</LI>
+<LI class="ins">a <TT>return</TT> statement in a function that was
+previously declared with the <TT>noreturn</TT> attribute
+(9.12.10 [<A href="https://wg21.link/dcl.attr.noreturn">dcl.attr.noreturn</A>]), or</LI>
+<LI>
+a statement with an assumption (9.12.3 [<A href="https://wg21.link/dcl.attr.assume">dcl.attr.assume</A>])
+whose converted <I>conditional-expression</I>, if evaluated where the
+assumption appears, would not disqualify E from being a core constant
+expression and would not evaluate to <TT>true</TT>.  [ Note: .... ]</LI>
+</UL>
+
+</BLOCKQUOTE>
+
+<P><B>CWG 2023-07-14</B></P>
+
+<P>As an alternative, all of 9.12 [<A href="https://wg21.link/dcl.attr">dcl.attr</A>] could be added
+to the "library undefined behavior" bullet.  However, CWG felt that a
+case-by-case consideration is warranted, given that assumptions set
+precedent in requiring special treatment.</P>
+
+<P><B>Possible resolution:</B></P>
+
+<P>Split into a separate paragraph and change 7.7 [<A href="https://wg21.link/expr.const#5">expr.const</A>] paragraph 5 as follows:</P>
+
+<BLOCKQUOTE>
+
+<UL>
+<LI>...</LI>
+<LI>
+an operation that would have undefined behavior as specified in
+Clause 4 [<A href="https://wg21.link/intro">intro</A>] through Clause 15 [<A href="https://wg21.link/cpp">cpp</A>], excluding
+9.12.3 [<A href="https://wg21.link/dcl.attr.assume">dcl.attr.assume</A>] <INS>and 9.12.10 [<A href="https://wg21.link/dcl.attr.noreturn">dcl.attr.noreturn</A>]</INS>; [
+Footnote: ...]
+</LI>
+<LI>...</LI>
+</UL>
+
+It is unspecified whether E is a core constant expression if E
+satisfies the constraints of a core constant expression, but
+evaluation of E would evaluate
+<UL>
+<LI>an operation that has undefined
+behavior as specified in Clause 16 through Clause 33,</LI>
+<LI>an invocation of the va_start macro
+(17.13.2 [<A href="https://wg21.link/cstdarg.syn">cstdarg.syn</A>]), <DEL>or</DEL>
+</LI>
+<LI class="ins">a <TT>return</TT> statement in a function that was
+previously declared with the <TT>noreturn</TT> attribute
+(9.12.10 [<A href="https://wg21.link/dcl.attr.noreturn">dcl.attr.noreturn</A>]), or</LI>
+<LI>
+a statement with an assumption (9.12.3 [<A href="https://wg21.link/dcl.attr.assume">dcl.attr.assume</A>])
+whose converted <I>conditional-expression</I>, if evaluated where the
+assumption appears, would not disqualify E from being a core constant
+expression and would not evaluate to <TT>true</TT>.  [ Note: .... ]</LI>
+</UL>
+
+</BLOCKQUOTE>
 
 <BR><BR><HR>
 <A NAME="2531"></A><H4>2531.
@@ -25909,14 +25959,18 @@ D</INS>. Such requirements have the following meaning:
 <UL>
 <LI class="ins">
 <P>If a program contains a violation of a rule for which no diagnostic
-is required or if an implementation limit (Annex B) is reached during
-translation, this document places no requirement on implementations
+is required, this document places no requirement on implementations
 with respect to that program.</P>
+</LI>
+
+<LI class="ins">
+<P>Otherwise, if an implementation limit (Annex B) is reached during
+translation, an implementation shall reject the program.</P>
 <P>
 <I>Recommended practice:</I> An implementation should document
-limits where they are known, and should issue a diagnostic and reject
-the program in cases where it can reasonably detect that the
-implementation limit is reached.</P>
+limits where they are known, and should issue a diagnostic in cases
+where it can reasonably detect that the implementation limit is
+reached.</P>
 </LI>
 
 <LI>
@@ -25977,6 +26031,37 @@ reached.
 </LI>
 
 <LI>
+<P>Change in 7.7 [<A href="https://wg21.link/expr.const#5">expr.const</A>] paragraph 5 as follows:</P>
+
+<BLOCKQUOTE>
+
+<UL>
+<LI>...</LI>
+<LI>
+<DEL>an expression that would exceed the implementation-defined limits (see
+Annex B);</DEL>
+</LI>
+<LI>
+an operation that would have undefined behavior as specified in
+Clause 4 [<A href="https://wg21.link/intro">intro</A>] through Clause 15 [<A href="https://wg21.link/cpp">cpp</A>], excluding
+9.12.3 [<A href="https://wg21.link/dcl.attr.assume">dcl.attr.assume</A>] <INS>and exceeding an implementation limit
+(4.1.2 [<A href="https://wg21.link/intro.abstract">intro.abstract</A>])</INS>; [ Footnote: ... ]
+<DIV class="ins">[ Example:
+<PRE>
+  constexpr bool f(int x) { return (x == 0) || f(x-1); }
+  const bool g = f(60000);    // <SPAN CLASS="cmnt">well-formed static initialization (6.9.3.2 [<A href="https://wg21.link/basic.start.static">basic.start.static</A>]);</SPAN>
+                              // <SPAN CLASS="cmnt">program can be rejected because implementation limit is reached</SPAN>
+</PRE>
+-- end example ]
+</DIV>
+</LI>
+<LI>...</LI>
+</UL>
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
 <P>Change in 13.9.2 [<A href="https://wg21.link/temp.inst#16">temp.inst</A>] paragraph 16 as follows:</P>
 
 <BLOCKQUOTE>
@@ -26030,6 +26115,84 @@ ought to be well-defined, ill-formed, or conditionally-supported.</P>
 <A HREF="https://github.com/cplusplus/papers/issues/1405">paper issue 1405</A>,
 by decision of the CWG and SG12 chairs.
 </P>
+
+<BR><BR><HR>
+<A NAME="2779"></A><H4>2779.
+  
+Restrictions on the ordinary literal encoding
+</H4>
+<B>Section: </B>5.3&#160; [<A href="https://wg21.link/lex.charset">lex.charset</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Jim X
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-03-28<BR>
+
+
+<P>There are no restrictions on the implementation's choice of
+ordinary literal encoding.  However, there is an implicit assumption
+that a code unit value must fit into a <TT>char</TT>.</P>
+
+<P>Tangentially related to that, "cannot be encoded as a single code
+unit" could be interpreted as referring to the values of the code
+units as opposed to the fact that multiple code units might be
+needed.</P>
+
+<P><U>Possible resolution:</U></P>
+
+<OL>
+<LI>
+<P>Change in 5.3 [<A href="https://wg21.link/lex.charset#8">lex.charset</A>] paragraph 8 as follows and add to
+the index of implementation-defined behavior:</P>
+
+
+<BLOCKQUOTE>
+
+A <I>code unit</I> is an integer value of character type
+(6.8.2 [<A href="https://wg21.link/basic.fundamental">basic.fundamental</A>]). Characters in a <I>character-literal</I>
+other than a multicharacter <DEL>or non-encodable character</DEL>
+literal or in a <I>string-literal</I> are encoded as a sequence of one
+or more code units, as determined by the <I>encoding-prefix</I>
+(5.13.3 [<A href="https://wg21.link/lex.ccon">lex.ccon</A>], 5.13.5 [<A href="https://wg21.link/lex.string">lex.string</A>]); this is
+termed the respective <I>literal encoding</I>.  The <I>ordinary literal
+encoding</I> is the
+<INS>implementation-defined</INS> encoding applied to an ordinary
+character or string literal<INS>; its code units are of
+type <TT>unsigned char</TT></INS>.  The <I>wide literal encoding</I>
+is the <INS>implementation-defined</INS> encoding applied to a wide
+character or string literal<INS>; its code units are of
+type <TT>wchar_t</TT></INS>.
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+<P>Change in 5.13.3 [<A href="https://wg21.link/lex.ccon#3.1">lex.ccon</A>] bullet 3.1 as follows:</P>
+
+<BLOCKQUOTE>
+
+<UL>
+<LI>
+A <I>character-literal</I> with a <I>c-char-sequence</I> consisting of
+a single <I>basic-c-char</I> , <I>simple-escape-sequence</I>,
+or <I>universal-character-name</I> is the code unit value of the
+specified character as encoded in the literal's associated character
+encoding. If the specified character lacks representation in the
+literal's associated character encoding or if it <DEL>cannot be
+encoded as a single code unit</DEL> <INS>is encoded with multiple code
+units</INS>, then the program is ill-formed.
+</LI>
+<LI>...</LI>
+</UL>
+
+</BLOCKQUOTE>
+
+</LI>
+</OL>
 
 <BR><BR><HR>
 <A NAME="2574"></A><H4>2574.
@@ -39886,10 +40049,12 @@ Missing Annex C entry for linkage effects of <I>linkage-specification</I>
 
 
 
-<P>With C++11, <TT>extern "C"</TT> obtained the effects
-of <TT>extern</TT> on linkage of the names declared in
-the <I>name-declaration</I> of a <I>linkage-specification</I>, but a
-corresponding Annex C entry is missing.</P>
+<P>With C++11, anonymous namespaces changed from external linkage
+(with a unique namespace name) to internal linkage.  That implies
+that <TT>extern "C"</TT>, which affects names with external linkage
+only, no longer has an effect inside anonymous namespaces.</P>
+
+<P>However, a corresponding Annex C entry is missing.</P>
 
 <P><U>Possible resolution:</U></P>
 
@@ -39898,14 +40063,14 @@ corresponding Annex C entry is missing.</P>
 <BLOCKQUOTE class="ins">
 
 Affected subclause: 9.11 [<A href="https://wg21.link/dcl.link">dcl.link</A>]<BR>
-Change: Language linkage applies to names with external linkage only,
-and names directly declared in a <I>linkage-specification</I> are
-considered to be declared <TT>extern</TT>.<BR>
+Change: Names declared in an anonymous namespace changed from external
+linkage to internal linkage; language linkage applies to names with
+external linkage only.<BR>
 Rationale: Alignment with user expectations.<BR>
 Effect on original feature: Valid C++ 2003 code may violate the one-definition rule (6.3 [<A href="https://wg21.link/basic.def.odr">basic.def.odr</A>]) in this revision of C++. For example:
 <PRE>
-  namespace { extern "C" int x; }           // <SPAN CLASS="cmnt">#1, previously external linkage and C language linkage, now internal linkage and C++ language linkage</SPAN>
-  namespace A { extern "C" int x = 42; }    // <SPAN CLASS="cmnt">#2, external linkage and C language linkage</SPAN>
+  namespace { extern "C" { extern int x; } }  // <SPAN CLASS="cmnt">#1, previously external linkage and C language linkage, now internal linkage and C++ language linkage</SPAN>
+  namespace A { extern "C" int x = 42; }      // <SPAN CLASS="cmnt">#2, external linkage and C language linkage</SPAN>
   int main(void) { return x; }
 </PRE>
 This code is valid in C++ 2003, but #2 is not a definition for #1 in
