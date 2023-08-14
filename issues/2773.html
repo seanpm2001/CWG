@@ -15,7 +15,7 @@
   Core Issues List revision 111d.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-07-23</P>
+<P>2023-08-14</P>
 <HR>
 <A NAME="2773"></A><H4>2773.
   
@@ -58,7 +58,38 @@ not bound in the scope of the class of the anonymous union.  However,
 there is implementation divergence: clang and gcc accept the example
 (contrary to the wording), icc rejects.
 Notwithstanding, <TT>this</TT> refers to the anonymous union itself,
-not to an enclosing class.</P>
+not to an enclosing class, per 7.5.2 [<A href="https://wg21.link/expr.prim.this">expr.prim.this</A>].  This rule
+causes rejection of</P>
+
+<PRE>
+  struct A {
+    int foo();
+    union { int x = foo(); };  // <SPAN CLASS="cmnt">error</SPAN>
+  };
+  A a;
+</PRE>
+
+<P>Alternatively, <TT>this</TT> could be made to refer to the
+enclosing class object in these cases.  However, that would cause
+inconsistent treatment for examples like the following:</P>
+
+<PRE>
+  struct A {
+    int n;
+    union {
+      void *p = this; //<SPAN CLASS="cmnt"> A*</SPAN>
+    };
+  };
+</PRE>
+vs.
+<PRE>
+  struct B {
+    int n;
+    union {
+      void *p = this; //<SPAN CLASS="cmnt"> decltype(u)*</SPAN>
+    } u;
+  };
+</PRE>
 
 <P><U>Possible resolution:</U></P>
 
