@@ -15,7 +15,7 @@
   Core Issues List revision 111d.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-07-23</P>
+<P>2023-08-14</P>
 <HR>
 <A NAME="2761"></A><H4>2761.
   
@@ -93,6 +93,32 @@ name, that is, ignoring any possible virtual overriding destructors in
 more derived classes.  Bases and members are destroyed in the reverse
 order of the completion of their constructor (see
 11.9.3 [<A href="https://wg21.link/class.base.init">class.base.init</A>]).
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+<P>Change in 14.3 [<A href="https://wg21.link/except.ctor#3">except.ctor</A>] paragraph 3 as follows:</P>
+
+
+
+<BLOCKQUOTE>
+
+A subobject is <I>known to be initialized</I> if <INS>it is not an
+anonymous union member and</INS> its initialization is specified
+<UL>
+<LI>in 11.9.3 [<A href="https://wg21.link/class.base.init">class.base.init</A>] for initialization by
+constructor,</LI>
+<LI>in 11.4.5.3 [<A href="https://wg21.link/class.copy.ctor">class.copy.ctor</A>] for initialization by defaulted
+copy/move constructor,</LI>
+<LI>in 11.9.4 [<A href="https://wg21.link/class.inhctor.init">class.inhctor.init</A>] for initialization by inherited
+constructor,</LI>
+<LI>in 9.4.2 [<A href="https://wg21.link/dcl.init.aggr">dcl.init.aggr</A>] for aggregate initialization,</LI>
+<LI>in 7.5.5.3 [<A href="https://wg21.link/expr.prim.lambda.capture">expr.prim.lambda.capture</A>] for the initialization of the
+closure object when evaluating a lambda-expression,</LI>
+<LI>in 9.4.1 [<A href="https://wg21.link/dcl.init.general">dcl.init.general</A>] for default-initialization,
+value-initialization, or direct-initialization of an array.</LI>
+</UL>
 
 </BLOCKQUOTE>
 </LI>
