@@ -21,7 +21,7 @@
       Date:
      </TD>
 <TD>
-      &#160;2023-06-16</TD>
+      &#160;2023-08-18</TD>
 </TR>
 <TR>
 <TD ALIGN="RIGHT">
@@ -62,7 +62,7 @@
       
 
      Revision
-     111d</H2></CENTER>
+     112</H2></CENTER>
 <BR><P>
       This document contains the C++ core language issues on which the
       Committee (INCITS PL22.16 + WG21) has not yet acted, that is, issues
@@ -109,7 +109,7 @@
 <P>
     Section references in this document reflect the section numbering
     of document
-    <A HREF="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/n4944.pdf">WG21 N4944</A>.
+    <A HREF="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/n4958.pdf">WG21 N4958</A>.
    </P>
 <P>The purpose of these documents is to record the disposition of issues
 that have come before the Core Language Working Group of the ANSI
@@ -143,7 +143,7 @@ USA.</P>
 
 <UL>
 
-<P><B>Revision 112, 2023-??-??:</B></P>
+<P><B>Revision 112, 2023-08-18:</B></P>
 
 <P>Added new issues
 <A HREF="cwg_defects.html#2711">2711</A>,
@@ -214,7 +214,8 @@ USA.</P>
 <A HREF="cwg_active.html#2776">2776</A>,
 <A HREF="cwg_active.html#2777">2777</A>,
 <A HREF="cwg_active.html#2778">2778</A>,
-<A HREF="cwg_active.html#2779">2779</A>,
+<A HREF="cwg_active.html#2779">2779</A>, and
+<A HREF="cwg_active.html#2780">2780</A>.
 Closed issues
 <A HREF="cwg_closed.html#6">6</A>,
 <A HREF="cwg_closed.html#504">504</A>,
@@ -3805,6 +3806,10 @@ C++20 but included in the Committee Draft advanced for balloting
 at the July, 2022 WG21 meeting.</P>
 
 <P>
+<B>C++23:</B> a DR/DRWP or Accepted/WP issue not resolved in
+CD6 but included in ISO/IEC 14882:2023.</P>
+
+<P>
 <B>DRWP:</B> A DR issue whose resolution is reflected in
 the current Working Paper.  The Working Paper is a draft for a
 future version of the Standard.</P>
@@ -5010,6 +5015,17 @@ C-style casts that cast away constness vs <TT>static_cast</TT>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Incorrect use of implicit conversion sequence
+</TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT">7.6.1.10&#160;
+  <A href="https://wg21.link/expr.reinterpret.cast">expr.reinterpret.cast</A>
+</TD>
+<TD ALIGN="RIGHT"><A HREF="#2780">2780</A></TD>
+<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER"></TD>
+<TD ALIGN="LEFT">
+<TT>reinterpret_cast</TT> to reference to function types
 </TD>
 </TR>
 <TR>
@@ -29431,6 +29447,69 @@ C-style cast is interpreted as just a <TT>static_cast</TT> without
 a <TT>const_cast</TT> and is thus ill-formed.</P>
 
 <BR><BR><HR>
+<A NAME="2780"></A><H4>2780.
+  
+<TT>reinterpret_cast</TT> to reference to function types
+</H4>
+<B>Section: </B>7.6.1.10&#160; [<A href="https://wg21.link/expr.reinterpret.cast">expr.reinterpret.cast</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Lauri Vasama
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-08-07<BR>
+
+
+<P>Subclause 7.6.1.10 [<A href="https://wg21.link/expr.reinterpret.cast#11">expr.reinterpret.cast</A>] paragraph 11 specifies:</P>
+
+<BLOCKQUOTE>
+
+A glvalue of type T1, designating an object x, can be cast to the type
+&#8220;reference to T2&#8221; if an expression of type &#8220;pointer
+to T1&#8221; can be explicitly converted to the type &#8220;pointer to
+T2&#8221; using a reinterpret_cast.  The result is that of
+*reinterpret_cast&lt;T2 *&gt;(p) where p is a pointer to x of type
+&#8220;pointer to T1&#8221;. No temporary is created, no copy is made,
+and no constructors (11.4.5 [<A href="https://wg21.link/class.ctor">class.ctor</A>]) or conversion
+functions (11.4.8 [<A href="https://wg21.link/class.conv">class.conv</A>]) are called. [ Footnote: ... ]
+
+</BLOCKQUOTE>
+
+<P>The wording does not cover references to function type, only
+references to object types.  All major implementations accept the
+following example:</P>
+
+<PRE>
+  void f() {}
+
+  void(&amp;g())(int) {
+    return reinterpret_cast&lt;void(&amp;)(int)&gt;(f);
+  }
+</PRE>
+
+<P><U>Possible resolution:</U></P>
+
+<P>Change in 7.6.1.10 [<A href="https://wg21.link/expr.reinterpret.cast#11">expr.reinterpret.cast</A>] paragraph 11 as follows:</P>
+
+<BLOCKQUOTE>
+
+A glvalue of type T1, designating
+an <DEL>object</DEL> <INS>entity</INS> x, can be cast to the type
+&#8220;reference to T2&#8221; if an expression of type &#8220;pointer
+to T1&#8221; can be explicitly converted to the type &#8220;pointer to
+T2&#8221; using a <TT>reinterpret_cast</TT>.  The result is that of
+<TT>*reinterpret_cast&lt;T2 *&gt;(p)</TT> where <TT>p</TT> is a
+pointer to x of type &#8220;pointer to T1&#8221;. No temporary is
+created, no copy is made, and no constructors
+(11.4.5 [<A href="https://wg21.link/class.ctor">class.ctor</A>]) or conversion functions
+(11.4.8 [<A href="https://wg21.link/class.conv">class.conv</A>]) are called. [ Footnote: ... ]
+
+</BLOCKQUOTE>
+
+<BR><BR><HR>
 <A NAME="2668"></A><H4>2668.
   
 <TT>co_await</TT> in a <I>lambda-expression</I>
@@ -33968,6 +34047,32 @@ order of the completion of their constructor (see
 
 </BLOCKQUOTE>
 </LI>
+
+<LI>
+<P>Change in 14.3 [<A href="https://wg21.link/except.ctor#3">except.ctor</A>] paragraph 3 as follows:</P>
+
+
+
+<BLOCKQUOTE>
+
+A subobject is <I>known to be initialized</I> if <INS>it is not an
+anonymous union member and</INS> its initialization is specified
+<UL>
+<LI>in 11.9.3 [<A href="https://wg21.link/class.base.init">class.base.init</A>] for initialization by
+constructor,</LI>
+<LI>in 11.4.5.3 [<A href="https://wg21.link/class.copy.ctor">class.copy.ctor</A>] for initialization by defaulted
+copy/move constructor,</LI>
+<LI>in 11.9.4 [<A href="https://wg21.link/class.inhctor.init">class.inhctor.init</A>] for initialization by inherited
+constructor,</LI>
+<LI>in 9.4.2 [<A href="https://wg21.link/dcl.init.aggr">dcl.init.aggr</A>] for aggregate initialization,</LI>
+<LI>in 7.5.5.3 [<A href="https://wg21.link/expr.prim.lambda.capture">expr.prim.lambda.capture</A>] for the initialization of the
+closure object when evaluating a lambda-expression,</LI>
+<LI>in 9.4.1 [<A href="https://wg21.link/dcl.init.general">dcl.init.general</A>] for default-initialization,
+value-initialization, or direct-initialization of an array.</LI>
+</UL>
+
+</BLOCKQUOTE>
+</LI>
 </OL>
 
 <BR><BR><HR>
@@ -34223,7 +34328,7 @@ Naming anonymous union members as class members
 <P>Consider:</P>
 
 <PRE>
-  template &lt;typename T&gt;
+  template&lt;typename T&gt;
   int f(T *tp) { return tp-&gt;x; }
 
   static union { int x = f(this); };
@@ -34243,7 +34348,39 @@ not bound in the scope of the class of the anonymous union.  However,
 there is implementation divergence: clang and gcc accept the example
 (contrary to the wording), icc rejects.
 Notwithstanding, <TT>this</TT> refers to the anonymous union itself,
-not to an enclosing class.</P>
+not to an enclosing class, per 7.5.2 [<A href="https://wg21.link/expr.prim.this">expr.prim.this</A>].  This rule
+causes rejection of</P>
+
+<PRE>
+  struct A {
+    int foo();
+    union { int x = foo(); };  // <SPAN CLASS="cmnt">error</SPAN>
+  };
+  A a;
+</PRE>
+
+<P>Alternatively, <TT>this</TT> could be made to refer to the
+enclosing class object (already the status quo for some
+implementations).  However, that would cause inconsistent treatment
+for examples like the following:</P>
+
+<PRE>
+  struct A {
+    int n;
+    union {
+      void *p = this; //<SPAN CLASS="cmnt"> A*</SPAN>
+    };
+  };
+</PRE>
+vs.
+<PRE>
+  struct B {
+    int n;
+    union {
+      void *p = this; //<SPAN CLASS="cmnt"> decltype(u)*</SPAN>
+    } u;
+  };
+</PRE>
 
 <P><U>Possible resolution:</U></P>
 
