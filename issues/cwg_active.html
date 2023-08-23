@@ -21,7 +21,7 @@
       Date:
      </TD>
 <TD>
-      &#160;2023-08-18</TD>
+      &#160;2023-08-19</TD>
 </TR>
 <TR>
 <TD ALIGN="RIGHT">
@@ -62,7 +62,7 @@
       
 
      Revision
-     112</H2></CENTER>
+     112a</H2></CENTER>
 <BR><P>
       This document contains the C++ core language issues on which the
       Committee (INCITS PL22.16 + WG21) has not yet acted, that is, issues
@@ -142,6 +142,14 @@ USA.</P>
 <H3>Revision History</H3>
 
 <UL>
+
+<P><B>Revision 113, 2023-??-??:</B></P>
+
+<P>Added new issues
+<A HREF="cwg_active.html#2781">2781</A>,
+<A HREF="cwg_active.html#2782">2782</A>,
+<A HREF="cwg_active.html#2783">2783</A>,
+</P>
 
 <P><B>Revision 112, 2023-08-18:</B></P>
 
@@ -4127,6 +4135,28 @@ Dependent odr-use in generic lambdas
 </TD>
 </TR>
 <TR>
+<TD ALIGN="LEFT">6.3&#160;
+  <A href="https://wg21.link/basic.def.odr">basic.def.odr</A>
+</TD>
+<TD ALIGN="RIGHT"><A HREF="#2781">2781</A></TD>
+<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER"></TD>
+<TD ALIGN="LEFT">
+Unclear recursion in the one-definition rule
+</TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT">6.3&#160;
+  <A href="https://wg21.link/basic.def.odr">basic.def.odr</A>
+</TD>
+<TD ALIGN="RIGHT"><A HREF="#2782">2782</A></TD>
+<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER"></TD>
+<TD ALIGN="LEFT">
+Treatment of closure types in the one-definition rule
+</TD>
+</TR>
+<TR>
 <TD ALIGN="LEFT">6.4.1&#160;
   <A href="https://wg21.link/basic.scope.scope">basic.scope.scope</A>
 </TD>
@@ -6301,6 +6331,17 @@ Visibility of enumerator names
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Importing header units synthesized from source files
+</TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT">10.4&#160;
+  <A href="https://wg21.link/module.global.frag">module.global.frag</A>
+</TD>
+<TD ALIGN="RIGHT"><A HREF="#2783">2783</A></TD>
+<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER"></TD>
+<TD ALIGN="LEFT">
+Handling of deduction guides in <I>global-module-fragment</I>
 </TD>
 </TR>
 <TR>
@@ -26570,6 +26611,195 @@ or variable ...
 </BLOCKQUOTE>
 
 <BR><BR><HR>
+<A NAME="2781"></A><H4>2781.
+  
+Unclear recursion in the one-definition rule
+</H4>
+<B>Section: </B>6.3&#160; [<A href="https://wg21.link/basic.def.odr">basic.def.odr</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Johannes Schaub
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-08-19<BR>
+
+
+<P>(From submission
+<A HREF="https://github.com/cplusplus/CWG/issues/402">#402</A>.)</P>
+
+<P>Consider the following tokens appearing in multiple translation units:</P>
+
+<PRE>
+ inline void f() {
+   int a;
+   int b = a;
+ }
+</PRE>
+
+<P>Does <TT>f</TT> violate the one-definition rule?</P>
+
+<P>We have this check in 6.3 [<A href="https://wg21.link/basic.def.odr#14.5">basic.def.odr</A>] paragraph 14.5:</P>
+
+<BLOCKQUOTE>
+
+<UL>
+<LI>...</LI>
+<LI>In each such definition, corresponding names, looked up according to
+6.5 [<A href="https://wg21.link/basic.lookup">basic.lookup</A>], shall refer to the same entity, ...</LI>
+<LI>...</LI>
+</UL>
+
+</BLOCKQUOTE>
+
+<P>Does <TT>a</TT> refer to the same entity in the several definitions
+of <TT>f</TT>? Subclause 6.3 [<A href="https://wg21.link/basic.def.odr#16">basic.def.odr</A>] paragraph 16
+specifies:</P>
+
+<BLOCKQUOTE>
+
+These requirements also apply to corresponding entities defined within
+each definition of D (including the closure types
+of <I>lambda-expression</I>s, but excluding entities defined within
+default arguments or default template arguments of either D or an
+entity not defined within D). For each such entity and for D itself,
+the behavior is as if there is a single entity with a single
+definition, including in the application of these requirements to
+other entities.
+
+</BLOCKQUOTE>
+
+<P>Thus, the requirements apply recursively to the definitions
+of <TT>a</TT>, but it is unclear whether the conclusion "as if there
+is a single entity with a single definition" is reached at each level
+of the recursion separately.</P>
+
+<P><U>Suggested resolution:</U></P>
+
+<P>Change in 6.3 [<A href="https://wg21.link/basic.def.odr#16">basic.def.odr</A>] paragraph 16 as follows:</P>
+
+<BLOCKQUOTE>
+
+<INS>If these requirements are satisfied, the behavior for <TT>D</TT>
+is as if there is a single entity with a single definition, including
+in the application of these requirements to other entities.</INS>
+<DEL>These requirements</DEL> <INS>This behavior</INS>
+also <DEL>apply</DEL> <INS>applies</INS> to corresponding entities
+defined within each definition of D (including the closure types
+of <I>lambda-expression</I>s, but excluding entities defined within
+default arguments or default template arguments of either D or an
+entity not defined within D). <DEL>For each such entity and for D
+itself, the behavior is as if there is a single entity with a single
+definition, including in the application of these requirements to
+other entities.</DEL>
+
+</BLOCKQUOTE>
+
+<BR><BR><HR>
+<A NAME="2782"></A><H4>2782.
+  
+Treatment of closure types in the one-definition rule
+</H4>
+<B>Section: </B>6.3&#160; [<A href="https://wg21.link/basic.def.odr">basic.def.odr</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Brian Bi
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-07-20<BR>
+
+
+
+
+<P>Consider:</P>
+
+<PRE>
+  inline auto lambda = []{}; //<SPAN CLASS="cmnt"> same in different translation units or not?</SPAN>
+</PRE>
+
+<P>This can be observed, for example, through the following variable
+template:</P>
+
+<PRE>
+  template&lt;class T&gt; int v;
+</PRE>
+
+<P>Is <TT>&amp;v&lt;decltype(lambda)&gt;</TT> the same address in every
+translation unit?</P>
+
+<P><U>Possible resolution:</U></P>
+
+<OL>
+<LI>
+<P>Change in 6.3 [<A href="https://wg21.link/basic.def.odr#14">basic.def.odr</A>] paragraph 14 as follows:</P>
+
+<BLOCKQUOTE>
+
+For any definable item D with definitions in multiple translation
+units,
+<UL>
+<LI>if D is a non-inline non-templated function or variable, or</LI>
+<LI>if the definitions in different translation units do not satisfy
+the following requirements,</LI>
+</UL>
+the program is ill-formed; a diagnostic is required only if the
+definable item is attached to a named module and a prior definition is
+reachable at the point where a later definition occurs. Given such an
+item, for all definitions of D, or, if D is an unnamed enumeration,
+for all definitions of D that are reachable at any given program
+point, the following requirements shall be satisfied<INS>, where the
+definition of a closure type is considered to consist of the sequence
+of tokens of the corresponding <I>lambda-expression</I></INS>.
+
+<UL>
+<LI>...</LI>
+<LI>Each such definition shall consist of the same sequence of
+tokens<DEL>, where the definition of a closure type is considered to
+consist of the sequence of tokens of the
+corresponding <I>lambda-expression</I></DEL>.</LI>
+<LI>...</LI>
+</UL>
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+<P>Add another example after example 6, immediately before
+6.3 [<A href="https://wg21.link/basic.def.odr#18">basic.def.odr</A>] paragraph 18:</P>
+
+<BLOCKQUOTE class="ins">
+
+[ Example:
+<PRE>
+  inline decltype([]{}) v1;
+  inline auto v2 = []{};
+</PRE>
+If the definition of <TT>v1</TT> appears in multiple translation
+units, the program is ill-formed, no diagnostic required, because each
+definition declares <TT>v1</TT> to have a different type. If the
+definition of <TT>v2</TT> appears in multiple translation units, the
+behavior of the program is as if there is only one definition, and
+only a definition can supply an initializer; therefore the behavior is
+as if there is only one initializer. Therefore, <TT>v2</TT> has the
+same type in every translation unit.  -- end example]
+
+</BLOCKQUOTE>
+<BLOCKQUOTE>
+
+<P>If, at any point in the program, there is more than one reachable
+unnamed enumeration definition in the same scope...</P>
+
+</BLOCKQUOTE>
+
+</LI>
+</OL>
+
+<BR><BR><HR>
 <A NAME="2488"></A><H4>2488.
   
 Overloading virtual functions and functions with trailing <I>requires-clause</I>s
@@ -33140,6 +33370,71 @@ unit.</P>
 
 </BLOCKQUOTE>
 
+<BR><BR><HR>
+<A NAME="2783"></A><H4>2783.
+  
+Handling of deduction guides in <I>global-module-fragment</I>
+</H4>
+<B>Section: </B>10.4&#160; [<A href="https://wg21.link/module.global.frag">module.global.frag</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Daniela Engert
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-08-21<BR>
+
+
+<P>Consider:</P>
+
+<PRE>
+  // <SPAN CLASS="cmnt">header</SPAN> "S.h"
+  
+  template&lt;class T&gt;
+  struct S {
+    S(const T*);
+  };
+  template&lt;class T&gt;
+  S(T*) -&gt; S&lt;T&gt;
+
+  // <SPAN CLASS="cmnt">translation unit</SPAN>
+  module;
+  #include "S.h"
+
+  export module M;
+  export using S;
+</PRE>
+
+<P>Obviously, the class template <TT>S</TT> is exported by <TT>M</TT>,
+but what about the deduction guide of <TT>S</TT>?</P>
+
+<P><U>Suggested resolution:</U></P>
+
+<P>Add a new bullet after 10.4 [<A href="https://wg21.link/module.global.frag#3.5.7">module.global.frag</A>] bullet 3.5.7 as
+follows:</P>
+
+<BLOCKQUOTE>
+
+<UL>
+<LI>...</LI>
+<LI>
+there exists a declaration M that is not a <I>namespace-definition</I>
+for which M is decl-reachable from S and either
+<UL>
+<LI>...</LI>
+<LI>one of M and D declares a template and the other declares a
+partial or explicit specialization or an implicit or explicit
+instantiation of that template, or</LI>
+<LI class="ins">one of M and D declares a class template and the other
+declares a deduction guide for that template, or</LI>
+</UL>
+</LI>
+</UL>
+
+</BLOCKQUOTE>
+  
 <BR><BR><HR>
 <A NAME="2637"></A><H4>2637.
   
