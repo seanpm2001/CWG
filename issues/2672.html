@@ -12,10 +12,10 @@
 </HEAD>
 <BODY>
 <P><EM>This is an unofficial snapshot of the ISO/IEC JTC1 SC22 WG21
-  Core Issues List revision 112.
+  Core Issues List revision 112a.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-08-18</P>
+<P>2023-08-26</P>
 <HR>
 <A NAME="2672"></A><H4>2672.
   
@@ -55,11 +55,11 @@ the body of a lambda is never in the immediate context of substitution
 into the lambda-expression and move the rule somewhere more
 general.</P>
 
-<P><U>Possible resolution:</U></P>
+<P><U>Possible resolution (reviewed by CWG 2023-08-25) [SUPERSEDED]:</U></P>
 
 <OL>
 <LI>
-<P>Change in 13.5.2.3 [<A href="https://wg21.link/temp.constr.atomic">temp.constr.atomic</A>] as follows:</P>
+<P>Change in 13.5.2.3 [<A href="https://wg21.link/temp.constr.atomic#3">temp.constr.atomic</A>] paragraph 3 as follows:</P>
 
 <BLOCKQUOTE>
 
@@ -77,7 +77,69 @@ only if evaluation of E results in true.
 </LI>
 
 <LI>
-<P>Change in 13.10.3.1 [<A href="https://wg21.link/temp.deduct.general">temp.deduct.general</A>] as follows:</P>
+<P>Change in 13.10.3.1 [<A href="https://wg21.link/temp.deduct.general#9">temp.deduct.general</A>] paragraph 9 as follows:</P>
+
+<BLOCKQUOTE>
+
+<DEL>A <I>lambda-expression</I> appearing in a function type or a template
+parameter</DEL>
+<INS>Substituting into the body of a <I>lambda-expression</I></INS>
+is <DEL>not considered part of</DEL> <INS>never in</INS> the immediate
+context <DEL>for the purposes of template argument deduction</DEL>
+<INS>of substitution into the <I>lambda-expression</I></INS>.
+[<I>Note 7:</I> The intent is to avoid requiring implementations to
+deal with substitution failure involving arbitrary statements.
+
+</BLOCKQUOTE>
+</LI>
+</OL>
+
+<P><B>Proposed resolution:</B></P>
+
+<OL>
+
+<LI>
+<P>Change in 7.5.7.1 [<A href="https://wg21.link/expr.prim.req.general">expr.prim.req.general</A>] as follows:</P>
+
+
+<BLOCKQUOTE>
+
+The substitution of template arguments into
+a <I>requires-expression</I> may result in the formation of invalid
+types or expressions in its <I>requirement</I>s or the violation of
+the semantic constraints of
+those <I>requirement</I>s <INS>(13.10.3.1)</INS>.  In such cases,
+the <I>requires-expression</I> evaluates to false; it does not cause
+the program to be ill-formed. The substitution and semantic constraint
+checking proceeds in lexical order and stops when a condition that
+determines the result of the <I>requires-expression</I> is
+encountered. If substitution (if any) and semantic constraint checking
+succeed, the <I>requires-expression</I> evaluates to true.
+
+</BLOCKQUOTE>
+
+</LI>
+
+<LI>
+<P>Change in 13.5.2.3 [<A href="https://wg21.link/temp.constr.atomic#3">temp.constr.atomic</A>] paragraph 3 as follows:</P>
+
+<BLOCKQUOTE>
+
+To determine if an atomic constraint is satisfied, the parameter
+mapping and template arguments are first substituted into its
+expression. If substitution results in an invalid type or
+expression <INS>in the immediate context of the atomic constraint
+(13.10.3.1 [<A href="https://wg21.link/temp.deduct.general">temp.deduct.general</A>])</INS>, the constraint is not
+satisfied. Otherwise, the lvalue-to-rvalue conversion
+(7.3.2 [<A href="https://wg21.link/conv.lval">conv.lval</A>]) is performed if necessary, and E shall be
+a constant expression of type bool. The constraint is satisfied if and
+only if evaluation of E results in true.
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+<P>Change in 13.10.3.1 [<A href="https://wg21.link/temp.deduct.general#9">temp.deduct.general</A>] paragraph 9 as follows:</P>
 
 <BLOCKQUOTE>
 

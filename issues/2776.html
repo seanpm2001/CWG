@@ -12,10 +12,10 @@
 </HEAD>
 <BODY>
 <P><EM>This is an unofficial snapshot of the ISO/IEC JTC1 SC22 WG21
-  Core Issues List revision 112.
+  Core Issues List revision 112a.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-08-18</P>
+<P>2023-08-26</P>
 <HR>
 <A NAME="2776"></A><H4>2776.
   
@@ -30,7 +30,9 @@ Substitution failure and implementation limits
  <B>Submitter: </B>Corentin Jabot
  &#160;&#160;&#160;
 
- <B>Date: </B>2023-07-27<BR>
+ <B>Date: </B>2023-07-27
+  &#160;&#160;&#160;
+  <B>Liaison: </B>EWG<BR>
 
 
 
@@ -173,6 +175,20 @@ instantiation is undefined.</DEL>
 </BLOCKQUOTE>
 </LI>
 </OL>
+
+<P><B>CWG 2023-08-25</B></P>
+
+<P>For the example in change 3, implementations currently switch to
+dynamic initialization when their implementation limits related to
+constant evaluation are exceeded.  This might be surprising to users,
+because dynamic initialization can exhibit order-of-initialization
+issues.  It might be less harmful to reject such situations as
+ill-formed.  Furthermore, it is unclear whether implementations can
+reliably determine that an implementation limit is reached, before
+crashing.</P>
+
+<P>CWG is requesting EWG guidance via
+<A HREF="https://github.com/cplusplus/papers/issues/1631">paper issue #1631</A>.</P>
 
 <BR><BR>
 </BODY>

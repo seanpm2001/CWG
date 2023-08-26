@@ -12,10 +12,10 @@
 </HEAD>
 <BODY>
 <P><EM>This is an unofficial snapshot of the ISO/IEC JTC1 SC22 WG21
-  Core Issues List revision 112.
+  Core Issues List revision 112a.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-08-18</P>
+<P>2023-08-26</P>
 <HR>
 <A NAME="2774"></A><H4>2774.
   
@@ -36,8 +36,6 @@ Value-dependence of <I>requires-expression</I>s
 
 
 <P>Consider:</P>
-
-
 
 <PRE>
    template&lt;typename T&gt;
@@ -99,6 +97,15 @@ the <I>qualified-id</I> names a dependent member ...</P>
 </BLOCKQUOTE>
 </LI>
 </OL>
+
+<P><B>CWG 2023-08-25</B></P>
+
+<P>The first change has consensus and is progressed via
+<A HREF="2785.html">issue 2785</A>; the second change should use an
+approach of recursive decomposition for <I>requires-expression</I>,
+similar to other paragraphs in 13.8.3.4 [<A href="https://wg21.link/temp.dep.constexpr">temp.dep.constexpr</A>].  The
+implementation divergence is believed to be an independent bug in one
+implementation.</P>
 
 <BR><BR>
 </BODY>

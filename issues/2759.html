@@ -12,10 +12,10 @@
 </HEAD>
 <BODY>
 <P><EM>This is an unofficial snapshot of the ISO/IEC JTC1 SC22 WG21
-  Core Issues List revision 112.
+  Core Issues List revision 112a.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-08-18</P>
+<P>2023-08-26</P>
 <HR>
 <A NAME="2759"></A><H4>2759.
   
@@ -24,7 +24,7 @@
 <B>Section: </B>11.4.1&#160; [<A href="https://wg21.link/class.mem.general">class.mem.general</A>]
  &#160;&#160;&#160;
 
- <B>Status: </B>open
+ <B>Status: </B>tentatively ready
  &#160;&#160;&#160;
 
  <B>Submitter: </B>Richard Smith
@@ -94,7 +94,38 @@ not:</P>
   );
 </PRE>
 
-<P><U>Suggested resolution:</U></P>
+
+<P><U>Alternative possible resolution [SUPERSEDED]:</U></P>
+
+<P>Change in 11.4.1 [<A href="https://wg21.link/class.mem.general#23">class.mem.general</A>] paragraph 23 as follows:</P>
+
+<BLOCKQUOTE>
+
+The common initial sequence of two standard-layout struct
+(11.2 [<A href="https://wg21.link/class.prop">class.prop</A>]) types is the longest sequence of
+non-static data members and bit-fields in declaration order, starting
+with the first such entity in each of the structs, such that
+<UL>
+<LI>corresponding entities have layout-compatible types
+(6.8 [<A href="https://wg21.link/basic.types">basic.types</A>]),</LI>
+
+<LI>corresponding entities have the same alignment requirements
+(6.7.6 [<A href="https://wg21.link/basic.align">basic.align</A>]),</LI>
+
+<LI>
+<DEL>either both entities are declared with the no_unique_address
+attribute (9.12.11 [<A href="https://wg21.link/dcl.attr.nouniqueaddr">dcl.attr.nouniqueaddr</A>]) or neither is,</DEL>
+<INS>neither entity is declared with the <TT>no_unique_address</TT>
+attribute (9.12.11 [<A href="https://wg21.link/dcl.attr.nouniqueaddr">dcl.attr.nouniqueaddr</A>]),</INS> and</LI>
+
+<LI>either both entities are bit-fields with the same width or neither
+is a bit-field.
+</LI>
+</UL>
+
+</BLOCKQUOTE>
+
+<P><B>Proposed resolution (approved by CWG 2023-08-25):</B></P>
 
 <P>Change in 11.4.1 [<A href="https://wg21.link/class.mem.general#23">class.mem.general</A>] paragraph 23 as follows:</P>
 
@@ -118,36 +149,6 @@ attribute (9.12.11 [<A href="https://wg21.link/dcl.attr.nouniqueaddr">dcl.attr.n
 is not 0 for the <TT>no_unique_address</TT> attribute, then neither
 entity is declared with the <TT>no_unique_address</TT> attribute
 (9.12.11 [<A href="https://wg21.link/dcl.attr.nouniqueaddr">dcl.attr.nouniqueaddr</A>]),</INS> and</LI>
-
-<LI>either both entities are bit-fields with the same width or neither
-is a bit-field.
-</LI>
-</UL>
-
-</BLOCKQUOTE>
-
-<P><U>Alternative possible resolution:</U></P>
-
-<P>Change in 11.4.1 [<A href="https://wg21.link/class.mem.general#23">class.mem.general</A>] paragraph 23 as follows:</P>
-
-<BLOCKQUOTE>
-
-The common initial sequence of two standard-layout struct
-(11.2 [<A href="https://wg21.link/class.prop">class.prop</A>]) types is the longest sequence of
-non-static data members and bit-fields in declaration order, starting
-with the first such entity in each of the structs, such that
-<UL>
-<LI>corresponding entities have layout-compatible types
-(6.8 [<A href="https://wg21.link/basic.types">basic.types</A>]),</LI>
-
-<LI>corresponding entities have the same alignment requirements
-(6.7.6 [<A href="https://wg21.link/basic.align">basic.align</A>]),</LI>
-
-<LI>
-<DEL>either both entities are declared with the no_unique_address
-attribute (9.12.11 [<A href="https://wg21.link/dcl.attr.nouniqueaddr">dcl.attr.nouniqueaddr</A>]) or neither is,</DEL>
-<INS>neither entity is declared with the <TT>no_unique_address</TT>
-attribute (9.12.11 [<A href="https://wg21.link/dcl.attr.nouniqueaddr">dcl.attr.nouniqueaddr</A>]),</INS> and</LI>
 
 <LI>either both entities are bit-fields with the same width or neither
 is a bit-field.
