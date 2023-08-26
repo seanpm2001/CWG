@@ -149,6 +149,8 @@ USA.</P>
 <A HREF="cwg_active.html#2781">2781</A>,
 <A HREF="cwg_active.html#2782">2782</A>,
 <A HREF="cwg_active.html#2783">2783</A>,
+<A HREF="cwg_active.html#2784">2784</A>,
+<A HREF="cwg_active.html#2785">2785</A>,
 </P>
 
 <P><B>Revision 112, 2023-08-18:</B></P>
@@ -3909,7 +3911,7 @@ Requirements for freestanding implementations
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#2776">2776</A></TD>
 <TD ALIGN="CENTER">open</TD>
-<TD ALIGN="CENTER"></TD>
+<TD ALIGN="CENTER">EWG</TD>
 <TD ALIGN="LEFT">
 Substitution failure and implementation limits
 </TD>
@@ -4172,7 +4174,7 @@ Overloading virtual functions and functions with trailing <I>requires-clause</I>
   <A href="https://wg21.link/basic.scope.scope">basic.scope.scope</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#2764">2764</A></TD>
-<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER">review</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Use of placeholders affecting name mangling
@@ -5216,7 +5218,7 @@ Evaluation of conversions in a <I>delete-expression</I>
   <A href="https://wg21.link/expr.delete">expr.delete</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#2758">2758</A></TD>
-<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER">tentatively ready</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 What is "access and ambiguity control"?
@@ -5513,7 +5515,7 @@ Incorrect wording applied by P2738R1
   <A href="https://wg21.link/expr.const">expr.const</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#2760">2760</A></TD>
-<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER">tentatively ready</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Defaulted constructor that is an immediate function
@@ -6338,7 +6340,7 @@ Importing header units synthesized from source files
   <A href="https://wg21.link/module.global.frag">module.global.frag</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#2783">2783</A></TD>
-<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER">tentatively ready</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Handling of deduction guides in <I>global-module-fragment</I>
@@ -6426,7 +6428,7 @@ Missing disambiguation rule for <I>pure-specifier</I> vs. <I>brace-or-equal-init
   <A href="https://wg21.link/class.mem.general">class.mem.general</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#2759">2759</A></TD>
-<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER">tentatively ready</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 [[no_unique_address] and common initial sequence
@@ -6591,7 +6593,7 @@ Polymorphic behavior during destruction
   <A href="https://wg21.link/class.dtor">class.dtor</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#2761">2761</A></TD>
-<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER">tentatively ready</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Implicitly invoking the deleted destructor of an anonymous union member
@@ -6943,7 +6945,7 @@ Defaulted secondary comparison operators defined as deleted
   <A href="https://wg21.link/over.match.funcs.general">over.match.funcs.general</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#2762">2762</A></TD>
-<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER">tentatively ready</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Type of implicit object parameter
@@ -7984,6 +7986,17 @@ Type dependency of placeholder types
 </TD>
 </TR>
 <TR>
+<TD ALIGN="LEFT">13.8.3.3&#160;
+  <A href="https://wg21.link/temp.dep.expr">temp.dep.expr</A>
+</TD>
+<TD ALIGN="RIGHT"><A HREF="#2785">2785</A></TD>
+<TD ALIGN="CENTER">tentatively ready</TD>
+<TD ALIGN="CENTER"></TD>
+<TD ALIGN="LEFT">
+Type-dependence of <I>requires-expression</I>
+</TD>
+</TR>
+<TR>
 <TD ALIGN="LEFT">13.8.3.4&#160;
   <A href="https://wg21.link/temp.dep.constexpr">temp.dep.constexpr</A>
 </TD>
@@ -8795,6 +8808,17 @@ Undefined behavior for predefined macros
 <TD ALIGN="CENTER">WG14</TD>
 <TD ALIGN="LEFT">
 <I>string-literal</I>s of the <TT>_Pragma</TT> operator
+</TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT">17.2.4&#160;
+  <A href="https://wg21.link/support.types.layout">support.types.layout</A>
+</TD>
+<TD ALIGN="RIGHT"><A HREF="#2784">2784</A></TD>
+<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER"></TD>
+<TD ALIGN="LEFT">
+Unclear definition of <I>member-designator</I> for <TT>offsetof</TT>
 </TD>
 </TR>
 <TR>
@@ -9769,6 +9793,94 @@ zero-initialized.</LI>
 </OL>
 
 <BR><BR><HR>
+<A NAME="2758"></A><H4>2758.
+  
+What is "access and ambiguity control"?
+</H4>
+<B>Section: </B>7.6.2.9&#160; [<A href="https://wg21.link/expr.delete">expr.delete</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>tentatively ready
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>CWG
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-06-12<BR>
+
+
+<P>Subclause 7.6.2.9 [<A href="https://wg21.link/expr.delete#12">expr.delete</A>] paragraph 12 specifies:</P>
+
+<BLOCKQUOTE>
+
+Access and ambiguity control are done for both the deallocation
+function and the destructor (11.4.7 [<A href="https://wg21.link/class.dtor">class.dtor</A>],
+11.4.11 [<A href="https://wg21.link/class.free">class.free</A>]).
+
+</BLOCKQUOTE>
+
+<P>It is unclear what that means.  In particular, ambiguity checking
+is part of overload resolution, and access checking requires a point
+of reference.</P>
+
+<P><B>Proposed resolution (approved by CWG 2023-08-25):</B></P>
+
+<OL>
+<LI>
+<P>Change in 7.6.2.9 [<A href="https://wg21.link/expr.delete#6">expr.delete</A>] paragraph 6 as follows:</P>
+
+<BLOCKQUOTE>
+
+If the value of the operand of the <I>delete-expression</I> is not a
+null pointer value and the selected deallocation function (see below)
+is not a destroying operator delete, <INS>evaluating</INS>
+the <I>delete-expression</I> <DEL>will invoke</DEL> <INS>invokes</INS>
+the destructor (if any) for the object or the elements of the array
+being deleted. <INS>The destructor shall be accessible from the point
+where the <I>delete-expression</I> appears.</INS> In the case of an
+array, the elements <DEL>will be</DEL> <INS>are</INS> destroyed in
+order of decreasing address (that is, in reverse order of the
+completion of their constructor; see 11.9.3 [<A href="https://wg21.link/class.base.init">class.base.init</A>]).
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+<P>Change in 7.6.2.9 [<A href="https://wg21.link/expr.delete#10">expr.delete</A>] paragraph 10</P>
+
+<BLOCKQUOTE>
+
+<DEL>If more than one deallocation function is found,
+the</DEL> <INS>The deallocation</INS> function to be called is
+selected as follows:
+
+<UL>
+<LI>...</LI>
+</UL>
+
+<P class="ins">Unless the deallocation function is selected at the
+point of definition of the dynamic type's virtual destructor, the
+selected deallocation function shall be accessible from the point
+where the <I>delete-expression</I> appears.</P>
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+<P>Remove 7.6.2.9 [<A href="https://wg21.link/expr.delete#12">expr.delete</A>] paragraph 12:</P>
+
+<BLOCKQUOTE>
+
+<DEL>Access and ambiguity control are done for both the deallocation
+function and the destructor (11.4.7 [<A href="https://wg21.link/class.dtor">class.dtor</A>],
+11.4.11 [<A href="https://wg21.link/class.free">class.free</A>]).</DEL>
+
+</BLOCKQUOTE>
+</LI>
+
+</OL>
+
+<BR><BR><HR>
 <A NAME="2749"></A><H4>2749.
   
 Treatment of "pointer to void" for relational comparisons
@@ -9824,6 +9936,113 @@ to <I>cv</I> <TT>void</TT>" can point to an object
 (6.8.4 [<A href="https://wg21.link/basic.compound">basic.compound</A>]).</INS> -- end note]</P>
 
 </BLOCKQUOTE>
+
+<BR><BR><HR>
+<A NAME="2760"></A><H4>2760.
+  
+Defaulted constructor that is an immediate function
+</H4>
+<B>Section: </B>7.7&#160; [<A href="https://wg21.link/expr.const">expr.const</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>tentatively ready
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Corentin Jabot
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-07-08<BR>
+
+
+<P>Consider:</P>
+
+<PRE>
+  consteval int f(int);
+  struct S {
+   int x = f(0);
+   S() = default;
+  };
+
+  int main() {
+    S s;     //<SPAN CLASS="cmnt"> OK?</SPAN>
+  }
+</PRE>
+
+<P>Is <TT>S</TT> an immediate function?</P>
+
+<P>The relevant specification is in 7.7 [<A href="https://wg21.link/expr.const#18">expr.const</A>] paragraph 18:</P>
+
+<BLOCKQUOTE>
+
+An immediate function is a function or constructor that is
+<UL>
+<LI>declared with the <TT>consteval</TT> specifier, or</LI>
+<LI>an immediate-escalating function F whose function body contains an
+immediate-escalating expression E such that E's innermost enclosing
+non-block scope is F's function parameter scope.</LI>
+</UL>
+
+</BLOCKQUOTE>
+
+<P><U>Suggested resolution [SUPERSEDED]:</U></P>
+
+<P>Change in 7.7 [<A href="https://wg21.link/expr.const#18">expr.const</A>] paragraph 18 as follows:</P>
+
+<BLOCKQUOTE>
+
+An immediate function is a function or constructor that is
+<UL>
+<LI>declared with the <TT>consteval</TT> specifier, or</LI>
+<LI>an immediate-escalating function F whose function body contains an
+immediate-escalating expression E such that E's innermost enclosing
+non-block scope is F's function parameter scope<INS>, or</INS>
+</LI>
+<LI class="ins">an immediate-escalating default constructor of a class
+which has at least one non-static data member with an
+immediate-escalating default member initializer.</LI>
+</UL>
+
+</BLOCKQUOTE>
+
+<P><B>Proposed resolution (approved by CWG 2023-08-25):</B></P>
+
+<OL>
+<LI>
+<P>Change in 7.7 [<A href="https://wg21.link/expr.const#18">expr.const</A>] paragraph 18 as follows:</P>
+
+<BLOCKQUOTE>
+
+An immediate function is a function or constructor that is
+<UL>
+<LI>declared with the <TT>consteval</TT> specifier, or</LI>
+<LI>an immediate-escalating function F whose function body contains an
+immediate-escalating expression E such that E's innermost enclosing
+non-block scope is F's function parameter scope.
+<INS>[ Note: Default member initializers used to initialize a base or
+member subobject (11.9.3 [<A href="https://wg21.link/class.base.init">class.base.init</A>]) are considered to be
+part of the function body (9.5.1 [<A href="https://wg21.link/dcl.fct.def.general">dcl.fct.def.general</A>]). -- end note
+]</INS>
+</LI>
+</UL>
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+<P>Change in 9.5.1 [<A href="https://wg21.link/dcl.fct.def.general#1">dcl.fct.def.general</A>] paragraph 1 as follows:</P>
+
+<BLOCKQUOTE>
+
+Any informal reference to the body of a function should be interpreted
+as a reference to the non-terminal <I>function-body</I><INS>,
+including default member initializers or default initialization used
+to initialize a base or member subobject in the absence of
+a <I>mem-initializer-id</I> (11.9.3 [<A href="https://wg21.link/class.base.init">class.base.init</A>])</INS>.
+
+</BLOCKQUOTE>
+</LI>
+
+</OL>
 
 <BR><BR><HR>
 <A NAME="2556"></A><H4>2556.
@@ -10262,6 +10481,212 @@ constexpr. -- <I>end note</I> ]</INS>
 </BLOCKQUOTE>
 
 <BR><BR><HR>
+<A NAME="2783"></A><H4>2783.
+  
+Handling of deduction guides in <I>global-module-fragment</I>
+</H4>
+<B>Section: </B>10.4&#160; [<A href="https://wg21.link/module.global.frag">module.global.frag</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>tentatively ready
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Daniela Engert
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-08-21<BR>
+
+
+<P>Consider:</P>
+
+<PRE>
+  // <SPAN CLASS="cmnt">header</SPAN> "S.h"
+  
+  template&lt;class T&gt;
+  struct S {
+    S(const T*);
+  };
+  template&lt;class T&gt;
+  S(T*) -&gt; S&lt;T&gt;
+
+  // <SPAN CLASS="cmnt">translation unit</SPAN>
+  module;
+  #include "S.h"
+
+  export module M;
+  export using S;
+</PRE>
+
+<P>Obviously, the class template <TT>S</TT> is exported by <TT>M</TT>,
+but what about the deduction guide of <TT>S</TT>?</P>
+
+<P><B>Proposed resolution (approved by CWG 2023-08-25):</B></P>
+
+<P>Add a new bullet after 10.4 [<A href="https://wg21.link/module.global.frag#3.5.7">module.global.frag</A>] bullet 3.5.7 as
+follows:</P>
+
+<BLOCKQUOTE>
+
+<UL>
+<LI>...</LI>
+<LI>
+there exists a declaration M that is not a <I>namespace-definition</I>
+for which M is decl-reachable from S and either
+<UL>
+<LI>...</LI>
+<LI>one of M and D declares a template and the other declares a
+partial or explicit specialization or an implicit or explicit
+instantiation of that template, or</LI>
+<LI class="ins">one of M and D declares a class template and the other
+declares a deduction guide for that template, or</LI>
+</UL>
+</LI>
+</UL>
+
+</BLOCKQUOTE>
+  
+<BR><BR><HR>
+<A NAME="2759"></A><H4>2759.
+  
+[[no_unique_address] and common initial sequence
+</H4>
+<B>Section: </B>11.4.1&#160; [<A href="https://wg21.link/class.mem.general">class.mem.general</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>tentatively ready
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Richard Smith
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2020-11-10<BR>
+
+
+
+
+<P>The interaction of [[no_unique_address]] and the definition of
+common initial sequence is still problematic.  Subclause
+11.4.1 [<A href="https://wg21.link/class.mem.general#23.3">class.mem.general</A>] bullet 23.3 specifies that corresponding
+members in a common initial sequence are not allowed to differ with
+respect to the presence or absence of a [[no_unique_address]]
+attribute.  However, the Itanium ABI will not allocate two successive
+data members of the same empty class type at the same address, causing
+non-conforming behavior for the following example:</P>
+
+<PRE>
+  struct A {};
+  struct B {};
+
+  struct C {
+   [[no_unique_address]] A a;
+   [[no_unique_address]] B b;
+  };
+
+  struct D {
+   [[no_unique_address]] A a1;
+   [[no_unique_address]] A a2;
+  };
+
+  static_assert(offsetof(C, b) == offsetof(D, a2));
+</PRE>
+
+<P>See <A HREF="https://github.com/itanium-cxx-abi/cxx-abi/issues/108">Itanium
+ABI issue 108</A>.</P>
+
+<P>Since "common initial sequence" and "layout compatible" are
+concepts mostly used for C compatibility, but [[no_unique_address]]
+does not exist in C, it seems reasonable to terminate a common initial
+sequence at the first data member that is declared
+[[no_unique_address]].</P>
+
+<P>Another concern is the behavior
+of <TT>std::is_layout_compatible</TT> on implementations that ignore
+[[no_unique_address]]. On such an implementation, the following
+example would be considered layout-compatible, although it actually is
+not:</P>
+
+<PRE>
+  struct E {};
+
+  struct A {
+    E e;
+    int i;
+  };
+
+  struct B {
+    [[no_unique_address]] E e;
+    int i;
+  };
+
+  static_assert(
+    std::is_layout_compatible_v&lt;A, B&gt;
+  );
+</PRE>
+
+
+<P><U>Alternative possible resolution [SUPERSEDED]:</U></P>
+
+<P>Change in 11.4.1 [<A href="https://wg21.link/class.mem.general#23">class.mem.general</A>] paragraph 23 as follows:</P>
+
+<BLOCKQUOTE>
+
+The common initial sequence of two standard-layout struct
+(11.2 [<A href="https://wg21.link/class.prop">class.prop</A>]) types is the longest sequence of
+non-static data members and bit-fields in declaration order, starting
+with the first such entity in each of the structs, such that
+<UL>
+<LI>corresponding entities have layout-compatible types
+(6.8 [<A href="https://wg21.link/basic.types">basic.types</A>]),</LI>
+
+<LI>corresponding entities have the same alignment requirements
+(6.7.6 [<A href="https://wg21.link/basic.align">basic.align</A>]),</LI>
+
+<LI>
+<DEL>either both entities are declared with the no_unique_address
+attribute (9.12.11 [<A href="https://wg21.link/dcl.attr.nouniqueaddr">dcl.attr.nouniqueaddr</A>]) or neither is,</DEL>
+<INS>neither entity is declared with the <TT>no_unique_address</TT>
+attribute (9.12.11 [<A href="https://wg21.link/dcl.attr.nouniqueaddr">dcl.attr.nouniqueaddr</A>]),</INS> and</LI>
+
+<LI>either both entities are bit-fields with the same width or neither
+is a bit-field.
+</LI>
+</UL>
+
+</BLOCKQUOTE>
+
+<P><B>Proposed resolution (approved by CWG 2023-08-25):</B></P>
+
+<P>Change in 11.4.1 [<A href="https://wg21.link/class.mem.general#23">class.mem.general</A>] paragraph 23 as follows:</P>
+
+<BLOCKQUOTE>
+
+The common initial sequence of two standard-layout struct
+(11.2 [<A href="https://wg21.link/class.prop">class.prop</A>]) types is the longest sequence of
+non-static data members and bit-fields in declaration order, starting
+with the first such entity in each of the structs, such that
+<UL>
+<LI>corresponding entities have layout-compatible types
+(6.8 [<A href="https://wg21.link/basic.types">basic.types</A>]),</LI>
+
+<LI>corresponding entities have the same alignment requirements
+(6.7.6 [<A href="https://wg21.link/basic.align">basic.align</A>]),</LI>
+
+<LI>
+<DEL>either both entities are declared with the no_unique_address
+attribute (9.12.11 [<A href="https://wg21.link/dcl.attr.nouniqueaddr">dcl.attr.nouniqueaddr</A>]) or neither is,</DEL>
+<INS>if a <I>has-attribute-expression</I> (15.2 [<A href="https://wg21.link/cpp.cond">cpp.cond</A>])
+is not 0 for the <TT>no_unique_address</TT> attribute, then neither
+entity is declared with the <TT>no_unique_address</TT> attribute
+(9.12.11 [<A href="https://wg21.link/dcl.attr.nouniqueaddr">dcl.attr.nouniqueaddr</A>]),</INS> and</LI>
+
+<LI>either both entities are bit-fields with the same width or neither
+is a bit-field.
+</LI>
+</UL>
+
+</BLOCKQUOTE>
+
+<BR><BR><HR>
 <A NAME="2595"></A><H4>2595.
   
 "More constrained" for eligible special member functions
@@ -10321,6 +10746,114 @@ constraints, if any, are satisfied</INS> is more constrained
 </UL>
 
 </BLOCKQUOTE>
+
+<BR><BR><HR>
+<A NAME="2761"></A><H4>2761.
+  
+Implicitly invoking the deleted destructor of an anonymous union member
+</H4>
+<B>Section: </B>11.4.7&#160; [<A href="https://wg21.link/class.dtor">class.dtor</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>tentatively ready
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Corentin Jabot
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-07-11<BR>
+
+
+
+
+<P>Consider:</P>
+
+<PRE>
+  struct S{
+    ~S() {}
+  };
+
+  struct A {
+    union {
+      S arr_;
+    };
+    ~A(); //<SPAN CLASS="cmnt"> user-provided!</SPAN>
+  };
+
+  auto foo() {
+    return A{S()};
+  }
+</PRE>
+
+<P>Does the destructor of <TT>A</TT> attempt to destroy the (unnamed)
+data member that is the anonymous union?  The latter has a deleted
+destructor per 11.4.7 [<A href="https://wg21.link/class.dtor">class.dtor</A>].  For the default
+constructor, 11.9.3 [<A href="https://wg21.link/class.base.init#9.2">class.base.init</A>] paragraph 9.2 prevents the
+corresponding construction.</P>
+
+<P><B>Proposed resolution (approved by CWG 2023-08-25):</B></P>
+
+<OL>
+<LI>
+<P>Change in 9.4.2 [<A href="https://wg21.link/dcl.init.aggr#9">dcl.init.aggr</A>] paragraph 9 as follows:</P>
+
+<BLOCKQUOTE>
+
+The destructor for each element of class type <INS>other than an
+anonymous union member</INS> is potentially invoked
+(11.4.7 [<A href="https://wg21.link/class.dtor">class.dtor</A>]) from the context where the aggregate
+initialization occurs
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+<P>Change in 11.4.7 [<A href="https://wg21.link/class.dtor#13">class.dtor</A>] paragraph 13 as follows:</P>
+
+<BLOCKQUOTE>
+
+After executing the body of the destructor and destroying any objects
+with automatic storage duration allocated within the body, a
+destructor for class X calls the destructors for X's direct
+non-variant non-static data members <INS>other than anonymous
+unions</INS>, the destructors for X's non-virtual direct base classes
+and, if X is the most derived class (11.9.3 [<A href="https://wg21.link/class.base.init">class.base.init</A>]), its
+destructor calls the destructors for X's virtual base classes. All
+destructors are called as if they were referenced with a qualified
+name, that is, ignoring any possible virtual overriding destructors in
+more derived classes.  Bases and members are destroyed in the reverse
+order of the completion of their constructor (see
+11.9.3 [<A href="https://wg21.link/class.base.init">class.base.init</A>]).
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+<P>Change in 14.3 [<A href="https://wg21.link/except.ctor#3">except.ctor</A>] paragraph 3 as follows:</P>
+
+
+
+<BLOCKQUOTE>
+
+A subobject is <I>known to be initialized</I> if <INS>it is not an
+anonymous union member and</INS> its initialization is specified
+<UL>
+<LI>in 11.9.3 [<A href="https://wg21.link/class.base.init">class.base.init</A>] for initialization by
+constructor,</LI>
+<LI>in 11.4.5.3 [<A href="https://wg21.link/class.copy.ctor">class.copy.ctor</A>] for initialization by defaulted
+copy/move constructor,</LI>
+<LI>in 11.9.4 [<A href="https://wg21.link/class.inhctor.init">class.inhctor.init</A>] for initialization by inherited
+constructor,</LI>
+<LI>in 9.4.2 [<A href="https://wg21.link/dcl.init.aggr">dcl.init.aggr</A>] for aggregate initialization,</LI>
+<LI>in 7.5.5.3 [<A href="https://wg21.link/expr.prim.lambda.capture">expr.prim.lambda.capture</A>] for the initialization of the
+closure object when evaluating a lambda-expression,</LI>
+<LI>in 9.4.1 [<A href="https://wg21.link/dcl.init.general">dcl.init.general</A>] for default-initialization,
+value-initialization, or direct-initialization of an array.</LI>
+</UL>
+
+</BLOCKQUOTE>
+</LI>
+</OL>
 
 <BR><BR><HR>
 <A NAME="2591"></A><H4>2591.
@@ -10487,6 +11020,68 @@ except that ...
 </LI>
 </OL>
 
+<BR><BR><HR>
+<A NAME="2762"></A><H4>2762.
+  
+Type of implicit object parameter
+</H4>
+<B>Section: </B>12.2.2.1&#160; [<A href="https://wg21.link/over.match.funcs.general">over.match.funcs.general</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>tentatively ready
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Jim X
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-07-11<BR>
+
+
+<P>Subclause 12.2.2.1 [<A href="https://wg21.link/over.match.funcs.general#4">over.match.funcs.general</A>] paragraph 4 specifies:</P>
+
+<BLOCKQUOTE>
+
+For implicit object member functions, the type of the implicit object
+parameter is
+<UL>
+<LI>&#8220;lvalue reference to cv X&#8221; for functions declared
+without a <I>ref-qualifier</I> or with the
+&amp; <I>ref-qualifier</I>
+</LI>
+<LI>&#8220;rvalue reference to cv X&#8221; for functions declared with
+the &amp;&amp; <I>ref-qualifier</I>
+</LI>
+</UL>
+where X is the class of which the function is a member and cv is the
+cv-qualification on the member function declaration.
+
+</BLOCKQUOTE>
+
+<P>Since a member of some class C is also a member of any class
+derived from C, this specification is unclear.</P>
+
+<P><B>Proposed resolution (approved by CWG 2023-08-25):</B></P>
+
+<P>Change in 12.2.2.1 [<A href="https://wg21.link/over.match.funcs.general#4">over.match.funcs.general</A>] paragraph 4 as follows:</P>
+
+<BLOCKQUOTE>
+
+For implicit object member functions, the type of the implicit object
+parameter is
+<UL>
+<LI>&#8220;lvalue reference to cv X&#8221; for functions declared
+without a <I>ref-qualifier</I> or with the
+&amp; <I>ref-qualifier</I>
+</LI>
+<LI>&#8220;rvalue reference to cv X&#8221; for functions declared with
+the &amp;&amp; <I>ref-qualifier</I>
+</LI>
+</UL>
+where X is the class of which the function is a <INS>direct</INS>
+member and cv is the cv-qualification on the member function
+declaration.
+
+</BLOCKQUOTE>
 <BR><BR><HR>
 <A NAME="1038"></A><H4>1038.
   
@@ -10857,6 +11452,45 @@ type,</INS></LI>
 </LI>
 
 </OL>
+
+<BR><BR><HR>
+<A NAME="2785"></A><H4>2785.
+  
+Type-dependence of <I>requires-expression</I>
+</H4>
+<B>Section: </B>13.8.3.3&#160; [<A href="https://wg21.link/temp.dep.expr">temp.dep.expr</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>tentatively ready
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>CWG
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-07-17<BR>
+
+
+<P>(Split off from <A HREF="cwg_active.html#2774">issue 2774</A>.)</P>
+
+<P>Subclause 13.8.3.3 [<A href="https://wg21.link/temp.dep.expr">temp.dep.expr</A>] is lacking specifiation
+about the type-dependence of <I>requires-expression</I>s.</P>
+
+<P><B>Proposed resolution (approved by CWG 2023-08-25):</B></P>
+
+<P>Change in 13.8.3.3 [<A href="https://wg21.link/temp.dep.expr#4">temp.dep.expr</A>] paragraph 4 as follows:</P>
+
+<BLOCKQUOTE>
+
+Expressions of the following forms are never type-dependent (because
+the type of the expression cannot be dependent):
+
+<PRE>
+  ...
+  noexcept ( <I>expression</I> )
+  <INS><I>requires-expression</I></INS>
+</PRE>
+
+</BLOCKQUOTE>
 
 <BR><BR><BR><BR><HR>
 <A NAME="Review%20Status"></A><H3>Issues with "Review" Status</H3>
@@ -11241,6 +11875,117 @@ for use of primary and alternative tokens.</P>
 <P><B>CWG 2023-05-12</B></P>
 
 <P>Addressed by <A HREF="cwg_active.html#2726">issue 2726</A>.</P>
+
+<BR><BR><HR>
+<A NAME="2764"></A><H4>2764.
+  
+Use of placeholders affecting name mangling
+</H4>
+<B>Section: </B>6.4.1&#160; [<A href="https://wg21.link/basic.scope.scope">basic.scope.scope</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>review
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Hubert Tong
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-07-05<BR>
+
+
+
+
+<P>Paper P2169R4 (A nice placeholder with no name), as approved by
+WG21 in Varna, added a placeholder facility.  The intent was that the
+use of placeholders is sufficiently limited such that they never need
+to be mangled.  Quote from 6.4.1 [<A href="https://wg21.link/basic.scope.scope#5">basic.scope.scope</A>] paragraph 5 as
+modified by the paper:</P>
+
+<BLOCKQUOTE>
+
+A declaration is name-independent if its name is _ and it declares a
+variable with automatic storage duration, a structured binding not
+inhabiting a namespace scope, the variable introduced by
+an <I>init-capture</I>, or a non-static data member.
+
+</BLOCKQUOTE>
+
+<P>The following example does not seem to follow that intent:</P>
+
+<PRE>
+  struct A { A(); };
+  inline void f() {
+    static union { A _{}; };
+    static union { A _{}; };
+  }
+  void g() { return f(); }
+</PRE>
+
+<P>The preceding example needs handling similar to the following
+example, which is unrelated to the placeholder feature:</P>
+
+<PRE>
+  struct A { A(); };
+  inline void f() {
+    { static union { A a{}; }; }
+    { static union { A a{}; }; }
+  }
+  void g() { return f(); }
+</PRE>
+
+<P>A similar problem may arise for <TT>static</TT>
+or <TT>thread_local</TT> structured bindings at block scope.</P>
+
+<P>Finally, another example involving placeholders in anonymous unions:</P>
+
+<PRE>
+  static union { int _ = 42; };
+  int &amp;ref = _;
+  int foo() { return 13; }
+  static union { int _ = foo(); };
+  int main() { return ref; }
+</PRE>
+
+<P><U>Possible resolution (reviewed by CWG 2023-08-25) [SUPERSEDED]:</U></P>
+
+<P>Change in 6.4.1 [<A href="https://wg21.link/basic.scope.scope#5">basic.scope.scope</A>] paragraph 5 and add bullets as
+follows:</P>
+
+<BLOCKQUOTE>
+
+<INS>A class is <I>name-dependent</I> if it is an anonymous union
+declared at namespace scope or with a <I>storage-class-specifier</I>
+(11.5.2 [<A href="https://wg21.link/class.union.anon">class.union.anon</A>]).</INS> A declaration
+is <I>name-independent</I> if its name is _ and it declares
+<UL>
+<LI>a variable with automatic storage duration,</LI>
+<LI>a structured binding <INS>with no <I>storage-class-specifier</I>
+and</INS> not inhabiting a namespace scope,</LI>
+<LI>the variable introduced by an <I>init-capture</I>, or</LI>
+<LI>a non-static data member <INS>of other than a name-dependent
+class</INS>.</LI>
+</UL>
+
+</BLOCKQUOTE>
+
+<P><B>Proposed resolution:</B></P>
+
+<P>Change in 6.4.1 [<A href="https://wg21.link/basic.scope.scope#5">basic.scope.scope</A>] paragraph 5 and add bullets as
+follows:</P>
+
+<BLOCKQUOTE>
+
+A declaration is <I>name-independent</I> if its name is _ and it
+declares
+<UL>
+<LI>a variable with automatic storage duration,</LI>
+<LI>a structured binding <INS>with no <I>storage-class-specifier</I>
+and</INS> not inhabiting a namespace scope,</LI>
+<LI>the variable introduced by an <I>init-capture</I>, or</LI>
+<LI>a non-static data member <INS>of other than an anonymous union</INS>.</LI>
+</UL>
+
+</BLOCKQUOTE>
 
 <BR><BR><HR>
 <A NAME="2514"></A><H4>2514.
@@ -12519,7 +13264,7 @@ to the "library undefined behavior" bullet.  However, CWG felt that a
 case-by-case consideration is warranted, given that assumptions set
 precedent in requiring special treatment.</P>
 
-<P><B>Possible resolution:</B></P>
+<P><B>Possible resolution (reviewed by CWG 2023-08-25) [SUPERSEDED]:</B></P>
 
 <P>Split into a separate paragraph and change 7.7 [<A href="https://wg21.link/expr.const#5">expr.const</A>] paragraph 5 as follows:</P>
 
@@ -12548,6 +13293,44 @@ behavior as specified in Clause 16 through Clause 33,</LI>
 <LI class="ins">a <TT>return</TT> statement in a function that was
 previously declared with the <TT>noreturn</TT> attribute
 (9.12.10 [<A href="https://wg21.link/dcl.attr.noreturn">dcl.attr.noreturn</A>]), or</LI>
+<LI>
+a statement with an assumption (9.12.3 [<A href="https://wg21.link/dcl.attr.assume">dcl.attr.assume</A>])
+whose converted <I>conditional-expression</I>, if evaluated where the
+assumption appears, would not disqualify E from being a core constant
+expression and would not evaluate to <TT>true</TT>.  [ Note: .... ]</LI>
+</UL>
+
+</BLOCKQUOTE>
+
+<P><B>Possible resolution:</B></P>
+
+<P>Split into a separate paragraph and change 7.7 [<A href="https://wg21.link/expr.const#5">expr.const</A>] paragraph 5 as follows:</P>
+
+<BLOCKQUOTE>
+
+<UL>
+<LI>...</LI>
+<LI>
+an operation that would have undefined behavior as specified in
+Clause 4 [<A href="https://wg21.link/intro">intro</A>] through Clause 15 [<A href="https://wg21.link/cpp">cpp</A>], excluding
+9.12.3 [<A href="https://wg21.link/dcl.attr.assume">dcl.attr.assume</A>] <INS>and 9.12.10 [<A href="https://wg21.link/dcl.attr.noreturn">dcl.attr.noreturn</A>]</INS>; [
+Footnote: ...]
+</LI>
+<LI>...</LI>
+</UL>
+
+It is unspecified whether E is a core constant expression if E
+satisfies the constraints of a core constant expression, but
+evaluation of E would evaluate
+<UL>
+<LI>an operation that has undefined
+behavior as specified in Clause 16 through Clause 33,</LI>
+<LI>an invocation of the va_start macro
+(17.13.2 [<A href="https://wg21.link/cstdarg.syn">cstdarg.syn</A>]), <DEL>or</DEL>
+</LI>
+<LI class="ins">a function <TT>f</TT> that was previously declared
+with the <TT>noreturn</TT> attribute (9.12.10 [<A href="https://wg21.link/dcl.attr.noreturn">dcl.attr.noreturn</A>])
+and <TT>f</TT> returns to its caller, or</LI>
 <LI>
 a statement with an assumption (9.12.3 [<A href="https://wg21.link/dcl.attr.assume">dcl.attr.assume</A>])
 whose converted <I>conditional-expression</I>, if evaluated where the
@@ -25988,7 +26771,9 @@ Substitution failure and implementation limits
  <B>Submitter: </B>Corentin Jabot
  &#160;&#160;&#160;
 
- <B>Date: </B>2023-07-27<BR>
+ <B>Date: </B>2023-07-27
+  &#160;&#160;&#160;
+  <B>Liaison: </B>EWG<BR>
 
 
 
@@ -26131,6 +26916,20 @@ instantiation is undefined.</DEL>
 </BLOCKQUOTE>
 </LI>
 </OL>
+
+<P><B>CWG 2023-08-25</B></P>
+
+<P>For the example in change 3, implementations currently switch to
+dynamic initialization when their implementation limits related to
+constant evaluation are exceeded.  This might be surprising to users,
+because dynamic initialization can exhibit order-of-initialization
+issues.  It might be less harmful to reject such situations as
+ill-formed.  Furthermore, it is unclear whether implementations can
+reliably determine that an implementation limit is reached, before
+crashing.</P>
+
+<P>CWG is requesting EWG guidance via
+<A HREF="https://github.com/cplusplus/papers/issues/1631">paper issue #1631</A>.</P>
 
 <BR><BR><HR>
 <A NAME="2573"></A><H4>2573.
@@ -26888,98 +27687,6 @@ discussion. </P>
 
 <P>This is related to <A HREF="cwg_active.html#2501">issue 2501</A>.
 CWG solicits a paper to address this issue.</P>
-
-<BR><BR><HR>
-<A NAME="2764"></A><H4>2764.
-  
-Use of placeholders affecting name mangling
-</H4>
-<B>Section: </B>6.4.1&#160; [<A href="https://wg21.link/basic.scope.scope">basic.scope.scope</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>open
- &#160;&#160;&#160;
-
- <B>Submitter: </B>Hubert Tong
- &#160;&#160;&#160;
-
- <B>Date: </B>2023-07-05<BR>
-
-
-
-
-<P>Paper P2169R4 (A nice placeholder with no name), as approved by
-WG21 in Varna, added a placeholder facility.  The intent was that the
-use of placeholders is sufficiently limited such that they never need
-to be mangled.  Quote from 6.4.1 [<A href="https://wg21.link/basic.scope.scope#5">basic.scope.scope</A>] paragraph 5 as
-modified by the paper:</P>
-
-<BLOCKQUOTE>
-
-A declaration is name-independent if its name is _ and it declares a
-variable with automatic storage duration, a structured binding not
-inhabiting a namespace scope, the variable introduced by
-an <I>init-capture</I>, or a non-static data member.
-
-</BLOCKQUOTE>
-
-<P>The following example does not seem to follow that intent:</P>
-
-<PRE>
-  struct A { A(); };
-  inline void f() {
-    static union { A _{}; };
-    static union { A _{}; };
-  }
-  void g() { return f(); }
-</PRE>
-
-<P>The preceding example needs handling similar to the following
-example, which is unrelated to the placeholder feature:</P>
-
-<PRE>
-  struct A { A(); };
-  inline void f() {
-    { static union { A a{}; }; }
-    { static union { A a{}; }; }
-  }
-  void g() { return f(); }
-</PRE>
-
-<P>A similar problem may arise for <TT>static</TT>
-or <TT>thread_local</TT> structured bindings at block scope.</P>
-
-<P>Finally, another example involving placeholders in anonymous unions:</P>
-
-<PRE>
-  static union { int _ = 42; };
-  int &amp;ref = _;
-  int foo() { return 13; }
-  static union { int _ = foo(); };
-  int main() { return ref; }
-</PRE>
-
-<P><U>Possible resolution:</U></P>
-
-<P>Change in 6.4.1 [<A href="https://wg21.link/basic.scope.scope#5">basic.scope.scope</A>] paragraph 5 and add bullets as
-follows:</P>
-
-<BLOCKQUOTE>
-
-<INS>A class is <I>name-dependent</I> if it is an anonymous union
-declared at namespace scope or with a <I>storage-class-specifier</I>
-(11.5.2 [<A href="https://wg21.link/class.union.anon">class.union.anon</A>]).</INS> A declaration
-is <I>name-independent</I> if its name is _ and it declares
-<UL>
-<LI>a variable with automatic storage duration,</LI>
-<LI>a structured binding <INS>with no <I>storage-class-specifier</I>
-and</INS> not inhabiting a namespace scope,</LI>
-<LI>the variable introduced by an <I>init-capture</I>, or</LI>
-<LI>a non-static data member <INS>of other than a name-dependent
-class</INS>.</LI>
-</UL>
-
-</BLOCKQUOTE>
 
 <BR><BR><HR>
 <A NAME="380"></A><H4>380.
@@ -30258,94 +30965,6 @@ a <I>delete-expression</I> shall be evaluated exactly once.
 </OL>
 
 <BR><BR><HR>
-<A NAME="2758"></A><H4>2758.
-  
-What is "access and ambiguity control"?
-</H4>
-<B>Section: </B>7.6.2.9&#160; [<A href="https://wg21.link/expr.delete">expr.delete</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>open
- &#160;&#160;&#160;
-
- <B>Submitter: </B>CWG
- &#160;&#160;&#160;
-
- <B>Date: </B>2023-06-12<BR>
-
-
-<P>Subclause 7.6.2.9 [<A href="https://wg21.link/expr.delete#12">expr.delete</A>] paragraph 12 specifies:</P>
-
-<BLOCKQUOTE>
-
-Access and ambiguity control are done for both the deallocation
-function and the destructor (11.4.7 [<A href="https://wg21.link/class.dtor">class.dtor</A>],
-11.4.11 [<A href="https://wg21.link/class.free">class.free</A>]).
-
-</BLOCKQUOTE>
-
-<P>It is unclear what that means.  In particular, ambiguity checking
-is part of overload resolution, and access checking requires a point
-of reference.</P>
-
-<P><U>Possible resolution:</U></P>
-
-<OL>
-<LI>
-<P>Change in 7.6.2.9 [<A href="https://wg21.link/expr.delete#6">expr.delete</A>] paragraph 6 as follows:</P>
-
-<BLOCKQUOTE>
-
-If the value of the operand of the <I>delete-expression</I> is not a
-null pointer value and the selected deallocation function (see below)
-is not a destroying operator delete, <INS>evaluating</INS>
-the <I>delete-expression</I> <DEL>will invoke</DEL> <INS>invokes</INS>
-the destructor (if any) for the object or the elements of the array
-being deleted. <INS>The destructor shall be accessible from the point
-where the <I>delete-expression</I> appears.</INS> In the case of an
-array, the elements <DEL>will be</DEL> <INS>are</INS> destroyed in
-order of decreasing address (that is, in reverse order of the
-completion of their constructor; see 11.9.3 [<A href="https://wg21.link/class.base.init">class.base.init</A>]).
-
-</BLOCKQUOTE>
-</LI>
-
-<LI>
-<P>Change in 7.6.2.9 [<A href="https://wg21.link/expr.delete#10">expr.delete</A>] paragraph 10</P>
-
-<BLOCKQUOTE>
-
-<DEL>If more than one deallocation function is found,
-the</DEL> <INS>The deallocation</INS> function to be called is
-selected as follows:
-
-<UL>
-<LI>...</LI>
-</UL>
-
-<P class="ins">Unless the deallocation function is selected at the
-point of definition of the dynamic type's virtual destructor, the
-selected deallocation function shall be accessible from the point
-where the <I>delete-expression</I> appears.</P>
-
-</BLOCKQUOTE>
-</LI>
-
-<LI>
-<P>Remove 7.6.2.9 [<A href="https://wg21.link/expr.delete#12">expr.delete</A>] paragraph 12:</P>
-
-<BLOCKQUOTE>
-
-<DEL>Access and ambiguity control are done for both the deallocation
-function and the destructor (11.4.7 [<A href="https://wg21.link/class.dtor">class.dtor</A>],
-11.4.11 [<A href="https://wg21.link/class.free">class.free</A>]).</DEL>
-
-</BLOCKQUOTE>
-</LI>
-
-</OL>
-
-<BR><BR><HR>
 <A NAME="2768"></A><H4>2768.
   
 Assignment to scalar with a <I>braced-init-list</I>
@@ -31251,113 +31870,6 @@ dynamic type and have historically been required to work.</P>
 <P>Maybe a better rule would be that objects (not references) whose
 lifetime did not begin within E are treated as having a dynamic type
 that is their declared type.</P>
-
-<BR><BR><HR>
-<A NAME="2760"></A><H4>2760.
-  
-Defaulted constructor that is an immediate function
-</H4>
-<B>Section: </B>7.7&#160; [<A href="https://wg21.link/expr.const">expr.const</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>open
- &#160;&#160;&#160;
-
- <B>Submitter: </B>Corentin Jabot
- &#160;&#160;&#160;
-
- <B>Date: </B>2023-07-08<BR>
-
-
-<P>Consider:</P>
-
-<PRE>
-  consteval int f(int);
-  struct S {
-   int x = f(0);
-   S() = default;
-  };
-
-  int main() {
-    S s;     //<SPAN CLASS="cmnt"> OK?</SPAN>
-  }
-</PRE>
-
-<P>Is <TT>S</TT> an immediate function?</P>
-
-<P>The relevant specification is in 7.7 [<A href="https://wg21.link/expr.const#18">expr.const</A>] paragraph 18:</P>
-
-<BLOCKQUOTE>
-
-An immediate function is a function or constructor that is
-<UL>
-<LI>declared with the <TT>consteval</TT> specifier, or</LI>
-<LI>an immediate-escalating function F whose function body contains an
-immediate-escalating expression E such that E's innermost enclosing
-non-block scope is F's function parameter scope.</LI>
-</UL>
-
-</BLOCKQUOTE>
-
-<P><U>Suggested resolution:</U></P>
-
-<P>Change in 7.7 [<A href="https://wg21.link/expr.const#18">expr.const</A>] paragraph 18 as follows:</P>
-
-<BLOCKQUOTE>
-
-An immediate function is a function or constructor that is
-<UL>
-<LI>declared with the <TT>consteval</TT> specifier, or</LI>
-<LI>an immediate-escalating function F whose function body contains an
-immediate-escalating expression E such that E's innermost enclosing
-non-block scope is F's function parameter scope<INS>, or</INS>
-</LI>
-<LI class="ins">an immediate-escalating default constructor of a class
-which has at least one non-static data member with an
-immediate-escalating default member initializer.</LI>
-</UL>
-
-</BLOCKQUOTE>
-
-<P><U>Alternative possible resolution:</U></P>
-
-<OL>
-<LI>
-<P>Change in 7.7 [<A href="https://wg21.link/expr.const#18">expr.const</A>] paragraph 18 as follows:</P>
-
-<BLOCKQUOTE>
-
-An immediate function is a function or constructor that is
-<UL>
-<LI>declared with the <TT>consteval</TT> specifier, or</LI>
-<LI>an immediate-escalating function F whose function body contains an
-immediate-escalating expression E such that E's innermost enclosing
-non-block scope is F's function parameter scope.
-<INS>[ Note: Default member initializers used to initialize a base or
-member subobject (11.9.3 [<A href="https://wg21.link/class.base.init">class.base.init</A>]) are considered to be
-part of the function body (9.5.1 [<A href="https://wg21.link/dcl.fct.def.general">dcl.fct.def.general</A>]). -- end note
-]</INS>
-</LI>
-</UL>
-
-</BLOCKQUOTE>
-</LI>
-
-<LI>
-<P>Change in 9.5.1 [<A href="https://wg21.link/dcl.fct.def.general#1">dcl.fct.def.general</A>] paragraph 1 as follows:</P>
-
-<BLOCKQUOTE>
-
-Any informal reference to the body of a function should be interpreted
-as a reference to the non-terminal <I>function-body</I><INS>,
-including default member initializers or default initialization used
-to initialize a base or member subobject in the absence of
-a <I>mem-initializer-id</I> (11.9.3 [<A href="https://wg21.link/class.base.init">class.base.init</A>])</INS>.
-
-</BLOCKQUOTE>
-</LI>
-
-</OL>
 
 <BR><BR><HR>
 <A NAME="2778"></A><H4>2778.
@@ -33371,71 +33883,6 @@ unit.</P>
 </BLOCKQUOTE>
 
 <BR><BR><HR>
-<A NAME="2783"></A><H4>2783.
-  
-Handling of deduction guides in <I>global-module-fragment</I>
-</H4>
-<B>Section: </B>10.4&#160; [<A href="https://wg21.link/module.global.frag">module.global.frag</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>open
- &#160;&#160;&#160;
-
- <B>Submitter: </B>Daniela Engert
- &#160;&#160;&#160;
-
- <B>Date: </B>2023-08-21<BR>
-
-
-<P>Consider:</P>
-
-<PRE>
-  // <SPAN CLASS="cmnt">header</SPAN> "S.h"
-  
-  template&lt;class T&gt;
-  struct S {
-    S(const T*);
-  };
-  template&lt;class T&gt;
-  S(T*) -&gt; S&lt;T&gt;
-
-  // <SPAN CLASS="cmnt">translation unit</SPAN>
-  module;
-  #include "S.h"
-
-  export module M;
-  export using S;
-</PRE>
-
-<P>Obviously, the class template <TT>S</TT> is exported by <TT>M</TT>,
-but what about the deduction guide of <TT>S</TT>?</P>
-
-<P><U>Suggested resolution:</U></P>
-
-<P>Add a new bullet after 10.4 [<A href="https://wg21.link/module.global.frag#3.5.7">module.global.frag</A>] bullet 3.5.7 as
-follows:</P>
-
-<BLOCKQUOTE>
-
-<UL>
-<LI>...</LI>
-<LI>
-there exists a declaration M that is not a <I>namespace-definition</I>
-for which M is decl-reachable from S and either
-<UL>
-<LI>...</LI>
-<LI>one of M and D declares a template and the other declares a
-partial or explicit specialization or an implicit or explicit
-instantiation of that template, or</LI>
-<LI class="ins">one of M and D declares a class template and the other
-declares a deduction guide for that template, or</LI>
-</UL>
-</LI>
-</UL>
-
-</BLOCKQUOTE>
-  
-<BR><BR><HR>
 <A NAME="2637"></A><H4>2637.
   
 Injected-class-name as a <I>simple-template-id</I>
@@ -33815,146 +34262,6 @@ instantiation, the program is ill-formed; see 13.9.1 [<A href="https://wg21.link
 </BLOCKQUOTE>
 
 <BR><BR><HR>
-<A NAME="2759"></A><H4>2759.
-  
-[[no_unique_address] and common initial sequence
-</H4>
-<B>Section: </B>11.4.1&#160; [<A href="https://wg21.link/class.mem.general">class.mem.general</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>open
- &#160;&#160;&#160;
-
- <B>Submitter: </B>Richard Smith
- &#160;&#160;&#160;
-
- <B>Date: </B>2020-11-10<BR>
-
-
-
-
-<P>The interaction of [[no_unique_address]] and the definition of
-common initial sequence is still problematic.  Subclause
-11.4.1 [<A href="https://wg21.link/class.mem.general#23.3">class.mem.general</A>] bullet 23.3 specifies that corresponding
-members in a common initial sequence are not allowed to differ with
-respect to the presence or absence of a [[no_unique_address]]
-attribute.  However, the Itanium ABI will not allocate two successive
-data members of the same empty class type at the same address, causing
-non-conforming behavior for the following example:</P>
-
-<PRE>
-  struct A {};
-  struct B {};
-
-  struct C {
-   [[no_unique_address]] A a;
-   [[no_unique_address]] B b;
-  };
-
-  struct D {
-   [[no_unique_address]] A a1;
-   [[no_unique_address]] A a2;
-  };
-
-  static_assert(offsetof(C, b) == offsetof(D, a2));
-</PRE>
-
-<P>See <A HREF="https://github.com/itanium-cxx-abi/cxx-abi/issues/108">Itanium
-ABI issue 108</A>.</P>
-
-<P>Since "common initial sequence" and "layout compatible" are
-concepts mostly used for C compatibility, but [[no_unique_address]]
-does not exist in C, it seems reasonable to terminate a common initial
-sequence at the first data member that is declared
-[[no_unique_address]].</P>
-
-<P>Another concern is the behavior
-of <TT>std::is_layout_compatible</TT> on implementations that ignore
-[[no_unique_address]]. On such an implementation, the following
-example would be considered layout-compatible, although it actually is
-not:</P>
-
-<PRE>
-  struct E {};
-
-  struct A {
-    E e;
-    int i;
-  };
-
-  struct B {
-    [[no_unique_address]] E e;
-    int i;
-  };
-
-  static_assert(
-    std::is_layout_compatible_v&lt;A, B&gt;
-  );
-</PRE>
-
-<P><U>Suggested resolution:</U></P>
-
-<P>Change in 11.4.1 [<A href="https://wg21.link/class.mem.general#23">class.mem.general</A>] paragraph 23 as follows:</P>
-
-<BLOCKQUOTE>
-
-The common initial sequence of two standard-layout struct
-(11.2 [<A href="https://wg21.link/class.prop">class.prop</A>]) types is the longest sequence of
-non-static data members and bit-fields in declaration order, starting
-with the first such entity in each of the structs, such that
-<UL>
-<LI>corresponding entities have layout-compatible types
-(6.8 [<A href="https://wg21.link/basic.types">basic.types</A>]),</LI>
-
-<LI>corresponding entities have the same alignment requirements
-(6.7.6 [<A href="https://wg21.link/basic.align">basic.align</A>]),</LI>
-
-<LI>
-<DEL>either both entities are declared with the no_unique_address
-attribute (9.12.11 [<A href="https://wg21.link/dcl.attr.nouniqueaddr">dcl.attr.nouniqueaddr</A>]) or neither is,</DEL>
-<INS>if a <I>has-attribute-expression</I> (15.2 [<A href="https://wg21.link/cpp.cond">cpp.cond</A>])
-is not 0 for the <TT>no_unique_address</TT> attribute, then neither
-entity is declared with the <TT>no_unique_address</TT> attribute
-(9.12.11 [<A href="https://wg21.link/dcl.attr.nouniqueaddr">dcl.attr.nouniqueaddr</A>]),</INS> and</LI>
-
-<LI>either both entities are bit-fields with the same width or neither
-is a bit-field.
-</LI>
-</UL>
-
-</BLOCKQUOTE>
-
-<P><U>Alternative possible resolution:</U></P>
-
-<P>Change in 11.4.1 [<A href="https://wg21.link/class.mem.general#23">class.mem.general</A>] paragraph 23 as follows:</P>
-
-<BLOCKQUOTE>
-
-The common initial sequence of two standard-layout struct
-(11.2 [<A href="https://wg21.link/class.prop">class.prop</A>]) types is the longest sequence of
-non-static data members and bit-fields in declaration order, starting
-with the first such entity in each of the structs, such that
-<UL>
-<LI>corresponding entities have layout-compatible types
-(6.8 [<A href="https://wg21.link/basic.types">basic.types</A>]),</LI>
-
-<LI>corresponding entities have the same alignment requirements
-(6.7.6 [<A href="https://wg21.link/basic.align">basic.align</A>]),</LI>
-
-<LI>
-<DEL>either both entities are declared with the no_unique_address
-attribute (9.12.11 [<A href="https://wg21.link/dcl.attr.nouniqueaddr">dcl.attr.nouniqueaddr</A>]) or neither is,</DEL>
-<INS>neither entity is declared with the <TT>no_unique_address</TT>
-attribute (9.12.11 [<A href="https://wg21.link/dcl.attr.nouniqueaddr">dcl.attr.nouniqueaddr</A>]),</INS> and</LI>
-
-<LI>either both entities are bit-fields with the same width or neither
-is a bit-field.
-</LI>
-</UL>
-
-</BLOCKQUOTE>
-
-<BR><BR><HR>
 <A NAME="2771"></A><H4>2771.
   
 Transformation for <I>unqualified-id</I>s in address operator
@@ -34260,114 +34567,6 @@ created, and the lifetime of o begins before the copy is performed.
 </BLOCKQUOTE>
 </LI>
 
-</OL>
-
-<BR><BR><HR>
-<A NAME="2761"></A><H4>2761.
-  
-Implicitly invoking the deleted destructor of an anonymous union member
-</H4>
-<B>Section: </B>11.4.7&#160; [<A href="https://wg21.link/class.dtor">class.dtor</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>open
- &#160;&#160;&#160;
-
- <B>Submitter: </B>Corentin Jabot
- &#160;&#160;&#160;
-
- <B>Date: </B>2023-07-11<BR>
-
-
-
-
-<P>Consider:</P>
-
-<PRE>
-  struct S{
-    ~S() {}
-  };
-
-  struct A {
-    union {
-      S arr_;
-    };
-    ~A(); //<SPAN CLASS="cmnt"> user-provided!</SPAN>
-  };
-
-  auto foo() {
-    return A{S()};
-  }
-</PRE>
-
-<P>Does the destructor of <TT>A</TT> attempt to destroy the (unnamed)
-data member that is the anonymous union?  The latter has a deleted
-destructor per 11.4.7 [<A href="https://wg21.link/class.dtor">class.dtor</A>].  For the default
-constructor, 11.9.3 [<A href="https://wg21.link/class.base.init#9.2">class.base.init</A>] paragraph 9.2 prevents the
-corresponding construction.</P>
-
-<P><U>Possible resolution:</U></P>
-
-<OL>
-<LI>
-<P>Change in 9.4.2 [<A href="https://wg21.link/dcl.init.aggr#9">dcl.init.aggr</A>] paragraph 9 as follows:</P>
-
-<BLOCKQUOTE>
-
-The destructor for each element of class type <INS>other than an
-anonymous union member</INS> is potentially invoked
-(11.4.7 [<A href="https://wg21.link/class.dtor">class.dtor</A>]) from the context where the aggregate
-initialization occurs
-
-</BLOCKQUOTE>
-</LI>
-
-<LI>
-<P>Change in 11.4.7 [<A href="https://wg21.link/class.dtor#13">class.dtor</A>] paragraph 13 as follows:</P>
-
-<BLOCKQUOTE>
-
-After executing the body of the destructor and destroying any objects
-with automatic storage duration allocated within the body, a
-destructor for class X calls the destructors for X's direct
-non-variant non-static data members <INS>other than anonymous
-unions</INS>, the destructors for X's non-virtual direct base classes
-and, if X is the most derived class (11.9.3 [<A href="https://wg21.link/class.base.init">class.base.init</A>]), its
-destructor calls the destructors for X's virtual base classes. All
-destructors are called as if they were referenced with a qualified
-name, that is, ignoring any possible virtual overriding destructors in
-more derived classes.  Bases and members are destroyed in the reverse
-order of the completion of their constructor (see
-11.9.3 [<A href="https://wg21.link/class.base.init">class.base.init</A>]).
-
-</BLOCKQUOTE>
-</LI>
-
-<LI>
-<P>Change in 14.3 [<A href="https://wg21.link/except.ctor#3">except.ctor</A>] paragraph 3 as follows:</P>
-
-
-
-<BLOCKQUOTE>
-
-A subobject is <I>known to be initialized</I> if <INS>it is not an
-anonymous union member and</INS> its initialization is specified
-<UL>
-<LI>in 11.9.3 [<A href="https://wg21.link/class.base.init">class.base.init</A>] for initialization by
-constructor,</LI>
-<LI>in 11.4.5.3 [<A href="https://wg21.link/class.copy.ctor">class.copy.ctor</A>] for initialization by defaulted
-copy/move constructor,</LI>
-<LI>in 11.9.4 [<A href="https://wg21.link/class.inhctor.init">class.inhctor.init</A>] for initialization by inherited
-constructor,</LI>
-<LI>in 9.4.2 [<A href="https://wg21.link/dcl.init.aggr">dcl.init.aggr</A>] for aggregate initialization,</LI>
-<LI>in 7.5.5.3 [<A href="https://wg21.link/expr.prim.lambda.capture">expr.prim.lambda.capture</A>] for the initialization of the
-closure object when evaluating a lambda-expression,</LI>
-<LI>in 9.4.1 [<A href="https://wg21.link/dcl.init.general">dcl.init.general</A>] for default-initialization,
-value-initialization, or direct-initialization of an array.</LI>
-</UL>
-
-</BLOCKQUOTE>
-</LI>
 </OL>
 
 <BR><BR><HR>
@@ -35222,68 +35421,6 @@ specification requires a paper.</P>
 
 
 
-<BR><BR><HR>
-<A NAME="2762"></A><H4>2762.
-  
-Type of implicit object parameter
-</H4>
-<B>Section: </B>12.2.2.1&#160; [<A href="https://wg21.link/over.match.funcs.general">over.match.funcs.general</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>open
- &#160;&#160;&#160;
-
- <B>Submitter: </B>Jim X
- &#160;&#160;&#160;
-
- <B>Date: </B>2023-07-11<BR>
-
-
-<P>Subclause 12.2.2.1 [<A href="https://wg21.link/over.match.funcs.general#4">over.match.funcs.general</A>] paragraph 4 specifies:</P>
-
-<BLOCKQUOTE>
-
-For implicit object member functions, the type of the implicit object
-parameter is
-<UL>
-<LI>&#8220;lvalue reference to cv X&#8221; for functions declared
-without a <I>ref-qualifier</I> or with the
-&amp; <I>ref-qualifier</I>
-</LI>
-<LI>&#8220;rvalue reference to cv X&#8221; for functions declared with
-the &amp;&amp; <I>ref-qualifier</I>
-</LI>
-</UL>
-where X is the class of which the function is a member and cv is the
-cv-qualification on the member function declaration.
-
-</BLOCKQUOTE>
-
-<P>Since a member of some class C is also a member of any class
-derived from C, this specification is unclear.</P>
-
-<P><U>Possible resolution:</U></P>
-
-<P>Change in 12.2.2.1 [<A href="https://wg21.link/over.match.funcs.general#4">over.match.funcs.general</A>] paragraph 4 as follows:</P>
-
-<BLOCKQUOTE>
-
-For implicit object member functions, the type of the implicit object
-parameter is
-<UL>
-<LI>&#8220;lvalue reference to cv X&#8221; for functions declared
-without a <I>ref-qualifier</I> or with the
-&amp; <I>ref-qualifier</I>
-</LI>
-<LI>&#8220;rvalue reference to cv X&#8221; for functions declared with
-the &amp;&amp; <I>ref-qualifier</I>
-</LI>
-</UL>
-where X is the class of which the function is a <INS>direct</INS>
-member and cv is the cv-qualification on the member function
-declaration.
-
-</BLOCKQUOTE>
 <BR><BR><HR>
 <A NAME="2189"></A><H4>2189.
   
@@ -38250,8 +38387,6 @@ Value-dependence of <I>requires-expression</I>s
 
 <P>Consider:</P>
 
-
-
 <PRE>
    template&lt;typename T&gt;
    struct A
@@ -38312,6 +38447,15 @@ the <I>qualified-id</I> names a dependent member ...</P>
 </BLOCKQUOTE>
 </LI>
 </OL>
+
+<P><B>CWG 2023-08-25</B></P>
+
+<P>The first change has consensus and is progressed via
+<A HREF="cwg_active.html#2785">issue 2785</A>; the second change should use an
+approach of recursive decomposition for <I>requires-expression</I>,
+similar to other paragraphs in 13.8.3.4 [<A href="https://wg21.link/temp.dep.constexpr">temp.dep.constexpr</A>].  The
+implementation divergence is believed to be an independent bug in one
+implementation.</P>
 
 <BR><BR><HR>
 <A NAME="2250"></A><H4>2250.
@@ -38955,11 +39099,11 @@ the body of a lambda is never in the immediate context of substitution
 into the lambda-expression and move the rule somewhere more
 general.</P>
 
-<P><U>Possible resolution:</U></P>
+<P><U>Possible resolution (reviewed by CWG 2023-08-25) [SUPERSEDED]:</U></P>
 
 <OL>
 <LI>
-<P>Change in 13.5.2.3 [<A href="https://wg21.link/temp.constr.atomic">temp.constr.atomic</A>] as follows:</P>
+<P>Change in 13.5.2.3 [<A href="https://wg21.link/temp.constr.atomic#3">temp.constr.atomic</A>] paragraph 3 as follows:</P>
 
 <BLOCKQUOTE>
 
@@ -38977,7 +39121,69 @@ only if evaluation of E results in true.
 </LI>
 
 <LI>
-<P>Change in 13.10.3.1 [<A href="https://wg21.link/temp.deduct.general">temp.deduct.general</A>] as follows:</P>
+<P>Change in 13.10.3.1 [<A href="https://wg21.link/temp.deduct.general#9">temp.deduct.general</A>] paragraph 9 as follows:</P>
+
+<BLOCKQUOTE>
+
+<DEL>A <I>lambda-expression</I> appearing in a function type or a template
+parameter</DEL>
+<INS>Substituting into the body of a <I>lambda-expression</I></INS>
+is <DEL>not considered part of</DEL> <INS>never in</INS> the immediate
+context <DEL>for the purposes of template argument deduction</DEL>
+<INS>of substitution into the <I>lambda-expression</I></INS>.
+[<I>Note 7:</I> The intent is to avoid requiring implementations to
+deal with substitution failure involving arbitrary statements.
+
+</BLOCKQUOTE>
+</LI>
+</OL>
+
+<P><B>Proposed resolution:</B></P>
+
+<OL>
+
+<LI>
+<P>Change in 7.5.7.1 [<A href="https://wg21.link/expr.prim.req.general">expr.prim.req.general</A>] as follows:</P>
+
+
+<BLOCKQUOTE>
+
+The substitution of template arguments into
+a <I>requires-expression</I> may result in the formation of invalid
+types or expressions in its <I>requirement</I>s or the violation of
+the semantic constraints of
+those <I>requirement</I>s <INS>(13.10.3.1)</INS>.  In such cases,
+the <I>requires-expression</I> evaluates to false; it does not cause
+the program to be ill-formed. The substitution and semantic constraint
+checking proceeds in lexical order and stops when a condition that
+determines the result of the <I>requires-expression</I> is
+encountered. If substitution (if any) and semantic constraint checking
+succeed, the <I>requires-expression</I> evaluates to true.
+
+</BLOCKQUOTE>
+
+</LI>
+
+<LI>
+<P>Change in 13.5.2.3 [<A href="https://wg21.link/temp.constr.atomic#3">temp.constr.atomic</A>] paragraph 3 as follows:</P>
+
+<BLOCKQUOTE>
+
+To determine if an atomic constraint is satisfied, the parameter
+mapping and template arguments are first substituted into its
+expression. If substitution results in an invalid type or
+expression <INS>in the immediate context of the atomic constraint
+(13.10.3.1 [<A href="https://wg21.link/temp.deduct.general">temp.deduct.general</A>])</INS>, the constraint is not
+satisfied. Otherwise, the lvalue-to-rvalue conversion
+(7.3.2 [<A href="https://wg21.link/conv.lval">conv.lval</A>]) is performed if necessary, and E shall be
+a constant expression of type bool. The constraint is satisfied if and
+only if evaluation of E results in true.
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+<P>Change in 13.10.3.1 [<A href="https://wg21.link/temp.deduct.general#9">temp.deduct.general</A>] paragraph 9 as follows:</P>
 
 <BLOCKQUOTE>
 
@@ -40379,6 +40585,56 @@ that the string literal is de-stringized immediately afterwards.  It
 might be more appropriate to employ a simpler lexical structure such
 as a <I>q-char-sequence</I> as used in a <I>header-name</I>
 instead. See also <A HREF="cwg_active.html#2693">issue 2693</A>.</P>
+
+<BR><BR><HR>
+<A NAME="2784"></A><H4>2784.
+  
+Unclear definition of <I>member-designator</I> for <TT>offsetof</TT>
+</H4>
+<B>Section: </B>17.2.4&#160; [<A href="https://wg21.link/support.types.layout">support.types.layout</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Corentin Jabot
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-08-21<BR>
+
+
+
+
+<P>Consider:</P>
+
+<PRE>
+  struct S {
+    int a;
+  };
+  int x = offsetof(S, S::a)
+</PRE>
+
+<P>Is this valid? MSVC and gcc appear to support <I>qualified-id</I>s
+in the <I>member-designator</I> of <TT>offsetof</TT>; clang does not.
+Once that question is clarified, the rules about value-dependence may
+need to be amended, because a <I>qualified-id</I> might introduce
+type-dependence.</P>
+
+<P>Specific questions:</P>
+<UL>
+<LI>Is a <I>qualified-id</I> allowed to appear in
+a <I>member-designator</I>?</LI>
+<LI>Is a <I>template-id</I> allowed to appear in
+a <I>member-designator</I>?</LI>
+<LI>Is an <TT>offsetof</TT> expression a core constant expression
+(7.7 [<A href="https://wg21.link/expr.const">expr.const</A>])?</LI>
+</UL>
+
+<P><B>2023-08-23</B></P>
+
+<P>Forwarded to EWG with paper issue
+<A HREF="https://github.com/cplusplus/papers/issues/1616">#1616</A>,
+by decision of the CWG chair.</P>
 
 <BR><BR><HR>
 <A NAME="2361"></A><H4>2361.
