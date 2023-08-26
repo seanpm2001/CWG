@@ -12,10 +12,10 @@
 </HEAD>
 <BODY>
 <P><EM>This is an unofficial snapshot of the ISO/IEC JTC1 SC22 WG21
-  Core Issues List revision 112.
+  Core Issues List revision 112a.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-08-18</P>
+<P>2023-08-26</P>
 <HR>
 <A NAME="2763"></A><H4>2763.
   
@@ -89,7 +89,7 @@ to the "library undefined behavior" bullet.  However, CWG felt that a
 case-by-case consideration is warranted, given that assumptions set
 precedent in requiring special treatment.</P>
 
-<P><B>Possible resolution:</B></P>
+<P><B>Possible resolution (reviewed by CWG 2023-08-25) [SUPERSEDED]:</B></P>
 
 <P>Split into a separate paragraph and change 7.7 [<A href="https://wg21.link/expr.const#5">expr.const</A>] paragraph 5 as follows:</P>
 
@@ -118,6 +118,44 @@ behavior as specified in Clause 16 through Clause 33,</LI>
 <LI class="ins">a <TT>return</TT> statement in a function that was
 previously declared with the <TT>noreturn</TT> attribute
 (9.12.10 [<A href="https://wg21.link/dcl.attr.noreturn">dcl.attr.noreturn</A>]), or</LI>
+<LI>
+a statement with an assumption (9.12.3 [<A href="https://wg21.link/dcl.attr.assume">dcl.attr.assume</A>])
+whose converted <I>conditional-expression</I>, if evaluated where the
+assumption appears, would not disqualify E from being a core constant
+expression and would not evaluate to <TT>true</TT>.  [ Note: .... ]</LI>
+</UL>
+
+</BLOCKQUOTE>
+
+<P><B>Possible resolution:</B></P>
+
+<P>Split into a separate paragraph and change 7.7 [<A href="https://wg21.link/expr.const#5">expr.const</A>] paragraph 5 as follows:</P>
+
+<BLOCKQUOTE>
+
+<UL>
+<LI>...</LI>
+<LI>
+an operation that would have undefined behavior as specified in
+Clause 4 [<A href="https://wg21.link/intro">intro</A>] through Clause 15 [<A href="https://wg21.link/cpp">cpp</A>], excluding
+9.12.3 [<A href="https://wg21.link/dcl.attr.assume">dcl.attr.assume</A>] <INS>and 9.12.10 [<A href="https://wg21.link/dcl.attr.noreturn">dcl.attr.noreturn</A>]</INS>; [
+Footnote: ...]
+</LI>
+<LI>...</LI>
+</UL>
+
+It is unspecified whether E is a core constant expression if E
+satisfies the constraints of a core constant expression, but
+evaluation of E would evaluate
+<UL>
+<LI>an operation that has undefined
+behavior as specified in Clause 16 through Clause 33,</LI>
+<LI>an invocation of the va_start macro
+(17.13.2 [<A href="https://wg21.link/cstdarg.syn">cstdarg.syn</A>]), <DEL>or</DEL>
+</LI>
+<LI class="ins">a function <TT>f</TT> that was previously declared
+with the <TT>noreturn</TT> attribute (9.12.10 [<A href="https://wg21.link/dcl.attr.noreturn">dcl.attr.noreturn</A>])
+and <TT>f</TT> returns to its caller, or</LI>
 <LI>
 a statement with an assumption (9.12.3 [<A href="https://wg21.link/dcl.attr.assume">dcl.attr.assume</A>])
 whose converted <I>conditional-expression</I>, if evaluated where the
