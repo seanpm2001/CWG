@@ -12,10 +12,10 @@
 </HEAD>
 <BODY>
 <P><EM>This is an unofficial snapshot of the ISO/IEC JTC1 SC22 WG21
-  Core Issues List revision 112.
+  Core Issues List revision 112a.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-08-18</P>
+<P>2023-08-27</P>
 <HR>
 <A NAME="2252"></A><H4>2252.
   
@@ -30,9 +30,7 @@ Enumeration list-initialization from the same type
  <B>Submitter: </B>Richard Smith
  &#160;&#160;&#160;
 
- <B>Date: </B>2016-03-22
-  &#160;&#160;&#160;
-  <B>Liaison: </B>editor<BR>
+ <B>Date: </B>2016-03-22<BR>
 
 
 
@@ -69,6 +67,14 @@ along the lines of &#8220;if that initialization involves a narrowing
 conversion to the underlying type of <TT>T</TT>...&#8221; was suggested to
 clarify the intent. This will be handled editorially, and the issue will be
 left in "review" status until the change has been verified.</P>
+
+<P><B>Additional notes (August, 2023)</B></P>
+
+<P>
+<A HREF="2374.html">Issue 2374</A> has meanwhile clarified
+that <TT>v</TT> is required to implicitly convert to the underlying
+type of the enumeration for 9.4.5 [<A href="https://wg21.link/dcl.init.list#3.8">dcl.init.list</A>] bullet 3.8 to
+apply.  Now, the logic falls through to 9.4.5 [<A href="https://wg21.link/dcl.init.list#3.9">dcl.init.list</A>] bullet 3.9 for the above example, making it well-formed.</P>
 
 <BR><BR>
 </BODY>
