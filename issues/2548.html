@@ -12,10 +12,10 @@
 </HEAD>
 <BODY>
 <P><EM>This is an unofficial snapshot of the ISO/IEC JTC1 SC22 WG21
-  Core Issues List revision 112.
+  Core Issues List revision 112a.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-08-18</P>
+<P>2023-09-07</P>
 <HR>
 <A NAME="2548"></A><H4>2548.
   
@@ -86,6 +86,49 @@ array type.</INS>
 interaction with the surrounding text needs to be checked in more
 detail after a Working Draft reflecting the Varna straw polls has
 become available.</P>
+
+<P><B>Additional notes (September, 2023)</B></P>
+
+<P>It is questionable which use-cases are being addressed by this
+change.  On the other hand, <TT>IA{1,2,3}[1]</TT> already works today
+(7.2.1 [<A href="https://wg21.link/basic.lval#6">basic.lval</A>] paragraph 6 and 7.6.1.2 [<A href="https://wg21.link/expr.sub#2">expr.sub</A>] paragraph 2).  However, the latter does cause temporary lifetime
+extension (6.7.7 [<A href="https://wg21.link/class.temporary#6">class.temporary</A>] paragraph 6), whereas the
+near-equivalent <TT>*(IA{1,2,3} + 1)</TT> does not.
+</P>
+
+<P><U>Possible resolution:</U></P>
+
+<OL>
+<LI>
+<P>Change in 7.6.6 [<A href="https://wg21.link/expr.add#1">expr.add</A>] paragraph 1 as follows:</P>
+
+<BLOCKQUOTE>
+
+The additive operators + and - group left-to-right. The usual
+arithmetic conversions (7.4 [<A href="https://wg21.link/expr.arith.conv">expr.arith.conv</A>]) are performed for
+operands of arithmetic or enumeration type. <INS>The array-to-pointer
+conversion (7.3.3 [<A href="https://wg21.link/conv.array">conv.array</A>]) is applied to an operand of
+array type.</INS>
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+<P>Change in 7.6.1.2 [<A href="https://wg21.link/expr.sub#2">expr.sub</A>] paragraph 2 as follows:</P>
+
+<BLOCKQUOTE>
+
+... The expression <TT>E1[E2]</TT> is identical (by definition)
+to <TT>*((E1)+(E2))</TT>, except that in the case of an array operand,
+the result is an lvalue if that operand is an lvalue and an xvalue
+otherwise.
+<INS>[ Note: For a temporary array operand, <TT>E1[E2]</TT> extends
+the lifetime of the array, but <TT>*((E1)+(E2))</TT> does not
+(6.7.7 [<A href="https://wg21.link/class.temporary">class.temporary</A>]). -- end note ]</INS>
+
+</BLOCKQUOTE>
+</LI>
+</OL>
 
 <BR><BR>
 </BODY>
