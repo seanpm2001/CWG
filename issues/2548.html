@@ -123,11 +123,16 @@ denoting the object or function to which the operand points.
 
 <BLOCKQUOTE>
 
-The additive operators + and - group left-to-right. The usual
-arithmetic conversions (7.4 [<A href="https://wg21.link/expr.arith.conv">expr.arith.conv</A>]) are performed for
-operands of arithmetic or enumeration type. <INS>The array-to-pointer
-conversion (7.3.3 [<A href="https://wg21.link/conv.array">conv.array</A>]) is applied to an operand of
-array type.</INS>
+The additive operators + and - group left-to-right. Each operand shall
+be a prvalue. If both operands have arithmetic or unscoped enumeration
+type, the usual arithmetic conversions (7.4 [<A href="https://wg21.link/expr.arith.conv">expr.arith.conv</A>]) are
+performed. Otherwise, if one operand has arithmetic or unscoped
+enumeration type, integral promotion is applied
+(7.3.7 [<A href="https://wg21.link/conv.prom">conv.prom</A>]) to that operand.  <INS>The
+array-to-pointer conversion (7.3.3 [<A href="https://wg21.link/conv.array">conv.array</A>]) is applied to
+an operand of array type.</INS> A converted or promoted operand is
+used in place of the corresponding original operand for the remainder
+of this section.
 
 </BLOCKQUOTE>
 </LI>
