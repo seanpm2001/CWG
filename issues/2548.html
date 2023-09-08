@@ -15,7 +15,7 @@
   Core Issues List revision 112a.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-09-07</P>
+<P>2023-09-08</P>
 <HR>
 <A NAME="2548"></A><H4>2548.
   
@@ -141,9 +141,15 @@ array type.</INS>
 to <TT>*((E1)+(E2))</TT>, except that in the case of an array operand,
 the result is an lvalue if that operand is an lvalue and an xvalue
 otherwise.
-<INS>[ Note: For a temporary array operand, <TT>E1[E2]</TT> extends
-the lifetime of the array, but <TT>*((E1)+(E2))</TT> does not
-(6.7.7 [<A href="https://wg21.link/class.temporary">class.temporary</A>]). -- end note ]</INS>
+<div class="ins">
+[ Note: The semantics of <TT>E1[E2]</TT> differ from
+those of <TT>*((E1)+(E2))</TT> also for
+<UL>
+<LI>lifetime extension of temporaries (6.7.7 [<A href="https://wg21.link/class.temporary">class.temporary</A>]) and</LI>
+<LI>changing the active member of a union via assignment
+(11.5.1 [<A href="https://wg21.link/class.union.general">class.union.general</A>]).</LI>
+</UL>
+-- end note ]</div>
 
 </BLOCKQUOTE>
 </LI>
