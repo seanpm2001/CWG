@@ -12,10 +12,10 @@
 </HEAD>
 <BODY>
 <P><EM>This is an unofficial snapshot of the ISO/IEC JTC1 SC22 WG21
-  Core Issues List revision 112.
+  Core Issues List revision 112a.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-08-18</P>
+<P>2023-09-15</P>
 <HR>
 <A NAME="2775"></A><H4>2775.
   
@@ -65,12 +65,11 @@ be non-deleted and accessible, even if the copy/move operation is
 elided (11.9.6 [<A href="https://wg21.link/class.copy.elision">class.copy.elision</A>]).</DEL>
 
 <INS>Let <TT>T</TT> denote the type of the exception
-object. If <TT>T</TT> is a class type, copy-initialization of an
+object. Copy-initialization of an
 object of type <TT>T</TT> from an lvalue of type <TT>const T</TT> in a
-context unrelated to any class shall be well-formed.</INS>
-
-The destructor <INS>of <TT>T</TT></INS> is potentially invoked
-(11.4.7 [<A href="https://wg21.link/class.dtor">class.dtor</A>]).
+context unrelated to any class shall be well-formed.  If <TT>T</TT> is a class type,</INS>
+<DEL>The</DEL> <INS>the</INS> destructor <INS>of <TT>T</TT></INS> is
+potentially invoked (11.4.7 [<A href="https://wg21.link/class.dtor">class.dtor</A>]).
 
 </BLOCKQUOTE>
 
