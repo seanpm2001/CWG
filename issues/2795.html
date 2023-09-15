@@ -15,7 +15,7 @@
   Core Issues List revision 112a.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-09-07</P>
+<P>2023-09-15</P>
 <HR>
 <A NAME="2795"></A><H4>2795.
   
@@ -24,7 +24,7 @@ Overlapping empty subobjects with different cv-qualification
 <B>Section: </B>6.7.2&#160; [<A href="https://wg21.link/intro.object">intro.object</A>]
  &#160;&#160;&#160;
 
- <B>Status: </B>open
+ <B>Status: </B>tentatively ready
  &#160;&#160;&#160;
 
  <B>Submitter: </B>Jonathan Caves
@@ -51,7 +51,7 @@ storage. [ Footnote: ... ]
 is unlikely the rule is intending to differentiate along that
 line.</P>
 
-<P><U>Suggested resolution:</U></P>
+<P><U>Suggested resolution [SUPERSEDED]:</U></P>
 
 <P>Change in 6.7.2 [<A href="https://wg21.link/intro.object#9">intro.object</A>] paragraph 9 as follows:</P>
 
@@ -66,7 +66,10 @@ distinct addresses and occupy disjoint bytes of storage. [ Footnote:
 
 </BLOCKQUOTE>
 
-<P><U>Alternative resolution:</U></P>
+<P><B>Proposed resolution (approved by CWG 2023-09-15):</B></P>
+
+<P>(Hypothetically, pointer-to-member types can be empty, but might
+differ in non-top-level cv-qualification.)</P>
 
 <P>Change in 6.7.2 [<A href="https://wg21.link/intro.object#9">intro.object</A>] paragraph 9 as follows:</P>
 

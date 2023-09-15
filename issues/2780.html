@@ -12,10 +12,10 @@
 </HEAD>
 <BODY>
 <P><EM>This is an unofficial snapshot of the ISO/IEC JTC1 SC22 WG21
-  Core Issues List revision 112.
+  Core Issues List revision 112a.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-08-18</P>
+<P>2023-09-15</P>
 <HR>
 <A NAME="2780"></A><H4>2780.
   
@@ -24,7 +24,7 @@
 <B>Section: </B>7.6.1.10&#160; [<A href="https://wg21.link/expr.reinterpret.cast">expr.reinterpret.cast</A>]
  &#160;&#160;&#160;
 
- <B>Status: </B>open
+ <B>Status: </B>tentatively ready
  &#160;&#160;&#160;
 
  <B>Submitter: </B>Lauri Vasama
@@ -60,14 +60,14 @@ following example:</P>
   }
 </PRE>
 
-<P><U>Possible resolution:</U></P>
+<P><B>Proposed resolution (approved by CWG 2023-09-15):</B></P>
 
 <P>Change in 7.6.1.10 [<A href="https://wg21.link/expr.reinterpret.cast#11">expr.reinterpret.cast</A>] paragraph 11 as follows:</P>
 
 <BLOCKQUOTE>
 
 A glvalue of type T1, designating
-an <DEL>object</DEL> <INS>entity</INS> x, can be cast to the type
+an object <INS>or function</INS> x, can be cast to the type
 &#8220;reference to T2&#8221; if an expression of type &#8220;pointer
 to T1&#8221; can be explicitly converted to the type &#8220;pointer to
 T2&#8221; using a <TT>reinterpret_cast</TT>.  The result is that of

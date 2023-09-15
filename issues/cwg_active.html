@@ -4184,7 +4184,7 @@ Overloading virtual functions and functions with trailing <I>requires-clause</I>
   <A href="https://wg21.link/basic.scope.scope">basic.scope.scope</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#2764">2764</A></TD>
-<TD ALIGN="CENTER">review</TD>
+<TD ALIGN="CENTER">tentatively ready</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Use of placeholders affecting name mangling
@@ -5316,8 +5316,8 @@ Pointer arithmetic in array-like containers
   <A href="https://wg21.link/expr.add">expr.add</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#2548">2548</A></TD>
-<TD ALIGN="CENTER">review</TD>
-<TD ALIGN="CENTER"></TD>
+<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER">EWG</TD>
 <TD ALIGN="LEFT">
 Array prvalues and additive operators
 </TD>
@@ -5591,7 +5591,7 @@ Defaulted constructor that is an immediate function
   <A href="https://wg21.link/expr.const">expr.const</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#2763">2763</A></TD>
-<TD ALIGN="CENTER">review</TD>
+<TD ALIGN="CENTER">tentatively ready</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Ignorability of [[noreturn]] during constant evaluation
@@ -8528,7 +8528,7 @@ Partial specialization failure and the immediate context
   <A href="https://wg21.link/temp.deduct.general">temp.deduct.general</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#2672">2672</A></TD>
-<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER">tentatively ready</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Lambda body SFINAE is still required, contrary to intent and note
@@ -9422,6 +9422,117 @@ pi, as described below.
 <BR><BR><BR><BR><HR>
 <A NAME="Tentatively%20Ready%20Status"></A><H3>Issues with "Tentatively Ready" Status</H3>
 <HR>
+<A NAME="2764"></A><H4>2764.
+  
+Use of placeholders affecting name mangling
+</H4>
+<B>Section: </B>6.4.1&#160; [<A href="https://wg21.link/basic.scope.scope">basic.scope.scope</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>tentatively ready
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Hubert Tong
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-07-05<BR>
+
+
+
+
+<P>Paper P2169R4 (A nice placeholder with no name), as approved by
+WG21 in Varna, added a placeholder facility.  The intent was that the
+use of placeholders is sufficiently limited such that they never need
+to be mangled.  Quote from 6.4.1 [<A href="https://wg21.link/basic.scope.scope#5">basic.scope.scope</A>] paragraph 5 as
+modified by the paper:</P>
+
+<BLOCKQUOTE>
+
+A declaration is name-independent if its name is _ and it declares a
+variable with automatic storage duration, a structured binding not
+inhabiting a namespace scope, the variable introduced by
+an <I>init-capture</I>, or a non-static data member.
+
+</BLOCKQUOTE>
+
+<P>The following example does not seem to follow that intent:</P>
+
+<PRE>
+  struct A { A(); };
+  inline void f() {
+    static union { A _{}; };
+    static union { A _{}; };
+  }
+  void g() { return f(); }
+</PRE>
+
+<P>The preceding example needs handling similar to the following
+example, which is unrelated to the placeholder feature:</P>
+
+<PRE>
+  struct A { A(); };
+  inline void f() {
+    { static union { A a{}; }; }
+    { static union { A a{}; }; }
+  }
+  void g() { return f(); }
+</PRE>
+
+<P>A similar problem may arise for <TT>static</TT>
+or <TT>thread_local</TT> structured bindings at block scope.</P>
+
+<P>Finally, another example involving placeholders in anonymous unions:</P>
+
+<PRE>
+  static union { int _ = 42; };
+  int &amp;ref = _;
+  int foo() { return 13; }
+  static union { int _ = foo(); };
+  int main() { return ref; }
+</PRE>
+
+<P><U>Possible resolution (reviewed by CWG 2023-08-25) [SUPERSEDED]:</U></P>
+
+<P>Change in 6.4.1 [<A href="https://wg21.link/basic.scope.scope#5">basic.scope.scope</A>] paragraph 5 and add bullets as
+follows:</P>
+
+<BLOCKQUOTE>
+
+<INS>A class is <I>name-dependent</I> if it is an anonymous union
+declared at namespace scope or with a <I>storage-class-specifier</I>
+(11.5.2 [<A href="https://wg21.link/class.union.anon">class.union.anon</A>]).</INS> A declaration
+is <I>name-independent</I> if its name is _ and it declares
+<UL>
+<LI>a variable with automatic storage duration,</LI>
+<LI>a structured binding <INS>with no <I>storage-class-specifier</I>
+and</INS> not inhabiting a namespace scope,</LI>
+<LI>the variable introduced by an <I>init-capture</I>, or</LI>
+<LI>a non-static data member <INS>of other than a name-dependent
+class</INS>.</LI>
+</UL>
+
+</BLOCKQUOTE>
+
+<P><B>Proposed resolution (approved by CWG 2023-09-15):</B></P>
+
+<P>Change in 6.4.1 [<A href="https://wg21.link/basic.scope.scope#5">basic.scope.scope</A>] paragraph 5 and add bullets as
+follows:</P>
+
+<BLOCKQUOTE>
+
+A declaration is <I>name-independent</I> if its name is _ and it
+declares
+<UL>
+<LI>a variable with automatic storage duration,</LI>
+<LI>a structured binding <INS>with no <I>storage-class-specifier</I>
+and</INS> not inhabiting a namespace scope,</LI>
+<LI>the variable introduced by an <I>init-capture</I>, or</LI>
+<LI>a non-static data member <INS>of other than an anonymous union</INS>.</LI>
+</UL>
+
+</BLOCKQUOTE>
+
+<BR><BR><HR>
 <A NAME="2753"></A><H4>2753.
   
 Storage reuse for string literal objects and backing arrays
@@ -10163,6 +10274,155 @@ a <I>mem-initializer-id</I> (11.9.3 [<A href="https://wg21.link/class.base.init"
 </LI>
 
 </OL>
+
+<BR><BR><HR>
+<A NAME="2763"></A><H4>2763.
+  
+Ignorability of [[noreturn]] during constant evaluation
+</H4>
+<B>Section: </B>7.7&#160; [<A href="https://wg21.link/expr.const">expr.const</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>tentatively ready
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Jiang An
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-07-10<BR>
+
+
+<P>Subclause 9.12.10 [<A href="https://wg21.link/dcl.attr.noreturn#2">dcl.attr.noreturn</A>] paragraph 2 specifies:</P>
+
+<BLOCKQUOTE>
+
+If a function f is called where f was previously declared with the
+<TT>noreturn</TT> attribute and f eventually returns, the behavior is
+undefined.
+
+</BLOCKQUOTE>
+
+<P>Undefineed behavior is, in general, detected during constant
+evaluation, thus requiring an implementation to actually support
+the <TT>noreturn</TT> attribute, such as in the following example:</P>
+
+<PRE>
+  [[noreturn]] constexpr void f() {}
+  constexpr int x = (f(), 0);
+</PRE>
+
+<P>It might be desirable to treat the <TT>assume</TT>
+and <TT>noreturn</TT> attributes alike in that regard.</P>
+
+<P><B>Proposed resolution (approved by CWG 2023-07-14) [SUPERSEDED]:</B></P>
+
+<P>Split into a separate paragraph and change 7.7 [<A href="https://wg21.link/expr.const#5">expr.const</A>] paragraph 5 as follows:</P>
+
+<BLOCKQUOTE>
+
+It is unspecified whether E is a core constant expression if E
+satisfies the constraints of a core constant expression, but
+evaluation of E would evaluate
+<UL>
+<LI>an operation that has undefined
+behavior as specified in Clause 16 through Clause 33,</LI>
+<LI>an invocation of the va_start macro
+(17.13.2 [<A href="https://wg21.link/cstdarg.syn">cstdarg.syn</A>]), <DEL>or</DEL>
+</LI>
+<LI class="ins">a <TT>return</TT> statement in a function that was
+previously declared with the <TT>noreturn</TT> attribute
+(9.12.10 [<A href="https://wg21.link/dcl.attr.noreturn">dcl.attr.noreturn</A>]), or</LI>
+<LI>
+a statement with an assumption (9.12.3 [<A href="https://wg21.link/dcl.attr.assume">dcl.attr.assume</A>])
+whose converted <I>conditional-expression</I>, if evaluated where the
+assumption appears, would not disqualify E from being a core constant
+expression and would not evaluate to <TT>true</TT>.  [ Note: .... ]</LI>
+</UL>
+
+</BLOCKQUOTE>
+
+<P><B>CWG 2023-07-14</B></P>
+
+<P>As an alternative, all of 9.12 [<A href="https://wg21.link/dcl.attr">dcl.attr</A>] could be added
+to the "library undefined behavior" bullet.  However, CWG felt that a
+case-by-case consideration is warranted, given that assumptions set
+precedent in requiring special treatment.</P>
+
+<P><B>Possible resolution (reviewed by CWG 2023-08-25) [SUPERSEDED]:</B></P>
+
+<P>Split into a separate paragraph and change 7.7 [<A href="https://wg21.link/expr.const#5">expr.const</A>] paragraph 5 as follows:</P>
+
+<BLOCKQUOTE>
+
+<UL>
+<LI>...</LI>
+<LI>
+an operation that would have undefined behavior as specified in
+Clause 4 [<A href="https://wg21.link/intro">intro</A>] through Clause 15 [<A href="https://wg21.link/cpp">cpp</A>], excluding
+9.12.3 [<A href="https://wg21.link/dcl.attr.assume">dcl.attr.assume</A>] <INS>and 9.12.10 [<A href="https://wg21.link/dcl.attr.noreturn">dcl.attr.noreturn</A>]</INS>; [
+Footnote: ...]
+</LI>
+<LI>...</LI>
+</UL>
+
+It is unspecified whether E is a core constant expression if E
+satisfies the constraints of a core constant expression, but
+evaluation of E would evaluate
+<UL>
+<LI>an operation that has undefined
+behavior as specified in Clause 16 through Clause 33,</LI>
+<LI>an invocation of the va_start macro
+(17.13.2 [<A href="https://wg21.link/cstdarg.syn">cstdarg.syn</A>]), <DEL>or</DEL>
+</LI>
+<LI class="ins">a <TT>return</TT> statement in a function that was
+previously declared with the <TT>noreturn</TT> attribute
+(9.12.10 [<A href="https://wg21.link/dcl.attr.noreturn">dcl.attr.noreturn</A>]), or</LI>
+<LI>
+a statement with an assumption (9.12.3 [<A href="https://wg21.link/dcl.attr.assume">dcl.attr.assume</A>])
+whose converted <I>conditional-expression</I>, if evaluated where the
+assumption appears, would not disqualify E from being a core constant
+expression and would not evaluate to <TT>true</TT>.  [ Note: .... ]</LI>
+</UL>
+
+</BLOCKQUOTE>
+
+<P><B>Proposed resolution (approved by CWG 2023-09-15):</B></P>
+
+<P>Split into a separate paragraph and change 7.7 [<A href="https://wg21.link/expr.const#5">expr.const</A>] paragraph 5 as follows:</P>
+
+<BLOCKQUOTE>
+
+<UL>
+<LI>...</LI>
+<LI>
+an operation that would have undefined behavior as specified in
+Clause 4 [<A href="https://wg21.link/intro">intro</A>] through Clause 15 [<A href="https://wg21.link/cpp">cpp</A>], excluding
+9.12.3 [<A href="https://wg21.link/dcl.attr.assume">dcl.attr.assume</A>] <INS>and 9.12.10 [<A href="https://wg21.link/dcl.attr.noreturn">dcl.attr.noreturn</A>]</INS>; [
+Footnote: ...]
+</LI>
+<LI>...</LI>
+</UL>
+
+It is unspecified whether E is a core constant expression if E
+satisfies the constraints of a core constant expression, but
+evaluation of E would evaluate
+<UL>
+<LI>an operation that has undefined
+behavior as specified in Clause 16 through Clause 33,</LI>
+<LI>an invocation of the va_start macro
+(17.13.2 [<A href="https://wg21.link/cstdarg.syn">cstdarg.syn</A>]), <DEL>or</DEL>
+</LI>
+<LI class="ins">a function <TT>f</TT> that was previously declared
+with the <TT>noreturn</TT> attribute (9.12.10 [<A href="https://wg21.link/dcl.attr.noreturn">dcl.attr.noreturn</A>])
+and <TT>f</TT> returns to its caller, or</LI>
+<LI>
+a statement with an assumption (9.12.3 [<A href="https://wg21.link/dcl.attr.assume">dcl.attr.assume</A>])
+whose converted <I>conditional-expression</I>, if evaluated where the
+assumption appears, would not disqualify E from being a core constant
+expression and would not evaluate to <TT>true</TT>.  [ Note: .... ]</LI>
+</UL>
+
+</BLOCKQUOTE>
 
 <BR><BR><HR>
 <A NAME="2556"></A><H4>2556.
@@ -11612,6 +11872,146 @@ the type of the expression cannot be dependent):
 
 </BLOCKQUOTE>
 
+<BR><BR><HR>
+<A NAME="2672"></A><H4>2672.
+  
+Lambda body SFINAE is still required, contrary to intent and note
+</H4>
+<B>Section: </B>13.10.3.1&#160; [<A href="https://wg21.link/temp.deduct.general">temp.deduct.general</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>tentatively ready
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Richard Smith
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2022-09-30<BR>
+
+
+<P>Subclause 13.10.3.1 [<A href="https://wg21.link/temp.deduct.general#9">temp.deduct.general</A>] paragraph 9 specifies:</P>
+
+<BLOCKQUOTE>
+
+A <I>lambda-expression</I> appearing in a function type or a template
+parameter is not considered part of the immediate context for the
+purposes of template argument deduction.  [<I>Note 7:</I> The intent
+is to avoid requiring implementations to deal with substitution
+failure involving arbitrary statements. ... -- end note ]
+
+</BLOCKQUOTE>
+
+<P>However, the intent of the note is not satisfied by the normative
+rule, because a <I>lambda-expression</I> appearing in
+a <I>requires-expression</I> has the same concerns as one in a
+function signature.</P>
+
+<P>Suggested resolution: Change the rule to say that substitution into
+the body of a lambda is never in the immediate context of substitution
+into the lambda-expression and move the rule somewhere more
+general.</P>
+
+<P><U>Possible resolution (reviewed by CWG 2023-08-25) [SUPERSEDED]:</U></P>
+
+<OL>
+<LI>
+<P>Change in 13.5.2.3 [<A href="https://wg21.link/temp.constr.atomic#3">temp.constr.atomic</A>] paragraph 3 as follows:</P>
+
+<BLOCKQUOTE>
+
+To determine if an atomic constraint is satisfied, the parameter
+mapping and template arguments are first substituted into its
+expression. If substitution results in an invalid type or
+expression <INS>in the immediate context of the atomic constraint
+(13.10.3.1 [<A href="https://wg21.link/temp.deduct.general">temp.deduct.general</A>])</INS>, the constraint is not
+satisfied. Otherwise, the lvalue-to-rvalue conversion
+(7.3.2 [<A href="https://wg21.link/conv.lval">conv.lval</A>]) is performed if necessary, and E shall be
+a constant expression of type bool. The constraint is satisfied if and
+only if evaluation of E results in true.
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+<P>Change in 13.10.3.1 [<A href="https://wg21.link/temp.deduct.general#9">temp.deduct.general</A>] paragraph 9 as follows:</P>
+
+<BLOCKQUOTE>
+
+<DEL>A <I>lambda-expression</I> appearing in a function type or a template
+parameter</DEL>
+<INS>Substituting into the body of a <I>lambda-expression</I></INS>
+is <DEL>not considered part of</DEL> <INS>never in</INS> the immediate
+context <DEL>for the purposes of template argument deduction</DEL>
+<INS>of substitution into the <I>lambda-expression</I></INS>.
+[<I>Note 7:</I> The intent is to avoid requiring implementations to
+deal with substitution failure involving arbitrary statements.
+
+</BLOCKQUOTE>
+</LI>
+</OL>
+
+<P><B>Proposed resolution (approved by CWG 2023-09-15):</B></P>
+
+<OL>
+
+<LI>
+<P>Change in 7.5.7.1 [<A href="https://wg21.link/expr.prim.req.general">expr.prim.req.general</A>] as follows:</P>
+
+<BLOCKQUOTE>
+
+The substitution of template arguments into
+a <I>requires-expression</I> may result in the formation of invalid
+types or expressions in <INS>the immediate context of</INS>
+its <I>requirement</I>s <INS>(13.10.3.1 [<A href="https://wg21.link/temp.deduct.general">temp.deduct.general</A>])</INS>
+or the violation of the
+semantic constraints of those <I>requirement</I>s.  In such cases,
+the <I>requires-expression</I> evaluates to false; it does not cause
+the program to be ill-formed. The substitution and semantic constraint
+checking proceeds in lexical order and stops when a condition that
+determines the result of the <I>requires-expression</I> is
+encountered. If substitution (if any) and semantic constraint checking
+succeed, the <I>requires-expression</I> evaluates to true.
+
+</BLOCKQUOTE>
+
+</LI>
+
+<LI>
+<P>Change in 13.5.2.3 [<A href="https://wg21.link/temp.constr.atomic#3">temp.constr.atomic</A>] paragraph 3 as follows:</P>
+
+<BLOCKQUOTE>
+
+To determine if an atomic constraint is satisfied, the parameter
+mapping and template arguments are first substituted into its
+expression. If substitution results in an invalid type or
+expression <INS>in the immediate context of the atomic constraint
+(13.10.3.1 [<A href="https://wg21.link/temp.deduct.general">temp.deduct.general</A>])</INS>, the constraint is not
+satisfied. Otherwise, the lvalue-to-rvalue conversion
+(7.3.2 [<A href="https://wg21.link/conv.lval">conv.lval</A>]) is performed if necessary, and E shall be
+a constant expression of type bool. The constraint is satisfied if and
+only if evaluation of E results in true.
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+<P>Change in 13.10.3.1 [<A href="https://wg21.link/temp.deduct.general#9">temp.deduct.general</A>] paragraph 9 as follows:</P>
+
+<BLOCKQUOTE>
+
+<DEL>A <I>lambda-expression</I> appearing in a function type or a template
+parameter
+is not considered part of the immediate
+context for the purposes of template argument deduction</DEL>.
+<INS>When substituting into a <I>lambda-expression</I>, substitution
+into its body is never in the immediate context.</INS>
+[<I>Note 7:</I> The intent is to avoid requiring implementations to
+deal with substitution failure involving arbitrary statements.
+
+</BLOCKQUOTE>
+</LI>
+</OL>
+
 <BR><BR><BR><BR><HR>
 <A NAME="Review%20Status"></A><H3>Issues with "Review" Status</H3>
 <HR>
@@ -11995,117 +12395,6 @@ for use of primary and alternative tokens.</P>
 <P><B>CWG 2023-05-12</B></P>
 
 <P>Addressed by <A HREF="cwg_active.html#2726">issue 2726</A>.</P>
-
-<BR><BR><HR>
-<A NAME="2764"></A><H4>2764.
-  
-Use of placeholders affecting name mangling
-</H4>
-<B>Section: </B>6.4.1&#160; [<A href="https://wg21.link/basic.scope.scope">basic.scope.scope</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>review
- &#160;&#160;&#160;
-
- <B>Submitter: </B>Hubert Tong
- &#160;&#160;&#160;
-
- <B>Date: </B>2023-07-05<BR>
-
-
-
-
-<P>Paper P2169R4 (A nice placeholder with no name), as approved by
-WG21 in Varna, added a placeholder facility.  The intent was that the
-use of placeholders is sufficiently limited such that they never need
-to be mangled.  Quote from 6.4.1 [<A href="https://wg21.link/basic.scope.scope#5">basic.scope.scope</A>] paragraph 5 as
-modified by the paper:</P>
-
-<BLOCKQUOTE>
-
-A declaration is name-independent if its name is _ and it declares a
-variable with automatic storage duration, a structured binding not
-inhabiting a namespace scope, the variable introduced by
-an <I>init-capture</I>, or a non-static data member.
-
-</BLOCKQUOTE>
-
-<P>The following example does not seem to follow that intent:</P>
-
-<PRE>
-  struct A { A(); };
-  inline void f() {
-    static union { A _{}; };
-    static union { A _{}; };
-  }
-  void g() { return f(); }
-</PRE>
-
-<P>The preceding example needs handling similar to the following
-example, which is unrelated to the placeholder feature:</P>
-
-<PRE>
-  struct A { A(); };
-  inline void f() {
-    { static union { A a{}; }; }
-    { static union { A a{}; }; }
-  }
-  void g() { return f(); }
-</PRE>
-
-<P>A similar problem may arise for <TT>static</TT>
-or <TT>thread_local</TT> structured bindings at block scope.</P>
-
-<P>Finally, another example involving placeholders in anonymous unions:</P>
-
-<PRE>
-  static union { int _ = 42; };
-  int &amp;ref = _;
-  int foo() { return 13; }
-  static union { int _ = foo(); };
-  int main() { return ref; }
-</PRE>
-
-<P><U>Possible resolution (reviewed by CWG 2023-08-25) [SUPERSEDED]:</U></P>
-
-<P>Change in 6.4.1 [<A href="https://wg21.link/basic.scope.scope#5">basic.scope.scope</A>] paragraph 5 and add bullets as
-follows:</P>
-
-<BLOCKQUOTE>
-
-<INS>A class is <I>name-dependent</I> if it is an anonymous union
-declared at namespace scope or with a <I>storage-class-specifier</I>
-(11.5.2 [<A href="https://wg21.link/class.union.anon">class.union.anon</A>]).</INS> A declaration
-is <I>name-independent</I> if its name is _ and it declares
-<UL>
-<LI>a variable with automatic storage duration,</LI>
-<LI>a structured binding <INS>with no <I>storage-class-specifier</I>
-and</INS> not inhabiting a namespace scope,</LI>
-<LI>the variable introduced by an <I>init-capture</I>, or</LI>
-<LI>a non-static data member <INS>of other than a name-dependent
-class</INS>.</LI>
-</UL>
-
-</BLOCKQUOTE>
-
-<P><B>Proposed resolution:</B></P>
-
-<P>Change in 6.4.1 [<A href="https://wg21.link/basic.scope.scope#5">basic.scope.scope</A>] paragraph 5 and add bullets as
-follows:</P>
-
-<BLOCKQUOTE>
-
-A declaration is <I>name-independent</I> if its name is _ and it
-declares
-<UL>
-<LI>a variable with automatic storage duration,</LI>
-<LI>a structured binding <INS>with no <I>storage-class-specifier</I>
-and</INS> not inhabiting a namespace scope,</LI>
-<LI>the variable introduced by an <I>init-capture</I>, or</LI>
-<LI>a non-static data member <INS>of other than an anonymous union</INS>.</LI>
-</UL>
-
-</BLOCKQUOTE>
 
 <BR><BR><HR>
 <A NAME="2514"></A><H4>2514.
@@ -13241,299 +13530,6 @@ the behavior is undefined.
 
 </BLOCKQUOTE>
 <BR><BR><HR>
-<A NAME="2548"></A><H4>2548.
-  
-Array prvalues and additive operators
-</H4>
-<B>Section: </B>7.6.6&#160; [<A href="https://wg21.link/expr.add">expr.add</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>review
- &#160;&#160;&#160;
-
- <B>Submitter: </B>Andrey Erokhin
- &#160;&#160;&#160;
-
- <B>Date: </B>2022-03-08<BR>
-
-
-
-
-<P>Consider</P>
-
-<PRE>
-  int main()
-  {
-    using IA = int[];
-    IA{ 1, 2, 3 } + 0;
-  }
-</PRE>
-
-<P>This appears to be ill-formed given the current wording, because
-the operand is already a prvalue, thus 7.2.1 [<A href="https://wg21.link/basic.lval#6">basic.lval</A>] paragraph 6 does not apply and the array-to-pointer conversion is not
-applied:</P>
-
-<BLOCKQUOTE>
-
-Whenever a glvalue appears as an operand of an operator that expects a
-prvalue for that operand, the lvalue-to-rvalue
-(7.3.2 [<A href="https://wg21.link/conv.lval">conv.lval</A>]), array-to-pointer
-(7.3.3 [<A href="https://wg21.link/conv.array">conv.array</A>]), or function-to-pointer
-(7.3.4 [<A href="https://wg21.link/conv.func">conv.func</A>]) standard conversions are applied to
-convert the expression to a prvalue.
-
-</BLOCKQUOTE>
-
-<P>This outcome might be an oversight in the resolution for
-<A HREF="cwg_defects.html#1232">issue 1232</A>.</P>
-
-<P>See also
-<A HREF="https://github.com/llvm/llvm-project/issues/54016">clang issue 54016</A>.</P>
-
-<P><B>Proposed resolution:</B></P>
-
-<P>Change in 7.6.6 [<A href="https://wg21.link/expr.add#1">expr.add</A>] paragraph 1 as follows:</P>
-
-<BLOCKQUOTE>
-
-The additive operators + and - group left-to-right. The usual
-arithmetic conversions (7.4 [<A href="https://wg21.link/expr.arith.conv">expr.arith.conv</A>]) are performed for
-operands of arithmetic or enumeration type. <INS>The array-to-pointer
-conversion (7.3.3 [<A href="https://wg21.link/conv.array">conv.array</A>]) is applied to an operand of
-array type.</INS>
-
-</BLOCKQUOTE>
-
-<P><B>CWG 2023-07-14</B></P>
-
-<P>CWG is generally in favor of the proposed resolution, but the
-interaction with the surrounding text needs to be checked in more
-detail after a Working Draft reflecting the Varna straw polls has
-become available.</P>
-
-<P><B>Additional notes (September, 2023)</B></P>
-
-<P>It is questionable which use-cases are being addressed by this
-change.  On the other hand, <TT>IA{1,2,3}[1]</TT> already works today
-(7.2.1 [<A href="https://wg21.link/basic.lval#6">basic.lval</A>] paragraph 6 and 7.6.1.2 [<A href="https://wg21.link/expr.sub#2">expr.sub</A>] paragraph 2).  However, the latter does cause temporary lifetime
-extension (6.7.7 [<A href="https://wg21.link/class.temporary#6">class.temporary</A>] paragraph 6), whereas the
-near-equivalent <TT>*(IA{1,2,3} + 1)</TT> does not.
-</P>
-
-<P>Similar to the addition case, indirection through an array prvalue
-is also not valid today.  Consistency seems desirable.</P>
-
-<P><U>Possible resolution:</U></P>
-
-<OL>
-
-<LI>
-<P>Change in 7.6.2.2 [<A href="https://wg21.link/expr.unary.op#1">expr.unary.op</A>] paragraph 1 as follows:</P>
-
-<BLOCKQUOTE>
-
-The unary <TT>*</TT> operator performs indirection. <INS>The
-array-to-pointer conversion (7.3.3 [<A href="https://wg21.link/conv.array">conv.array</A>]) is applied to
-an operand of array type; the possibly converted</INS> <DEL>Its</DEL>
-operand shall be a prvalue of type &#8220;pointer to T&#8221;, where T
-is an object or function type. The operator yields an lvalue of type T
-denoting the object or function to which the operand points.
-
-</BLOCKQUOTE>
-</LI>
-
-<LI>
-<P>Change in 7.6.6 [<A href="https://wg21.link/expr.add#1">expr.add</A>] paragraph 1 as follows:</P>
-
-<BLOCKQUOTE>
-
-The additive operators + and - group left-to-right. Each operand shall
-be a prvalue. If both operands have arithmetic or unscoped enumeration
-type, the usual arithmetic conversions (7.4 [<A href="https://wg21.link/expr.arith.conv">expr.arith.conv</A>]) are
-performed. Otherwise, if one operand has arithmetic or unscoped
-enumeration type, integral promotion is applied
-(7.3.7 [<A href="https://wg21.link/conv.prom">conv.prom</A>]) to that operand.  <INS>The
-array-to-pointer conversion (7.3.3 [<A href="https://wg21.link/conv.array">conv.array</A>]) is applied to
-an operand of array type.</INS> A converted or promoted operand is
-used in place of the corresponding original operand for the remainder
-of this section.
-
-</BLOCKQUOTE>
-</LI>
-
-<LI>
-<P>Change in 7.6.1.2 [<A href="https://wg21.link/expr.sub#2">expr.sub</A>] paragraph 2 as follows:</P>
-
-<BLOCKQUOTE>
-
-... The expression <TT>E1[E2]</TT> is identical (by definition)
-to <TT>*((E1)+(E2))</TT>, except that in the case of an array operand,
-the result is an lvalue if that operand is an lvalue and an xvalue
-otherwise.
-<div class="ins">
-[ Note: The semantics of <TT>E1[E2]</TT> differ from
-those of <TT>*((E1)+(E2))</TT> also for
-<UL>
-<LI>lifetime extension of temporaries (6.7.7 [<A href="https://wg21.link/class.temporary">class.temporary</A>]) and</LI>
-<LI>changing the active member of a union via assignment
-(11.5.1 [<A href="https://wg21.link/class.union.general">class.union.general</A>]).</LI>
-</UL>
--- end note ]</div>
-
-</BLOCKQUOTE>
-</LI>
-</OL>
-
-<BR><BR><HR>
-<A NAME="2763"></A><H4>2763.
-  
-Ignorability of [[noreturn]] during constant evaluation
-</H4>
-<B>Section: </B>7.7&#160; [<A href="https://wg21.link/expr.const">expr.const</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>review
- &#160;&#160;&#160;
-
- <B>Submitter: </B>Jiang An
- &#160;&#160;&#160;
-
- <B>Date: </B>2023-07-10<BR>
-
-
-<P>Subclause 9.12.10 [<A href="https://wg21.link/dcl.attr.noreturn#2">dcl.attr.noreturn</A>] paragraph 2 specifies:</P>
-
-<BLOCKQUOTE>
-
-If a function f is called where f was previously declared with the
-<TT>noreturn</TT> attribute and f eventually returns, the behavior is
-undefined.
-
-</BLOCKQUOTE>
-
-<P>Undefineed behavior is, in general, detected during constant
-evaluation, thus requiring an implementation to actually support
-the <TT>noreturn</TT> attribute, such as in the following example:</P>
-
-<PRE>
-  [[noreturn]] constexpr void f() {}
-  constexpr int x = (f(), 0);
-</PRE>
-
-<P>It might be desirable to treat the <TT>assume</TT>
-and <TT>noreturn</TT> attributes alike in that regard.</P>
-
-<P><B>Proposed resolution (approved by CWG 2023-07-14) [SUPERSEDED]:</B></P>
-
-<P>Split into a separate paragraph and change 7.7 [<A href="https://wg21.link/expr.const#5">expr.const</A>] paragraph 5 as follows:</P>
-
-<BLOCKQUOTE>
-
-It is unspecified whether E is a core constant expression if E
-satisfies the constraints of a core constant expression, but
-evaluation of E would evaluate
-<UL>
-<LI>an operation that has undefined
-behavior as specified in Clause 16 through Clause 33,</LI>
-<LI>an invocation of the va_start macro
-(17.13.2 [<A href="https://wg21.link/cstdarg.syn">cstdarg.syn</A>]), <DEL>or</DEL>
-</LI>
-<LI class="ins">a <TT>return</TT> statement in a function that was
-previously declared with the <TT>noreturn</TT> attribute
-(9.12.10 [<A href="https://wg21.link/dcl.attr.noreturn">dcl.attr.noreturn</A>]), or</LI>
-<LI>
-a statement with an assumption (9.12.3 [<A href="https://wg21.link/dcl.attr.assume">dcl.attr.assume</A>])
-whose converted <I>conditional-expression</I>, if evaluated where the
-assumption appears, would not disqualify E from being a core constant
-expression and would not evaluate to <TT>true</TT>.  [ Note: .... ]</LI>
-</UL>
-
-</BLOCKQUOTE>
-
-<P><B>CWG 2023-07-14</B></P>
-
-<P>As an alternative, all of 9.12 [<A href="https://wg21.link/dcl.attr">dcl.attr</A>] could be added
-to the "library undefined behavior" bullet.  However, CWG felt that a
-case-by-case consideration is warranted, given that assumptions set
-precedent in requiring special treatment.</P>
-
-<P><B>Possible resolution (reviewed by CWG 2023-08-25) [SUPERSEDED]:</B></P>
-
-<P>Split into a separate paragraph and change 7.7 [<A href="https://wg21.link/expr.const#5">expr.const</A>] paragraph 5 as follows:</P>
-
-<BLOCKQUOTE>
-
-<UL>
-<LI>...</LI>
-<LI>
-an operation that would have undefined behavior as specified in
-Clause 4 [<A href="https://wg21.link/intro">intro</A>] through Clause 15 [<A href="https://wg21.link/cpp">cpp</A>], excluding
-9.12.3 [<A href="https://wg21.link/dcl.attr.assume">dcl.attr.assume</A>] <INS>and 9.12.10 [<A href="https://wg21.link/dcl.attr.noreturn">dcl.attr.noreturn</A>]</INS>; [
-Footnote: ...]
-</LI>
-<LI>...</LI>
-</UL>
-
-It is unspecified whether E is a core constant expression if E
-satisfies the constraints of a core constant expression, but
-evaluation of E would evaluate
-<UL>
-<LI>an operation that has undefined
-behavior as specified in Clause 16 through Clause 33,</LI>
-<LI>an invocation of the va_start macro
-(17.13.2 [<A href="https://wg21.link/cstdarg.syn">cstdarg.syn</A>]), <DEL>or</DEL>
-</LI>
-<LI class="ins">a <TT>return</TT> statement in a function that was
-previously declared with the <TT>noreturn</TT> attribute
-(9.12.10 [<A href="https://wg21.link/dcl.attr.noreturn">dcl.attr.noreturn</A>]), or</LI>
-<LI>
-a statement with an assumption (9.12.3 [<A href="https://wg21.link/dcl.attr.assume">dcl.attr.assume</A>])
-whose converted <I>conditional-expression</I>, if evaluated where the
-assumption appears, would not disqualify E from being a core constant
-expression and would not evaluate to <TT>true</TT>.  [ Note: .... ]</LI>
-</UL>
-
-</BLOCKQUOTE>
-
-<P><B>Possible resolution:</B></P>
-
-<P>Split into a separate paragraph and change 7.7 [<A href="https://wg21.link/expr.const#5">expr.const</A>] paragraph 5 as follows:</P>
-
-<BLOCKQUOTE>
-
-<UL>
-<LI>...</LI>
-<LI>
-an operation that would have undefined behavior as specified in
-Clause 4 [<A href="https://wg21.link/intro">intro</A>] through Clause 15 [<A href="https://wg21.link/cpp">cpp</A>], excluding
-9.12.3 [<A href="https://wg21.link/dcl.attr.assume">dcl.attr.assume</A>] <INS>and 9.12.10 [<A href="https://wg21.link/dcl.attr.noreturn">dcl.attr.noreturn</A>]</INS>; [
-Footnote: ...]
-</LI>
-<LI>...</LI>
-</UL>
-
-It is unspecified whether E is a core constant expression if E
-satisfies the constraints of a core constant expression, but
-evaluation of E would evaluate
-<UL>
-<LI>an operation that has undefined
-behavior as specified in Clause 16 through Clause 33,</LI>
-<LI>an invocation of the va_start macro
-(17.13.2 [<A href="https://wg21.link/cstdarg.syn">cstdarg.syn</A>]), <DEL>or</DEL>
-</LI>
-<LI class="ins">a function <TT>f</TT> that was previously declared
-with the <TT>noreturn</TT> attribute (9.12.10 [<A href="https://wg21.link/dcl.attr.noreturn">dcl.attr.noreturn</A>])
-and <TT>f</TT> returns to its caller, or</LI>
-<LI>
-a statement with an assumption (9.12.3 [<A href="https://wg21.link/dcl.attr.assume">dcl.attr.assume</A>])
-whose converted <I>conditional-expression</I>, if evaluated where the
-assumption appears, would not disqualify E from being a core constant
-expression and would not evaluate to <TT>true</TT>.  [ Note: .... ]</LI>
-</UL>
-
-</BLOCKQUOTE>
-
-<BR><BR><HR>
 <A NAME="2531"></A><H4>2531.
   
 Static data members redeclared as constexpr
@@ -13776,6 +13772,27 @@ left in "review" status until the change has been verified.</P>
 that <TT>v</TT> is required to implicitly convert to the underlying
 type of the enumeration for 9.4.5 [<A href="https://wg21.link/dcl.init.list#3.8">dcl.init.list</A>] bullet 3.8 to
 apply.  Now, the logic falls through to 9.4.5 [<A href="https://wg21.link/dcl.init.list#3.9">dcl.init.list</A>] bullet 3.9 for the above example, making it well-formed.</P>
+
+<P><B>CWG 2023-09-15</B></P>
+
+<P>Class types with conversions to scalar types were not in view when
+the wording in this bullet was conceived.</P>
+
+<P><U>Proposed resolution:</U></P>
+
+<P>Change in 9.4.5 [<A href="https://wg21.link/dcl.init.list#3.8">dcl.init.list</A>] bullet 3.8 as follows:</P>
+
+<BLOCKQUOTE>
+
+Otherwise, if T is an enumeration with a fixed underlying type
+(9.7.1 [<A href="https://wg21.link/dcl.enum">dcl.enum</A>]) U, the initializer-list has a single
+element v <INS>of scalar type</INS>, v can be implicitly converted to
+U, and the initialization is direct-list-initialization, the object is
+initialized with the value T(v) (7.6.1.4 [<A href="https://wg21.link/expr.type.conv">expr.type.conv</A>]); if a
+narrowing conversion is required to convert v to U, the program is
+ill-formed.
+
+</BLOCKQUOTE>
 
 <BR><BR><HR>
 <A NAME="2547"></A><H4>2547.
@@ -31430,6 +31447,164 @@ a <I>delete-expression</I> shall be evaluated exactly once.
 </OL>
 
 <BR><BR><HR>
+<A NAME="2548"></A><H4>2548.
+  
+Array prvalues and additive operators
+</H4>
+<B>Section: </B>7.6.6&#160; [<A href="https://wg21.link/expr.add">expr.add</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>open
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Andrey Erokhin
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2022-03-08
+  &#160;&#160;&#160;
+  <B>Liaison: </B>EWG<BR>
+
+
+
+
+<P>Consider</P>
+
+<PRE>
+  int main()
+  {
+    using IA = int[];
+    IA{ 1, 2, 3 } + 0;
+  }
+</PRE>
+
+<P>This appears to be ill-formed given the current wording, because
+the operand is already a prvalue, thus 7.2.1 [<A href="https://wg21.link/basic.lval#6">basic.lval</A>] paragraph 6 does not apply and the array-to-pointer conversion is not
+applied:</P>
+
+<BLOCKQUOTE>
+
+Whenever a glvalue appears as an operand of an operator that expects a
+prvalue for that operand, the lvalue-to-rvalue
+(7.3.2 [<A href="https://wg21.link/conv.lval">conv.lval</A>]), array-to-pointer
+(7.3.3 [<A href="https://wg21.link/conv.array">conv.array</A>]), or function-to-pointer
+(7.3.4 [<A href="https://wg21.link/conv.func">conv.func</A>]) standard conversions are applied to
+convert the expression to a prvalue.
+
+</BLOCKQUOTE>
+
+<P>This outcome might be an oversight in the resolution for
+<A HREF="cwg_defects.html#1232">issue 1232</A>.</P>
+
+<P>See also
+<A HREF="https://github.com/llvm/llvm-project/issues/54016">clang issue 54016</A>.</P>
+
+<P><B>Proposed resolution [SUPERSEDED]:</B></P>
+
+<P>Change in 7.6.6 [<A href="https://wg21.link/expr.add#1">expr.add</A>] paragraph 1 as follows:</P>
+
+<BLOCKQUOTE>
+
+The additive operators + and - group left-to-right. The usual
+arithmetic conversions (7.4 [<A href="https://wg21.link/expr.arith.conv">expr.arith.conv</A>]) are performed for
+operands of arithmetic or enumeration type. <INS>The array-to-pointer
+conversion (7.3.3 [<A href="https://wg21.link/conv.array">conv.array</A>]) is applied to an operand of
+array type.</INS>
+
+</BLOCKQUOTE>
+
+<P><B>CWG 2023-07-14</B></P>
+
+<P>CWG is generally in favor of the proposed resolution, but the
+interaction with the surrounding text needs to be checked in more
+detail after a Working Draft reflecting the Varna straw polls has
+become available.</P>
+
+<P><B>Additional notes (September, 2023)</B></P>
+
+<P>It is questionable which use-cases are being addressed by this
+change.  On the other hand, <TT>IA{1,2,3}[1]</TT> already works today
+(7.2.1 [<A href="https://wg21.link/basic.lval#6">basic.lval</A>] paragraph 6 and 7.6.1.2 [<A href="https://wg21.link/expr.sub#2">expr.sub</A>] paragraph 2).  However, the latter does cause temporary lifetime
+extension (6.7.7 [<A href="https://wg21.link/class.temporary#6">class.temporary</A>] paragraph 6), whereas the
+near-equivalent <TT>*(IA{1,2,3} + 1)</TT> does not.
+</P>
+
+<P>Similar to the addition case, indirection through an array prvalue
+is also not valid today.  Consistency seems desirable.</P>
+
+<P><U>Possible resolution:</U></P>
+
+<OL>
+
+<LI>
+<P>Change in 7.6.2.2 [<A href="https://wg21.link/expr.unary.op#1">expr.unary.op</A>] paragraph 1 as follows:</P>
+
+<BLOCKQUOTE>
+
+The unary <TT>*</TT> operator performs indirection. <INS>The
+array-to-pointer conversion (7.3.3 [<A href="https://wg21.link/conv.array">conv.array</A>]) is applied to
+an operand of array type; the possibly converted</INS> <DEL>Its</DEL>
+operand shall be a prvalue of type &#8220;pointer to T&#8221;, where T
+is an object or function type. The operator yields an lvalue of type T
+denoting the object or function to which the operand points.
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+<P>Change in 7.6.6 [<A href="https://wg21.link/expr.add#1">expr.add</A>] paragraph 1 as follows:</P>
+
+<BLOCKQUOTE>
+
+The additive operators + and - group left-to-right. Each operand shall
+be a prvalue. If both operands have arithmetic or unscoped enumeration
+type, the usual arithmetic conversions (7.4 [<A href="https://wg21.link/expr.arith.conv">expr.arith.conv</A>]) are
+performed. Otherwise, if one operand has arithmetic or unscoped
+enumeration type, integral promotion is applied
+(7.3.7 [<A href="https://wg21.link/conv.prom">conv.prom</A>]) to that operand.  <INS>The
+array-to-pointer conversion (7.3.3 [<A href="https://wg21.link/conv.array">conv.array</A>]) is applied to
+an operand of array type.</INS> A converted or promoted operand is
+used in place of the corresponding original operand for the remainder
+of this section.
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
+<P>Change in 7.6.1.2 [<A href="https://wg21.link/expr.sub#2">expr.sub</A>] paragraph 2 as follows:</P>
+
+<BLOCKQUOTE>
+
+... The <INS>result of the</INS> expression <TT>E1[E2]</TT> is identical (by definition)
+to <INS>that of</INS> <TT>*((E1)+(E2))</TT>, except that in the case of an array operand,
+the result is an lvalue if that operand is an lvalue and an xvalue
+otherwise.
+<div class="ins">
+[ Note: The semantics of <TT>E1[E2]</TT> differ from
+those of <TT>*((E1)+(E2))</TT> also for
+<UL>
+<LI>lifetime extension of temporaries (6.7.7 [<A href="https://wg21.link/class.temporary">class.temporary</A>]) and</LI>
+<LI>changing the active member of a union via assignment
+(11.5.1 [<A href="https://wg21.link/class.union.general">class.union.general</A>]).</LI>
+</UL>
+-- end note ]</div>
+
+</BLOCKQUOTE>
+</LI>
+</OL>
+
+<P><B>CWG 2023-09-15</B></P>
+
+<P>CWG seeks advice from EWG whether support for array prvalue
+operands should be added for the indirection operator and the additive
+operators, along the lines of the wording above.  Similar to
+the <TT>[]</TT> operator, the specification of the indirection
+operation could be amended to yield an xvalue if the argument is a
+prvalue.</P>
+
+<P>Forwarded to EWG via
+<A HREF="https://github.com/cplusplus/papers/issues/1633">paper issue 1633</A>.</P>
+
+<BR><BR><HR>
 <A NAME="2786"></A><H4>2786.
   
 Comparing pointers to complete objects
@@ -31553,17 +31728,17 @@ clang accepts.</P>
 
 <BLOCKQUOTE>
 
-A <I>braced-init-list</I> may appear on the right-hand side of
+A <I>braced-init-list</I> <INS><I>B</I></INS> may appear on the right-hand side of
 <UL>
 <LI>
-an assignment to a scalar, in which case the initializer list shall
-have at most a single element. The meaning of <TT>x =
-<DEL>{v}</DEL></TT> <INS><I>braced-init-list</I> is <TT>x = t</TT>,
+an assignment to a scalar <INS>of type <TT>T</TT></INS>, in which
+case <DEL>the initializer list</DEL> <INS><I>B</I></INS> shall have at
+most a single element. The meaning of <TT>x
+= <DEL>{v}</DEL><INS><I>B</I></INS></TT> <INS> is <TT>x = t</TT>,
 where <TT>t</TT> is some invented temporary variable declared and
-initialized as <TT>T t = <I>braced-init-list</I></TT></INS>, where T
-is the scalar type of the expression x<DEL>, is that of <TT>x =
-T{v}</TT>. The meaning of <TT>x = {}</TT> is <TT>x =
-T{}</TT></DEL>.</LI>
+initialized as <TT>T t = <I>B</I></TT></INS><DEL>, where T is the
+scalar type of the expression x, is that of <TT>x = T{v}</TT>. The
+meaning of <TT>x = {}</TT> is <TT>x = T{}</TT></DEL>.</LI>
 <LI>...</LI>
 </UL>
 
@@ -39942,146 +40117,6 @@ resolution instead of partial specialization:</P>
 </PRE>
 
 <BR><BR><HR>
-<A NAME="2672"></A><H4>2672.
-  
-Lambda body SFINAE is still required, contrary to intent and note
-</H4>
-<B>Section: </B>13.10.3.1&#160; [<A href="https://wg21.link/temp.deduct.general">temp.deduct.general</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>open
- &#160;&#160;&#160;
-
- <B>Submitter: </B>Richard Smith
- &#160;&#160;&#160;
-
- <B>Date: </B>2022-09-30<BR>
-
-
-<P>Subclause 13.10.3.1 [<A href="https://wg21.link/temp.deduct.general#9">temp.deduct.general</A>] paragraph 9 specifies:</P>
-
-<BLOCKQUOTE>
-
-A <I>lambda-expression</I> appearing in a function type or a template
-parameter is not considered part of the immediate context for the
-purposes of template argument deduction.  [<I>Note 7:</I> The intent
-is to avoid requiring implementations to deal with substitution
-failure involving arbitrary statements. ... -- end note ]
-
-</BLOCKQUOTE>
-
-<P>However, the intent of the note is not satisfied by the normative
-rule, because a <I>lambda-expression</I> appearing in
-a <I>requires-expression</I> has the same concerns as one in a
-function signature.</P>
-
-<P>Suggested resolution: Change the rule to say that substitution into
-the body of a lambda is never in the immediate context of substitution
-into the lambda-expression and move the rule somewhere more
-general.</P>
-
-<P><U>Possible resolution (reviewed by CWG 2023-08-25) [SUPERSEDED]:</U></P>
-
-<OL>
-<LI>
-<P>Change in 13.5.2.3 [<A href="https://wg21.link/temp.constr.atomic#3">temp.constr.atomic</A>] paragraph 3 as follows:</P>
-
-<BLOCKQUOTE>
-
-To determine if an atomic constraint is satisfied, the parameter
-mapping and template arguments are first substituted into its
-expression. If substitution results in an invalid type or
-expression <INS>in the immediate context of the atomic constraint
-(13.10.3.1 [<A href="https://wg21.link/temp.deduct.general">temp.deduct.general</A>])</INS>, the constraint is not
-satisfied. Otherwise, the lvalue-to-rvalue conversion
-(7.3.2 [<A href="https://wg21.link/conv.lval">conv.lval</A>]) is performed if necessary, and E shall be
-a constant expression of type bool. The constraint is satisfied if and
-only if evaluation of E results in true.
-
-</BLOCKQUOTE>
-</LI>
-
-<LI>
-<P>Change in 13.10.3.1 [<A href="https://wg21.link/temp.deduct.general#9">temp.deduct.general</A>] paragraph 9 as follows:</P>
-
-<BLOCKQUOTE>
-
-<DEL>A <I>lambda-expression</I> appearing in a function type or a template
-parameter</DEL>
-<INS>Substituting into the body of a <I>lambda-expression</I></INS>
-is <DEL>not considered part of</DEL> <INS>never in</INS> the immediate
-context <DEL>for the purposes of template argument deduction</DEL>
-<INS>of substitution into the <I>lambda-expression</I></INS>.
-[<I>Note 7:</I> The intent is to avoid requiring implementations to
-deal with substitution failure involving arbitrary statements.
-
-</BLOCKQUOTE>
-</LI>
-</OL>
-
-<P><B>Proposed resolution:</B></P>
-
-<OL>
-
-<LI>
-<P>Change in 7.5.7.1 [<A href="https://wg21.link/expr.prim.req.general">expr.prim.req.general</A>] as follows:</P>
-
-
-<BLOCKQUOTE>
-
-The substitution of template arguments into
-a <I>requires-expression</I> may result in the formation of invalid
-types or expressions in its <I>requirement</I>s or the violation of
-the semantic constraints of
-those <I>requirement</I>s <INS>(13.10.3.1)</INS>.  In such cases,
-the <I>requires-expression</I> evaluates to false; it does not cause
-the program to be ill-formed. The substitution and semantic constraint
-checking proceeds in lexical order and stops when a condition that
-determines the result of the <I>requires-expression</I> is
-encountered. If substitution (if any) and semantic constraint checking
-succeed, the <I>requires-expression</I> evaluates to true.
-
-</BLOCKQUOTE>
-
-</LI>
-
-<LI>
-<P>Change in 13.5.2.3 [<A href="https://wg21.link/temp.constr.atomic#3">temp.constr.atomic</A>] paragraph 3 as follows:</P>
-
-<BLOCKQUOTE>
-
-To determine if an atomic constraint is satisfied, the parameter
-mapping and template arguments are first substituted into its
-expression. If substitution results in an invalid type or
-expression <INS>in the immediate context of the atomic constraint
-(13.10.3.1 [<A href="https://wg21.link/temp.deduct.general">temp.deduct.general</A>])</INS>, the constraint is not
-satisfied. Otherwise, the lvalue-to-rvalue conversion
-(7.3.2 [<A href="https://wg21.link/conv.lval">conv.lval</A>]) is performed if necessary, and E shall be
-a constant expression of type bool. The constraint is satisfied if and
-only if evaluation of E results in true.
-
-</BLOCKQUOTE>
-</LI>
-
-<LI>
-<P>Change in 13.10.3.1 [<A href="https://wg21.link/temp.deduct.general#9">temp.deduct.general</A>] paragraph 9 as follows:</P>
-
-<BLOCKQUOTE>
-
-<DEL>A <I>lambda-expression</I> appearing in a function type or a template
-parameter</DEL>
-<INS>Substituting into the body of a <I>lambda-expression</I></INS>
-is <DEL>not considered part of</DEL> <INS>never in</INS> the immediate
-context <DEL>for the purposes of template argument deduction</DEL>
-<INS>of substitution into the <I>lambda-expression</I></INS>.
-[<I>Note 7:</I> The intent is to avoid requiring implementations to
-deal with substitution failure involving arbitrary statements.
-
-</BLOCKQUOTE>
-</LI>
-</OL>
-
-<BR><BR><HR>
 <A NAME="2769"></A><H4>2769.
   
 Substitution into template parameters and default template arguments should be interleaved
@@ -40496,12 +40531,11 @@ be non-deleted and accessible, even if the copy/move operation is
 elided (11.9.6 [<A href="https://wg21.link/class.copy.elision">class.copy.elision</A>]).</DEL>
 
 <INS>Let <TT>T</TT> denote the type of the exception
-object. If <TT>T</TT> is a class type, copy-initialization of an
+object. Copy-initialization of an
 object of type <TT>T</TT> from an lvalue of type <TT>const T</TT> in a
-context unrelated to any class shall be well-formed.</INS>
-
-The destructor <INS>of <TT>T</TT></INS> is potentially invoked
-(11.4.7 [<A href="https://wg21.link/class.dtor">class.dtor</A>]).
+context unrelated to any class shall be well-formed.  If <TT>T</TT> is a class type,</INS>
+<DEL>The</DEL> <INS>the</INS> destructor <INS>of <TT>T</TT></INS> is
+potentially invoked (11.4.7 [<A href="https://wg21.link/class.dtor">class.dtor</A>]).
 
 </BLOCKQUOTE>
 

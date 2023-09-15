@@ -24,7 +24,7 @@ Assignment to scalar with a <I>braced-init-list</I>
 <B>Section: </B>7.6.19&#160; [<A href="https://wg21.link/expr.ass">expr.ass</A>]
  &#160;&#160;&#160;
 
- <B>Status: </B>open
+ <B>Status: </B>review
  &#160;&#160;&#160;
 
  <B>Submitter: </B>Shafik Yaghmour
@@ -68,13 +68,14 @@ scalar type of the expression x, is that of <TT>x = T{v}</TT>. The meaning of
 direct-initialization, and in fact gcc, icc, and MSVC reject #2, but
 clang accepts.</P>
 
-<P><U>Possible resolution:</U></P>
+<P><B>Proposed resolution (September, 2023):</B></P>
 
-<P>Change in 7.6.19 [<A href="https://wg21.link/expr.ass#8.1">expr.ass</A>] bullet 8.1 as follows:</P>
+<P>Change in 7.6.19 [<A href="https://wg21.link/expr.ass#8">expr.ass</A>] paragraph 8 as follows:</P>
 
 <BLOCKQUOTE>
 
-A <I>braced-init-list</I> <INS><I>B</I></INS> may appear on the right-hand side of
+A <I>braced-init-list</I> <INS><I>B</I></INS> may appear on the
+right-hand side of
 <UL>
 <LI>
 an assignment to a scalar <INS>of type <TT>T</TT></INS>, in which
@@ -85,7 +86,13 @@ where <TT>t</TT> is some invented temporary variable declared and
 initialized as <TT>T t = <I>B</I></TT></INS><DEL>, where T is the
 scalar type of the expression x, is that of <TT>x = T{v}</TT>. The
 meaning of <TT>x = {}</TT> is <TT>x = T{}</TT></DEL>.</LI>
-<LI>...</LI>
+
+<LI>
+an assignment to an object of class type, in which case <DEL>the
+initializer list</DEL> <INS><I>B</I></INS> is passed as the argument
+to the assignment operator function selected by overload resolution
+(12.4.3.2 [<A href="https://wg21.link/over.ass">over.ass</A>], 12.2 [<A href="https://wg21.link/over.match">over.match</A>]).
+</LI>
 </UL>
 
 </BLOCKQUOTE>
