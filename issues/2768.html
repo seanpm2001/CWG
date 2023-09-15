@@ -77,13 +77,13 @@ clang accepts.</P>
 A <I>braced-init-list</I> <INS><I>B</I></INS> may appear on the right-hand side of
 <UL>
 <LI>
-an assignment to a scalar <INS>of type <TT>T</TT></INS>, in which case <DEL>the initializer
-list</DEL> <INS><I>B</I></INS> shall have at most a single
-element. The meaning of <TT>x
+an assignment to a scalar <INS>of type <TT>T</TT></INS>, in which
+case <DEL>the initializer list</DEL> <INS><I>B</I></INS> shall have at
+most a single element. The meaning of <TT>x
 = <DEL>{v}</DEL><INS><I>B</I></INS></TT> <INS> is <TT>x = t</TT>,
 where <TT>t</TT> is some invented temporary variable declared and
-initialized as <TT>T t = <I>B</I></TT></INS><DEL>, where T is the scalar
-type of the expression x, is that of <TT>x = T{v}</TT>. The
+initialized as <TT>T t = <I>B</I></TT></INS><DEL>, where T is the
+scalar type of the expression x, is that of <TT>x = T{v}</TT>. The
 meaning of <TT>x = {}</TT> is <TT>x = T{}</TT></DEL>.</LI>
 <LI>...</LI>
 </UL>
