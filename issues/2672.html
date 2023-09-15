@@ -15,7 +15,7 @@
   Core Issues List revision 112a.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-08-26</P>
+<P>2023-09-15</P>
 <HR>
 <A NAME="2672"></A><H4>2672.
   
@@ -101,14 +101,13 @@ deal with substitution failure involving arbitrary statements.
 <LI>
 <P>Change in 7.5.7.1 [<A href="https://wg21.link/expr.prim.req.general">expr.prim.req.general</A>] as follows:</P>
 
-
 <BLOCKQUOTE>
 
 The substitution of template arguments into
 a <I>requires-expression</I> may result in the formation of invalid
-types or expressions in its <I>requirement</I>s or the violation of
-the semantic constraints of
-those <I>requirement</I>s <INS>(13.10.3.1)</INS>.  In such cases,
+types or expressions in <INS>the immediate context of</INS>
+its <I>requirement</I>s <INS>(13.10.3.1)</INS> or the violation of the
+semantic constraints of those <I>requirement</I>s.  In such cases,
 the <I>requires-expression</I> evaluates to false; it does not cause
 the program to be ill-formed. The substitution and semantic constraint
 checking proceeds in lexical order and stops when a condition that
@@ -144,11 +143,11 @@ only if evaluation of E results in true.
 <BLOCKQUOTE>
 
 <DEL>A <I>lambda-expression</I> appearing in a function type or a template
-parameter</DEL>
-<INS>Substituting into the body of a <I>lambda-expression</I></INS>
-is <DEL>not considered part of</DEL> <INS>never in</INS> the immediate
-context <DEL>for the purposes of template argument deduction</DEL>
-<INS>of substitution into the <I>lambda-expression</I></INS>.
+parameter
+is not considered part of the immediate
+context for the purposes of template argument deduction</DEL>.
+<INS>When substituting into a <I>lambda-expression</I>, substitution
+into its body is never in the immediate context.</INS>
 [<I>Note 7:</I> The intent is to avoid requiring implementations to
 deal with substitution failure involving arbitrary statements.
 
