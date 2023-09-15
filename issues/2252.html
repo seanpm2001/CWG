@@ -15,7 +15,7 @@
   Core Issues List revision 112a.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-08-27</P>
+<P>2023-09-15</P>
 <HR>
 <A NAME="2252"></A><H4>2252.
   
@@ -75,6 +75,27 @@ left in "review" status until the change has been verified.</P>
 that <TT>v</TT> is required to implicitly convert to the underlying
 type of the enumeration for 9.4.5 [<A href="https://wg21.link/dcl.init.list#3.8">dcl.init.list</A>] bullet 3.8 to
 apply.  Now, the logic falls through to 9.4.5 [<A href="https://wg21.link/dcl.init.list#3.9">dcl.init.list</A>] bullet 3.9 for the above example, making it well-formed.</P>
+
+<P><B>CWG 2023-09-15</B></P>
+
+<P>Class types with conversions to scalar types were not in view when
+the wording in this bullet was conceived.</P>
+
+<P><U>Proposed resolution:</U></P>
+
+<P>Change in 9.4.5 [<A href="https://wg21.link/dcl.init.list#3.8">dcl.init.list</A>] bullet 3.8 as follows:</P>
+
+<BLOCKQUOTE>
+
+Otherwise, if T is an enumeration with a fixed underlying type
+(9.7.1 [<A href="https://wg21.link/dcl.enum">dcl.enum</A>]) U, the initializer-list has a single
+element v <INS>of scalar type</INS>, v can be implicitly converted to
+U, and the initialization is direct-list-initialization, the object is
+initialized with the value T(v) (7.6.1.4 [<A href="https://wg21.link/expr.type.conv">expr.type.conv</A>]); if a
+narrowing conversion is required to convert v to U, the program is
+ill-formed.
+
+</BLOCKQUOTE>
 
 <BR><BR>
 </BODY>
