@@ -15,7 +15,7 @@
   Core Issues List revision 112a.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-08-26</P>
+<P>2023-09-16</P>
 <HR>
 <A NAME="2783"></A><H4>2783.
   
@@ -24,7 +24,7 @@ Handling of deduction guides in <I>global-module-fragment</I>
 <B>Section: </B>10.4&#160; [<A href="https://wg21.link/module.global.frag">module.global.frag</A>]
  &#160;&#160;&#160;
 
- <B>Status: </B>tentatively ready
+ <B>Status: </B>review
  &#160;&#160;&#160;
 
  <B>Submitter: </B>Daniela Engert
@@ -50,11 +50,12 @@ Handling of deduction guides in <I>global-module-fragment</I>
   #include "S.h"
 
   export module M;
-  export using S;
+  export using ::S;
 </PRE>
 
-<P>Obviously, the class template <TT>S</TT> is exported by <TT>M</TT>,
-but what about the deduction guide of <TT>S</TT>?</P>
+<P>Obviously, the <I>using-declaration</I> referring to the class
+template <TT>S</TT> is exported by <TT>M</TT>, but what about the
+deduction guide of <TT>S</TT>?</P>
 
 <P><B>Proposed resolution (approved by CWG 2023-08-25):</B></P>
 
@@ -80,7 +81,32 @@ declares a deduction guide for that template, or</LI>
 </UL>
 
 </BLOCKQUOTE>
-  
+
+<P><B>Simplified resolution:</B></P>
+
+<P>Add a new bullet after 10.4 [<A href="https://wg21.link/module.global.frag#3.5.7">module.global.frag</A>] bullet 3.5.7 as
+follows:</P>
+
+<BLOCKQUOTE>
+
+<UL>
+<LI>...</LI>
+<LI>
+there exists a declaration M that is not a <I>namespace-definition</I>
+for which M is decl-reachable from S and either
+<UL>
+<LI>...</LI>
+<LI>one of M and D declares a template and the other declares a
+partial or explicit specialization or an implicit or explicit
+instantiation of that template, or</LI>
+<LI class="ins">M declares a class template and D
+is a deduction guide for that template, or</LI>
+</UL>
+</LI>
+</UL>
+
+</BLOCKQUOTE>
+
 <BR><BR>
 </BODY>
 </HTML>
