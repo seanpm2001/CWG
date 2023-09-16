@@ -4206,7 +4206,7 @@ Correspondence and redeclarations
   <A href="https://wg21.link/basic.scope.block">basic.scope.block</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#2793">2793</A></TD>
-<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER">ready</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Block-scope declaration conflicting with parameter name
@@ -4360,7 +4360,7 @@ Address comparisons between potentially non-unique objects during constant evalu
   <A href="https://wg21.link/intro.object">intro.object</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#2795">2795</A></TD>
-<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER">tentatively ready</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Overlapping empty subobjects with different cv-qualification
@@ -5097,7 +5097,7 @@ Incorrect use of implicit conversion sequence
   <A href="https://wg21.link/expr.reinterpret.cast">expr.reinterpret.cast</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#2780">2780</A></TD>
-<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER">tentatively ready</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 <TT>reinterpret_cast</TT> to reference to function types
@@ -5382,7 +5382,7 @@ Compound assignment of <I>braced-init-list</I>
   <A href="https://wg21.link/expr.ass">expr.ass</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#2768">2768</A></TD>
-<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER">review</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Assignment to scalar with a <I>braced-init-list</I>
@@ -8110,7 +8110,7 @@ Type dependency of placeholder types
   <A href="https://wg21.link/temp.dep.expr">temp.dep.expr</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#2785">2785</A></TD>
-<TD ALIGN="CENTER">tentatively ready</TD>
+<TD ALIGN="CENTER">ready</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Type-dependence of <I>requires-expression</I>
@@ -8660,7 +8660,7 @@ Unclear presentation style of template argument deduction rules
   <A href="https://wg21.link/except.throw">except.throw</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#2775">2775</A></TD>
-<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER">tentatively ready</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Unclear argument type for copy of exception object
@@ -8990,7 +8990,7 @@ Additional differences between C++ 2003 and C++ 2011
   <A href="https://wg21.link/diff.cpp03.dcl.dcl">diff.cpp03.dcl.dcl</A>
 </TD>
 <TD ALIGN="RIGHT"><A HREF="#2772">2772</A></TD>
-<TD ALIGN="CENTER">open</TD>
+<TD ALIGN="CENTER">ready</TD>
 <TD ALIGN="CENTER"></TD>
 <TD ALIGN="LEFT">
 Missing Annex C entry for linkage effects of <I>linkage-specification</I>
@@ -9115,6 +9115,59 @@ the status quo and with the proposed change) and turns into an
 ill-formed <I>preprocessing-token</I>. The wording as amended seems
 sufficiently clear to consider <A HREF="cwg_active.html#1698">issue 1698</A>
 resolved.</P>
+
+<BR><BR><HR>
+<A NAME="2793"></A><H4>2793.
+  
+Block-scope declaration conflicting with parameter name
+</H4>
+<B>Section: </B>6.4.3&#160; [<A href="https://wg21.link/basic.scope.block">basic.scope.block</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>ready
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Jason Merrill
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-08-31<BR>
+
+
+
+
+<P>Consider:</P>
+
+<PRE>
+  void f(int i) { extern int i; } 
+</PRE>
+
+<P>According to 6.4.3 [<A href="https://wg21.link/basic.scope.block#2">basic.scope.block</A>] paragraph 2, the target scope
+of the declaration is relevant (which would be the global scope), but
+not the scope in which the name is bound.  That seems wrong. For
+comparison, template parameter names use the latter rule
+(13.8.2 [<A href="https://wg21.link/temp.local#6">temp.local</A>] paragraph 6).</P>
+
+<P><B>Proposed resolution (approved by CWG 2023-09-15):</B></P>
+
+<BLOCKQUOTE>
+
+If a declaration that is not a name-independent declaration
+and <DEL>whose target scope is</DEL> <INS>that binds a name in</INS>
+the block scope S of a
+<UL>
+<LI>
+<I>compound-statement</I> of
+a <I>lambda-expression</I>, <I>function-body</I>,
+or <I>function-try-block</I>,</LI>
+<LI>substatement of  a selection  or iteration  statement that  is not
+itself a selection or iteration statement, or</LI>
+<LI>handler of a <I>function-try-block</I>
+</LI>
+</UL>
+potentially conflicts with a declaration whose target scope is the
+parent scope of S, the program is ill-formed.
+
+</BLOCKQUOTE>
 
 <BR><BR><HR>
 <A NAME="2755"></A><H4>2755.
@@ -9419,6 +9472,92 @@ pi, as described below.
 
 </BLOCKQUOTE>
 
+<BR><BR><HR>
+<A NAME="2785"></A><H4>2785.
+  
+Type-dependence of <I>requires-expression</I>
+</H4>
+<B>Section: </B>13.8.3.3&#160; [<A href="https://wg21.link/temp.dep.expr">temp.dep.expr</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>ready
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>CWG
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-07-17<BR>
+
+
+<P>(Split off from <A HREF="cwg_active.html#2774">issue 2774</A>.)</P>
+
+<P>Subclause 13.8.3.3 [<A href="https://wg21.link/temp.dep.expr">temp.dep.expr</A>] is lacking specifiation
+about the type-dependence of <I>requires-expression</I>s.</P>
+
+<P><B>Proposed resolution (approved by CWG 2023-08-25):</B></P>
+
+<P>Change in 13.8.3.3 [<A href="https://wg21.link/temp.dep.expr#4">temp.dep.expr</A>] paragraph 4 as follows:</P>
+
+<BLOCKQUOTE>
+
+Expressions of the following forms are never type-dependent (because
+the type of the expression cannot be dependent):
+
+<PRE>
+  ...
+  noexcept ( <I>expression</I> )
+  <INS><I>requires-expression</I></INS>
+</PRE>
+
+</BLOCKQUOTE>
+
+<BR><BR><HR>
+<A NAME="2772"></A><H4>2772.
+  
+Missing Annex C entry for linkage effects of <I>linkage-specification</I>
+</H4>
+<B>Section: </B>C.6.4&#160; [<A href="https://wg21.link/diff.cpp03.dcl.dcl">diff.cpp03.dcl.dcl</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>ready
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Hubert Tong
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-07-15<BR>
+
+
+
+
+<P>With C++11, anonymous namespaces changed from external linkage
+(with a unique namespace name) to internal linkage.  That implies
+that <TT>extern "C"</TT>, which affects names with external linkage
+only, no longer has an effect inside anonymous namespaces.</P>
+
+<P>However, a corresponding Annex C entry is missing.</P>
+
+<P><B>Proposed resolution (approved by CWG 2023-09-15):</B></P>
+
+<P>Add a new paragraph in C.6.4 [<A href="https://wg21.link/diff.cpp03.dcl.dcl">diff.cpp03.dcl.dcl</A>] as follows:</P>
+
+<BLOCKQUOTE class="ins">
+
+Affected subclause: 9.11 [<A href="https://wg21.link/dcl.link">dcl.link</A>]<BR>
+Change: Names declared in an anonymous namespace changed from external
+linkage to internal linkage; language linkage applies to names with
+external linkage only.<BR>
+Rationale: Alignment with user expectations.<BR>
+Effect on original feature: Valid C++ 2003 code may violate the one-definition rule (6.3 [<A href="https://wg21.link/basic.def.odr">basic.def.odr</A>]) in this revision of C++. For example:
+<PRE>
+  namespace { extern "C" { extern int x; } }  // <SPAN CLASS="cmnt">#1, previously external linkage and C language linkage, now internal linkage and C++ language linkage</SPAN>
+  namespace A { extern "C" int x = 42; }      // <SPAN CLASS="cmnt">#2, external linkage and C language linkage</SPAN>
+  int main(void) { return x; }
+</PRE>
+This code is valid in C++ 2003, but #2 is not a definition for #1 in
+this revision of C++, violating the one-definition rule.
+</BLOCKQUOTE>
+
 <BR><BR><BR><BR><HR>
 <A NAME="Tentatively%20Ready%20Status"></A><H3>Issues with "Tentatively Ready" Status</H3>
 <HR>
@@ -9703,6 +9842,75 @@ non-unique objects are treated during constant evaluation is handled
 in <A HREF="cwg_active.html#2765">issue 2765</A>.</P>
 
 <BR><BR><HR>
+<A NAME="2795"></A><H4>2795.
+  
+Overlapping empty subobjects with different cv-qualification
+</H4>
+<B>Section: </B>6.7.2&#160; [<A href="https://wg21.link/intro.object">intro.object</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>tentatively ready
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Jonathan Caves
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-09-04<BR>
+
+
+
+
+<P>Subclause 6.7.2 [<A href="https://wg21.link/intro.object#9">intro.object</A>] paragraph 9 specifies:</P>
+
+<BLOCKQUOTE>
+
+... Two objects with overlapping lifetimes that are not bit-fields may
+have the same address if one is nested within the other, or if at
+least one is a subobject of zero size and they are of different types;
+otherwise, they have distinct addresses and occupy disjoint bytes of
+storage. [ Footnote: ... ]
+
+</BLOCKQUOTE>
+
+<P>Types <TT>T</TT> and <TT>const T</TT> are different types, but it
+is unlikely the rule is intending to differentiate along that
+line.</P>
+
+<P><U>Suggested resolution [SUPERSEDED]:</U></P>
+
+<P>Change in 6.7.2 [<A href="https://wg21.link/intro.object#9">intro.object</A>] paragraph 9 as follows:</P>
+
+<BLOCKQUOTE>
+
+... Two objects with overlapping lifetimes that are not bit-fields may
+have the same address if one is nested within the other, or if at
+least one is a subobject of zero size and they are of different types
+<INS>(ignoring top-level cv-qualifiers)</INS>; otherwise, they have
+distinct addresses and occupy disjoint bytes of storage. [ Footnote:
+... ]
+
+</BLOCKQUOTE>
+
+<P><B>Proposed resolution (approved by CWG 2023-09-15):</B></P>
+
+<P>(Hypothetically, pointer-to-member types can be empty, but might
+differ in non-top-level cv-qualification.)</P>
+
+<P>Change in 6.7.2 [<A href="https://wg21.link/intro.object#9">intro.object</A>] paragraph 9 as follows:</P>
+
+<BLOCKQUOTE>
+
+... Two objects with overlapping lifetimes that are not bit-fields may
+have the same address if one is nested within the other, or if at
+least one is a subobject of zero size and they are <INS>not</INS>
+of <DEL>different</DEL> <INS>similar</INS>
+types <INS>(7.3.6 [<A href="https://wg21.link/conv.qual">conv.qual</A>])</INS>; otherwise, they have
+distinct addresses and occupy disjoint bytes of storage. [ Footnote:
+... ]
+
+</BLOCKQUOTE>
+
+<BR><BR><HR>
 <A NAME="2565"></A><H4>2565.
   
 Invalid types in the <I>parameter-declaration-clause</I> of a <I>requires-expression</I>
@@ -9841,6 +10049,69 @@ note</I>]
 </BLOCKQUOTE>
 
 <P>This also addresses <A HREF="cwg_active.html#1038">issue 1038</A>.</P>
+
+<BR><BR><HR>
+<A NAME="2780"></A><H4>2780.
+  
+<TT>reinterpret_cast</TT> to reference to function types
+</H4>
+<B>Section: </B>7.6.1.10&#160; [<A href="https://wg21.link/expr.reinterpret.cast">expr.reinterpret.cast</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>tentatively ready
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Lauri Vasama
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-08-07<BR>
+
+
+<P>Subclause 7.6.1.10 [<A href="https://wg21.link/expr.reinterpret.cast#11">expr.reinterpret.cast</A>] paragraph 11 specifies:</P>
+
+<BLOCKQUOTE>
+
+A glvalue of type T1, designating an object x, can be cast to the type
+&#8220;reference to T2&#8221; if an expression of type &#8220;pointer
+to T1&#8221; can be explicitly converted to the type &#8220;pointer to
+T2&#8221; using a reinterpret_cast.  The result is that of
+*reinterpret_cast&lt;T2 *&gt;(p) where p is a pointer to x of type
+&#8220;pointer to T1&#8221;. No temporary is created, no copy is made,
+and no constructors (11.4.5 [<A href="https://wg21.link/class.ctor">class.ctor</A>]) or conversion
+functions (11.4.8 [<A href="https://wg21.link/class.conv">class.conv</A>]) are called. [ Footnote: ... ]
+
+</BLOCKQUOTE>
+
+<P>The wording does not cover references to function type, only
+references to object types.  All major implementations accept the
+following example:</P>
+
+<PRE>
+  void f() {}
+
+  void(&amp;g())(int) {
+    return reinterpret_cast&lt;void(&amp;)(int)&gt;(f);
+  }
+</PRE>
+
+<P><B>Proposed resolution (approved by CWG 2023-09-15):</B></P>
+
+<P>Change in 7.6.1.10 [<A href="https://wg21.link/expr.reinterpret.cast#11">expr.reinterpret.cast</A>] paragraph 11 as follows:</P>
+
+<BLOCKQUOTE>
+
+A glvalue of type T1, designating
+an object <INS>or function</INS> x, can be cast to the type
+&#8220;reference to T2&#8221; if an expression of type &#8220;pointer
+to T1&#8221; can be explicitly converted to the type &#8220;pointer to
+T2&#8221; using a <TT>reinterpret_cast</TT>.  The result is that of
+<TT>*reinterpret_cast&lt;T2 *&gt;(p)</TT> where <TT>p</TT> is a
+pointer to x of type &#8220;pointer to T1&#8221;. No temporary is
+created, no copy is made, and no constructors
+(11.4.5 [<A href="https://wg21.link/class.ctor">class.ctor</A>]) or conversion functions
+(11.4.8 [<A href="https://wg21.link/class.conv">class.conv</A>]) are called. [ Footnote: ... ]
+
+</BLOCKQUOTE>
 
 <BR><BR><HR>
 <A NAME="2102"></A><H4>2102.
@@ -11834,45 +12105,6 @@ type,</INS></LI>
 </OL>
 
 <BR><BR><HR>
-<A NAME="2785"></A><H4>2785.
-  
-Type-dependence of <I>requires-expression</I>
-</H4>
-<B>Section: </B>13.8.3.3&#160; [<A href="https://wg21.link/temp.dep.expr">temp.dep.expr</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>tentatively ready
- &#160;&#160;&#160;
-
- <B>Submitter: </B>CWG
- &#160;&#160;&#160;
-
- <B>Date: </B>2023-07-17<BR>
-
-
-<P>(Split off from <A HREF="cwg_active.html#2774">issue 2774</A>.)</P>
-
-<P>Subclause 13.8.3.3 [<A href="https://wg21.link/temp.dep.expr">temp.dep.expr</A>] is lacking specifiation
-about the type-dependence of <I>requires-expression</I>s.</P>
-
-<P><B>Proposed resolution (approved by CWG 2023-08-25):</B></P>
-
-<P>Change in 13.8.3.3 [<A href="https://wg21.link/temp.dep.expr#4">temp.dep.expr</A>] paragraph 4 as follows:</P>
-
-<BLOCKQUOTE>
-
-Expressions of the following forms are never type-dependent (because
-the type of the expression cannot be dependent):
-
-<PRE>
-  ...
-  noexcept ( <I>expression</I> )
-  <INS><I>requires-expression</I></INS>
-</PRE>
-
-</BLOCKQUOTE>
-
-<BR><BR><HR>
 <A NAME="2672"></A><H4>2672.
   
 Lambda body SFINAE is still required, contrary to intent and note
@@ -12011,6 +12243,63 @@ deal with substitution failure involving arbitrary statements.
 </BLOCKQUOTE>
 </LI>
 </OL>
+
+<BR><BR><HR>
+<A NAME="2775"></A><H4>2775.
+  
+Unclear argument type for copy of exception object
+</H4>
+<B>Section: </B>14.2&#160; [<A href="https://wg21.link/except.throw">except.throw</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>tentatively ready
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Jiang An
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-05-31<BR>
+
+
+<P>Subclause 14.2 [<A href="https://wg21.link/except.throw#5">except.throw</A>] paragraph 5 specifies:</P>
+
+<BLOCKQUOTE>
+
+When the thrown object is a class object, the constructor selected for
+the copy-initialization as well as the constructor selected for a
+copy-initialization considering the thrown object as an lvalue shall
+be non-deleted and accessible, even if the copy/move operation is
+elided (11.9.6 [<A href="https://wg21.link/class.copy.elision">class.copy.elision</A>]). The destructor is potentially
+invoked (11.4.7 [<A href="https://wg21.link/class.dtor">class.dtor</A>]).
+
+</BLOCKQUOTE>
+
+<P>This provision is for capturing a copy constructor for
+implementations not using reference-counted
+<TT>std::exception_ptr</TT>s, but that ought to be described
+separately from the "thrown object", which can be interpreted as the
+operand of the <I>throw-expression</I>.</P>
+
+<P><B>Proposed resolution (approved by CWG 2023-09-15):</B></P>
+
+<P>Change in 14.2 [<A href="https://wg21.link/except.throw#5">except.throw</A>] paragraph 5 as follows:</P>
+
+<BLOCKQUOTE>
+
+<DEL>When the thrown object is a class object, the constructor selected for
+the copy-initialization as well as the constructor selected for a
+copy-initialization considering the thrown object as an lvalue shall
+be non-deleted and accessible, even if the copy/move operation is
+elided (11.9.6 [<A href="https://wg21.link/class.copy.elision">class.copy.elision</A>]).</DEL>
+
+<INS>Let <TT>T</TT> denote the type of the exception
+object. Copy-initialization of an
+object of type <TT>T</TT> from an lvalue of type <TT>const T</TT> in a
+context unrelated to any class shall be well-formed.  If <TT>T</TT> is a class type,</INS>
+<DEL>The</DEL> <INS>the</INS> destructor <INS>of <TT>T</TT></INS> is
+potentially invoked (11.4.7 [<A href="https://wg21.link/class.dtor">class.dtor</A>]).
+
+</BLOCKQUOTE>
 
 <BR><BR><BR><BR><HR>
 <A NAME="Review%20Status"></A><H3>Issues with "Review" Status</H3>
@@ -13529,6 +13818,87 @@ type C nor a base class subobject of an object of type C, then
 the behavior is undefined.
 
 </BLOCKQUOTE>
+<BR><BR><HR>
+<A NAME="2768"></A><H4>2768.
+  
+Assignment to scalar with a <I>braced-init-list</I>
+</H4>
+<B>Section: </B>7.6.19&#160; [<A href="https://wg21.link/expr.ass">expr.ass</A>]
+ &#160;&#160;&#160;
+
+ <B>Status: </B>review
+ &#160;&#160;&#160;
+
+ <B>Submitter: </B>Shafik Yaghmour
+ &#160;&#160;&#160;
+
+ <B>Date: </B>2023-07-06<BR>
+
+
+<P>Consider:</P>
+
+<PRE>
+   enum class E {E1};
+
+   void f() {
+     E e;
+     e = E{0}; //<SPAN CLASS="cmnt"> #1</SPAN>
+     e = {0};  //<SPAN CLASS="cmnt"> #2</SPAN>
+   }
+</PRE>
+
+<P>#1 first initializes a temporary of type <TT>E</TT> and then
+assigns that to <TT>e</TT>.  For #2,
+7.6.19 [<A href="https://wg21.link/expr.ass#8.1">expr.ass</A>] bullet 8.1 specifies that #2 is
+equivalent to #1:</P>
+
+<BLOCKQUOTE>
+
+A <I>braced-init-list</I> may appear on the right-hand side of
+<UL>
+<LI>
+an assignment to a scalar, in which case the initializer list shall
+have at most a single element. The meaning of <TT>x = {v}</TT>, where T is the
+scalar type of the expression x, is that of <TT>x = T{v}</TT>. The meaning of
+<TT>x = {}</TT> is <TT>x = T{}</TT>.</LI>
+<LI>...</LI>
+</UL>
+
+</BLOCKQUOTE>
+
+<P>However, there is no syntactic hint that #2 would invoke
+direct-initialization, and in fact gcc, icc, and MSVC reject #2, but
+clang accepts.</P>
+
+<P><B>Proposed resolution (September, 2023):</B></P>
+
+<P>Change in 7.6.19 [<A href="https://wg21.link/expr.ass#8">expr.ass</A>] paragraph 8 as follows:</P>
+
+<BLOCKQUOTE>
+
+A <I>braced-init-list</I> <INS><I>B</I></INS> may appear on the
+right-hand side of
+<UL>
+<LI>
+an assignment to a scalar <INS>of type <TT>T</TT></INS>, in which
+case <DEL>the initializer list</DEL> <INS><I>B</I></INS> shall have at
+most a single element. The meaning of <TT>x
+= <DEL>{v}</DEL><INS><I>B</I></INS></TT> <INS> is <TT>x = t</TT>,
+where <TT>t</TT> is some invented temporary variable declared and
+initialized as <TT>T t = <I>B</I></TT></INS><DEL>, where T is the
+scalar type of the expression x, is that of <TT>x = T{v}</TT>. The
+meaning of <TT>x = {}</TT> is <TT>x = T{}</TT></DEL>.</LI>
+
+<LI>
+an assignment to an object of class type, in which case <DEL>the
+initializer list</DEL> <INS><I>B</I></INS> is passed as the argument
+to the assignment operator function selected by overload resolution
+(12.4.3.2 [<A href="https://wg21.link/over.ass">over.ass</A>], 12.2 [<A href="https://wg21.link/over.match">over.match</A>]).
+</LI>
+</UL>
+
+</BLOCKQUOTE>
+
 <BR><BR><HR>
 <A NAME="2531"></A><H4>2531.
   
@@ -27982,61 +28352,6 @@ end note ]</INS><BR>
 </BLOCKQUOTE>
 
 <BR><BR><HR>
-<A NAME="2793"></A><H4>2793.
-  
-Block-scope declaration conflicting with parameter name
-</H4>
-<B>Section: </B>6.4.3&#160; [<A href="https://wg21.link/basic.scope.block">basic.scope.block</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>open
- &#160;&#160;&#160;
-
- <B>Submitter: </B>Jason Merrill
- &#160;&#160;&#160;
-
- <B>Date: </B>2023-08-31<BR>
-
-
-
-
-<P>Consider:</P>
-
-<PRE>
-  void f(int i) { extern int i; } 
-</PRE>
-
-<P>According to 6.4.3 [<A href="https://wg21.link/basic.scope.block#2">basic.scope.block</A>] paragraph 2, the target scope
-of the declaration is relevant (which would be the global scope), but
-not the scope in which the name is bound.  That seems wrong. For
-comparison, template parameter names use the latter rule
-(13.8.2 [<A href="https://wg21.link/temp.local#6">temp.local</A>] paragraph 6).</P>
-
-<P><U>Suggested resolution:</U></P>
-
-
-
-<BLOCKQUOTE>
-
-If a declaration that is not a name-independent declaration
-and <DEL>whose target scope is</DEL> <INS>that binds a name in</INS>
-the block scope S of a
-<UL>
-<LI>
-<I>compound-statement</I> of
-a <I>lambda-expression</I>, <I>function-body</I>,
-or <I>function-try-block</I>,</LI>
-<LI>substatement of  a selection  or iteration  statement that  is not
-itself a selection or iteration statement, or</LI>
-<LI>handler of a <I>function-try-block</I>
-</LI>
-</UL>
-potentially conflicts with a declaration whose target scope is the
-parent scope of S, the program is ill-formed.
-
-</BLOCKQUOTE>
-
-<BR><BR><HR>
 <A NAME="380"></A><H4>380.
   
 Definition of "ambiguous base class" missing
@@ -28385,75 +28700,6 @@ yield distinct string literal objects.</P>
 <TT>std::string_view</TT> would compare addresses as a short-cut
 before comparing the character sequence could not be confirmed
 (23.2.2 [<A href="https://wg21.link/char.traits.require">char.traits.require</A>], 23.3.3.8 [<A href="https://wg21.link/string.view.ops#12">string.view.ops</A>] paragraph 12).</P>
-
-<BR><BR><HR>
-<A NAME="2795"></A><H4>2795.
-  
-Overlapping empty subobjects with different cv-qualification
-</H4>
-<B>Section: </B>6.7.2&#160; [<A href="https://wg21.link/intro.object">intro.object</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>open
- &#160;&#160;&#160;
-
- <B>Submitter: </B>Jonathan Caves
- &#160;&#160;&#160;
-
- <B>Date: </B>2023-09-04<BR>
-
-
-
-
-<P>Subclause 6.7.2 [<A href="https://wg21.link/intro.object#9">intro.object</A>] paragraph 9 specifies:</P>
-
-<BLOCKQUOTE>
-
-... Two objects with overlapping lifetimes that are not bit-fields may
-have the same address if one is nested within the other, or if at
-least one is a subobject of zero size and they are of different types;
-otherwise, they have distinct addresses and occupy disjoint bytes of
-storage. [ Footnote: ... ]
-
-</BLOCKQUOTE>
-
-<P>Types <TT>T</TT> and <TT>const T</TT> are different types, but it
-is unlikely the rule is intending to differentiate along that
-line.</P>
-
-<P><U>Suggested resolution:</U></P>
-
-<P>Change in 6.7.2 [<A href="https://wg21.link/intro.object#9">intro.object</A>] paragraph 9 as follows:</P>
-
-<BLOCKQUOTE>
-
-... Two objects with overlapping lifetimes that are not bit-fields may
-have the same address if one is nested within the other, or if at
-least one is a subobject of zero size and they are of different types
-<INS>(ignoring top-level cv-qualifiers)</INS>; otherwise, they have
-distinct addresses and occupy disjoint bytes of storage. [ Footnote:
-... ]
-
-</BLOCKQUOTE>
-
-<P><U>Possible resolution:</U></P>
-
-<P>(Hypothetically, pointer-to-member types can be empty, but might
-differ in non-top-level cv-qualification.)</P>
-
-<P>Change in 6.7.2 [<A href="https://wg21.link/intro.object#9">intro.object</A>] paragraph 9 as follows:</P>
-
-<BLOCKQUOTE>
-
-... Two objects with overlapping lifetimes that are not bit-fields may
-have the same address if one is nested within the other, or if at
-least one is a subobject of zero size and they are <INS>not</INS>
-of <DEL>different</DEL> <INS>similar</INS>
-types <INS>(7.3.6 [<A href="https://wg21.link/conv.qual">conv.qual</A>])</INS>; otherwise, they have
-distinct addresses and occupy disjoint bytes of storage. [ Footnote:
-... ]
-
-</BLOCKQUOTE>
 
 <BR><BR><HR>
 <A NAME="419"></A><H4>419.
@@ -30801,69 +31047,6 @@ C-style cast is interpreted as just a <TT>static_cast</TT> without
 a <TT>const_cast</TT> and is thus ill-formed.</P>
 
 <BR><BR><HR>
-<A NAME="2780"></A><H4>2780.
-  
-<TT>reinterpret_cast</TT> to reference to function types
-</H4>
-<B>Section: </B>7.6.1.10&#160; [<A href="https://wg21.link/expr.reinterpret.cast">expr.reinterpret.cast</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>open
- &#160;&#160;&#160;
-
- <B>Submitter: </B>Lauri Vasama
- &#160;&#160;&#160;
-
- <B>Date: </B>2023-08-07<BR>
-
-
-<P>Subclause 7.6.1.10 [<A href="https://wg21.link/expr.reinterpret.cast#11">expr.reinterpret.cast</A>] paragraph 11 specifies:</P>
-
-<BLOCKQUOTE>
-
-A glvalue of type T1, designating an object x, can be cast to the type
-&#8220;reference to T2&#8221; if an expression of type &#8220;pointer
-to T1&#8221; can be explicitly converted to the type &#8220;pointer to
-T2&#8221; using a reinterpret_cast.  The result is that of
-*reinterpret_cast&lt;T2 *&gt;(p) where p is a pointer to x of type
-&#8220;pointer to T1&#8221;. No temporary is created, no copy is made,
-and no constructors (11.4.5 [<A href="https://wg21.link/class.ctor">class.ctor</A>]) or conversion
-functions (11.4.8 [<A href="https://wg21.link/class.conv">class.conv</A>]) are called. [ Footnote: ... ]
-
-</BLOCKQUOTE>
-
-<P>The wording does not cover references to function type, only
-references to object types.  All major implementations accept the
-following example:</P>
-
-<PRE>
-  void f() {}
-
-  void(&amp;g())(int) {
-    return reinterpret_cast&lt;void(&amp;)(int)&gt;(f);
-  }
-</PRE>
-
-<P><U>Possible resolution:</U></P>
-
-<P>Change in 7.6.1.10 [<A href="https://wg21.link/expr.reinterpret.cast#11">expr.reinterpret.cast</A>] paragraph 11 as follows:</P>
-
-<BLOCKQUOTE>
-
-A glvalue of type T1, designating
-an <DEL>object</DEL> <INS>entity</INS> x, can be cast to the type
-&#8220;reference to T2&#8221; if an expression of type &#8220;pointer
-to T1&#8221; can be explicitly converted to the type &#8220;pointer to
-T2&#8221; using a <TT>reinterpret_cast</TT>.  The result is that of
-<TT>*reinterpret_cast&lt;T2 *&gt;(p)</TT> where <TT>p</TT> is a
-pointer to x of type &#8220;pointer to T1&#8221;. No temporary is
-created, no copy is made, and no constructors
-(11.4.5 [<A href="https://wg21.link/class.ctor">class.ctor</A>]) or conversion functions
-(11.4.8 [<A href="https://wg21.link/class.conv">class.conv</A>]) are called. [ Footnote: ... ]
-
-</BLOCKQUOTE>
-
-<BR><BR><HR>
 <A NAME="2668"></A><H4>2668.
   
 <TT>co_await</TT> in a <I>lambda-expression</I>
@@ -31665,80 +31848,6 @@ after the end of the storage occupied by that object's</INS> <DEL>one
 past the last element of a different</DEL> complete object, the result
 of the comparison is unspecified.</LI>
 
-<LI>...</LI>
-</UL>
-
-</BLOCKQUOTE>
-
-<BR><BR><HR>
-<A NAME="2768"></A><H4>2768.
-  
-Assignment to scalar with a <I>braced-init-list</I>
-</H4>
-<B>Section: </B>7.6.19&#160; [<A href="https://wg21.link/expr.ass">expr.ass</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>open
- &#160;&#160;&#160;
-
- <B>Submitter: </B>Shafik Yaghmour
- &#160;&#160;&#160;
-
- <B>Date: </B>2023-07-06<BR>
-
-
-<P>Consider:</P>
-
-<PRE>
-   enum class E {E1};
-
-   void f() {
-     E e;
-     e = E{0}; //<SPAN CLASS="cmnt"> #1</SPAN>
-     e = {0};  //<SPAN CLASS="cmnt"> #2</SPAN>
-   }
-</PRE>
-
-<P>#1 first initializes a temporary of type <TT>E</TT> and then
-assigns that to <TT>e</TT>.  For #2,
-7.6.19 [<A href="https://wg21.link/expr.ass#8.1">expr.ass</A>] bullet 8.1 specifies that #2 is
-equivalent to #1:</P>
-
-<BLOCKQUOTE>
-
-A <I>braced-init-list</I> may appear on the right-hand side of
-<UL>
-<LI>
-an assignment to a scalar, in which case the initializer list shall
-have at most a single element. The meaning of <TT>x = {v}</TT>, where T is the
-scalar type of the expression x, is that of <TT>x = T{v}</TT>. The meaning of
-<TT>x = {}</TT> is <TT>x = T{}</TT>.</LI>
-<LI>...</LI>
-</UL>
-
-</BLOCKQUOTE>
-
-<P>However, there is no syntactic hint that #2 would invoke
-direct-initialization, and in fact gcc, icc, and MSVC reject #2, but
-clang accepts.</P>
-
-<P><U>Possible resolution:</U></P>
-
-<P>Change in 7.6.19 [<A href="https://wg21.link/expr.ass#8.1">expr.ass</A>] bullet 8.1 as follows:</P>
-
-<BLOCKQUOTE>
-
-A <I>braced-init-list</I> <INS><I>B</I></INS> may appear on the right-hand side of
-<UL>
-<LI>
-an assignment to a scalar <INS>of type <TT>T</TT></INS>, in which
-case <DEL>the initializer list</DEL> <INS><I>B</I></INS> shall have at
-most a single element. The meaning of <TT>x
-= <DEL>{v}</DEL><INS><I>B</I></INS></TT> <INS> is <TT>x = t</TT>,
-where <TT>t</TT> is some invented temporary variable declared and
-initialized as <TT>T t = <I>B</I></TT></INS><DEL>, where T is the
-scalar type of the expression x, is that of <TT>x = T{v}</TT>. The
-meaning of <TT>x = {}</TT> is <TT>x = T{}</TT></DEL>.</LI>
 <LI>...</LI>
 </UL>
 
@@ -40483,63 +40592,6 @@ rules seem to cover this case (deduction is not specified to
 but it might be helpful to be clearer.</P>
 
 <BR><BR><HR>
-<A NAME="2775"></A><H4>2775.
-  
-Unclear argument type for copy of exception object
-</H4>
-<B>Section: </B>14.2&#160; [<A href="https://wg21.link/except.throw">except.throw</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>open
- &#160;&#160;&#160;
-
- <B>Submitter: </B>Jiang An
- &#160;&#160;&#160;
-
- <B>Date: </B>2023-05-31<BR>
-
-
-<P>Subclause 14.2 [<A href="https://wg21.link/except.throw#5">except.throw</A>] paragraph 5 specifies:</P>
-
-<BLOCKQUOTE>
-
-When the thrown object is a class object, the constructor selected for
-the copy-initialization as well as the constructor selected for a
-copy-initialization considering the thrown object as an lvalue shall
-be non-deleted and accessible, even if the copy/move operation is
-elided (11.9.6 [<A href="https://wg21.link/class.copy.elision">class.copy.elision</A>]). The destructor is potentially
-invoked (11.4.7 [<A href="https://wg21.link/class.dtor">class.dtor</A>]).
-
-</BLOCKQUOTE>
-
-<P>This provision is for capturing a copy constructor for
-implementations not using reference-counted
-<TT>std::exception_ptr</TT>s, but that ought to be described
-separately from the "thrown object", which can be interpreted as the
-operand of the <I>throw-expression</I>.</P>
-
-<P><U>Possible resolution:</U></P>
-
-<P>Change in 14.2 [<A href="https://wg21.link/except.throw#5">except.throw</A>] paragraph 5 as follows:</P>
-
-<BLOCKQUOTE>
-
-<DEL>When the thrown object is a class object, the constructor selected for
-the copy-initialization as well as the constructor selected for a
-copy-initialization considering the thrown object as an lvalue shall
-be non-deleted and accessible, even if the copy/move operation is
-elided (11.9.6 [<A href="https://wg21.link/class.copy.elision">class.copy.elision</A>]).</DEL>
-
-<INS>Let <TT>T</TT> denote the type of the exception
-object. Copy-initialization of an
-object of type <TT>T</TT> from an lvalue of type <TT>const T</TT> in a
-context unrelated to any class shall be well-formed.  If <TT>T</TT> is a class type,</INS>
-<DEL>The</DEL> <INS>the</INS> destructor <INS>of <TT>T</TT></INS> is
-potentially invoked (11.4.7 [<A href="https://wg21.link/class.dtor">class.dtor</A>]).
-
-</BLOCKQUOTE>
-
-<BR><BR><HR>
 <A NAME="2417"></A><H4>2417.
   
 Explicit instantiation and exception specifications
@@ -41634,53 +41686,6 @@ and the practice has been only to document the C++ incompatibilities.
 Some means of specifying both sets of incompatibilities should be
 found, hopefully without excessive duplication between the C and C++
 sections.</P>
-
-<BR><BR><HR>
-<A NAME="2772"></A><H4>2772.
-  
-Missing Annex C entry for linkage effects of <I>linkage-specification</I>
-</H4>
-<B>Section: </B>C.6.4&#160; [<A href="https://wg21.link/diff.cpp03.dcl.dcl">diff.cpp03.dcl.dcl</A>]
- &#160;&#160;&#160;
-
- <B>Status: </B>open
- &#160;&#160;&#160;
-
- <B>Submitter: </B>Hubert Tong
- &#160;&#160;&#160;
-
- <B>Date: </B>2023-07-15<BR>
-
-
-
-
-<P>With C++11, anonymous namespaces changed from external linkage
-(with a unique namespace name) to internal linkage.  That implies
-that <TT>extern "C"</TT>, which affects names with external linkage
-only, no longer has an effect inside anonymous namespaces.</P>
-
-<P>However, a corresponding Annex C entry is missing.</P>
-
-<P><U>Possible resolution:</U></P>
-
-<P>Add a new paragraph in C.6.4 [<A href="https://wg21.link/diff.cpp03.dcl.dcl">diff.cpp03.dcl.dcl</A>] as follows:</P>
-
-<BLOCKQUOTE class="ins">
-
-Affected subclause: 9.11 [<A href="https://wg21.link/dcl.link">dcl.link</A>]<BR>
-Change: Names declared in an anonymous namespace changed from external
-linkage to internal linkage; language linkage applies to names with
-external linkage only.<BR>
-Rationale: Alignment with user expectations.<BR>
-Effect on original feature: Valid C++ 2003 code may violate the one-definition rule (6.3 [<A href="https://wg21.link/basic.def.odr">basic.def.odr</A>]) in this revision of C++. For example:
-<PRE>
-  namespace { extern "C" { extern int x; } }  // <SPAN CLASS="cmnt">#1, previously external linkage and C language linkage, now internal linkage and C++ language linkage</SPAN>
-  namespace A { extern "C" int x = 42; }      // <SPAN CLASS="cmnt">#2, external linkage and C language linkage</SPAN>
-  int main(void) { return x; }
-</PRE>
-This code is valid in C++ 2003, but #2 is not a definition for #1 in
-this revision of C++, violating the one-definition rule.
-</BLOCKQUOTE>
 
 <BR><BR><HR>
 <A NAME="1248"></A><H4>1248.

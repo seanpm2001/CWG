@@ -15,7 +15,7 @@
   Core Issues List revision 112a.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-08-29</P>
+<P>2023-09-16</P>
 <HR>
 <A NAME="2789"></A><H4>2789.
   
@@ -24,7 +24,7 @@ Overload resolution with implicit and explicit object member functions
 <B>Section: </B>12.2.4.1&#160; [<A href="https://wg21.link/over.match.best.general">over.match.best.general</A>]
  &#160;&#160;&#160;
 
- <B>Status: </B>open
+ <B>Status: </B>review
  &#160;&#160;&#160;
 
  <B>Submitter: </B>Corentin Jabot
@@ -51,7 +51,7 @@ Overload resolution with implicit and explicit object member functions
 <P>With the current rules, the call at #3 is ambiguous, even though #2
 is more constrainted.</P>
 
-<P><U>Possible resolution:</U></P>
+<P><B>Proposed resolution:</B></P>
 
 <P>Change in 12.2.4.1 [<A href="https://wg21.link/over.match.best.general#2.6">over.match.best.general</A>] bullet 2.6 as follows:</P>
 
@@ -61,9 +61,10 @@ is more constrainted.</P>
 <LI>...</LI>
 <LI>F1 and F2 are non-template functions with the same
 <DEL>parameter-type-lists</DEL> <INS>non-object-parameter-type-lists
-(9.3.4.6 [<A href="https://wg21.link/dcl.fct">dcl.fct</A>])</INS>, and F1 is more constrained than
-F2 according to the partial ordering of constraints described in
-13.5.5 [<A href="https://wg21.link/temp.constr.order">temp.constr.order</A>], or if not that,</LI>
+(9.3.4.6 [<A href="https://wg21.link/dcl.fct">dcl.fct</A>]) and, if they are member functions, the
+same types for their object parameters</INS>, and F1 is more
+constrained than F2 according to the partial ordering of constraints
+described in 13.5.5 [<A href="https://wg21.link/temp.constr.order">temp.constr.order</A>], or if not that,</LI>
 <LI>...</LI>
 </UL>
 

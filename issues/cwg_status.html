@@ -59,7 +59,7 @@
 <BR><HR>
 <BR><H3>
   Issues with "Ready" Status
-  (count=5):
+  (count=8):
  </H3>
 <TABLE BORDER="1" CELLSPACING="0" CELLPADDING="4">
 <TR>
@@ -102,10 +102,31 @@ Using *this in explicit object member functions that are coroutines
 Incorrect wording applied by P2738R1
 </issue_title></TD>
 </TR>
+<TR>
+<TD ALIGN="RIGHT"><A HREF="cwg_active.html#2772">2772</A></TD>
+<TD ALIGN="LEFT">C.6.4</TD>
+<TD ALIGN="LEFT"><issue_title>
+Missing Annex C entry for linkage effects of <I>linkage-specification</I>
+</issue_title></TD>
+</TR>
+<TR>
+<TD ALIGN="RIGHT"><A HREF="cwg_active.html#2785">2785</A></TD>
+<TD ALIGN="LEFT">13.8.3.3</TD>
+<TD ALIGN="LEFT"><issue_title>
+Type-dependence of <I>requires-expression</I>
+</issue_title></TD>
+</TR>
+<TR>
+<TD ALIGN="RIGHT"><A HREF="cwg_active.html#2793">2793</A></TD>
+<TD ALIGN="LEFT">6.4.3</TD>
+<TD ALIGN="LEFT"><issue_title>
+Block-scope declaration conflicting with parameter name
+</issue_title></TD>
+</TR>
 </TABLE>
 <BR><BR><H3>
   Issues with "Tentatively Ready" Status
-  (count=23):
+  (count=25):
  </H3>
 <TABLE BORDER="1" CELLSPACING="0" CELLPADDING="4">
 <TR>
@@ -261,6 +282,20 @@ Use of placeholders affecting name mangling
 </issue_title></TD>
 </TR>
 <TR>
+<TD ALIGN="RIGHT"><A HREF="cwg_active.html#2775">2775</A></TD>
+<TD ALIGN="LEFT">14.2</TD>
+<TD ALIGN="LEFT"><issue_title>
+Unclear argument type for copy of exception object
+</issue_title></TD>
+</TR>
+<TR>
+<TD ALIGN="RIGHT"><A HREF="cwg_active.html#2780">2780</A></TD>
+<TD ALIGN="LEFT">7.6.1.10</TD>
+<TD ALIGN="LEFT"><issue_title>
+<TT>reinterpret_cast</TT> to reference to function types
+</issue_title></TD>
+</TR>
+<TR>
 <TD ALIGN="RIGHT"><A HREF="cwg_active.html#2783">2783</A></TD>
 <TD ALIGN="LEFT">10.4</TD>
 <TD ALIGN="LEFT"><issue_title>
@@ -268,16 +303,16 @@ Handling of deduction guides in <I>global-module-fragment</I>
 </issue_title></TD>
 </TR>
 <TR>
-<TD ALIGN="RIGHT"><A HREF="cwg_active.html#2785">2785</A></TD>
-<TD ALIGN="LEFT">13.8.3.3</TD>
+<TD ALIGN="RIGHT"><A HREF="cwg_active.html#2795">2795</A></TD>
+<TD ALIGN="LEFT">6.7.2</TD>
 <TD ALIGN="LEFT"><issue_title>
-Type-dependence of <I>requires-expression</I>
+Overlapping empty subobjects with different cv-qualification
 </issue_title></TD>
 </TR>
 </TABLE>
 <BR><BR><H3>
   Issues with "Review" Status
-  (count=30):
+  (count=31):
  </H3>
 <TABLE BORDER="1" CELLSPACING="0" CELLPADDING="4">
 <TR>
@@ -493,6 +528,13 @@ Applying <TT>[[maybe_unused]]</TT> to a label
 <TD ALIGN="LEFT">7.5.4.2</TD>
 <TD ALIGN="LEFT"><issue_title>
 "denotes a destructor" is missing specification
+</issue_title></TD>
+</TR>
+<TR>
+<TD ALIGN="RIGHT"><A HREF="cwg_active.html#2768">2768</A></TD>
+<TD ALIGN="LEFT">7.6.19</TD>
+<TD ALIGN="LEFT"><issue_title>
+Assignment to scalar with a <I>braced-init-list</I>
 </issue_title></TD>
 </TR>
 </TABLE>
@@ -1797,7 +1839,7 @@ Invoking destroying <TT>operator delete</TT> for constructor failure
 </TABLE>
 <BR><BR><H3>
   Issues with "Open" Status
-  (count=225):
+  (count=219):
  </H3>
 <TABLE BORDER="1" CELLSPACING="0" CELLPADDING="4">
 <TR>
@@ -3199,13 +3241,6 @@ Non-defining declarations of anonymous unions
 </issue_title></TD>
 </TR>
 <TR>
-<TD ALIGN="RIGHT"><A HREF="cwg_active.html#2768">2768</A></TD>
-<TD ALIGN="LEFT">7.6.19</TD>
-<TD ALIGN="LEFT"><issue_title>
-Assignment to scalar with a <I>braced-init-list</I>
-</issue_title></TD>
-</TR>
-<TR>
 <TD ALIGN="RIGHT"><A HREF="cwg_active.html#2769">2769</A></TD>
 <TD ALIGN="LEFT">13.10.3.1</TD>
 <TD ALIGN="LEFT"><issue_title>
@@ -3227,13 +3262,6 @@ Transformation for <I>unqualified-id</I>s in address operator
 </issue_title></TD>
 </TR>
 <TR>
-<TD ALIGN="RIGHT"><A HREF="cwg_active.html#2772">2772</A></TD>
-<TD ALIGN="LEFT">C.6.4</TD>
-<TD ALIGN="LEFT"><issue_title>
-Missing Annex C entry for linkage effects of <I>linkage-specification</I>
-</issue_title></TD>
-</TR>
-<TR>
 <TD ALIGN="RIGHT"><A HREF="cwg_active.html#2773">2773</A></TD>
 <TD ALIGN="LEFT">11.5.2</TD>
 <TD ALIGN="LEFT"><issue_title>
@@ -3245,13 +3273,6 @@ Naming anonymous union members as class members
 <TD ALIGN="LEFT">13.8.3.4</TD>
 <TD ALIGN="LEFT"><issue_title>
 Value-dependence of <I>requires-expression</I>s
-</issue_title></TD>
-</TR>
-<TR>
-<TD ALIGN="RIGHT"><A HREF="cwg_active.html#2775">2775</A></TD>
-<TD ALIGN="LEFT">14.2</TD>
-<TD ALIGN="LEFT"><issue_title>
-Unclear argument type for copy of exception object
 </issue_title></TD>
 </TR>
 <TR>
@@ -3280,13 +3301,6 @@ Trivial destructor does not imply constant destruction
 <TD ALIGN="LEFT">5.3</TD>
 <TD ALIGN="LEFT"><issue_title>
 Restrictions on the ordinary literal encoding
-</issue_title></TD>
-</TR>
-<TR>
-<TD ALIGN="RIGHT"><A HREF="cwg_active.html#2780">2780</A></TD>
-<TD ALIGN="LEFT">7.6.1.10</TD>
-<TD ALIGN="LEFT"><issue_title>
-<TT>reinterpret_cast</TT> to reference to function types
 </issue_title></TD>
 </TR>
 <TR>
@@ -3360,24 +3374,10 @@ Clean up specification of <TT>noexcept</TT> operator
 </issue_title></TD>
 </TR>
 <TR>
-<TD ALIGN="RIGHT"><A HREF="cwg_active.html#2793">2793</A></TD>
-<TD ALIGN="LEFT">6.4.3</TD>
-<TD ALIGN="LEFT"><issue_title>
-Block-scope declaration conflicting with parameter name
-</issue_title></TD>
-</TR>
-<TR>
 <TD ALIGN="RIGHT"><A HREF="cwg_active.html#2794">2794</A></TD>
 <TD ALIGN="LEFT">13.7.8</TD>
 <TD ALIGN="LEFT"><issue_title>
 Uniqueness of lambdas in alias templates
-</issue_title></TD>
-</TR>
-<TR>
-<TD ALIGN="RIGHT"><A HREF="cwg_active.html#2795">2795</A></TD>
-<TD ALIGN="LEFT">6.7.2</TD>
-<TD ALIGN="LEFT"><issue_title>
-Overlapping empty subobjects with different cv-qualification
 </issue_title></TD>
 </TR>
 </TABLE>
