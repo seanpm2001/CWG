@@ -56,6 +56,19 @@ invocation <TT>f()</TT> lets a pointer to the heap escape.</P>
 
 <OL>
 <LI>
+<P>Change in 7.7 [<A href="https://wg21.link/expr.const#19">expr.const</A>] paragraph 19 as follows:</P>
+
+<BLOCKQUOTE>
+
+[<I>Note 11:</I> <INS>Except for
+a <I>static_assert-message</I>,</INS> <DEL>A</DEL> manifestly
+constant-evaluated expression is evaluated even in an unevaluated
+operand (7.2.3 [<A href="https://wg21.link/expr.context">expr.context</A>]). &#8212;<I>end note</I>]
+
+</BLOCKQUOTE>
+</LI>
+
+<LI>
 <P>Change the grammar in 9.1 [<A href="https://wg21.link/dcl.pre">dcl.pre</A>] as follows:</P>
 
 <BLOCKQUOTE>
