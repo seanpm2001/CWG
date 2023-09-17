@@ -12,10 +12,10 @@
 </HEAD>
 <BODY>
 <P><EM>This is an unofficial snapshot of the ISO/IEC JTC1 SC22 WG21
-  Core Issues List revision 112a.
+  Core Issues List revision 112b.
   See http://www.open-std.org/jtc1/sc22/wg21/ for the official
   list.</EM></P>
-<P>2023-08-19</P>
+<P>2023-09-17</P>
 <HR>
 <A NAME="2782"></A><H4>2782.
   
@@ -45,10 +45,10 @@ Treatment of closure types in the one-definition rule
 template:</P>
 
 <PRE>
-  template &lt;class T&gt; int v;
+  template&lt;class T&gt; int v;
 </PRE>
 
-<P>Is <TT>&amp;v&lt;lambda&gt;</TT> the same address in every
+<P>Is <TT>&amp;v&lt;decltype(lambda)&gt;</TT> the same address in every
 translation unit?</P>
 
 <P><U>Possible resolution:</U></P>
